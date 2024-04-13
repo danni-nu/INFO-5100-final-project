@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.DesignEnterprise;
+import model.RawMaterialEnterprise.RawMaterial;
 
 /**
  *
  * @author tianlyu
  */
 public class Requirement {
-    private RowMaterial rowMaterial;
+    private RawMaterial rowMaterial;
     private DesignerProfile designerProfile;
     private String productionType;
     private Color color;
@@ -17,7 +18,7 @@ public class Requirement {
     private String deadline;
     private String evaluation;
 
-    public Requirement(RowMaterial rowMaterial, DesignerProfile designerProfile, String productionType, Color color, Style style, String deadline, String evaluation) {
+    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, String productionType, Color color, Style style, String deadline, String evaluation) {
         this.rowMaterial = rowMaterial;
         this.designerProfile = designerProfile;
         this.productionType = productionType;
@@ -36,15 +37,15 @@ public class Requirement {
         return new RequirementSolution(solutionName,deadline,evaluation);
     }
 
-    public static Requirement createNewRequirement(RowMaterial rowMaterial, DesignerProfile designerProfile, String productionType, Color color, Style style, String deadline, String evaluation) {
+    public static Requirement createNewRequirement(RawMaterial rowMaterial, DesignerProfile designerProfile, String productionType, Color color, Style style, String deadline, String evaluation) {
         return new Requirement(rowMaterial,designerProfile,productionType,color,style,deadline,evaluation);
     }
 
-    public RowMaterial getRowMaterial() {
+    public RawMaterial getRowMaterial() {
         return rowMaterial;
     }
 
-    public void setRowMaterial(RowMaterial rowMaterial) {
+    public void setRowMaterial(RawMaterial rowMaterial) {
         this.rowMaterial = rowMaterial;
     }
 
