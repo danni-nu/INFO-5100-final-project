@@ -7,7 +7,7 @@ package model.Production;
 import model.Production.ProductionMode;
 import javax.swing.ImageIcon;
 import model.Business.MaterialOrder;
-import model.OrderManagement.Order;
+
 
 
 /**
@@ -15,9 +15,9 @@ import model.OrderManagement.Order;
  * @author administratorzi
  */
 public class ProductionOrder {
-    Order order;
+    private Order order; //linked to Order Class
     private ProductionMode productionMode;
-    private String productionOrderStatus = "waiting placed"; //waiting placed  waiting delivery delivered
+    private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
     private MaterialOrder materialOrder;
     //private ImageIcon logoImage;
 
