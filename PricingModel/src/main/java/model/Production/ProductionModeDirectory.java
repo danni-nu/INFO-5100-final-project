@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class ProductionModeDirectory {
     ArrayList<ProductionMode> productionModeList;
 
-    public ProductionModeDirectory(ArrayList<ProductionMode> productionModeList) {
-        this.productionModeList = productionModeList;
+    public ProductionModeDirectory() {
+        productionModeList = new ArrayList<>();
     }
     
     
