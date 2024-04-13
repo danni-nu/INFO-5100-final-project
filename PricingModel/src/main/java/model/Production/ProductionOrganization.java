@@ -10,7 +10,15 @@ package model.Production;
  */
 class ProductionOrganization {
     private ProductionManagerProfile productManagerProfile;
+    private ProductionModeDirectory productionModeDirectory;
 
+    
+
+    public ProductionOrganization(ProductionManagerProfile productManagerProfile, ProductionModeDirectory productionModeDirectory) {
+        this.productManagerProfile = productManagerProfile;
+        this.productionModeDirectory = productionModeDirectory;
+    }
+    
     public ProductionManagerProfile getProductManagerProfile() {
         return productManagerProfile;
     }

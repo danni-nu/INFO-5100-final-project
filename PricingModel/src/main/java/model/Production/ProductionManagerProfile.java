@@ -14,12 +14,12 @@ import model.Personnel.Profile;
  */
 public class ProductionManagerProfile extends Profile {
 
-    ArrayList<ProductionOrder> productionOrderList;
+    private ProductionOrderDirectory productionOrderDirectory;
     ArrayList<ProductionMode> productionModeList;
 
     public ProductionManagerProfile(Person p) {
         super(p); 
-        productionOrderList = new ArrayList();
+        productionOrderDirectory = new ProductionOrderDirectory();
         productionModeList = new ArrayList();
 
     }
