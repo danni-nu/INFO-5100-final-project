@@ -15,11 +15,11 @@ import model.Personnel.Profile;
  */
 public class InventoryManagerProfile extends Profile {
 
-    private ArrayList<MaterialOrder> materialOrderList;
+   private MaterialOrderDirectory materialOrderDirectory;
 
     public InventoryManagerProfile(Person p) {
         super(p); 
-        materialOrderList = new ArrayList();
+        materialOrderDirectory = new MaterialOrderDirectory();
     }
     
     @Override
