@@ -7,6 +7,7 @@ package model.Production;
 import model.Production.ProductionMode;
 import javax.swing.ImageIcon;
 import model.Business.MaterialOrder;
+import model.OrderManagement.Order;
 
 
 /**
