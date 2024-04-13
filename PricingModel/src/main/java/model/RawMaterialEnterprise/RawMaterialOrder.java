@@ -13,7 +13,7 @@ import java.util.Date;
 public class RawMaterialOrder {
     
     private RawMaterial rawMaterial;
-    private String deliverStatus;
+    private String deliverStatus; //Material Order Not Placed/Material Order in Production/Material Order Delivered
     private int materialPrice;
     private Date deliveryDate;
     private String deliveryNumber;

@@ -26,19 +26,131 @@ public class ProducerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Back = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        addusersjButton = new javax.swing.JButton();
+        manageusersjButton1 = new javax.swing.JButton();
+        manageusersjButton2 = new javax.swing.JButton();
+
+        Back.setText("<< Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Production Work Area");
+
+        addusersjButton.setBackground(new java.awt.Color(102, 153, 255));
+        addusersjButton.setForeground(new java.awt.Color(255, 255, 255));
+        addusersjButton.setText("Manage Material Order");
+        addusersjButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addusersjButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        addusersjButton.setMinimumSize(new java.awt.Dimension(20, 20));
+        addusersjButton.setPreferredSize(new java.awt.Dimension(240, 25));
+        addusersjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addusersjButtonActionPerformed(evt);
+            }
+        });
+
+        manageusersjButton1.setBackground(new java.awt.Color(102, 153, 255));
+        manageusersjButton1.setForeground(new java.awt.Color(255, 255, 255));
+        manageusersjButton1.setText("Browse Order History");
+        manageusersjButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        manageusersjButton1.setMaximumSize(new java.awt.Dimension(200, 40));
+        manageusersjButton1.setMinimumSize(new java.awt.Dimension(20, 20));
+        manageusersjButton1.setPreferredSize(new java.awt.Dimension(240, 25));
+        manageusersjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageusersjButton1ActionPerformed(evt);
+            }
+        });
+
+        manageusersjButton2.setBackground(new java.awt.Color(102, 153, 255));
+        manageusersjButton2.setForeground(new java.awt.Color(255, 255, 255));
+        manageusersjButton2.setText("Delivery Order");
+        manageusersjButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        manageusersjButton2.setMaximumSize(new java.awt.Dimension(200, 40));
+        manageusersjButton2.setMinimumSize(new java.awt.Dimension(20, 20));
+        manageusersjButton2.setPreferredSize(new java.awt.Dimension(240, 25));
+        manageusersjButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageusersjButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(771, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageusersjButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(339, 339, 339))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(Back)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(manageusersjButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(429, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        //        // TODO add your handling code here:
+        //        CardSequencePanel.remove(this);
+        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_BackActionPerformed
+
+    private void addusersjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersjButtonActionPerformed
+        // TODO add your handling code here:
+        //        AddUsersJPanel aos = new AddUsersJPanel(business, CardSequencePanel);
+        //        CardSequencePanel.add("Add Users", aos);
+        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_addusersjButtonActionPerformed
+
+    private void manageusersjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageusersjButton1ActionPerformed
+        // TODO add your handling code here:
+        //        ManageUserAccountsJPanel aos = new ManageUserAccountsJPanel(business, CardSequencePanel);
+        //        CardSequencePanel.add("Manage Users", aos);
+        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_manageusersjButton1ActionPerformed
+
+    private void manageusersjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageusersjButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageusersjButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
+    private javax.swing.JButton addusersjButton;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton manageusersjButton1;
+    private javax.swing.JButton manageusersjButton2;
     // End of variables declaration//GEN-END:variables
 }
