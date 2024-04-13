@@ -8,19 +8,29 @@ import model.Production.ProductionMode;
 import javax.swing.ImageIcon;
 import model.Business.MaterialOrder;
 
+
 /**
  *
  * @author administratorzi
  */
 public class ProductionOrder {
-    // Requirement 
-    private int quantity;
+    Order order;
     private ProductionMode productionMode;
-    private int OrderId;
-    private String productionOrderStatus = "waiting placed"; //waiting placed  waiting delivery   delivered
+    private String productionOrderStatus = "waiting placed"; //waiting placed  waiting delivery delivered
     private MaterialOrder materialOrder;
-    private ImageIcon logoImage;
+    //private ImageIcon logoImage;
+
+    public ProductionOrder(Order order, ProductionMode productionMode, MaterialOrder materialOrder) {
+        this.order = order;
+        this.productionMode = productionMode;
+        this.materialOrder = materialOrder;
+    }
     
+    public ImageIcon getLogoImage() {
+        return order.getImageIcon();
+    }
     
-    
+    public int getQuantity(){
+        return order.getQuantity;
+    }
 }

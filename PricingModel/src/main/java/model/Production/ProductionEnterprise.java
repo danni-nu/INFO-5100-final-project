@@ -10,5 +10,16 @@ package model.Production;
  * @author administratorzi
  */
 public class ProductionEnterprise {
+    private InventoryOrganization inventoryOrganization;
+    private ProductionOrganization productionOrganization;
+
+    public InventoryOrganization getInventoryOrganization() {
+        return inventoryOrganization;
+    }
+
+    public ProductionOrganization getProductionOrganization() {
+        return productionOrganization;
+    }
+    
     
 }

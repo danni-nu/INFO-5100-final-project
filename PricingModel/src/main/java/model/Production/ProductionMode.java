@@ -11,5 +11,11 @@ package model.Production;
 public class ProductionMode {
     private String modeName;
     private int modePrice;
+
+    public ProductionMode(String modeName, int modePrice) {
+        this.modeName = modeName;
+        this.modePrice = modePrice;
+    }
+   
     
 }
