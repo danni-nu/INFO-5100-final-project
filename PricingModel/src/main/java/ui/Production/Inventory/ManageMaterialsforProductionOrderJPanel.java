@@ -8,12 +8,12 @@ package ui.Production.Inventory;
  *
  * @author administratorzi
  */
-public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
+public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
-    public ManageMaterialOrderJPanel() {
+    public ManageMaterialsforProductionOrderJPanel() {
         initComponents();
     }
 
