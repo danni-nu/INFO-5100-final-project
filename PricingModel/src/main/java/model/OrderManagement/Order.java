@@ -6,6 +6,7 @@
 package model.OrderManagement;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 import model.CustomerManagement.CustomerProfile;
 import model.MarketModel.MarketChannelAssignment;
@@ -23,6 +24,7 @@ public class Order {
     SalesPersonProfile salesperson;
     MarketChannelAssignment mca;
     String status;
+    public int getQuantity;
 
     public Order(){}
     
@@ -90,4 +92,8 @@ public void CancelOrder(){
 public void Submit(){
     status = "Submitted";
 }
+
+    public ImageIcon getImageIcon() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
