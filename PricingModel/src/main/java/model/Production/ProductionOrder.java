@@ -6,6 +6,7 @@ package model.Production;
 
 import model.Production.ProductionMode;
 import javax.swing.ImageIcon;
+import model.BrandCompany.Order;
 import model.Business.MaterialOrder;
 
 
@@ -32,6 +33,6 @@ public class ProductionOrder {
     }
     
     public int getQuantity(){
-        return order.getQuantity;
+        return order.getQuantity();
     }
 }
