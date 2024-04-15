@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class OrderDirectory {
     ArrayList<Order> orderDirectory;
 
-    public OrderDirectory(ArrayList<Order> orderDirectory) {
-        this.orderDirectory = orderDirectory;
+    public OrderDirectory() {
+        this.orderDirectory = new ArrayList<Order>();
     }
 
     public ArrayList<Order> getOrderDirectory() {

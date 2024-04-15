@@ -12,9 +12,9 @@ public class ProcurementOrganization {
     OrderDirectory orderDirectory;
     ProcurerDirectory procurerDirectory;
 
-    public ProcurementOrganization(OrderDirectory orderDirectory, ProcurerDirectory procurerDirectory) {
-        this.orderDirectory = orderDirectory;
-        this.procurerDirectory = procurerDirectory;
+    public ProcurementOrganization() {
+        this.orderDirectory = new OrderDirectory();
+        this.procurerDirectory = new ProcurerDirectory();
     }
 
     public OrderDirectory getOrderDirectory() {

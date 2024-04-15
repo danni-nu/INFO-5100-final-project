@@ -11,16 +11,20 @@ import model.DesignEnterprise.DesignOrganization;
  * @author qiaohui
  */
 public class DesignEnterprise extends Enterprise{
-    String enterpriseType="Production Company";
+
+    String enterprsieType="Design Company";
     String companyName;
     DesignOrganization designOrganization;
-
+    
     public DesignEnterprise(String companyName) {
-        this.companyName = companyName;
+        this.enterprsieType="Design Company";
+       this.companyName=companyName;
     }
 
     @Override
     public String getEnterpriseType() {
         return "Design Company";
     }
+    
+    
 }

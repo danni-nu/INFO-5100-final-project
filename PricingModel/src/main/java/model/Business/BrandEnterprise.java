@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.Business;
-
 import model.BrandCompany.ProcurementOrganization;
 import model.BrandCompany.ProductPlanningOrganization;
 
@@ -20,6 +19,9 @@ public class BrandEnterprise extends Enterprise {
     public BrandEnterprise(String companyName) {
         this.enterpriseType="Brand Company";
         this.companyName = companyName;
+        this.productPlanningOrganization= new ProductPlanningOrganization();
+        this.productPlanningOrganization=new ProcurementOrganization();
+        
     }
 
     @Override

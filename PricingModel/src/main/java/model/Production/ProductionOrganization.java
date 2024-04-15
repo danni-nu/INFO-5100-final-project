@@ -18,6 +18,10 @@ public class ProductionOrganization {
         this.productManagerProfile = productManagerProfile;
         this.productionModeDirectory = productionModeDirectory;
     }
+
+    public ProductionOrganization() {
+        
+    }
     
     public ProductionManagerProfile getProductManagerProfile() {
         return productManagerProfile;
