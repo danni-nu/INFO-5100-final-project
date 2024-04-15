@@ -28,6 +28,8 @@ public class ProductionOrder {
         this.materialOrder = materialOrder;
     }
     
+   
+    
     public ImageIcon getLogoImage() {
         return order.getImageIcon();
     }
