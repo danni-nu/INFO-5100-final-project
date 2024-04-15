@@ -18,7 +18,6 @@ public class UserAccountDirectory {
       ArrayList<UserAccount> useraccountlist ;
     
       public UserAccountDirectory (){
-          
        useraccountlist = new ArrayList();
 
     }

@@ -8,7 +8,7 @@ package model.Production;
  *
  * @author administratorzi
  */
-class ProductionOrganization {
+public class ProductionOrganization {
     private ProductionManagerProfile productManagerProfile;
     private ProductionModeDirectory productionModeDirectory;
 
