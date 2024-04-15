@@ -12,17 +12,17 @@ import java.util.ArrayList;
  */
 public class DesignEnterpriseDirectory {
     
-    public ArrayList<DesignEnterprise> DesignEnterprise;
+    public ArrayList<DesignOrganization> DesignEnterprise;
 
-    public DesignEnterpriseDirectory(ArrayList<DesignEnterprise> DesignEnterprise) {
+    public DesignEnterpriseDirectory(ArrayList<DesignOrganization> DesignEnterprise) {
         this.DesignEnterprise = DesignEnterprise;
     }
 
-    public ArrayList<DesignEnterprise> getDesignEnterprise() {
+    public ArrayList<DesignOrganization> getDesignEnterprise() {
         return DesignEnterprise;
     }
 
-    public void setDesignEnterprise(ArrayList<DesignEnterprise> DesignEnterprise) {
+    public void setDesignEnterprise(ArrayList<DesignOrganization> DesignEnterprise) {
         this.DesignEnterprise = DesignEnterprise;
     }
     
