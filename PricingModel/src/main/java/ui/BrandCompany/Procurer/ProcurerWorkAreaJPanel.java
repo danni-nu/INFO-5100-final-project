@@ -4,6 +4,11 @@
  */
 package ui.BrandCompany.Procurer;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.BrandCompany.Procurer;
+import model.Business.Business;
+
 /**
  *
  * @author qiaohui
@@ -13,7 +18,14 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    public ProcurerWorkAreaJPanel() {
+    JPanel procurerWorkArea;
+    Business b;
+    Procurer procurer;
+    
+    public ProcurerWorkAreaJPanel(Business b,Procurer procurer,JPanel procurerWorkArea) {
+        this.WorkArea=procurerWorkArea;
+        this.b=b;
+        this.procurer=procurer;
         initComponents();
     }
 
@@ -28,13 +40,23 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         Memu = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        ManageOrder = new javax.swing.JButton();
+        CreateNewOrder = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
 
-        jButton1.setText("Manage Order");
+        ManageOrder.setText("Manage Order");
+        ManageOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManageOrderActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Create New Order");
+        CreateNewOrder.setText("Create New Order");
+        CreateNewOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateNewOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MemuLayout = new javax.swing.GroupLayout(Memu);
         Memu.setLayout(MemuLayout);
@@ -43,33 +65,23 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(MemuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CreateNewOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MemuLayout.setVerticalGroup(
             MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemuLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
+                .addComponent(CreateNewOrder)
                 .addContainerGap(503, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(Memu);
 
-        javax.swing.GroupLayout WorkAreaLayout = new javax.swing.GroupLayout(WorkArea);
-        WorkArea.setLayout(WorkAreaLayout);
-        WorkAreaLayout.setHorizontalGroup(
-            WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 639, Short.MAX_VALUE)
-        );
-        WorkAreaLayout.setVerticalGroup(
-            WorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
-        );
-
+        WorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(WorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -86,12 +98,28 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageOrderActionPerformed
+        // TODO add your handling code here:
+        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,procurerWorkArea);
+        procurerWorkArea.add("ManagerOrder",mo);
+        CardLayout layout=(CardLayout)procurerWorkArea.getLayout();
+        layout.next(procurerWorkArea);
+    }//GEN-LAST:event_ManageOrderActionPerformed
+
+    private void CreateNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateNewOrderActionPerformed
+        // TODO add your handling code here:
+        CreatNewOrderJPanel cno=new CreatNewOrderJPanel(b,procurer,procurerWorkArea);
+        procurerWorkArea.add("Create New Order",cno);
+        CardLayout layout=(CardLayout)procurerWorkArea.getLayout();
+        layout.next(procurerWorkArea);
+    }//GEN-LAST:event_CreateNewOrderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CreateNewOrder;
+    private javax.swing.JButton ManageOrder;
     private javax.swing.JPanel Memu;
     private javax.swing.JPanel WorkArea;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

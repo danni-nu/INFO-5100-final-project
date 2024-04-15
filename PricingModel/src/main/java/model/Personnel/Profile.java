@@ -13,12 +13,13 @@ import java.util.ArrayList;
  */
 public abstract class Profile {
     Person person;
-     public Profile(Person p){
+    
+    public Profile(Person p){
         person = p;
         
     }
     
-     public abstract String getRole();
+    public abstract String getRole();
     
     public Person getPerson(){
         return person;

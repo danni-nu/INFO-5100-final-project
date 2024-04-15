@@ -2,7 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Bui.BrandCompany.ProductPlanner;
+package ui.BrandCompany.ProductPlanner;
+
+import javax.swing.JPanel;
+import model.BrandCompany.RequirementsPlanner;
+import model.Business.Business;
 
 /**
  *
@@ -13,9 +17,12 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     /**
      * Creates new form NewRequirementJPanel
      */
-    public NewRequirementJPanel() {
+    
+    
+    public NewRequirementJPanel(Business business, RequirementsPlanner requirementPlanner, JPanel PlannerWorkArea) {
         initComponents();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

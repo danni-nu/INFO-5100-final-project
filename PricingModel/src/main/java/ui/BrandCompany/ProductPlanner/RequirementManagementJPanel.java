@@ -2,20 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Bui.BrandCompany.ProductPlanner;
+package ui.BrandCompany.ProductPlanner;
+
+import javax.swing.JPanel;
+import model.BrandCompany.RequirementsPlanner;
+import model.Business.Business;
 
 /**
  *
  * @author qiaohui
  */
-public class RquirementManagementJPanel extends javax.swing.JPanel {
+public class RequirementManagementJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form RquirementManagementJPanel
      */
-    public RquirementManagementJPanel() {
+    JPanel WorkArea;
+    Business business;
+    RequirementsPlanner requirementPlanner;
+    public RequirementManagementJPanel(Business business, RequirementsPlanner requirementPlanner, JPanel WorkArea) {
         initComponents();
+        this.business=business;
+        this.WorkArea=WorkArea;
+        this.requirementPlanner=requirementPlanner;
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,18 +37,16 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        btnBack = new javax.swing.JButton();
+        tblRequirementsTable = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnCreateNewRequirement = new javax.swing.JButton();
+        DeleteRequirement = new javax.swing.JButton();
+        btnSearchRequirement = new javax.swing.JButton();
+        lblPicture = new javax.swing.JLabel();
+        btnCheckDesignerSolution = new javax.swing.JButton();
+        lblpicture2 = new javax.swing.JLabel();
+        btnApproval = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -51,10 +60,11 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextPane2 = new javax.swing.JTextPane();
         jLabel8 = new javax.swing.JLabel();
+        txtSearchRequirement = new javax.swing.JTextField();
 
         setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText(">>Back");
+        btnBack.setText(">>Back");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -67,24 +77,27 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
                 "Name", "RequirementsID", "Material", "Production", "Color", "Style", "Responsible Designer", "Solution Status"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblRequirementsTable.setViewportView(jTable1);
 
-        jButton2.setText("Create New Requirement");
+        btnCreateNewRequirement.setText("Create New Requirement");
 
-        jButton3.setText("Delete Requirement");
+        DeleteRequirement.setText("Delete Requirement");
+        DeleteRequirement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteRequirementActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Search Requirement");
+        btnSearchRequirement.setText("Search Requirement");
 
-        jScrollPane2.setViewportView(jTextPane1);
+        lblPicture.setText("Picture:");
 
-        jLabel1.setText("Picture:");
+        btnCheckDesignerSolution.setText("Check Designer Solution");
 
-        jButton5.setText("Check Designer Solution");
+        lblpicture2.setText("Picture is Here:*******");
+        lblpicture2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setText("Picture is Here:*******");
-        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jButton6.setText("Approval ");
+        btnApproval.setText("Approval ");
 
         jButton7.setText("Refuse");
 
@@ -111,6 +124,8 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel8.setText("Requirement Management");
 
+        txtSearchRequirement.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,11 +135,11 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblpicture2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(132, 132, 132)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton6)
+                                .addComponent(btnApproval)
                                 .addGap(55, 55, 55)
                                 .addComponent(jButton7))
                             .addGroup(layout.createSequentialGroup()
@@ -148,31 +163,32 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
                                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnBack)
                         .addGap(158, 158, 158)
                         .addComponent(jLabel8))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton4)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnSearchRequirement)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSearchRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton2))
+                                        .addComponent(btnCreateNewRequirement))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 162, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5)
+                                .addComponent(btnCheckDesignerSolution)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)))
+                                .addComponent(DeleteRequirement)))
                         .addGap(36, 36, 36))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRequirementsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -184,26 +200,26 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(jLabel8)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSearchRequirement)
+                    .addComponent(txtSearchRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRequirementsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
+                    .addComponent(btnCreateNewRequirement)
+                    .addComponent(DeleteRequirement)
+                    .addComponent(btnCheckDesignerSolution))
                 .addGap(4, 4, 4)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblpicture2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +248,7 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(btnApproval)
                     .addComponent(jButton7))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -241,32 +257,35 @@ public class RquirementManagementJPanel extends javax.swing.JPanel {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    private void DeleteRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteRequirementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeleteRequirementActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton DeleteRequirement;
+    private javax.swing.JButton btnApproval;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCheckDesignerSolution;
+    private javax.swing.JButton btnCreateNewRequirement;
+    private javax.swing.JButton btnSearchRequirement;
     private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextPane jTextPane2;
+    private javax.swing.JLabel lblPicture;
+    private javax.swing.JLabel lblpicture2;
+    private javax.swing.JScrollPane tblRequirementsTable;
+    private javax.swing.JTextField txtSearchRequirement;
     // End of variables declaration//GEN-END:variables
 }

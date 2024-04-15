@@ -4,10 +4,22 @@
  */
 package model.BrandCompany;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author qiaohui
  */
-public class Procurer {
+public class Procurer extends Profile{
+
+    public Procurer(Person  p) {
+        super(p);
+    }
+
     
+    @Override
+    public String getRole(){
+        return  "Procurer";
+    }
 }

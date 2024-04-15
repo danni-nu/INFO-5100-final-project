@@ -23,7 +23,7 @@ public class Order {
     ProductionMode productionMode;
     ProductionOrder productOrder;
     RawMaterialOrder rawMarerialOrder;
-    String Orderstatus;
+    String Orderstatus="unplace";//waiting producing, received order;
     int quantity;
     int OrderPrice;
 
