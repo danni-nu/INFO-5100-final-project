@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.DesignEnterprise;
+import model.Production.ProductionMode;
 import model.RawMaterialEnterprise.RawMaterial;
 
 /**
@@ -12,16 +13,17 @@ import model.RawMaterialEnterprise.RawMaterial;
 public class Requirement {
     private RawMaterial rowMaterial;
     private DesignerProfile designerProfile;
-    private String productionType;
+    private ProductionMode productionMode;
     private Color color;
     private Style style;
     private String deadline;
     private String evaluation;
+    private String status="waiting designing";// //designing, waitng review, waiting approcal
 
-    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, String productionType, Color color, Style style, String deadline, String evaluation) {
+    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, Color color, Style style, String deadline, String evaluation) {
         this.rowMaterial = rowMaterial;
         this.designerProfile = designerProfile;
-        this.productionType = productionType;
+        this.productionMode = productionMode;
         this.color = color;
         this.style = style;
         this.deadline = deadline;
@@ -37,8 +39,8 @@ public class Requirement {
         return new RequirementSolution(solutionName,deadline,evaluation);
     }
 
-    public static Requirement createNewRequirement(RawMaterial rowMaterial, DesignerProfile designerProfile, String productionType, Color color, Style style, String deadline, String evaluation) {
-        return new Requirement(rowMaterial,designerProfile,productionType,color,style,deadline,evaluation);
+    public static Requirement createNewRequirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionMode, Color color, Style style, String deadline, String evaluation) {
+        return new Requirement(rowMaterial,designerProfile,productionMode,color,style,deadline,evaluation);
     }
 
     public RawMaterial getRowMaterial() {
@@ -57,12 +59,20 @@ public class Requirement {
         this.designerProfile = designerProfile;
     }
 
-    public String getProductionType() {
-        return productionType;
+    public ProductionMode getProductionMode() {
+        return productionMode;
     }
 
-    public void setProductionType(String productionType) {
-        this.productionType = productionType;
+    public void setProductionMode(ProductionMode productionMode) {
+        this.productionMode = productionMode;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Color getColor() {
