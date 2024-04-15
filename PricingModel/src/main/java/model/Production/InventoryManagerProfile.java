@@ -5,7 +5,6 @@
 package model.Production;
 
 import java.util.ArrayList;
-import model.Business.MaterialOrder;
 import model.Personnel.Person;
 import model.Personnel.Profile;
 

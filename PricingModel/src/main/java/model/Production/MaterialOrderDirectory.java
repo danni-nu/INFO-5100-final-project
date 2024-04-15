@@ -5,14 +5,14 @@
 package model.Production;
 
 import java.util.ArrayList;
-import model.Business.MaterialOrder;
+import model.RawMaterialEnterprise.RawMaterialOrder;
 
 /**
  *
  * @author administratorzi
  */
 public class MaterialOrderDirectory {
-     private ArrayList<MaterialOrder> materialOrderList;
+     private ArrayList<RawMaterialOrder> materialOrderList;
      
      public MaterialOrderDirectory() {
      materialOrderList = new ArrayList();

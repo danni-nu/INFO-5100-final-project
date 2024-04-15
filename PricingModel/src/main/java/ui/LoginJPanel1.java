@@ -1,22 +1,12 @@
 package ui;
 
 
-import Business.ConfigureABusiness;
-import Department.Department;
-import Profiles.EmployeeProfile;
-import Profiles.FacultyProfile;
-import Profiles.Profile;
-import Profiles.StudentProfile;
-import UI.WorkAreas.AdminRole.AdminRoleWorkAreaJPanel;
-import UI.WorkAreas.FacultyRole.FacultyWorkAreaJPanel;
-import UI.WorkAreas.StudentRole.StudentWorkAreaJPanel;
-import UserAccounts.UserAccount;
-import UserAccounts.UserAccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.BrandCompany.Procurer;
 import model.BrandCompany.RequirementsPlanner;
+import model.Business.Business;
 import model.Personnel.Profile;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
@@ -34,10 +24,10 @@ import ui.BrandCompany.ProductPlanner.PlannerWorkAreaJPanel;
  */
 public class LoginJPanel1 extends javax.swing.JPanel {
 
-    Department business;
+    Business business;
     JPanel cardSequencePanel;
     
-    public LoginJPanel1(JPanel cardSequencePanel,Department business) {
+    public LoginJPanel1(JPanel cardSequencePanel,Business business) {
         initComponents();
         this.business=business;
         this.cardSequencePanel=cardSequencePanel;
