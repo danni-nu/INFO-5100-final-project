@@ -10,13 +10,11 @@ import java.util.ArrayList;
  *
  * @author tianlyu
  */
-public class DesignEnterprise {
-    
+public class DesignOrganization {
     public ArrayList<DesignerDirectory> DesignerDirectory;
-    
     public ArrayList<RequirementsDirectory> RequirementsDirectory;
 
-    public DesignEnterprise(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementsDirectory> RequirementsDirectory) {
+    public DesignOrganization(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementsDirectory> RequirementsDirectory) {
         this.DesignerDirectory = DesignerDirectory;
         this.RequirementsDirectory = RequirementsDirectory;
     }
