@@ -4,6 +4,10 @@
  */
 package ui.BrandCompany.Procurer;
 
+import javax.swing.JPanel;
+import model.BrandCompany.Procurer;
+import model.Business.Business;
+
 /**
  *
  * @author qiaohui
@@ -13,9 +17,10 @@ public class CreatNewOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreatNewOrderJPanel
      */
-    public CreatNewOrderJPanel() {
+    public CreatNewOrderJPanel(Business b, Procurer procurer, JPanel procurerWorkArea) {
         initComponents();
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

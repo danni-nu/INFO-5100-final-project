@@ -4,16 +4,20 @@
  */
 package ui.BrandCompany.Procurer;
 
+import javax.swing.JPanel;
+import model.BrandCompany.Procurer;
+import model.Business.Business;
+
 /**
  *
  * @author qiaohui
  */
-public class ManageOrder extends javax.swing.JPanel {
+public class ManageOrderJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageOrder
      */
-    public ManageOrder() {
+    public ManageOrderJPanel(Business b, Procurer procurer, JPanel workArea) {
         initComponents();
     }
 

@@ -4,25 +4,23 @@
  */
 package model.BrandCompany;
 
+import model.Personnel.Person;
 import model.Personnel.Profile;
 
 /**
  *
  * @author qiaohui
  */
-public class RequirementsPlanner {
-    Profile p;
+public class RequirementsPlanner extends Profile{
     
-    public RequirementsPlanner(Profile p) {
-        this.p = p;
+    public RequirementsPlanner(Person p) {
+        super(p);
     }
 
-    public Profile getP() {
-        return p;
-    }
 
-    public void setP(Profile p) {
-        this.p = p;
+    @Override
+    public String getRole() {
+        return "Planner";
     }
     
 }
