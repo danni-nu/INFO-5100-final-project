@@ -6,23 +6,6 @@
 package model.Business;
 
 import model.Business.Business;
-import model.CustomerManagement.CustomerDirectory;
-import model.CustomerManagement.CustomerProfile;
-import model.MarketingManagement.MarketingPersonDirectory;
-import model.MarketingManagement.MarketingPersonProfile;
-import model.OrderManagement.MasterOrderList;
-import model.OrderManagement.Order;
-import model.OrderManagement.OrderItem;
-import model.Personnel.EmployeeDirectory;
-import model.Personnel.EmployeeProfile;
-import model.Personnel.Person;
-import model.Personnel.PersonDirectory;
-import model.ProductManagement.Product;
-import model.ProductManagement.ProductCatalog;
-import model.SalesManagement.SalesPersonDirectory;
-import model.SalesManagement.SalesPersonProfile;
-import model.Supplier.Supplier;
-import model.Supplier.SupplierDirectory;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 
