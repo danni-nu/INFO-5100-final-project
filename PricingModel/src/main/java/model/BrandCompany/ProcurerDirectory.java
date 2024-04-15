@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class ProcurerDirectory {
     ArrayList<Procurer> procurerDirectory;
 
-    public ProcurerDirectory(ArrayList<Procurer> procurerDirectory) {
-        this.procurerDirectory = procurerDirectory;
+    public ProcurerDirectory() {
+        this.procurerDirectory = new ArrayList<Procurer>();
     }
 
     public ArrayList<Procurer> getProcurerDirectory() {

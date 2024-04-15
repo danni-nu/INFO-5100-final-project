@@ -17,7 +17,15 @@ public class ConfigureABusiness {
 
   public static Business initialize() {
     Business business = new Business("Xerox");
-
+    BrandEnterprise brandEnterprise= business.getEnterpriseDirectory().addBrandEnterprise("BrandComapny");
+    DesignEnterprise designEnterprise= business.getEnterpriseDirectory().addDesignEnterprise("DesignCompany");
+    ProductionEnterprise productionEnterprise= business.getEnterpriseDirectory().addProductionEnterprise("Production Company");
+    RawMaterialEnterprise rawMaterialEnterprise=business.getEnterpriseDirectory().addRawMaterialEnterprise("Raw Material Company");
+    
+    
+    
+    
+    
     return business;
   }
 }

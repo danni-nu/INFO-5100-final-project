@@ -16,19 +16,20 @@ import model.UserAccountManagement.UserAccountDirectory;
 public class Business {
 
           String name;
-          EnterpriseDirectory Enterprise;
-          UserAccountDirectory userDirctory;
+          EnterpriseDirectory EnterpriseDirectory;
+          UserAccountDirectory userAccountDirectory;
           
 
     public Business(String n) {
-//        name = n;
+          name = n;
+          EnterpriseDirectory enterprisedirectroy=new EnterpriseDirectory();
 //        masterorderlist = new MasterOrderList();
 //        suppliers = new SupplierDirectory();
-////        solutionoffercatalog = new SolutionOfferCatalog();
+////      solutionoffercatalog = new SolutionOfferCatalog();
 //        persondirectory = new PersonDirectory();
 //        customerdirectory = new CustomerDirectory(this);
 //        salespersondirectory = new SalesPersonDirectory(this);
-//        useraccountdirectory = new UserAccountDirectory();
+          userAccountDirectory = new UserAccountDirectory();
 //        marketingpersondirectory = new MarketingPersonDirectory(this);
 //        employeedirectory = new EmployeeDirectory(this);
 
@@ -42,21 +43,20 @@ public class Business {
         this.name = name;
     }
 
-    public EnterpriseDirectory getEnterprise() {
-        return Enterprise;
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return EnterpriseDirectory;
     }
 
-    public void setEnterprise(EnterpriseDirectory Enterprise) {
-        this.Enterprise = Enterprise;
+    public void setEnterpriseDirectory(EnterpriseDirectory Enterprise) {
+        this.EnterpriseDirectory = Enterprise;
     }
 
-    public UserAccountDirectory getUserAccountDirctory() {
-        return userDirctory;
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
     }
 
     public void setUserDirctory(UserAccountDirectory userDirctory) {
-        this.userDirctory = userDirctory;
+        this.userAccountDirectory = userDirctory;
     }
-    
-   
+
 }

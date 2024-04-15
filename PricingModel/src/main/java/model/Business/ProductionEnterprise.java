@@ -18,6 +18,7 @@ public class ProductionEnterprise extends Enterprise{
     private ProductionOrganization productionOrganization;
 
     public ProductionEnterprise(String companyName) {
+        this.enterpriseType="Production Company";
         this.companyName = companyName;
     }
 
