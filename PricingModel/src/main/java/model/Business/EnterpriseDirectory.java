@@ -5,6 +5,7 @@
 package model.Business;
 
 import java.util.ArrayList;
+import java.lang.String;
 
 /**
  *
@@ -24,7 +25,6 @@ public class EnterpriseDirectory {
     
     public ArrayList<Enterprise> findDesignEnterpriseList(){
         ArrayList<Enterprise> newDesignEnterpriseList=new ArrayList<>();
-    
         for(Enterprise enterprise:enterpriseDirectory ){
             if (enterprise.getEnterpriseType()=="Design Company"){
                 newDesignEnterpriseList.add(enterprise);
@@ -33,4 +33,9 @@ public class EnterpriseDirectory {
         return newDesignEnterpriseList;
     }
     
+    public BrandEnterprise addDesignEnterprise(String name){
+        BrandEnterprise e = new BrandEnterprise( name);
+        enterpriseDirectory.add(e); 
+        return e;
+    }  
 }

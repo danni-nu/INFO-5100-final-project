@@ -18,11 +18,13 @@ public class BrandEnterprise extends Enterprise {
     ProcurementOrganization procurementOrganization;
 
     public BrandEnterprise(String companyName) {
+        this.enterpriseType="Brand Company";
         this.companyName = companyName;
     }
 
+    @Override
     public String getEnterpriseType() {
-        return enterpriseType;
+        return "Brand Company";
     }
 
     public void setEnterpriseType(String enterpriseType) {

@@ -50,7 +50,7 @@ public class Business {
         this.Enterprise = Enterprise;
     }
 
-    public UserAccountDirectory getUserDirctory() {
+    public UserAccountDirectory getUserAccountDirctory() {
         return userDirctory;
     }
 
