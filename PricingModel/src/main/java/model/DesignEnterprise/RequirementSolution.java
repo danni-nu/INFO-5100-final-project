@@ -27,6 +27,10 @@ public class RequirementSolution {
         this.evaluation = evaluation;
     }
 
+    public RequirementSolution() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public String getSolutionName() {
         return solutionName;
     }
