@@ -15,8 +15,8 @@ public class RawMaterialDirectory {
     
     public ArrayList<RawMaterial> RawMaterialDirectory;
 
-    public RawMaterialDirectory(ArrayList<RawMaterial> RawMaterialDirectory) {
-        this.RawMaterialDirectory = RawMaterialDirectory;
+    public RawMaterialDirectory() {
+        this.RawMaterialDirectory = new ArrayList<>();
     }
 
     public ArrayList<RawMaterial> getRawMaterialDirectory() {

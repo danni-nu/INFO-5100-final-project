@@ -27,8 +27,6 @@ public class EnterpriseDirectory {
         this.enterpriseDirectory = enterpriseDirectory;
     }
     
-    
-    
     public ArrayList<Enterprise> findDesignEnterpriseList(){
         ArrayList<Enterprise> newDesignEnterpriseList=new ArrayList<>();
         for(Enterprise enterprise:enterpriseDirectory ){
@@ -37,6 +35,15 @@ public class EnterpriseDirectory {
             }
             }
         return newDesignEnterpriseList;
+    }
+    public ArrayList<Enterprise> findRawMaterialEnterpriseList(){
+        ArrayList<Enterprise> newRawMaterialEnterpriseList=new ArrayList<>();
+        for(Enterprise enterprise:enterpriseDirectory ){
+            if (enterprise.getEnterpriseType()=="Raw Material Company"){
+                newRawMaterialEnterpriseList.add(enterprise);
+            }
+            }
+        return newRawMaterialEnterpriseList;
     }
  
     public BrandEnterprise addBrandEnterprise(String name){
