@@ -5,7 +5,6 @@
 package model.BrandCompany;
 
 import javax.swing.ImageIcon;
-import model.DesignEnterprise.Requirement;
 import model.DesignEnterprise.RequirementSolution;
 import model.Production.ProductionMode;
 import model.Production.ProductionOrder;

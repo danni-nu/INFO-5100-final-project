@@ -5,24 +5,31 @@
 package model.BrandCompany;
 
 import java.util.ArrayList;
+import model.Personnel.Person;
 
 /**
  *
  * @author qiaohui
  */
 public class ProcurerDirectory {
-    ArrayList<Procurer> procurerDirectory;
+    ArrayList<ProcurerProfile> procurerDirectory;
 
     public ProcurerDirectory() {
-        this.procurerDirectory = new ArrayList<Procurer>();
+        this.procurerDirectory = new ArrayList<>();
     }
 
-    public ArrayList<Procurer> getProcurerDirectory() {
+    public ArrayList<ProcurerProfile> getProcurerDirectory() {
         return procurerDirectory;
     }
 
-    public void setProcurerDirectory(ArrayList<Procurer> procurerDirectory) {
+    public void setProcurerDirectory(ArrayList<ProcurerProfile> procurerDirectory) {
         this.procurerDirectory = procurerDirectory;
+    }
+
+    public ProcurerProfile newProcurerProfile(Person p2) {
+        ProcurerProfile procurer=new ProcurerProfile(p2);
+        procurerDirectory.add(procurer);
+        return procurer;
     }
    
 }

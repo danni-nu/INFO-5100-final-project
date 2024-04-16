@@ -4,6 +4,7 @@
  */
 package model.DesignEnterprise;
 
+import model.BrandCompany.RequirementAssignmentDirectory;
 import java.util.ArrayList;
 
 /**
@@ -12,11 +13,11 @@ import java.util.ArrayList;
  */
 public class DesignOrganization {
     public ArrayList<DesignerDirectory> DesignerDirectory;
-    public ArrayList<RequirementsDirectory> RequirementsDirectory;
+    public ArrayList<RequirementAssignmentDirectory> RequirementAssignmentDirectory;
 
-    public DesignOrganization(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementsDirectory> RequirementsDirectory) {
+    public DesignOrganization(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementAssignmentDirectory> RequirementsDirectory) {
         this.DesignerDirectory = DesignerDirectory;
-        this.RequirementsDirectory = RequirementsDirectory;
+        this.RequirementAssignmentDirectory = RequirementsDirectory;
     }
 
     public ArrayList<DesignerDirectory> getDesignerDirectory() {
@@ -27,14 +28,14 @@ public class DesignOrganization {
         this.DesignerDirectory = DesignerDirectory;
     }
 
-    public ArrayList<RequirementsDirectory> getRequirementsDirectory() {
-        return RequirementsDirectory;
+    public ArrayList<RequirementAssignmentDirectory> getRequirementAssignmentDirectory() {
+        return RequirementAssignmentDirectory;
     }
 
-    public void setRequirementsDirectory(ArrayList<RequirementsDirectory> RequirementsDirectory) {
-        this.RequirementsDirectory = RequirementsDirectory;
+    public void setRequirementAssignmentDirectory(ArrayList<RequirementAssignmentDirectory> RequirementAssignmentDirectory) {
+        this.RequirementAssignmentDirectory = RequirementAssignmentDirectory;
     }
-    
+
     
     
 }

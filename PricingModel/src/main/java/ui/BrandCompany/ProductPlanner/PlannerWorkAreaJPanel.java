@@ -6,7 +6,7 @@ package ui.BrandCompany.ProductPlanner;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import model.BrandCompany.RequirementsPlanner;
+import model.BrandCompany.PlannerProfile;
 import model.Business.Business;
 
 /**
@@ -20,8 +20,8 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel WorkArea;
     Business business;
-    RequirementsPlanner requirementPlanner;
-    public PlannerWorkAreaJPanel(Business business,RequirementsPlanner requirementPlanner, JPanel PlannerWorkArea) {
+    PlannerProfile requirementPlanner;
+    public PlannerWorkAreaJPanel(Business business,PlannerProfile requirementPlanner, JPanel PlannerWorkArea) {
         this.PlannerWorkArea=PlannerWorkArea;
         this.requirementPlanner=requirementPlanner;
         this.business=business;

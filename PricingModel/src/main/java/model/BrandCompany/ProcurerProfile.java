@@ -11,13 +11,12 @@ import model.Personnel.Profile;
  *
  * @author qiaohui
  */
-public class Procurer extends Profile{
+public class ProcurerProfile extends Profile{
 
-    public Procurer(Person  p) {
+    public ProcurerProfile(Person  p) {
         super(p);
     }
 
-    
     @Override
     public String getRole(){
         return  "Procurer";

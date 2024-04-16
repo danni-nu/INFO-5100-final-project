@@ -5,7 +5,7 @@
 package ui.BrandCompany.Procurer;
 
 import javax.swing.JPanel;
-import model.BrandCompany.Procurer;
+import model.BrandCompany.ProcurerProfile;
 import model.Business.Business;
 
 /**
@@ -17,7 +17,7 @@ public class CreatNewOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreatNewOrderJPanel
      */
-    public CreatNewOrderJPanel(Business b, Procurer procurer, JPanel procurerWorkArea) {
+    public CreatNewOrderJPanel(Business b, ProcurerProfile procurer, JPanel procurerWorkArea) {
         initComponents();
     }
 

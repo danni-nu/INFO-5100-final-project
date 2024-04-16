@@ -11,17 +11,17 @@ import java.util.ArrayList;
  * @author qiaohui
  */
 public class ProductPlannerDirectory {
-    ArrayList<RequirementsPlanner> productPlannerDirectory;
+    ArrayList<PlannerProfile> productPlannerDirectory;
     
-    public ProductPlannerDirectory(ArrayList<RequirementsPlanner> productPlannerDirectory) {
-        this.productPlannerDirectory = productPlannerDirectory;
+    public ProductPlannerDirectory() {
+        this.productPlannerDirectory = new ArrayList<>();
     }
 
-    public ArrayList<RequirementsPlanner> getProductPlannerDirectory() {
+    public ArrayList<PlannerProfile> getProductPlannerDirectory() {
         return productPlannerDirectory;
     }
 
-    public void setProductPlannerDirectory(ArrayList<RequirementsPlanner> productPlannerDirectory) {
+    public void setProductPlannerDirectory(ArrayList<PlannerProfile> productPlannerDirectory) {
         this.productPlannerDirectory = productPlannerDirectory;
     } 
 }

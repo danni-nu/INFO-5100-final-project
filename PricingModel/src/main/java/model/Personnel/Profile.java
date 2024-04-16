@@ -26,11 +26,11 @@ public abstract class Profile {
     }
      
 
-        public boolean isMatch(String id) {
-        if (person.getPersonId().equals(id)) {
-            return true;
-        }
-        return false;
+    public boolean isMatch(String id) {
+    if (person.getPersonId().equals(id)) {
+        return true;
+    }
+    return false;
     }
 
 }
