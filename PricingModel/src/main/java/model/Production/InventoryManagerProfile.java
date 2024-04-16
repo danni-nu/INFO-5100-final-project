@@ -14,12 +14,13 @@ import model.Personnel.Profile;
  */
 public class InventoryManagerProfile extends Profile {
 
-   private MaterialOrderDirectory materialOrderDirectory;
+   //private MaterialOrderDirectory materialOrderDirectory;
 
     public InventoryManagerProfile(Person p) {
         super(p); 
-        materialOrderDirectory = new MaterialOrderDirectory();
+       // materialOrderDirectory = new MaterialOrderDirectory();
     }
+    
     
     @Override
     public String getRole(){

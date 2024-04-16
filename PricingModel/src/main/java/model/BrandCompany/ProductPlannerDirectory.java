@@ -5,6 +5,7 @@
 package model.BrandCompany;
 
 import java.util.ArrayList;
+import model.Personnel.Person;
 
 /**
  *
@@ -24,4 +25,10 @@ public class ProductPlannerDirectory {
     public void setProductPlannerDirectory(ArrayList<PlannerProfile> productPlannerDirectory) {
         this.productPlannerDirectory = productPlannerDirectory;
     } 
+
+    public PlannerProfile addNewPlanner(Person p3) {
+        PlannerProfile plannerProfile=new PlannerProfile(p3);
+        productPlannerDirectory.add(plannerProfile);
+        return plannerProfile;
+    }
 }

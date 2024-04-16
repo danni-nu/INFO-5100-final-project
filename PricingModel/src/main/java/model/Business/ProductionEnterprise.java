@@ -20,6 +20,7 @@ public class ProductionEnterprise extends Enterprise{
     public ProductionEnterprise(String companyName) {
         this.enterpriseType="Production Company";
         this.companyName = companyName;
+        this.inventoryOrganization=new InventoryOrganization();
     }
 
     @Override
