@@ -5,7 +5,7 @@
 package ui.BrandCompany.ProductPlanner;
 
 import javax.swing.JPanel;
-import model.BrandCompany.RequirementsPlanner;
+import model.BrandCompany.PlannerProfile;
 import model.Business.Business;
 
 /**
@@ -19,8 +19,8 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
      */
     JPanel WorkArea;
     Business business;
-    RequirementsPlanner requirementPlanner;
-    public RequirementManagementJPanel(Business business, RequirementsPlanner requirementPlanner, JPanel WorkArea) {
+    PlannerProfile requirementPlanner;
+    public RequirementManagementJPanel(Business business, PlannerProfile requirementPlanner, JPanel WorkArea) {
         initComponents();
         this.business=business;
         this.WorkArea=WorkArea;

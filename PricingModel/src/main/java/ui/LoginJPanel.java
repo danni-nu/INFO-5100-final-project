@@ -4,8 +4,8 @@ package ui;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.BrandCompany.Procurer;
-import model.BrandCompany.RequirementsPlanner;
+import model.BrandCompany.ProcurerProfile;
+import model.BrandCompany.PlannerProfile;
 import model.Business.Business;
 import model.Personnel.Profile;
 import model.UserAccountManagement.UserAccount;
@@ -123,8 +123,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
 
-        if (profile instanceof Procurer) {
-            Procurer p=(Procurer)profile;
+        if (profile instanceof ProcurerProfile) {
+            ProcurerProfile p=(ProcurerProfile)profile;
             ProcurerWorkAreaJPanel pp= new ProcurerWorkAreaJPanel(business, p,cardSequencePanel);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("Procurer", pp);
@@ -133,8 +133,8 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         }
 
-         if (profile instanceof RequirementsPlanner) {
-            RequirementsPlanner spp = (RequirementsPlanner) profile;
+         if (profile instanceof PlannerProfile) {
+            PlannerProfile spp = (PlannerProfile) profile;
             PlannerWorkAreaJPanel ppp= new PlannerWorkAreaJPanel(business, spp, cardSequencePanel);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("Planner", ppp);

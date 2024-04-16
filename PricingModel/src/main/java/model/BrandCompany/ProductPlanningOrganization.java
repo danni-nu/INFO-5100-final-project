@@ -9,5 +9,30 @@ package model.BrandCompany;
  * @author qiaohui
  */
 public class ProductPlanningOrganization {
+    ProductPlannerDirectory plannerDirectory;
+    RequirementsDirectory requirementDirectory;
+
+    public ProductPlanningOrganization() {
+        this.plannerDirectory=new ProductPlannerDirectory();
+        this.requirementDirectory=new RequirementsDirectory();
+    }
+    
+    
+    public ProductPlannerDirectory getPlannerDirectory() {
+        return plannerDirectory;
+    }
+
+    public void setPlannerDirectory(ProductPlannerDirectory plannerDirectory) {
+        this.plannerDirectory = plannerDirectory;
+    }
+
+    public RequirementsDirectory getRequirementDirectory() {
+        return requirementDirectory;
+    }
+
+    public void setRequirementDirectory(RequirementsDirectory requirementDirectory) {
+        this.requirementDirectory = requirementDirectory;
+    }
+    
     
 }

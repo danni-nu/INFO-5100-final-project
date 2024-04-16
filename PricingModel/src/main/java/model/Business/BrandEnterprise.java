@@ -20,8 +20,7 @@ public class BrandEnterprise extends Enterprise {
         this.enterpriseType="Brand Company";
         this.companyName = companyName;
         this.productPlanningOrganization= new ProductPlanningOrganization();
-        this.productPlanningOrganization=new ProcurementOrganization();
-        
+        this.procurementOrganization=new ProcurementOrganization();
     }
 
     @Override

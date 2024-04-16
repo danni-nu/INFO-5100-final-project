@@ -6,7 +6,7 @@ package ui.BrandCompany.Procurer;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import model.BrandCompany.Procurer;
+import model.BrandCompany.ProcurerProfile;
 import model.Business.Business;
 
 /**
@@ -20,9 +20,9 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel procurerWorkArea;
     Business b;
-    Procurer procurer;
+    ProcurerProfile procurer;
     
-    public ProcurerWorkAreaJPanel(Business b,Procurer procurer,JPanel procurerWorkArea) {
+    public ProcurerWorkAreaJPanel(Business b,ProcurerProfile procurer,JPanel procurerWorkArea) {
         this.WorkArea=procurerWorkArea;
         this.b=b;
         this.procurer=procurer;
