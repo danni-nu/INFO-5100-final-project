@@ -13,10 +13,11 @@ public class DesignOrganization {
     public ArrayList<DesignerDirectory> DesignerDirectory;
     public ArrayList<RequirementAssignmentDirectory> RequirementAssignmentDirectory;
 
-    public DesignOrganization(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementAssignmentDirectory> RequirementsDirectory) {
-        this.DesignerDirectory = DesignerDirectory;
-        this.RequirementAssignmentDirectory = RequirementsDirectory;
-    } 
+    public DesignOrganization() {
+        this.DesignerDirectory = new ArrayList<>();
+        this.RequirementAssignmentDirectory =new ArrayList<>();
+    }
+
     public ArrayList<DesignerDirectory> getDesignerDirectory() {
         return DesignerDirectory;
     }

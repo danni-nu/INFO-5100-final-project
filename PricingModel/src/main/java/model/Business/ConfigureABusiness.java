@@ -10,6 +10,7 @@ import model.BrandCompany.ProcurerDirectory;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.ProductPlannerDirectory;
 import model.Business.Business;
+import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
 import model.UserAccountManagement.UserAccount;
@@ -48,6 +49,21 @@ public class ConfigureABusiness {
         ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
         PlannerProfile plannerProfile=plannerDirectory.addNewPlanner(p3);
         UserAccount us3=useAccountDirectory.newUserAccount(plannerProfile, "Planner1", "123");
+        
+        StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
+        styleDirectory.addNewStyle("Modern");
+        styleDirectory.addNewStyle("Modern");
+        styleDirectory.addNewStyle("Classic");
+        styleDirectory.addNewStyle("Vintage");
+        styleDirectory.addNewStyle("Contemporary");
+        styleDirectory.addNewStyle("Minimalist");
+        styleDirectory.addNewStyle("Industrial");
+        styleDirectory.addNewStyle("Scandinavian");
+        styleDirectory.addNewStyle("Art Deco");
+        styleDirectory.addNewStyle("Bohemian");
+        styleDirectory.addNewStyle("Transitional");
+
+        
         
     return business;
   }

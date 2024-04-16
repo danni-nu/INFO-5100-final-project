@@ -18,6 +18,7 @@ public class DesignEnterprise extends Enterprise{
     
     public DesignEnterprise(String companyName) {
         this.enterprsieType="Design Company";
+        
     }
 
     @Override

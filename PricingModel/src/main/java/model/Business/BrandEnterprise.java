@@ -48,4 +48,8 @@ public class BrandEnterprise extends Enterprise {
         this.procurementOrganization = procurementOrganization;
     }
     
+    @Override
+    public String toString(){
+        return companyName;
+    }
 }
