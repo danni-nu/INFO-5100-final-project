@@ -45,9 +45,8 @@ public class ConfigureABusiness {
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);
         UserAccount us2=useAccountDirectory.newUserAccount(pricurerProfile, "Procurer1", "123");
         
-        ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
-        PlannerProfile plannerProdile=plannerDirectory.addNewPlanner(p3);
-   
+        ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization();
+            
     return business;
   }
 }

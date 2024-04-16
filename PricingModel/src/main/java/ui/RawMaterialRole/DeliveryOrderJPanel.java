@@ -4,16 +4,25 @@
  */
 package ui.RawMaterialRole;
 
+import javax.swing.JPanel;
+import model.Business.Business;
+
 /**
  *
  * @author tianlyu
  */
 public class DeliveryOrderJPanel extends javax.swing.JPanel {
 
+    javax.swing.JPanel CardSequencePanel;
+    Business business;
+
+
     /**
-     * Creates new form DeliveryOrderJPanel
+     * Creates new form ManageRequirementsTask1JPanel
      */
-    public DeliveryOrderJPanel() {
+    public DeliveryOrderJPanel(Business b, JPanel clp) {
+        business = b;
+        this.CardSequencePanel = clp;
         initComponents();
     }
 
@@ -152,9 +161,9 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        //        // TODO add your handling code here:
-        //        CardSequencePanel.remove(this);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+                // TODO add your handling code here:
+                CardSequencePanel.remove(this);
+                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
     private void removejButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton2ActionPerformed

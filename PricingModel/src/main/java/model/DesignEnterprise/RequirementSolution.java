@@ -5,6 +5,8 @@
 package model.DesignEnterprise;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -14,17 +16,15 @@ public class RequirementSolution {
     private String solutionName;
     private String deadline;
     private String evaluation;
-    private ArrayList<String> uploadedImages; // 存储上传的图片路径
     
-    public RequirementSolution() {
-        
-    }
+    private final JFileChooser fileChooser = new JFileChooser();
+    ImageIcon productImage;    
+   
 
     public RequirementSolution(String solutionName, String deadline, String evaluation) {
         this.solutionName = solutionName;
         this.deadline = deadline;
         this.evaluation = evaluation;
-        this.uploadedImages = new ArrayList<>();
     }
 
     public String getSolutionName() {
@@ -39,12 +39,14 @@ public class RequirementSolution {
         return evaluation;
     }
 
-    public ArrayList<String> getUploadedImages() {
-        return uploadedImages;
+    public ImageIcon getProductImage() {
+        return productImage;
     }
 
-    public void addImage(String imagePath) {
-        uploadedImages.add(imagePath);
-    }  
+    public void setProductImage(ImageIcon productImage) {
+        this.productImage = productImage;
+    }
+
+    
     
 }
