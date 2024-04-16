@@ -23,7 +23,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
     ProcurerProfile procurer;
     
     public ProcurerWorkAreaJPanel(Business b,ProcurerProfile procurer,JPanel procurerWorkArea) {
-        this.WorkArea=procurerWorkArea;
+        this.procurerWorkArea=procurerWorkArea;
         this.b=b;
         this.procurer=procurer;
         initComponents();
@@ -90,7 +90,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,18 +100,18 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void ManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageOrderActionPerformed
         // TODO add your handling code here:
-        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,procurerWorkArea);
-        procurerWorkArea.add("ManagerOrder",mo);
-        CardLayout layout=(CardLayout)procurerWorkArea.getLayout();
-        layout.next(procurerWorkArea);
+        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,WorkArea);
+        WorkArea.add("ManagerOrder",mo);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_ManageOrderActionPerformed
 
     private void CreateNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateNewOrderActionPerformed
         // TODO add your handling code here:
         CreatNewOrderJPanel cno=new CreatNewOrderJPanel(b,procurer,procurerWorkArea);
-        procurerWorkArea.add("Create New Order",cno);
-        CardLayout layout=(CardLayout)procurerWorkArea.getLayout();
-        layout.next(procurerWorkArea);
+        WorkArea.add("Create New Order",cno);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_CreateNewOrderActionPerformed
 
 

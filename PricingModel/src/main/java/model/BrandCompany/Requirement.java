@@ -114,6 +114,4 @@ public class Requirement {
         this.evaluation = evaluation;
     }
     
-    
-    
 }
