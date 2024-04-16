@@ -8,7 +8,7 @@ package model.Business;
  *
  * @author qiaohui
  */
-public abstract class Enterprise {
+public abstract class Enterprise {    
     
     public abstract String getEnterpriseType();
   

@@ -6,6 +6,7 @@ package model.Business;
 
 import java.util.ArrayList;
 import java.lang.String;
+import model.Business.Enterprise;
 
 /**
  *
@@ -14,6 +15,10 @@ import java.lang.String;
 public class EnterpriseDirectory {
     ArrayList<Enterprise> enterpriseDirectory;
 
+    public EnterpriseDirectory() {
+        this.enterpriseDirectory=new ArrayList<>();
+    }
+
     public ArrayList<Enterprise> getEnterpriseDirectory() {
         return enterpriseDirectory;
     }
@@ -21,6 +26,7 @@ public class EnterpriseDirectory {
     public void setEnterpriseDirectory(ArrayList<Enterprise> enterpriseDirectory) {
         this.enterpriseDirectory = enterpriseDirectory;
     }
+    
     
     
     public ArrayList<Enterprise> findDesignEnterpriseList(){
@@ -32,7 +38,7 @@ public class EnterpriseDirectory {
             }
         return newDesignEnterpriseList;
     }
-    
+ 
     public BrandEnterprise addBrandEnterprise(String name){
         BrandEnterprise e = new BrandEnterprise( name);
         enterpriseDirectory.add(e); 

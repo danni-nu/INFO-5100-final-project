@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.DesignEnterprise;
-
-import model.BrandCompany.RequirementAssignmentDirectory;
 import java.util.ArrayList;
 
 /**

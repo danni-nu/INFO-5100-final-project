@@ -18,12 +18,12 @@ public class Person {
         this.personName = id;
     }
 
-    public String getPersonId() {
+    public String getPersonName() {
         return personName;
     }
 
     public boolean isMatch(String personName) {
-        if (getPersonId().equals(personName)) {
+        if (getPersonName().equals(personName)) {
             return true;
         }
         return false;
@@ -31,6 +31,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return getPersonId();
+        return getPersonName();
     }
 }

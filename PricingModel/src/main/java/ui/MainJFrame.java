@@ -13,14 +13,13 @@ import model.Business.ConfigureABusiness;
  * @author administratorzi
  */
 public class MainJFrame extends javax.swing.JFrame {
-
-    Business business;
     /**
      * Creates new form NewJFrame
      */
+    Business business;
     public MainJFrame() {
         initComponents();
-        business = ConfigureABusiness.initialize();
+        business=ConfigureABusiness.initialize();
         setSize(900,800);
         setResizable(false);  
         setLoginScreen();

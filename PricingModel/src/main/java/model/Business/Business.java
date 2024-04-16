@@ -9,33 +9,22 @@ import java.util.ArrayList;
 import model.Personnel.PersonDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 
-
 /**
  *
  * @author kal bugrara
  */
 public class Business {
-
-          String name;
-          EnterpriseDirectory EnterpriseDirectory;
-          UserAccountDirectory userAccountDirectory;
-          PersonDirectory personDirectory;
-          
-          
+    String name;
+    EnterpriseDirectory EnterpriseDirectory;
+    UserAccountDirectory userAccountDirectory;
+    PersonDirectory personDirectory;
+         
 
     public Business(String n) {
-          name = n;
-          EnterpriseDirectory enterprisedirectroy=new EnterpriseDirectory();
-//        masterorderlist = new MasterOrderList();
-//        suppliers = new SupplierDirectory();
-////      solutionoffercatalog = new SolutionOfferCatalog();
-          personDirectory = new PersonDirectory();
-//        customerdirectory = new CustomerDirectory(this);
-//        salespersondirectory = new SalesPersonDirectory(this);
-          userAccountDirectory = new UserAccountDirectory();
-//        marketingpersondirectory = new MarketingPersonDirectory(this);
-//        employeedirectory = new EmployeeDirectory(this);
-
+        name = n;
+        this.EnterpriseDirectory=new EnterpriseDirectory();
+        this.personDirectory = new PersonDirectory();
+        this.userAccountDirectory = new UserAccountDirectory();
     }
 
     public String getName() {
@@ -50,9 +39,10 @@ public class Business {
         return EnterpriseDirectory;
     }
 
-    public void setEnterpriseDirectory(EnterpriseDirectory Enterprise) {
-        this.EnterpriseDirectory = Enterprise;
+    public void setEnterpriseDirectory(EnterpriseDirectory EnterpriseDirectory) {
+        this.EnterpriseDirectory = EnterpriseDirectory;
     }
+    
 
     public UserAccountDirectory getUserAccountDirectory() {
         return userAccountDirectory;

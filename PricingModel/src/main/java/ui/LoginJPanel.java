@@ -45,10 +45,10 @@ public class LoginJPanel extends javax.swing.JPanel {
         btnLogin = new javax.swing.JButton();
         lblUserAccount = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        txtUserName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        lblUserAccount1 = new javax.swing.JLabel();
+        txtUserAccount = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
+        cmbCompany = new javax.swing.JComboBox<>();
+        lblCompanyName = new javax.swing.JLabel();
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -59,11 +59,11 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         lblUserAccount.setText("User Account");
 
-        jLabel2.setText("Password");
+        lblPassword.setText("Password");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblUserAccount1.setText("Company");
+        lblCompanyName.setText("Company");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -77,13 +77,13 @@ public class LoginJPanel extends javax.swing.JPanel {
                         .addComponent(btnLogin))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
+                            .addComponent(lblPassword)
                             .addComponent(lblUserAccount)
-                            .addComponent(lblUserAccount1))
+                            .addComponent(lblCompanyName))
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtUserName)
+                            .addComponent(cmbCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtUserAccount)
                             .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
                 .addGap(196, 196, 196))
         );
@@ -92,15 +92,15 @@ public class LoginJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(105, 105, 105)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUserAccount1))
+                    .addComponent(cmbCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCompanyName))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUserAccount)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(btnLogin)
@@ -110,7 +110,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String un = txtUserName.getText();
+        String un = txtUserAccount.getText();
         String pw = txtPassword.getText();
 
         UserAccountDirectory uad = business.getUserAccountDirectory();
@@ -157,11 +157,11 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JComboBox<String> cmbCompany;
+    private javax.swing.JLabel lblCompanyName;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserAccount;
-    private javax.swing.JLabel lblUserAccount1;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtUserAccount;
     // End of variables declaration//GEN-END:variables
 }

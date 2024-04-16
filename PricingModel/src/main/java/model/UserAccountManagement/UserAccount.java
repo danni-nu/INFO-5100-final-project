@@ -12,7 +12,6 @@ import model.Personnel.Profile;
  * @author kal bugrara
  */
 public class UserAccount {
-    
     Profile profile;
     String username;
     String password;
@@ -24,18 +23,19 @@ public class UserAccount {
 
     }
 
-    public String getPersonId(){
-        return profile.getPerson().getPersonId();
+    public String getPersonName(){
+        return profile.getPerson().getPersonName();
     }
 
         public boolean isMatch(String id){
-        if(getPersonId().equals(id)) {
+        if(getPersonName().equals(id)) {
             return true;}
         return false;
     }
         public boolean IsValidUser(String un, String pw){
-        
-            if (username.equalsIgnoreCase(un) && password.equals(pw)) return true;
+            if (username.equalsIgnoreCase(un) && password.equals(pw)) {
+                return true;
+            }
             else {
                 return false;
             }

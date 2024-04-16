@@ -5,6 +5,7 @@
  */
 package model.Business;
 
+import model.BrandCompany.PlannerProfile;
 import model.BrandCompany.ProcurerDirectory;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.ProductPlannerDirectory;
@@ -22,10 +23,11 @@ public class ConfigureABusiness {
 
   public static Business initialize() {
     Business business = new Business("Xerox");
-    BrandEnterprise brandEnterprise= business.getEnterpriseDirectory().addBrandEnterprise("BrandComapny");
-    DesignEnterprise designEnterprise= business.getEnterpriseDirectory().addDesignEnterprise("DesignCompany");
-    ProductionEnterprise productionEnterprise= business.getEnterpriseDirectory().addProductionEnterprise("Production Company");
-    RawMaterialEnterprise rawMaterialEnterprise=business.getEnterpriseDirectory().addRawMaterialEnterprise("Raw Material Company");
+    EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
+    BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company");
+    DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany");
+    ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company");
+    RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company");
     PersonDirectory personDirectory=business.getPersonDirectory();
     UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
     
@@ -43,11 +45,9 @@ public class ConfigureABusiness {
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);
         UserAccount us2=useAccountDirectory.newUserAccount(pricurerProfile, "Procurer1", "123");
         
-        ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().;
-        
-    
-    
-    
+        ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
+        PlannerProfile plannerProdile=plannerDirectory.addNewPlanner(p3);
+   
     return business;
   }
 }
