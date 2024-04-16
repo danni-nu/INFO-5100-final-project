@@ -4,16 +4,25 @@
  */
 package ui.RawMaterialRole;
 
+import javax.swing.JPanel;
+import model.Business.Business;
+
 /**
  *
  * @author tianlyu
  */
 public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
 
+    javax.swing.JPanel CardSequencePanel;
+    Business business;
+
+
     /**
-     * Creates new form InventoryWorkAreaJPanel
+     * Creates new form ManageRequirementsTask1JPanel
      */
-    public InventoryWorkAreaJPanel() {
+    public InventoryWorkAreaJPanel(Business b, JPanel clp) {
+        business = b;
+        this.CardSequencePanel = clp;
         initComponents();
     }
 
@@ -102,23 +111,23 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        //        // TODO add your handling code here:
-        //        CardSequencePanel.remove(this);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+                // TODO add your handling code here:
+                CardSequencePanel.remove(this);
+                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
     private void addusersjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersjButtonActionPerformed
         // TODO add your handling code here:
-        //        AddUsersJPanel aos = new AddUsersJPanel(business, CardSequencePanel);
-        //        CardSequencePanel.add("Add Users", aos);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+                ManageMaterialOrderJPanel aos = new ManageMaterialOrderJPanel(business, CardSequencePanel);
+                CardSequencePanel.add("ManageMaterial Order", aos);
+                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_addusersjButtonActionPerformed
 
     private void manageusersjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageusersjButton1ActionPerformed
-        // TODO add your handling code here:
-        //        ManageUserAccountsJPanel aos = new ManageUserAccountsJPanel(business, CardSequencePanel);
-        //        CardSequencePanel.add("Manage Users", aos);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+//         TODO add your handling code here:
+                DeliveryOrderJPanel aos = new DeliveryOrderJPanel(business, CardSequencePanel);
+                CardSequencePanel.add("Delivery Order", aos);
+                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_manageusersjButton1ActionPerformed
 
 

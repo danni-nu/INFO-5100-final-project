@@ -21,7 +21,7 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
      */
     
 
-    CheckPerformanceJPanel(Business b, JPanel clp) {
+    public CheckPerformanceJPanel(Business b, JPanel clp) {
         business = b;
         this.CardSequencePanel = clp;
         initComponents();
