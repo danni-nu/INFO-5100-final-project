@@ -16,8 +16,7 @@ public class DesignOrganization {
     public DesignOrganization(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementAssignmentDirectory> RequirementsDirectory) {
         this.DesignerDirectory = DesignerDirectory;
         this.RequirementAssignmentDirectory = RequirementsDirectory;
-    }
-
+    } 
     public ArrayList<DesignerDirectory> getDesignerDirectory() {
         return DesignerDirectory;
     }
