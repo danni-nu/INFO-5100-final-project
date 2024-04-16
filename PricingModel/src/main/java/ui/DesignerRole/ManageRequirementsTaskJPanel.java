@@ -4,7 +4,7 @@
  */
 package ui.DesignerRole;
 
-import javax.swing.JPanel;
+import javax.swing.JPanel; 
 import model.Business.Business;
 
 /**
@@ -13,18 +13,18 @@ import model.Business.Business;
  */
 public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     
+    javax.swing.JPanel CardSequencePanel;
     Business business;
-
     /**
      * Creates new form DesignerWorkAreaJPanel
      */
-    public ManageRequirementsTaskJPanel() {
+    public ManageRequirementsTaskJPanel(Business b, JPanel clp) {
+        business = b;
+        this.CardSequencePanel = clp;
         initComponents();
     }
 
-    ManageRequirementsTaskJPanel(Business business, JPanel CardSequencePanel) {
-        
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -326,9 +326,9 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_SavejButtonActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-//        // TODO add your handling code here:
-//        CardSequencePanel.remove(this);
-//        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
     private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
