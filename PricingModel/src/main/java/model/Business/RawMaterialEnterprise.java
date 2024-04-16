@@ -5,6 +5,7 @@
 package model.Business;
 
 import model.DesignEnterprise.DesignOrganization;
+import model.RawMaterialEnterprise.RawMaterialDirectory;
 import model.RawMaterialEnterprise.RawMaterialManageOrganization;
 
 /**
@@ -15,10 +16,13 @@ public class RawMaterialEnterprise extends Enterprise{
     String enterpriseType="Raw Material Company";
     String companyName;
     RawMaterialManageOrganization rawMaterialManageOrganization;
+    RawMaterialDirectory rawMaterialDirectory;
 
     public RawMaterialEnterprise(String companyName) {
         this.enterpriseType="Raw Material Company";
         this.companyName = companyName;
+        this.rawMaterialManageOrganization=new RawMaterialManageOrganization();
+        this.rawMaterialDirectory=new RawMaterialDirectory();
     }
     
     
@@ -27,5 +31,9 @@ public class RawMaterialEnterprise extends Enterprise{
         return "Raw Material Company";
     }
     
+    @Override
+    public String toString(){
+        return companyName;
+    }
     
 }

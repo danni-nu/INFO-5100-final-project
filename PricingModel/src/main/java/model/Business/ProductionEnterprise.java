@@ -27,7 +27,11 @@ public class ProductionEnterprise extends Enterprise{
     public String getEnterpriseType() {
         return "Production Company";
     }
-
+    
+    @Override
+    public String toString(){
+        return companyName;
+    }
  
     
 }

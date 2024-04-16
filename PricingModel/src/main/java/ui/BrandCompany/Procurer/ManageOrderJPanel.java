@@ -4,6 +4,7 @@
  */
 package ui.BrandCompany.Procurer;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.BrandCompany.ProcurerProfile;
 import model.Business.Business;
@@ -17,8 +18,15 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrder
      */
+    JPanel workArea;
+    ProcurerProfile procurerProfile;
+    Business b;
+    
     public ManageOrderJPanel(Business b, ProcurerProfile procurer, JPanel workArea) {
         initComponents();
+        this.b=b;
+        this.procurerProfile=procurer;
+        this.workArea=workArea;
     }
 
     /**
@@ -47,6 +55,11 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         spnQuantity = new javax.swing.JSpinner();
 
         btnBack.setText(">>Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnCheckUnfinishedOrder.setText("Check Unfinished Order");
 
@@ -171,6 +184,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        workArea.remove(this);
+        CardLayout layout =(CardLayout)workArea.getLayout();
+        layout.next(workArea);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

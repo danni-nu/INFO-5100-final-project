@@ -12,4 +12,6 @@ public abstract class Enterprise {
     
     public abstract String getEnterpriseType();
   
+    @Override
+    public abstract String toString();
 }
