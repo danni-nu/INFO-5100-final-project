@@ -43,7 +43,7 @@
                       <Group type="102" attributes="0">
                           <Component id="removejButton" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="removejButton2" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="AddSolutionjButton" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="640" max="-2" attributes="0"/>
@@ -54,7 +54,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="removejButton1" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="SavejButton" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="AddjButton" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
@@ -80,7 +80,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="removejButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="SavejButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AddjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -88,7 +88,7 @@
                   <Component id="jScrollPane2" min="-2" pref="135" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="removejButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="AddSolutionjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="removejButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="85" max="32767" attributes="0"/>
@@ -185,12 +185,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="SavejButton">
+        <Component class="javax.swing.JButton" name="AddjButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Requirement"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SavejButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddjButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="removejButton">
@@ -280,12 +280,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="removejButton2">
+        <Component class="javax.swing.JButton" name="AddSolutionjButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add solution"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removejButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddSolutionjButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

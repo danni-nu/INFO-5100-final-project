@@ -66,34 +66,34 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtUserName5" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="txtEvaluation" min="-2" pref="193" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtUserName4" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="txtDeadline" min="-2" pref="193" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtUserName1" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="txtmode" min="-2" pref="193" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtUserName" min="-2" pref="193" max="-2" attributes="0"/>
+                              <Component id="txtID" min="-2" pref="193" max="-2" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="txtUserName3" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="txtStyle" min="-2" pref="193" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtUserName2" min="-2" pref="193" max="-2" attributes="0"/>
+                                  <Component id="txtcolor" min="-2" pref="193" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -114,33 +114,33 @@
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtID" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUserName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtmode" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtUserName2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtcolor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUserName3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtStyle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtUserName4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDeadline" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="12" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtUserName5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEvaluation" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -233,7 +233,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUserName">
+    <Component class="javax.swing.JTextField" name="txtID">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -262,18 +262,18 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="evaluation"/>
+        <Property name="text" type="java.lang.String" value="Evaluation"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUserName1">
+    <Component class="javax.swing.JTextField" name="txtmode">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUserName2">
+    <Component class="javax.swing.JTextField" name="txtcolor">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUserName3">
+    <Component class="javax.swing.JTextField" name="txtStyle">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUserName4">
+    <Component class="javax.swing.JTextField" name="txtDeadline">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtUserName5">
+    <Component class="javax.swing.JTextField" name="txtEvaluation">
     </Component>
   </SubComponents>
 </Form>
