@@ -50,13 +50,13 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbltask = new javax.swing.JTable();
         Back = new javax.swing.JButton();
-        SavejButton = new javax.swing.JButton();
+        AddjButton = new javax.swing.JButton();
         removejButton = new javax.swing.JButton();
         removejButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSemester1 = new javax.swing.JTable();
-        removejButton2 = new javax.swing.JButton();
+        AddSolutionjButton = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(236, 244, 251));
 
@@ -96,10 +96,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             }
         });
 
-        SavejButton.setText("Add Requirement");
-        SavejButton.addActionListener(new java.awt.event.ActionListener() {
+        AddjButton.setText("Add Requirement");
+        AddjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SavejButtonActionPerformed(evt);
+                AddjButtonActionPerformed(evt);
             }
         });
 
@@ -142,10 +142,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblSemester1);
 
-        removejButton2.setText("Add solution");
-        removejButton2.addActionListener(new java.awt.event.ActionListener() {
+        AddSolutionjButton.setText("Add solution");
+        AddSolutionjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton2ActionPerformed(evt);
+                AddSolutionjButtonActionPerformed(evt);
             }
         });
 
@@ -160,7 +160,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(removejButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(AddSolutionjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,7 +169,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SavejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 60, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
@@ -190,14 +190,14 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removejButton1)
-                    .addComponent(SavejButton))
+                    .addComponent(AddjButton))
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removejButton2)
+                    .addComponent(AddSolutionjButton)
                     .addComponent(removejButton))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
@@ -234,7 +234,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         populateRequirmentTable();
     }//GEN-LAST:event_removejButtonActionPerformed
 
-    private void SavejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavejButtonActionPerformed
+    private void AddjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddjButtonActionPerformed
         // TODO add your handling code here:
 
         JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -245,7 +245,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         //
 
         populateRequirmentTable();
-    }//GEN-LAST:event_SavejButtonActionPerformed
+    }//GEN-LAST:event_AddjButtonActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
@@ -257,14 +257,15 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_removejButton1ActionPerformed
 
-    private void removejButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton2ActionPerformed
+    private void AddSolutionjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSolutionjButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_removejButton2ActionPerformed
+    }//GEN-LAST:event_AddSolutionjButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddSolutionjButton;
+    private javax.swing.JButton AddjButton;
     private javax.swing.JButton Back;
-    private javax.swing.JButton SavejButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
@@ -273,7 +274,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton removejButton;
     private javax.swing.JButton removejButton1;
-    private javax.swing.JButton removejButton2;
     private javax.swing.JTable tblSemester1;
     private javax.swing.JTable tbltask;
     // End of variables declaration//GEN-END:variables
