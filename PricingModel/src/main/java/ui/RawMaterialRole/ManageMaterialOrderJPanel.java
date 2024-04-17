@@ -4,6 +4,7 @@
  */
 package ui.RawMaterialRole;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Business.Business;
 
@@ -41,7 +42,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSemester = new javax.swing.JTable();
-        removejButton1 = new javax.swing.JButton();
         removejButton = new javax.swing.JButton();
         removejButton2 = new javax.swing.JButton();
 
@@ -83,13 +83,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblSemester);
 
-        removejButton1.setText("View Details");
-        removejButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton1ActionPerformed(evt);
-            }
-        });
-
         removejButton.setText("Remove");
         removejButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,8 +120,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
                                         .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(removejButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -151,7 +142,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removejButton)
-                    .addComponent(removejButton1)
                     .addComponent(removejButton2))
                 .addContainerGap(111, Short.MAX_VALUE))
         );
@@ -163,27 +153,21 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_removejButton1ActionPerformed
-
     private void removejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButtonActionPerformed
         // TODO add your handling code here:
         //
-        //        int row = tblSemester.getSelectedRow();
-        //        if(row<0){
-            //            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
-            //            return;
-            //        }
-        //
-        //        //remove seat assigment
+        int row = tblSemester.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+                        return;
+        }
+
+        //        //remove Material Order
         //        CourseOffer courseOfferToRemove = (CourseOffer)tblSemester.getValueAt(row, 3);
         //        //        Course removecourse = null;
         //        //        removecourse = business.getCourseCatalog().getCourseByNumber(courseNumberToRemove);
         //
         //        courseSchedule.getSchedule().remove(courseOfferToRemove);
-        //
-        //        //
         //        populateTable();
     }//GEN-LAST:event_removejButtonActionPerformed
 
@@ -198,7 +182,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton removejButton;
-    private javax.swing.JButton removejButton1;
     private javax.swing.JButton removejButton2;
     private javax.swing.JTable tblSemester;
     // End of variables declaration//GEN-END:variables
