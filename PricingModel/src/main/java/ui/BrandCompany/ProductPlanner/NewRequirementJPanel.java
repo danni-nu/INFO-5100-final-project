@@ -11,7 +11,9 @@ import model.Business.DesignEnterprise;
 import model.Business.Enterprise;
 import model.Business.ProductionEnterprise;
 import model.Business.RawMaterialEnterprise;
+import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.Style;
+import model.Production.ProductionMode;
 import model.RawMaterialEnterprise.RawMaterial;
 
 /**
@@ -67,11 +69,8 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblPicture = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblRawMaterial = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         lblProductionModeCost = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         lblDesignFee = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         txtProductName = new javax.swing.JTextField();
         lblDeadline = new javax.swing.JLabel();
         txtDeadLine = new javax.swing.JTextField();
@@ -83,6 +82,11 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         cmbDesignCompany = new javax.swing.JComboBox<>();
         lblDesignStyle1 = new javax.swing.JLabel();
         cmbDesigner = new javax.swing.JComboBox<>();
+        lblDeadline1 = new javax.swing.JLabel();
+        lblRawMaterialpCost1 = new javax.swing.JLabel();
+        lblProductionModeCost1 = new javax.swing.JLabel();
+        lblDesignFee1 = new javax.swing.JLabel();
+        lblDeadline2 = new javax.swing.JLabel();
 
         cmbProductionMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbProductionMode.addActionListener(new java.awt.event.ActionListener() {
@@ -102,8 +106,18 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblRawMaterialpCost.setText("Raw Material Cost:");
 
         cmbRawMaterial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRawMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbRawMaterialActionPerformed(evt);
+            }
+        });
 
         cmbDesignStyle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDesignStyle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDesignStyleActionPerformed(evt);
+            }
+        });
 
         lblProductionMode.setText("Product Mode");
 
@@ -121,18 +135,9 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
         lblRawMaterial.setText("Raw Material");
 
-        jTextField1.setText("60%");
-        jTextField1.setEnabled(false);
-
-        lblProductionModeCost.setText("Production Cost:");
-
-        jTextField2.setText("40");
-        jTextField2.setEnabled(false);
+        lblProductionModeCost.setText("<Cost>");
 
         lblDesignFee.setText("Design Fee:");
-
-        jTextField3.setText("60%");
-        jTextField3.setEnabled(false);
 
         txtProductName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,6 +174,16 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblDeadline1.setText("<Total Price >");
+
+        lblRawMaterialpCost1.setText("< Cost>");
+
+        lblProductionModeCost1.setText("Production Cost:");
+
+        lblDesignFee1.setText("<Cost>");
+
+        lblDeadline2.setText("Total Price ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,24 +200,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cmbRawMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblRawMaterialpCost, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblProductionModeCost))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(lblProductName)
                                         .addGap(49, 49, 49))
@@ -217,21 +214,11 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                                 .addGap(25, 25, 25)
                                 .addComponent(cmbProductionCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(183, 183, 183)
-                                        .addComponent(CreateRerquirement))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(lblDeadline)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addComponent(lblColor)
-                                            .addGap(49, 49, 49)
-                                            .addComponent(cmbColor, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(cmbDesignCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -242,16 +229,56 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                                                 .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(49, 49, 49)
                                                 .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblDesignFee)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGap(95, 95, 95)
+                                        .addComponent(lblDesignFee))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(183, 183, 183)
+                                            .addComponent(CreateRerquirement))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addComponent(lblColor)
+                                                .addGap(49, 49, 49)
+                                                .addComponent(cmbColor, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblDeadline)
+                                                    .addComponent(lblDeadline2))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lblDeadline1)
+                                                    .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblDesignFee1)
+                                .addGap(19, 19, 19))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(cmbDesignCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(83, 83, 83))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(49, 49, 49)
+                                        .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(119, 119, 119)
+                                        .addComponent(cmbRawMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addComponent(lblRawMaterialpCost, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblRawMaterialpCost1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(lblProductionModeCost)
+                                        .addGap(29, 29, 29)))))))
+                .addGap(23, 23, 23))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(510, Short.MAX_VALUE)
+                    .addComponent(lblProductionModeCost1)
+                    .addGap(139, 139, 139)))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {CreateRerquirement, cmbColor, cmbDesignStyle, cmbProductionMode, cmbRawMaterial, lblColor, lblDesignStyle, lblProductName, lblProductionMode, lblRawMaterialpCost});
@@ -270,16 +297,16 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblProductName)
                     .addComponent(txtProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRawMaterialCompany)
                     .addComponent(cmbRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblRawMaterialpCost)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRawMaterial))
+                    .addComponent(lblRawMaterial)
+                    .addComponent(lblRawMaterialpCost1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbProductionCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,8 +315,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProductionMode)
                     .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProductionModeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblProductionModeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDesignCompany)
@@ -297,13 +323,13 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDesignStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDesignFee, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDesignFee1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDesignFee, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -320,16 +346,29 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                         .addComponent(CreateRerquirement)
                         .addGap(66, 66, 66))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDeadline1)
+                            .addComponent(lblDeadline2))
+                        .addGap(4, 4, 4)
                         .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(28, Short.MAX_VALUE))))
+                        .addContainerGap(22, Short.MAX_VALUE))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(230, 230, 230)
+                    .addComponent(lblProductionModeCost1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(397, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbProductionModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionModeActionPerformed
         // TODO add your handling code here:
+        ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
+        if(productionmode!=null) {
+            lblRawMaterial.setText(String.valueOf(productionmode.getModePrice()));
+        }
     }//GEN-LAST:event_cmbProductionModeActionPerformed
 
     private void txtProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameActionPerformed
@@ -342,7 +381,24 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbDesignerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignerActionPerformed
         // TODO add your handling code here:
+        DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
+        if(designer!=null) {
+            lblRawMaterial.setText(String.valueOf(designer.getDefaultDesignPricing()));
+        }
     }//GEN-LAST:event_cmbDesignerActionPerformed
+
+    private void cmbRawMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRawMaterialActionPerformed
+        // TODO add your handling code here:
+        RawMaterial rawmaterial=(RawMaterial)cmbRawMaterial.getSelectedItem();
+        if(rawmaterial!=null) {
+            lblRawMaterial.setText(String.valueOf(rawmaterial.getPrice()));
+        }
+    
+    }//GEN-LAST:event_cmbRawMaterialActionPerformed
+
+    private void cmbDesignStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignStyleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDesignStyleActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -358,13 +414,13 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDeadline;
+    private javax.swing.JLabel lblDeadline1;
+    private javax.swing.JLabel lblDeadline2;
     private javax.swing.JLabel lblDesignCompany;
     private javax.swing.JLabel lblDesignFee;
+    private javax.swing.JLabel lblDesignFee1;
     private javax.swing.JLabel lblDesignStyle;
     private javax.swing.JLabel lblDesignStyle1;
     private javax.swing.JLabel lblPicture;
@@ -372,9 +428,11 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblProductionCompany;
     private javax.swing.JLabel lblProductionMode;
     private javax.swing.JLabel lblProductionModeCost;
+    private javax.swing.JLabel lblProductionModeCost1;
     private javax.swing.JLabel lblRawMaterial;
     private javax.swing.JLabel lblRawMaterialCompany;
     private javax.swing.JLabel lblRawMaterialpCost;
+    private javax.swing.JLabel lblRawMaterialpCost1;
     private javax.swing.JTextField txtDeadLine;
     private javax.swing.JTextField txtProductName;
     // End of variables declaration//GEN-END:variables
@@ -418,9 +476,9 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void populateProductionModeCombo() {
         cmbProductionMode.removeAllItems();
-        ProductionEnterprise selectedproductionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
-        for(ProductionMode productionmode:selectedproductionenterprise.getProductionOrganization().){
-            cmbRawMaterial.addItem(rawmaterial.toString());
+        ProductionEnterprise productionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
+        for(ProductionMode productionmode:productionenterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
+            cmbRawMaterial.addItem(productionmode.toString());
         }
     }
     

@@ -16,6 +16,23 @@ public class ProductionMode {
         this.modeName = modeName;
         this.modePrice = modePrice;
     }
+
+    public String getModeName() {
+        return modeName;
+    }
+
+    public void setModeName(String modeName) {
+        this.modeName = modeName;
+    }
+
+    public int getModePrice() {
+        return modePrice;
+    }
+
+    public void setModePrice(int modePrice) {
+        this.modePrice = modePrice;
+    }
+    
    
     @Override
     public String toString(){
