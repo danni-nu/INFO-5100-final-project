@@ -5,6 +5,8 @@
 package model.RawMaterialEnterprise;
 
 import java.util.ArrayList;
+import model.BrandCompany.Order;
+import model.Production.ProductionOrder;
 
 /**
  *
@@ -23,6 +25,12 @@ public class RawMaterialOrderDirectory {
 
     public void setRawMaterialOrderDirectory(ArrayList<RawMaterialOrder> rawMaterialOrderDirectory) {
         this.rawMaterialOrderDirectory = rawMaterialOrderDirectory;
+    }
+    
+    public RawMaterialOrder addNewRawMaterialOrder(Order o, ProductionOrder po){
+        RawMaterialOrder rawOrder=new RawMaterialOrder(o,po);
+        rawMaterialOrderDirectory.add(rawOrder);
+        return rawOrder;
     }
    
 }

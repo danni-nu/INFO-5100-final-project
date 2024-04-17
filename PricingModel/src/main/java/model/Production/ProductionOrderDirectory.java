@@ -5,6 +5,7 @@
 package model.Production;
 
 import java.util.ArrayList;
+import model.BrandCompany.Order;
 
 /**
  *
@@ -14,6 +15,22 @@ public class ProductionOrderDirectory {
      private ArrayList<ProductionOrder> productionOrderList;
      
      public ProductionOrderDirectory() {
-            productionOrderList = new ArrayList();
+            productionOrderList = new ArrayList<>();
      }
+
+    public ArrayList<ProductionOrder> getProductionOrderList() {
+        return productionOrderList;
+    }
+
+    public void setProductionOrderList(ArrayList<ProductionOrder> productionOrderList) {
+        this.productionOrderList = productionOrderList;
+    }
+     
+    
+    public ProductionOrder addNewOrder(Order o){
+        ProductionOrder productionOrder=new ProductionOrder(o);
+        productionOrderList.add(productionOrder);
+        return productionOrder;
+    }
+     
 }
