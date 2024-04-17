@@ -36,6 +36,12 @@ public class Requirement {
         this.deadline = deadline;
         this.evaluation = evaluation;
     }
+    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile) {
+        this.rowMaterial = rowMaterial;
+        this.designerProfile = designerProfile;
+        this.productionMode = productionMode;
+        this.plannerProfile=plannerProfile;
+    }
 
 
     public RequirementSolution addRequirementSolution() {

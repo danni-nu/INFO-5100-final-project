@@ -5,7 +5,10 @@
 package model.BrandCompany;
 
 import java.util.ArrayList;
+import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.RequirementAssignment;
+import model.Production.ProductionMode;
+import model.RawMaterialEnterprise.RawMaterial;
 
 /**
  *
@@ -34,5 +37,11 @@ public class RequirementsDirectory {
     public void setRequirementsDirectory(ArrayList<Requirement> requirementsDirectory) {
         this.requirementsDirectory = requirementsDirectory;
     }    
+    
+    public Requirement addANewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp){
+        Requirement newrequirement=new Requirement(r,d,p,pp);
+        requirementsDirectory.add(newrequirement);
+        return newrequirement;
+    }
     
 }

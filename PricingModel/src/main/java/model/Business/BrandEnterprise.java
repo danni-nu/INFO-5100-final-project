@@ -52,4 +52,8 @@ public class BrandEnterprise extends Enterprise {
     public String toString(){
         return companyName;
     }
+
+    Object getCompanyName() {
+        return companyName;
+    }
 }
