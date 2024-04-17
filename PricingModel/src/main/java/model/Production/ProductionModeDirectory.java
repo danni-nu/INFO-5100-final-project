@@ -16,6 +16,14 @@ public class ProductionModeDirectory {
     public ProductionModeDirectory() {
         productionModeList = new ArrayList<>();
     }
+
+    public ArrayList<ProductionMode> getProductionModeList() {
+        return productionModeList;
+    }
+
+    public void setProductionModeList(ArrayList<ProductionMode> productionModeList) {
+        this.productionModeList = productionModeList;
+    }
     
     
 }

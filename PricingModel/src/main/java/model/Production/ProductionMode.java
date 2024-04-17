@@ -17,5 +17,9 @@ public class ProductionMode {
         this.modePrice = modePrice;
     }
    
+    @Override
+    public String toString(){
+        return modeName;
+    }
     
 }

@@ -5,6 +5,7 @@
  */
 package model.Business;
 
+import java.util.Random;
 import model.BrandCompany.PlannerProfile;
 import model.BrandCompany.ProcurerDirectory;
 import model.BrandCompany.ProcurerProfile;
@@ -13,6 +14,7 @@ import model.Business.Business;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.RawMaterialEnterprise.RawMaterialDirectory;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 
@@ -63,8 +65,31 @@ public class ConfigureABusiness {
         styleDirectory.addNewStyle("Bohemian");
         styleDirectory.addNewStyle("Transitional");
 
+        RawMaterialDirectory rawMaterialDirectory=rawMaterialEnterprise.getRawMaterialDirectory();
+        Random random = new Random();
+
+        rawMaterialDirectory.addNewRawMaterial("T-shirt", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Jeans", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Dress shirt", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Skirt", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Blouse", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Sweater", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Pants", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Shorts", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Jacket", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Coat", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Blazer", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Hoodie", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Leggings", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Cardigan", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Jumpsuit", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Romper", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Tank top", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Polo shirt", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Suit", random.nextInt(41) + 20);
+        rawMaterialDirectory.addNewRawMaterial("Tunic", random.nextInt(41) + 20);
         
-        
+       
     return business;
   }
 }

@@ -26,11 +26,16 @@ public class RawMaterial {
 //        materialTypes.add("Wool");
 //    }
 
-    public RawMaterial(String materialName, String description, int price, int quantity) {
+    public RawMaterial(String materialName, String description, int price) {
         this.materialName = materialName;
         this.description = description;
         this.price = price;
         //this.quantity = quantity;
+    }
+
+    public RawMaterial(String materialName, int price) {
+        this.materialName = materialName;
+        this.price = price;
     }
 
     public String getMaterialName() {
@@ -52,5 +57,8 @@ public class RawMaterial {
 //    public static void addMaterialType(String type) {
 //        materialTypes.add(type);
 //    }
-    
+    @Override
+    public String toString(){
+        return materialName;
+    }
 }

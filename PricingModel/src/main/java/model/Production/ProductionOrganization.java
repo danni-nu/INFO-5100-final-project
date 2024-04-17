@@ -4,6 +4,8 @@
  */
 package model.Production;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author administratorzi
@@ -12,20 +14,27 @@ public class ProductionOrganization {
     private ProductionManagerProfile productManagerProfile;
     private ProductionModeDirectory productionModeDirectory;
 
+    public ProductionOrganization() {
+        productionModeDirectory = new ProductionModeDirectory();
+    }
     
+    public ProductionModeDirectory getProductionModeDirectory() {
+        return productionModeDirectory;
+    }
 
-    public ProductionOrganization(ProductionManagerProfile productManagerProfile, ProductionModeDirectory productionModeDirectory) {
-        this.productManagerProfile = productManagerProfile;
+    public void setProductionModeDirectory(ProductionModeDirectory productionModeDirectory) {
         this.productionModeDirectory = productionModeDirectory;
     }
 
-    public ProductionOrganization() {
-        
-    }
-    
     public ProductionManagerProfile getProductManagerProfile() {
         return productManagerProfile;
     }
+
+    public void setProductManagerProfile(ProductionManagerProfile productManagerProfile) {
+        this.productManagerProfile = productManagerProfile;
+    }
+
+    
     
     
 }

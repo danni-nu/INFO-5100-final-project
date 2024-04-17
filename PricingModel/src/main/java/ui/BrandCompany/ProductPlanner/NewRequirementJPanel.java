@@ -9,8 +9,10 @@ import model.BrandCompany.PlannerProfile;
 import model.Business.Business;
 import model.Business.DesignEnterprise;
 import model.Business.Enterprise;
+import model.Business.ProductionEnterprise;
 import model.Business.RawMaterialEnterprise;
 import model.DesignEnterprise.Style;
+import model.RawMaterialEnterprise.RawMaterial;
 
 /**
  *
@@ -34,6 +36,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         populateRawMaterialCompanyCombo();
         populateRawMaterialCombp();
         populateProductionCompanyCombo();
+        populateProductionModeCombo();
         populateDesignCompanyCombo();
         populateDesignStyleCombo();
         
@@ -397,16 +400,29 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         }
     }
     
-    
-
     private void populateDesignStyleCombo() {
         cmbDesignStyle.removeAllItems();
-//        for(Style style:business.){
-//            cmbDesignStyle.addItem(enteriprise.toString());
-//        }    
+        DesignEnterprise designenterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
+        for(Style style:designenterprise.getStyleDirectory().getStyleDirectory()){
+            cmbDesignStyle.addItem(style.toString());
+        }    
     }
 
     private void populateRawMaterialCombp() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        cmbRawMaterial.removeAllItems();
+        RawMaterialEnterprise selectedrawmaterialenterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
+        for(RawMaterial rawmaterial:selectedrawmaterialenterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
+            cmbRawMaterial.addItem(rawmaterial.toString());
+        }
     }
+
+    private void populateProductionModeCombo() {
+        cmbProductionMode.removeAllItems();
+        ProductionEnterprise selectedproductionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
+        for(ProductionMode productionmode:selectedproductionenterprise.getProductionOrganization().){
+            cmbRawMaterial.addItem(rawmaterial.toString());
+        }
+    }
+    
+    
 }

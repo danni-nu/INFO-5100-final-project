@@ -43,4 +43,8 @@ public class Style {
         this.description = description;
     }
     
+    public String toString(){
+        return styleName;
+    }
+    
 }

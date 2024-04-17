@@ -35,4 +35,8 @@ public class RawMaterialDirectory {
         RawMaterialDirectory.remove(rawMaterial);
     }
     
+    public void addNewRawMaterial(String materialName, int price){
+        RawMaterial rawMaterial =new RawMaterial(materialName,price);
+        RawMaterialDirectory.add(rawMaterial);
+    }
 }

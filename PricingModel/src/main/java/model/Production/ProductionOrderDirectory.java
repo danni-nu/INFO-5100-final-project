@@ -14,6 +14,6 @@ public class ProductionOrderDirectory {
      private ArrayList<ProductionOrder> productionOrderList;
      
      public ProductionOrderDirectory() {
-     productionOrderList = new ArrayList();
+            productionOrderList = new ArrayList();
      }
 }

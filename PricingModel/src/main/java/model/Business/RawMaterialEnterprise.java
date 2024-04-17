@@ -24,6 +24,30 @@ public class RawMaterialEnterprise extends Enterprise{
         this.rawMaterialManageOrganization=new RawMaterialManageOrganization();
         this.rawMaterialDirectory=new RawMaterialDirectory();
     }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public RawMaterialManageOrganization getRawMaterialManageOrganization() {
+        return rawMaterialManageOrganization;
+    }
+
+    public void setRawMaterialManageOrganization(RawMaterialManageOrganization rawMaterialManageOrganization) {
+        this.rawMaterialManageOrganization = rawMaterialManageOrganization;
+    }
+
+    public RawMaterialDirectory getRawMaterialDirectory() {
+        return rawMaterialDirectory;
+    }
+
+    public void setRawMaterialDirectory(RawMaterialDirectory rawMaterialDirectory) {
+        this.rawMaterialDirectory = rawMaterialDirectory;
+    }
     
     
     @Override
