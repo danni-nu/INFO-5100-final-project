@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 public class DesignerProfile {
     private String profileClass;
-    private double defaultDesignPricing;
+    private int defaultDesignPricing;
     private ArrayList<RequirementAssignment> requirementAssignmentList;
 
-    public DesignerProfile(String profileClass, double defaultDesignPricing) {
+    public DesignerProfile(String profileClass, int defaultDesignPricing) {
         this.profileClass = profileClass;
         this.defaultDesignPricing = defaultDesignPricing;
         requirementAssignmentList = new ArrayList<>();
@@ -25,7 +25,7 @@ public class DesignerProfile {
         return profileClass;
     }
 
-    public double getDefaultDesignPricing() {
+    public int getDefaultDesignPricing() {
         return defaultDesignPricing;
     }
 

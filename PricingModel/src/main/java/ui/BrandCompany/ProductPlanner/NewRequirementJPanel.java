@@ -4,6 +4,7 @@
  */
 package ui.BrandCompany.ProductPlanner;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.BrandCompany.PlannerProfile;
 import model.Business.Business;
@@ -82,7 +83,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         cmbDesignCompany = new javax.swing.JComboBox<>();
         lblDesignStyle1 = new javax.swing.JLabel();
         cmbDesigner = new javax.swing.JComboBox<>();
-        lblDeadline1 = new javax.swing.JLabel();
+        lblTotalCost = new javax.swing.JLabel();
         lblRawMaterialpCost1 = new javax.swing.JLabel();
         lblProductionModeCost1 = new javax.swing.JLabel();
         lblDesignFee1 = new javax.swing.JLabel();
@@ -102,6 +103,11 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblProductName.setText("Product Name");
 
         CreateRerquirement.setText("Create Requirement");
+        CreateRerquirement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CreateRerquirementActionPerformed(evt);
+            }
+        });
 
         lblRawMaterialpCost.setText("Raw Material Cost:");
 
@@ -174,7 +180,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblDeadline1.setText("<Total Price >");
+        lblTotalCost.setText("<Total Price >");
 
         lblRawMaterialpCost1.setText("< Cost>");
 
@@ -247,7 +253,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                                                     .addComponent(lblDeadline2))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblDeadline1)
+                                                    .addComponent(lblTotalCost)
                                                     .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -348,7 +354,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDeadline1)
+                            .addComponent(lblTotalCost)
                             .addComponent(lblDeadline2))
                         .addGap(4, 4, 4)
                         .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -398,7 +404,17 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbDesignStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignStyleActionPerformed
         // TODO add your handling code here:
+        Style style=(Style)cmbDesignStyle.getSelectedItem();
     }//GEN-LAST:event_cmbDesignStyleActionPerformed
+
+    private void CreateRerquirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRerquirementActionPerformed
+        // TODO add your handling code here:
+        RawMaterial rawmaterial=(RawMaterial)cmbRawMaterial.getSelectedItem();
+       DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
+       ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
+       business.getEnterpriseDirectory().getBrandEnterprise("Brand Company").getProductPlanningOrganization().getRequirementDirectory().addANewRrequirement(rawmaterial, designer, productionmode, plannerProfile);
+       JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_CreateRerquirementActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -416,7 +432,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDeadline;
-    private javax.swing.JLabel lblDeadline1;
     private javax.swing.JLabel lblDeadline2;
     private javax.swing.JLabel lblDesignCompany;
     private javax.swing.JLabel lblDesignFee;
@@ -433,6 +448,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblRawMaterialCompany;
     private javax.swing.JLabel lblRawMaterialpCost;
     private javax.swing.JLabel lblRawMaterialpCost1;
+    private javax.swing.JLabel lblTotalCost;
     private javax.swing.JTextField txtDeadLine;
     private javax.swing.JTextField txtProductName;
     // End of variables declaration//GEN-END:variables

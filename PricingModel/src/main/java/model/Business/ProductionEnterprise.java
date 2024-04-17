@@ -21,6 +21,7 @@ public class ProductionEnterprise extends Enterprise{
         this.enterpriseType="Production Company";
         this.companyName = companyName;
         this.inventoryOrganization=new InventoryOrganization();
+        this.productionOrganization=new ProductionOrganization();
     }
 
     public String getCompanyName() {

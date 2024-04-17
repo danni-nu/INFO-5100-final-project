@@ -90,4 +90,14 @@ public class EnterpriseDirectory {
             }
         return newDesignEnterpriseList;
     }
+    
+    
+    public BrandEnterprise getBrandEnterprise(String companyName){
+        for(Enterprise e:findBrandEnterpriseList()){
+            if (e instanceof BrandEnterprise && ((BrandEnterprise)e).getCompanyName().equals(companyName)) {
+            return (BrandEnterprise) e;
+            }
+        }
+        return null;
+    }
 }
