@@ -23,6 +23,31 @@ public class ProductionEnterprise extends Enterprise{
         this.inventoryOrganization=new InventoryOrganization();
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public InventoryOrganization getInventoryOrganization() {
+        return inventoryOrganization;
+    }
+
+    public void setInventoryOrganization(InventoryOrganization inventoryOrganization) {
+        this.inventoryOrganization = inventoryOrganization;
+    }
+
+    public ProductionOrganization getProductionOrganization() {
+        return productionOrganization;
+    }
+
+    public void setProductionOrganization(ProductionOrganization productionOrganization) {
+        this.productionOrganization = productionOrganization;
+    }
+
+    
     @Override
     public String getEnterpriseType() {
         return "Production Company";
