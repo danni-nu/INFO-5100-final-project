@@ -5,6 +5,7 @@
 package model.Business;
 
 import model.DesignEnterprise.DesignOrganization;
+import model.RawMaterialEnterprise.RawMaterial;
 import model.RawMaterialEnterprise.RawMaterialDirectory;
 import model.RawMaterialEnterprise.RawMaterialManageOrganization;
 
@@ -12,7 +13,7 @@ import model.RawMaterialEnterprise.RawMaterialManageOrganization;
  *
  * @author qiaohui
  */
-public class RawMaterialEnterprise extends Enterprise{
+public class RawMaterialEnterprise {
     String enterpriseType="Raw Material Company";
     String companyName;
     RawMaterialManageOrganization rawMaterialManageOrganization;
@@ -24,7 +25,7 @@ public class RawMaterialEnterprise extends Enterprise{
         this.rawMaterialManageOrganization=new RawMaterialManageOrganization();
         this.rawMaterialDirectory=new RawMaterialDirectory();
     }
-
+ 
     public String getCompanyName() {
         return companyName;
     }
@@ -50,7 +51,7 @@ public class RawMaterialEnterprise extends Enterprise{
     }
     
     
-    @Override
+    //@Override
     public String getEnterpriseType() {
         return "Raw Material Company";
     }
@@ -59,5 +60,6 @@ public class RawMaterialEnterprise extends Enterprise{
     public String toString(){
         return companyName;
     }
+
     
 }

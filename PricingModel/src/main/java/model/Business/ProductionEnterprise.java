@@ -11,7 +11,7 @@ import model.Production.ProductionOrganization;
  *
  * @author qiaohui
  */
-public class ProductionEnterprise extends Enterprise{
+public class ProductionEnterprise{
     String enterpriseType="Production Company";
     String companyName;
     private InventoryOrganization inventoryOrganization;
@@ -22,6 +22,10 @@ public class ProductionEnterprise extends Enterprise{
         this.companyName = companyName;
         this.inventoryOrganization=new InventoryOrganization();
         this.productionOrganization=new ProductionOrganization();
+    }
+
+    public ProductionEnterprise(Enterprise enterprise) {
+        enterpriseType="Production Company";
     }
 
     public String getCompanyName() {
@@ -49,7 +53,7 @@ public class ProductionEnterprise extends Enterprise{
     }
 
     
-    @Override
+    //@Override
     public String getEnterpriseType() {
         return "Production Company";
     }

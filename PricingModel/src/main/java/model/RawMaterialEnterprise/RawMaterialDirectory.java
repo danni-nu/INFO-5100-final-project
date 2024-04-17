@@ -39,4 +39,16 @@ public class RawMaterialDirectory {
         RawMaterial rawMaterial =new RawMaterial(materialName,price);
         RawMaterialDirectory.add(rawMaterial);
     }
+    
+    public RawMaterial findRawMateiral(String m) {
+        for(RawMaterial ma: RawMaterialDirectory){
+            if(ma.getMaterialName().equals(m)){
+                return ma;
+            }
+            else{
+                return null;
+            }
+        }
+        return null;
+    }
 }

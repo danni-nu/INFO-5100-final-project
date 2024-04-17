@@ -5,24 +5,22 @@
 package model.DesignEnterprise;
 
 import java.util.ArrayList;
+import model.Personnel.Person;
+import model.Personnel.Profile;
 
 /**
  *
  * @author tianlyu
  */
-public class DesignerProfile {
-    private String profileClass;
-    private int defaultDesignPricing;
-    private ArrayList<RequirementAssignment> requirementAssignmentList;
+public class DesignerProfile extends Profile {
+    int defaultDesignPricing;
+    String deginerTitle;
+    ArrayList<RequirementAssignment> requirementAssignmentList;
 
-    public DesignerProfile(String profileClass, int defaultDesignPricing) {
-        this.profileClass = profileClass;
+    public DesignerProfile(Person p, int defaultDesignPricing) {
+        super(p);
         this.defaultDesignPricing = defaultDesignPricing;
         requirementAssignmentList = new ArrayList<>();
-    }
-
-    public String getProfileClass() {
-        return profileClass;
     }
 
     public int getDefaultDesignPricing() {
@@ -35,5 +33,10 @@ public class DesignerProfile {
     
     public void removeRequirementAssignment(RequirementAssignment assignment) {
         requirementAssignmentList.remove(assignment);
+    }
+
+    @Override
+    public String getRole() {
+        return "Designer";
     }
 }
