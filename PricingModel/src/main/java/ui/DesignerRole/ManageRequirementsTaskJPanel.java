@@ -4,7 +4,12 @@
  */
 package ui.DesignerRole;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel; 
+import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.Order;
+import model.BrandCompany.Requirement;
 import model.Business.Business;
 
 /**
@@ -15,6 +20,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
+    ArrayList<Order> orderDirectory;
+    ArrayList<Requirement> requirementsDirectory;
     /**
      * Creates new form DesignerWorkAreaJPanel
      */
@@ -22,6 +29,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         business = b;
         this.CardSequencePanel = clp;
         initComponents();
+        
+        populateCartTable();
     }
 
 
@@ -39,7 +48,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblSemester = new javax.swing.JTable();
+        tbltask = new javax.swing.JTable();
         Back = new javax.swing.JButton();
         SavejButton = new javax.swing.JButton();
         removejButton = new javax.swing.JButton();
@@ -58,27 +67,27 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Task ScheduleList");
 
-        tblSemester.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
-        tblSemester.setModel(new javax.swing.table.DefaultTableModel(
+        tbltask.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
+        tbltask.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Design Order ID", "Order Name", "Order Type", "Order State"
+                "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblSemester);
+        jScrollPane1.setViewportView(tbltask);
 
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -114,17 +123,17 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         tblSemester1.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblSemester1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Design Order ID", "Order Name", "Order Type", "Order State"
+                "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -149,17 +158,17 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(removejButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(removejButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SavejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 60, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -180,16 +189,16 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removejButton)
-                    .addComponent(removejButton1))
+                    .addComponent(removejButton1)
+                    .addComponent(SavejButton))
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SavejButton)
-                    .addComponent(removejButton2))
+                    .addComponent(removejButton2)
+                    .addComponent(removejButton))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
@@ -207,122 +216,35 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
 
     private void removejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButtonActionPerformed
         // TODO add your handling code here:
-//
-//        int row = tblSemester.getSelectedRow();
-//        if(row<0){
-//            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-//
-//        //remove seat assigment
+
+        int row = tbltask.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        //remove task
 //        CourseOffer courseOfferToRemove = (CourseOffer)tblSemester.getValueAt(row, 3);
-//        //        Course removecourse = null;
-//        //        removecourse = business.getCourseCatalog().getCourseByNumber(courseNumberToRemove);
-//
+        //        Course removecourse = null;
+        //        removecourse = business.getCourseCatalog().getCourseByNumber(courseNumberToRemove);
+
 //        courseSchedule.getSchedule().remove(courseOfferToRemove);
-//
-//        //
-//        populateTable();
+
+
+        populateRequirmentTable();
     }//GEN-LAST:event_removejButtonActionPerformed
 
     private void SavejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavejButtonActionPerformed
         // TODO add your handling code here:
 
-//        FacultyProfile newfacultyProfile = (FacultyProfile)cmbfacultyname.getSelectedItem();
-//        String newCourseNumber = (String)cmbcoursenumber.getSelectedItem();
-//
-//        //compare the course exist
-//        ArrayList<CourseOffer> courseOfferList= courseSchedule.getSchedule();
-//
-//        for(CourseOffer courseOffer:courseOfferList){
-//            if(courseOffer.getCourseNumber().equals(newCourseNumber) && courseOffer.getFacultyProfile().equals(newfacultyProfile)){
-//                JOptionPane.showMessageDialog(null, "Please don't add same Course with same teacher !!", "Warning", JOptionPane.WARNING_MESSAGE);
-//                return;
-//            }
-//        }
-
-        //        ArrayList<FacultyProfile> teacherlist =  business.getFacultyDirectory().getTeacherlist();
-        //        for(FacultyProfile  teacher:teacherlist){
-            //            if(teacher.equals(newfacultyProfile)){//if is same teacher check the facultyAssignment
-                //                ArrayList<FacultyAssignment> facultyAssignment = newfacultyProfile.getFacultyassignments();
-                //
-                //                for(FacultyAssignment facultyAssignmentOfTheTeacher:facultyAssignment){
-                    //
-                    //                    if(facultyAssignmentOfTheTeacher.getCourseoffer().getCourseNumber().equals(newCourseNumber)){
-                        //
-                        //                        JOptionPane.showMessageDialog(null, "Please don't add same Course with same teacher !!", "Warning", JOptionPane.WARNING_MESSAGE);
-                        //                        return;
-                        //                    }
-                    //
-                    //                }
-                //            }
-            //        }
-
-        //        String courseNumber = CourseNumberjTextField.getText();
-        //        String FacultyName = FacultyNamejTextField.getText();
-
-        //find faculty
-//        FacultyDirectory facultyDirectory = business.getFacultyDirectory();
-//        ArrayList<FacultyProfile> teaArrayList= facultyDirectory.getTeacherlist();
-//
-//        FacultyProfile fpres = null;
-//
-//        for(FacultyProfile fp:teaArrayList){
-//            if(fp.equals(newfacultyProfile) ){
-//                fpres = fp;
-//            }
-//        }
-        //        for(FacultyProfile fp:teaArrayList){
-            //            if(fp.toString().equals(newfacultyProfile) ){
-                //                fpres = fp;
-                //            }
-            //        }
-        //        if(fpres == null){
-            //            JOptionPane.showMessageDialog(null, "Please Check Faculty Name !!", "Warning", JOptionPane.WARNING_MESSAGE);
-            //            return;
-            //        }
-
-        //find course
-//        Course newcourse = null;
-//        newcourse = business.getCourseCatalog().getCourseByNumber(newCourseNumber);
-
-        //        if(newcourse == null){
-            //            JOptionPane.showMessageDialog(null, "Please Check the Course Number !!", "Warning", JOptionPane.WARNING_MESSAGE);
-            //            return;
-            //        }
-        //
-
-        //add course and faculty to course schedule
-        //        CourseCatalog courseCatalog = business.getCourseCatalog();
-        //        FacultyDirectory facultydirectory = business.getFacultyDirectory();
-        //        Degree degree = business.getDegree();
-
-//        StudentDirectory sd = business.getStudentDirectory();
-
-        //traversal the Student list to new the CourseLoad
-        //        for (StudentProfile studentProfile : sd.getStudentlist()) {
-            //            studentProfile.newCourseLoad(semester);
-            //        }
-        //traversal the Course list , new that course's course offer
-
-//        CourseOffer courseoffer = courseSchedule.newCourseOffer(newcourse.getCourseNumber());
-//        if (courseoffer == null) {
-//            System.out.println("Warning: Cannot find course: " + newcourse.getCourseNumber());
-//            return;
-//        }
-        //generat the Seats
-//        courseoffer.generatSeats(sd.getStudentlist().size());
-//        //assign to the faculty to course
-//        courseoffer.assignAsTeacher(fpres);
-//
-//        JOptionPane.showMessageDialog(null, "Course Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
 
         //
         //        CourseNumberjTextField.setText("");
         //        FacultyNamejTextField.setText("");
         //
 
-//        populateTable();
+        populateRequirmentTable();
     }//GEN-LAST:event_SavejButtonActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -352,7 +274,40 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private javax.swing.JButton removejButton;
     private javax.swing.JButton removejButton1;
     private javax.swing.JButton removejButton2;
-    private javax.swing.JTable tblSemester;
     private javax.swing.JTable tblSemester1;
+    private javax.swing.JTable tbltask;
     // End of variables declaration//GEN-END:variables
+
+    private void populateCartTable() {
+        DefaultTableModel model = (DefaultTableModel) tbltask.getModel();
+        model.setRowCount(0);
+        //Requirement 需要id
+        for (Requirement r : requirementsDirectory) {
+            Object row[] = new Object[6];
+            row[0] = r.getRowMaterial();
+            row[1] = r.getProductionMode();
+            row[2] = r.getColor();
+            row[3] = r.getStyle();
+            row[4] = r.getDeadline();
+            row[5] = r.getEvaluation();
+            model.addRow(row);
+        }
+    }
+
+    private void populateRequirmentTable() {
+        DefaultTableModel model = (DefaultTableModel) tblSemester1.getModel();
+        model.setRowCount(0);
+        //Requirement 需要id
+        for (Requirement r : requirementsDirectory) {
+            Object row[] = new Object[6];
+            row[0] = r.getRowMaterial();
+            row[1] = r.getProductionMode();
+            row[2] = r.getColor();
+            row[3] = r.getStyle();
+            row[4] = r.getDeadline();
+            row[5] = r.getEvaluation();
+            model.addRow(row);
+        }
+        
+    }
 }
