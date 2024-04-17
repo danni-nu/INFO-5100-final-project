@@ -30,6 +30,11 @@ public class DesignerDirectory {
         DesignerProfile newdesigner=new DesignerProfile(profile, price);
         DesignerProfileList.add(newdesigner);
     }
+    public DesignerProfile addANewDesignerProfile(Person profile,int price) {
+        DesignerProfile newdesigner=new DesignerProfile(profile, price);
+        DesignerProfileList.add(newdesigner);
+        return newdesigner;
+    }
     
     public void deleteDesignerProfile(DesignerProfile profile) {
         DesignerProfileList.remove(profile);

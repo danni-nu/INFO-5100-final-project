@@ -9,19 +9,20 @@ package model.RawMaterialEnterprise;
  * @author qiaohui
  */
 public class RawMaterialManageOrganization {
-    RawMaterialDirectory rawMaterialDirectory;
+    //RawMaterialDirectory rawMaterialDirectory;
     RawMaterialManager rawMaterialManager;
+    RawMaterialOrderDirectory rawMaterialOrderDirectory;
 
+    public RawMaterialOrderDirectory getRawMaterialOrderDirectory() {
+        return rawMaterialOrderDirectory;
+    }
+
+    public void setRawMaterialOrderDirectory(RawMaterialOrderDirectory rawMaterialOrderDirectory) {
+        this.rawMaterialOrderDirectory = rawMaterialOrderDirectory;
+    }
+   
     public RawMaterialManageOrganization() { 
-        
-    }
-
-    public RawMaterialDirectory getRawMaterialDirectory() {
-        return rawMaterialDirectory;
-    }
-
-    public void setRawMaterialDirectory(RawMaterialDirectory rawMaterialDirectory) {
-        this.rawMaterialDirectory = rawMaterialDirectory;
+        rawMaterialOrderDirectory= new RawMaterialOrderDirectory ();
     }
 
     public RawMaterialManager getRawMaterialManager() {

@@ -13,9 +13,19 @@ import java.util.ArrayList;
 public class ProductionOrganization {
     private ProductionManagerProfile productManagerProfile;
     private ProductionModeDirectory productionModeDirectory;
-
+    ProductionOrderDirectory productionOrderDirectory;
+    
     public ProductionOrganization() {
-        productionModeDirectory = new ProductionModeDirectory();
+        this.productionModeDirectory = new ProductionModeDirectory();
+        this.productionOrderDirectory=new ProductionOrderDirectory();
+    }
+
+    public ProductionOrderDirectory getProductionOrderDirectory() {
+        return productionOrderDirectory;
+    }
+
+    public void setProductionOrderDirectory(ProductionOrderDirectory productionOrderDirectory) {
+        this.productionOrderDirectory = productionOrderDirectory;
     }
     
     public ProductionModeDirectory getProductionModeDirectory() {

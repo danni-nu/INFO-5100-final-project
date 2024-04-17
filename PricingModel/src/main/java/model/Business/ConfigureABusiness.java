@@ -6,17 +6,28 @@
 package model.Business;
 
 import java.util.Random;
+import model.BrandCompany.Order;
+import model.BrandCompany.OrderDirectory;
 import model.BrandCompany.PlannerProfile;
 import model.BrandCompany.ProcurerDirectory;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.ProductPlannerDirectory;
+import model.BrandCompany.Requirement;
+import model.BrandCompany.RequirementsDirectory;
 import model.Business.Business;
 import model.DesignEnterprise.DesignerDirectory;
+import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.ProductionMode;
 import model.Production.ProductionModeDirectory;
+import model.Production.ProductionOrder;
+import model.Production.ProductionOrderDirectory;
+import model.RawMaterialEnterprise.RawMaterial;
 import model.RawMaterialEnterprise.RawMaterialDirectory;
+import model.RawMaterialEnterprise.RawMaterialOrder;
+import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 
@@ -44,6 +55,20 @@ public class ConfigureABusiness {
         Person p6 = personDirectory.newPerson("Fenil");
         Person p7 = personDirectory.newPerson("Gaurav");
         Person p8 = personDirectory.newPerson("Hemant");
+        Person p9 = personDirectory.newPerson( "Isha");
+        Person p10 = personDirectory.newPerson( "Jainam");
+        Person p11 = personDirectory.newPerson( "Kal");
+        Person p12 = personDirectory.newPerson( "Lakshay");
+        Person p13 = personDirectory.newPerson( "Mihir");
+        Person p14 = personDirectory.newPerson( "Nirav");
+        Person p15 = personDirectory.newPerson( "Ojas");
+        Person p16 = personDirectory.newPerson( "Bonnie");
+        Person p17 = personDirectory.newPerson( "Carl");
+        Person p18 = personDirectory.newPerson("Diana");
+        Person p19 = personDirectory.newPerson( "Edward");
+        Person p20 = personDirectory.newPerson("Fiona");
+        Person p21 = personDirectory.newPerson("George");
+        Person p22 = personDirectory.newPerson("Hannah");
 
     
         ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
@@ -51,8 +76,8 @@ public class ConfigureABusiness {
         UserAccount us2=useAccountDirectory.newUserAccount(pricurerProfile, "Procurer1", "123");
         
         ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
-        PlannerProfile plannerProfile=plannerDirectory.addNewPlanner(p3);
-        UserAccount us3=useAccountDirectory.newUserAccount(plannerProfile, "Planner1", "123");
+        PlannerProfile planner1=plannerDirectory.addNewPlanner(p3);
+        UserAccount us3=useAccountDirectory.newUserAccount(planner1, "Planner1", "123");
         
         StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
         styleDirectory.addNewStyle("Modern");
@@ -69,9 +94,8 @@ public class ConfigureABusiness {
 
         RawMaterialDirectory rawMaterialDirectory=rawMaterialEnterprise.getRawMaterialDirectory();
         Random random = new Random();
-
-        rawMaterialDirectory.addNewRawMaterial("T-shirt", random.nextInt(41) + 20);
-        rawMaterialDirectory.addNewRawMaterial("Jeans", random.nextInt(41) + 20);
+        RawMaterial rawmaterial1=rawMaterialDirectory.addANewRawMaterial("T-shirt", random.nextInt(41) + 20);
+        RawMaterial rawmaterial2=rawMaterialDirectory.addANewRawMaterial("Jeans", random.nextInt(41) + 20);
         rawMaterialDirectory.addNewRawMaterial("Dress shirt", random.nextInt(41) + 20);
         rawMaterialDirectory.addNewRawMaterial("Skirt", random.nextInt(41) + 20);
         rawMaterialDirectory.addNewRawMaterial("Blouse", random.nextInt(41) + 20);
@@ -92,8 +116,8 @@ public class ConfigureABusiness {
         rawMaterialDirectory.addNewRawMaterial("Tunic", random.nextInt(41) + 20);
         
         ProductionModeDirectory productionModeDirectory=productionEnterprise.getProductionOrganization().getProductionModeDirectory();
-        productionModeDirectory.addNewProductionMode("Screen printing", random.nextInt(11) + 5);
-        productionModeDirectory.addNewProductionMode("Digital printing", random.nextInt(11) + 5);
+        ProductionMode productionmode1=productionModeDirectory.addANewProductionMode("Screen printing", random.nextInt(11) + 5);
+        ProductionMode productionmode2=productionModeDirectory.addANewProductionMode("Digital printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Heat transfer printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Sublimation printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Embroidery", random.nextInt(11) + 5);
@@ -107,12 +131,34 @@ public class ConfigureABusiness {
         productionModeDirectory.addNewProductionMode("Flock printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Direct-to-garment printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Laser printing", random.nextInt(11) + 5);
-       
-        
-        
+            
         DesignerDirectory designerDirectory=designEnterprise.getDesignOrganization().getDesignerDirectory();
-        designerDirectory.addNewDesignerProfile(p8, 10);
-        designerDirectory.addNewDesignerProfile(p8, 9);
+        DesignerProfile designer1=designerDirectory.addANewDesignerProfile(p7, 10);
+        DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 9);
+        
+        RequirementsDirectory requirementsdirectory=brandEnterprise.productPlanningOrganization.getRequirementDirectory();
+        Requirement requirement1=requirementsdirectory.addANewRrequirement(rawmaterial1, designer1, productionmode1, planner1);
+        Requirement requirement2=requirementsdirectory.addANewRrequirement(rawmaterial2, designer2, productionmode2, planner1);
+        Requirement requirement3=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode1, planner1);
+        Requirement requirement4=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode2, planner1);
+        OrderDirectory orderdirectory=brandEnterprise.getProcurementOrganization().getOrderDirectory();
+        Order order1=orderdirectory.addNewOrder(requirement1, 10);
+        Order order2=orderdirectory.addNewOrder(requirement2, 10);
+        Order order3=orderdirectory.addNewOrder(requirement3, 10);
+        Order order4=orderdirectory.addNewOrder(requirement4, 10);
+        
+        
+        ProductionOrderDirectory productionOrderDirectory=productionEnterprise.getProductionOrganization().getProductionOrderDirectory();
+        ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
+        ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
+        ProductionOrder productionOrder2 =productionOrderDirectory.addNewOrder(order2);
+        ProductionOrder productionOrder1 =productionOrderDirectory.addNewOrder(order1);
+        
+        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
+        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4, productionOrder4);
+        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3, productionOrder3);
+        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2, productionOrder2);
+        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1, productionOrder1);
         
         
     return business;

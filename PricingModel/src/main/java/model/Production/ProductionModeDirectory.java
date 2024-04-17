@@ -29,4 +29,10 @@ public class ProductionModeDirectory {
         ProductionMode productionMode=new ProductionMode(modeName,price);
         productionModeList.add(productionMode);
     }
+    
+    public ProductionMode addANewProductionMode(String modeName, int price){
+        ProductionMode productionMode=new ProductionMode(modeName,price);
+        productionModeList.add(productionMode);
+        return productionMode;
+    }
 }

@@ -43,6 +43,14 @@ public class Requirement {
         this.plannerProfile=plannerProfile;
     }
 
+    public PlannerProfile getPlannerProfile() {
+        return plannerProfile;
+    }
+
+    public void setPlannerProfile(PlannerProfile plannerProfile) {
+        this.plannerProfile = plannerProfile;
+    }
+
 
     public RequirementSolution addRequirementSolution() {
         return new RequirementSolution();
