@@ -25,5 +25,8 @@ public class ProductionModeDirectory {
         this.productionModeList = productionModeList;
     }
     
-    
+    public void addNewProductionMode(String modeName, int price){
+        ProductionMode productionMode=new ProductionMode(modeName,price);
+        productionModeList.add(productionMode);
+    }
 }

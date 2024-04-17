@@ -14,6 +14,7 @@ import model.Business.Business;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.ProductionModeDirectory;
 import model.RawMaterialEnterprise.RawMaterialDirectory;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
@@ -89,6 +90,22 @@ public class ConfigureABusiness {
         rawMaterialDirectory.addNewRawMaterial("Suit", random.nextInt(41) + 20);
         rawMaterialDirectory.addNewRawMaterial("Tunic", random.nextInt(41) + 20);
         
+        ProductionModeDirectory productionModeDirectory=productionEnterprise.getProductionOrganization().getProductionModeDirectory();
+        productionModeDirectory.addNewProductionMode("Screen printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Digital printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Heat transfer printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Sublimation printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Embroidery", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Appliqué", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Vinyl printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Foil printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Water-based printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Discharge printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Glow-in-the-dark printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Puff printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Flock printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Direct-to-garment printing", random.nextInt(11) + 5);
+        productionModeDirectory.addNewProductionMode("Laser printing", random.nextInt(11) + 5);
        
     return business;
   }
