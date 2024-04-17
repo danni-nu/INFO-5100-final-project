@@ -11,6 +11,7 @@ import model.BrandCompany.ProcurerDirectory;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.ProductPlannerDirectory;
 import model.Business.Business;
+import model.DesignEnterprise.DesignerDirectory;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
@@ -107,6 +108,13 @@ public class ConfigureABusiness {
         productionModeDirectory.addNewProductionMode("Direct-to-garment printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Laser printing", random.nextInt(11) + 5);
        
+        
+        
+        DesignerDirectory designerDirectory=designEnterprise.getDesignOrganization().getDesignerDirectory();
+        designerDirectory.addNewDesignerProfile(p8, 10);
+        designerDirectory.addNewDesignerProfile(p8, 9);
+        
+        
     return business;
   }
 }

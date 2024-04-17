@@ -42,7 +42,7 @@ public class DesignEnterprise extends Enterprise{
     public void setEnterprsieType(String enterprsieType) {
         this.enterprsieType = enterprsieType;
     }
-
+    
     public String getCompanyName() {
         return companyName;
     }

@@ -11,7 +11,7 @@ import model.Personnel.Profile;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
-import ui.BrandCompany.ProductPlanner.PlannerWorkAreaJPanel;
+import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

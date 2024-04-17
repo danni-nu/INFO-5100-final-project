@@ -53,7 +53,7 @@ public class BrandEnterprise extends Enterprise {
         return companyName;
     }
 
-    Object getCompanyName() {
+    public String getCompanyName() {
         return companyName;
     }
 }

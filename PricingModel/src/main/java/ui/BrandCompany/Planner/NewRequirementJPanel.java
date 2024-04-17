@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.BrandCompany.ProductPlanner;
+package ui.BrandCompany.Planner;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -16,6 +16,7 @@ import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.Style;
 import model.Production.ProductionMode;
 import model.RawMaterialEnterprise.RawMaterial;
+import java.lang.String;
 
 /**
  *
@@ -41,6 +42,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         populateProductionCompanyCombo();
         populateProductionModeCombo();
         populateDesignCompanyCombo();
+        populateDesginerCombp();
         populateDesignStyleCombo();
         
     }
@@ -371,10 +373,10 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbProductionModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionModeActionPerformed
         // TODO add your handling code here:
-        ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
-        if(productionmode!=null) {
-            lblRawMaterial.setText(String.valueOf(productionmode.getModePrice()));
-        }
+//        ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
+//        if(productionmode!=null) {
+//            lblRawMaterial.setText(String.valueOf(productionmode.getModePrice()));
+//        }
     }//GEN-LAST:event_cmbProductionModeActionPerformed
 
     private void txtProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameActionPerformed
@@ -387,15 +389,18 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbDesignerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignerActionPerformed
         // TODO add your handling code here:
-        DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
-        if(designer!=null) {
-            lblRawMaterial.setText(String.valueOf(designer.getDefaultDesignPricing()));
-        }
+//        DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
+//        if(designer!=null) {
+//            lblRawMaterial.setText(String.valueOf(designer.getDefaultDesignPricing()));
+//        }
     }//GEN-LAST:event_cmbDesignerActionPerformed
 
     private void cmbRawMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRawMaterialActionPerformed
         // TODO add your handling code here:
-        RawMaterial rawmaterial=(RawMaterial)cmbRawMaterial.getSelectedItem();
+        String s=(String)cmbRawMaterialCompany.getSelectedItem();
+        RawMaterialEnterprise selectedEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+        String m=(String)cmbRawMaterial.getSelectedItem();
+        RawMaterial rawmaterial=selectedEnterprise.getRawMaterialDirectory().findRawMateiral(m);
         if(rawmaterial!=null) {
             lblRawMaterial.setText(String.valueOf(rawmaterial.getPrice()));
         }
@@ -404,15 +409,20 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbDesignStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignStyleActionPerformed
         // TODO add your handling code here:
-        Style style=(Style)cmbDesignStyle.getSelectedItem();
+        //Style style=(Style)cmbDesignStyle.getSelectedItem();
     }//GEN-LAST:event_cmbDesignStyleActionPerformed
 
     private void CreateRerquirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRerquirementActionPerformed
         // TODO add your handling code here:
-        RawMaterial rawmaterial=(RawMaterial)cmbRawMaterial.getSelectedItem();
+       String s=(String)cmbRawMaterialCompany.getSelectedItem();
+       RawMaterialEnterprise selectedEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+       String m=(String)cmbRawMaterial.getSelectedItem();
+       RawMaterial rawmaterial=selectedEnterprise.getRawMaterialDirectory().findRawMateiral(m);
+       String s1=(String)cmbDesignCompany.getSelectedItem();
+       DesignEnterprise selectedEnterprise1=business.getEnterpriseDirectory().getDesignEnterprise(s1);
        DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
        ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
-       business.getEnterpriseDirectory().getBrandEnterprise("Brand Company").getProductPlanningOrganization().getRequirementDirectory().addANewRrequirement(rawmaterial, designer, productionmode, plannerProfile);
+       //business.getEnterpriseDirectory().getBrandEnterprise("Brand Company").getProductPlanningOrganization().getRequirementDirectory().addANewRrequirement(rawmaterial, designer, productionmode, plannerProfile);
        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_CreateRerquirementActionPerformed
 
@@ -455,48 +465,72 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void populateRawMaterialCompanyCombo() {
         cmbRawMaterialCompany.removeAllItems();
-        for(Enterprise enteriprise:business.getEnterpriseDirectory().findRawMaterialEnterpriseList()){
-            cmbRawMaterialCompany.addItem(enteriprise.toString());
+        for(RawMaterialEnterprise enterprise:business.getEnterpriseDirectory().getRawMaterialEnterpriseList()){
+            cmbRawMaterialCompany.addItem(enterprise.toString());
         }
+//        for(Enterprise enterprise:business.getEnterpriseDirectory().findRawMaterialEnterpriseList()){
+//            cmbRawMaterialCompany.addItem(enterprise);
+//        }
     }
 
     private void populateProductionCompanyCombo() {
         cmbProductionCompany.removeAllItems();
-        for(Enterprise enteriprise:business.getEnterpriseDirectory().findProductionEnterpriseList()){
-            cmbProductionCompany.addItem(enteriprise.toString());
-        }    
+        for(ProductionEnterprise enterprise:business.getEnterpriseDirectory().getProductionEnterpriseList()){
+            cmbProductionCompany.addItem(enterprise.toString());
+        }  
+//        for(Enterprise enterprise:business.getEnterpriseDirectory().findProductionEnterpriseList()){
+//            cmbProductionCompany.addItem(enterprise);
+//        }
     }
 
     private void populateDesignCompanyCombo() {
         cmbDesignCompany.removeAllItems();
-        for(Enterprise enteriprise:business.getEnterpriseDirectory().findDesignEnterpriseList()){
-            cmbDesignCompany.addItem(enteriprise.toString());
+        for(DesignEnterprise enterprise:business.getEnterpriseDirectory().getDesignEnterpriseList()){
+            cmbDesignCompany.addItem(enterprise.toString());
         }
+        
     }
     
     private void populateDesignStyleCombo() {
         cmbDesignStyle.removeAllItems();
-        DesignEnterprise designenterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
-        for(Style style:designenterprise.getStyleDirectory().getStyleDirectory()){
+        //DesignEnterprise selectedEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
+        String s=(String)cmbDesignCompany.getSelectedItem();
+        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
+        for(Style style:selectedEnterprise.getStyleDirectory().getStyleDirectory()){
             cmbDesignStyle.addItem(style.toString());
         }    
     }
 
     private void populateRawMaterialCombp() {
         cmbRawMaterial.removeAllItems();
-        RawMaterialEnterprise selectedrawmaterialenterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
-        for(RawMaterial rawmaterial:selectedrawmaterialenterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
+        //RawMaterialEnterprise selectedEnterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
+        String s=(String)cmbRawMaterialCompany.getSelectedItem();
+        RawMaterialEnterprise selectedEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+        for(RawMaterial rawmaterial:selectedEnterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
             cmbRawMaterial.addItem(rawmaterial.toString());
         }
-    }
+        }
 
     private void populateProductionModeCombo() {
         cmbProductionMode.removeAllItems();
-        ProductionEnterprise productionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
-        for(ProductionMode productionmode:productionenterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
-            cmbRawMaterial.addItem(productionmode.toString());
+        String s=(String)cmbProductionCompany.getSelectedItem();
+        ProductionEnterprise selectedEnterprise=business.getEnterpriseDirectory().getProductionEnterprise(s);
+        //ProductionEnterprise productionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
+        for(ProductionMode productionmode:selectedEnterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
+            cmbProductionMode.addItem(productionmode.toString());
         }
     }
+
+    private void populateDesginerCombp() {
+        cmbDesigner.removeAllItems();
+        String s=(String)cmbDesignCompany.getSelectedItem();
+        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
+        for(DesignerProfile designer: selectedEnterprise.getDesignOrganization().getDesignerDirectory().getDesignerProfileList()){
+            cmbDesigner.addItem(designer.toString());
+        }
+    }
+    
+    
     
     
 }

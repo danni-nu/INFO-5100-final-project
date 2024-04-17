@@ -10,29 +10,31 @@ import java.util.ArrayList;
  * @author tianlyu
  */
 public class DesignOrganization {
-    public ArrayList<DesignerDirectory> DesignerDirectory;
-    public ArrayList<RequirementAssignmentDirectory> RequirementAssignmentDirectory;
+    public DesignerDirectory DesignerDirectory;
+    public RequirementAssignmentDirectory RequirementAssignmentDirectory;
 
     public DesignOrganization() {
-        this.DesignerDirectory = new ArrayList<>();
-        this.RequirementAssignmentDirectory =new ArrayList<>();
+        this.DesignerDirectory=new DesignerDirectory();
+        this.RequirementAssignmentDirectory=new RequirementAssignmentDirectory();
     }
-
-    public ArrayList<DesignerDirectory> getDesignerDirectory() {
+    
+    public DesignerDirectory getDesignerDirectory() {
         return DesignerDirectory;
     }
 
-    public void setDesignerDirectory(ArrayList<DesignerDirectory> DesignerDirectory) {
+    public void setDesignerDirectory(DesignerDirectory DesignerDirectory) {
         this.DesignerDirectory = DesignerDirectory;
     }
 
-    public ArrayList<RequirementAssignmentDirectory> getRequirementAssignmentDirectory() {
+    public RequirementAssignmentDirectory getRequirementAssignmentDirectory() {
         return RequirementAssignmentDirectory;
     }
 
-    public void setRequirementAssignmentDirectory(ArrayList<RequirementAssignmentDirectory> RequirementAssignmentDirectory) {
+    public void setRequirementAssignmentDirectory(RequirementAssignmentDirectory RequirementAssignmentDirectory) {
         this.RequirementAssignmentDirectory = RequirementAssignmentDirectory;
     }
+
+ 
 
     
     
