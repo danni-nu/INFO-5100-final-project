@@ -15,33 +15,52 @@ public class RequirementAssignment {
     private DesignerProfile designerProfile;
     private Requirement requirement;
     private ArrayList<RequirementAssignment> requirementAssignmentsDirectory;
+    private DesignerAssignmentRoad DesignerAssignmentRoad;
     private RequirementSolution requirementSolution;
     //+Deadline: string 
     //+Evaluation:String 直接从requirementAssignmentsDirectory拿？
 
-    public RequirementAssignment(DesignerProfile designerProfile, Requirement requirement, ArrayList<RequirementAssignment> requirementAssignmentsDirectory, RequirementSolution requirementSolution) {
-        this.designerProfile = designerProfile;
-        this.requirement = requirement;
-        this.requirementAssignmentsDirectory = requirementAssignmentsDirectory;
-        this.requirementSolution = requirementSolution;
-        requirementAssignmentsDirectory.add(this);
-    }
+
     
+    public RequirementAssignment(DesignerAssignmentRoad da, Requirement r) {
+        requirement = r;
+        DesignerAssignmentRoad = da;
+        
+    }
 
     public DesignerProfile getDesignerProfile() {
         return designerProfile;
-    }
-
-    public Requirement getRequirement() {
-        return requirement;
     }
 
     public void setDesignerProfile(DesignerProfile designerProfile) {
         this.designerProfile = designerProfile;
     }
 
+    public Requirement getRequirement() {
+        return requirement;
+    }
+
     public void setRequirement(Requirement requirement) {
         this.requirement = requirement;
     }
+
+    public ArrayList<RequirementAssignment> getRequirementAssignmentsDirectory() {
+        return requirementAssignmentsDirectory;
+    }
+
+    public void setRequirementAssignmentsDirectory(ArrayList<RequirementAssignment> requirementAssignmentsDirectory) {
+        this.requirementAssignmentsDirectory = requirementAssignmentsDirectory;
+    }
+
+
+    public RequirementSolution getRequirementSolution() {
+        return requirementSolution;
+    }
+
+    public void setRequirementSolution(RequirementSolution requirementSolution) {
+        this.requirementSolution = requirementSolution;
+    }
+
+    
     
 }

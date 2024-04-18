@@ -4,6 +4,7 @@
  */
 package ui;
 
+import com.github.javafaker.Faker;
 import java.awt.CardLayout;
 import model.Business.Business;
 import model.Business.ConfigureABusiness;
@@ -90,6 +91,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 new MainJFrame().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
