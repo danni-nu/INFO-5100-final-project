@@ -5,6 +5,7 @@
 package model.Production;
 
 import java.util.ArrayList;
+import model.DesignEnterprise.DesignerProfile;
 import model.Personnel.Person;
 
 /**
@@ -29,9 +30,15 @@ public class ProductionOrganization {
         this.productionModeDirectory = productionModeDirectory;
     }
 
-    
+    public ProductionMode findProductionMode(String s){
+        for(ProductionMode productionMode: productionModeDirectory.getProductionModeList()){
+                if(productionMode.getModeName().equals(s)){
+                    return productionMode;
+                }
+                return null;
+            }
+        return null;
+    }
 
-    
-    
     
 }

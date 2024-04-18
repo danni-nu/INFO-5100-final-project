@@ -5,6 +5,7 @@
 package model.DesignEnterprise;
 
 import java.util.ArrayList;
+import model.Business.DesignEnterprise;
 import model.Personnel.Person;
 
 /**
@@ -39,5 +40,14 @@ public class DesignerDirectory {
     public void deleteDesignerProfile(DesignerProfile profile) {
         DesignerProfileList.remove(profile);
     }
+    
+    public DesignerProfile findDesignerProfile(String designName){
+        for(DesignerProfile designer: DesignerProfileList){
+            if(designer.getPerson().getPersonName().equals(designName)){
+                return designer;}
+            return null;
+            }
+        return null;
+        }
     
 }
