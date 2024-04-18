@@ -10,7 +10,7 @@ import model.BrandCompany.ProductPlanningOrganization;
  *
  * @author qiaohui
  */
-public class BrandEnterprise extends Enterprise {
+public class BrandEnterprise{
     String enterpriseType="Brand Company";
     String companyName;
     ProductPlanningOrganization  productPlanningOrganization;
@@ -23,7 +23,6 @@ public class BrandEnterprise extends Enterprise {
         this.procurementOrganization=new ProcurementOrganization();
     }
 
-    @Override
     public String getEnterpriseType() {
         return "Brand Company";
     }

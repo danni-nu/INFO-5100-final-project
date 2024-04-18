@@ -17,6 +17,7 @@ import model.BrandCompany.RequirementsDirectory;
 import model.Business.Business;
 import model.DesignEnterprise.DesignerDirectory;
 import model.DesignEnterprise.DesignerProfile;
+import model.DesignEnterprise.Style;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
@@ -40,10 +41,10 @@ public class ConfigureABusiness {
   public static Business initialize() {
     Business business = new Business("Xerox");
     EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
-    BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company");
-    DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany");
-    ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company");
-    RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company");
+    BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company1");
+    DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
+    ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1");
+    RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
     PersonDirectory personDirectory=business.getPersonDirectory();
     UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
     
@@ -80,8 +81,8 @@ public class ConfigureABusiness {
         UserAccount us3=useAccountDirectory.newUserAccount(planner1, "Planner1", "123");
         
         StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
-        styleDirectory.addNewStyle("Modern");
-        styleDirectory.addNewStyle("Modern");
+        Style style1=styleDirectory.addANewStyle("Modern");
+        Style style2=styleDirectory.addANewStyle("Modern");
         styleDirectory.addNewStyle("Classic");
         styleDirectory.addNewStyle("Vintage");
         styleDirectory.addNewStyle("Contemporary");
@@ -137,10 +138,12 @@ public class ConfigureABusiness {
         DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 9);
         
         RequirementsDirectory requirementsdirectory=brandEnterprise.productPlanningOrganization.getRequirementDirectory();
-        Requirement requirement1=requirementsdirectory.addANewRrequirement(rawmaterial1, designer1, productionmode1, planner1);
-        Requirement requirement2=requirementsdirectory.addANewRrequirement(rawmaterial2, designer2, productionmode2, planner1);
-        Requirement requirement3=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode1, planner1);
-        Requirement requirement4=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode2, planner1);
+        Requirement requirement1=requirementsdirectory.addANewRrequirement(rawmaterial1, designer1, productionmode1, planner1,style1);
+        Requirement requirement2=requirementsdirectory.addANewRrequirement(rawmaterial2, designer2, productionmode2, planner1,style1);
+        Requirement requirement3=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode1, planner1,style2);
+        Requirement requirement4=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode2, planner1,style2);
+        Requirement requirement5=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode2, planner1,style1);
+        Requirement requirement6=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode1, planner1,style2);
         OrderDirectory orderdirectory=brandEnterprise.getProcurementOrganization().getOrderDirectory();
         Order order1=orderdirectory.addNewOrder(requirement1, 10);
         Order order2=orderdirectory.addNewOrder(requirement2, 10);

@@ -7,6 +7,7 @@ package model.BrandCompany;
 import java.util.ArrayList;
 import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.RequirementAssignment;
+import model.DesignEnterprise.Style;
 import model.Production.ProductionMode;
 import model.RawMaterialEnterprise.RawMaterial;
 
@@ -38,8 +39,8 @@ public class RequirementsDirectory {
         this.requirementsDirectory = requirementsDirectory;
     }    
     
-    public Requirement addANewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp){
-        Requirement newrequirement=new Requirement(r,d,p,pp);
+    public Requirement addANewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp,Style style){
+        Requirement newrequirement=new Requirement(r,d,p,pp,style);
         requirementsDirectory.add(newrequirement);
         return newrequirement;
     }
