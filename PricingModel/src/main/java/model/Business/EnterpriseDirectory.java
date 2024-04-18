@@ -15,7 +15,7 @@ import model.RawMaterialEnterprise.RawMaterial;
  * @author qiaohui
  */
 public class EnterpriseDirectory {
-    ArrayList<Enterprise> enterpriseDirectory;
+    //ArrayList<Enterprise> enterpriseDirectory;
     ArrayList<RawMaterialEnterprise> rawMaterialEnterpriseList;
     ArrayList<DesignEnterprise> designEnterpriseList;
     ArrayList<BrandEnterprise> brandEnterpriseList;

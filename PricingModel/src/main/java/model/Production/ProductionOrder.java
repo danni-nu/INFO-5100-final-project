@@ -24,6 +24,7 @@ public class ProductionOrder {
 
     public ProductionOrder(Order order) {
         this.order = order;
+        this.productionOrderStatus = "false";
 
     }
     public ProductionOrder(Order order, ProductionMode productionMode, RawMaterialOrder materialOrder) {
