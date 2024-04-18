@@ -6,32 +6,25 @@
 package model.Business;
 
 import java.util.ArrayList;
+import model.Personnel.PersonDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
-
 
 /**
  *
  * @author kal bugrara
  */
 public class Business {
-
-          String name;
-          EnterpriseDirectory Enterprise;
-          UserAccountDirectory userDirctory;
-          
+    String name;
+    EnterpriseDirectory EnterpriseDirectory;
+    UserAccountDirectory userAccountDirectory;
+    PersonDirectory personDirectory;
+         
 
     public Business(String n) {
-//        name = n;
-//        masterorderlist = new MasterOrderList();
-//        suppliers = new SupplierDirectory();
-////        solutionoffercatalog = new SolutionOfferCatalog();
-//        persondirectory = new PersonDirectory();
-//        customerdirectory = new CustomerDirectory(this);
-//        salespersondirectory = new SalesPersonDirectory(this);
-//        useraccountdirectory = new UserAccountDirectory();
-//        marketingpersondirectory = new MarketingPersonDirectory(this);
-//        employeedirectory = new EmployeeDirectory(this);
-
+        name = n;
+        this.EnterpriseDirectory=new EnterpriseDirectory();
+        this.personDirectory = new PersonDirectory();
+        this.userAccountDirectory = new UserAccountDirectory();
     }
 
     public String getName() {
@@ -42,21 +35,31 @@ public class Business {
         this.name = name;
     }
 
-    public EnterpriseDirectory getEnterprise() {
-        return Enterprise;
+    public EnterpriseDirectory getEnterpriseDirectory() {
+        return EnterpriseDirectory;
     }
 
-    public void setEnterprise(EnterpriseDirectory Enterprise) {
-        this.Enterprise = Enterprise;
+    public void setEnterpriseDirectory(EnterpriseDirectory EnterpriseDirectory) {
+        this.EnterpriseDirectory = EnterpriseDirectory;
     }
+    
 
-    public UserAccountDirectory getUserDirctory() {
-        return userDirctory;
+    public UserAccountDirectory getUserAccountDirectory() {
+        return userAccountDirectory;
     }
 
     public void setUserDirctory(UserAccountDirectory userDirctory) {
-        this.userDirctory = userDirctory;
+        this.userAccountDirectory = userDirctory;
     }
+
+    public PersonDirectory getPersonDirectory() {
+        return personDirectory;
+    }
+
+    public void setPersonDirectory(PersonDirectory personDirectory) {
+        this.personDirectory = personDirectory;
+    }
+
     
-   
+    
 }

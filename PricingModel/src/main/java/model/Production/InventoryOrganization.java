@@ -16,9 +16,8 @@ public class InventoryOrganization {
     private InventoryManagerProfile inventoryManagerProfile;
     private MaterialOrderDirectory materialOrderDIrectory;
 
-    public InventoryOrganization(InventoryManagerProfile inventoryManagerProfile, MaterialOrderDirectory materialOrderDIrectory) {
-        this.inventoryManagerProfile = inventoryManagerProfile;
-        this.materialOrderDIrectory = materialOrderDIrectory;
+    public InventoryOrganization() {
+       this.materialOrderDIrectory=new MaterialOrderDirectory();
     }
     
     public InventoryManagerProfile getInventoryManagerProfile() {

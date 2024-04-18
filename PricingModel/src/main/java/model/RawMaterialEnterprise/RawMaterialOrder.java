@@ -5,13 +5,16 @@
 package model.RawMaterialEnterprise;
 
 import java.util.Date;
+import model.BrandCompany.Order;
+import model.Production.ProductionOrder;
 
 /**
  *
  * @author tianlyu
  */
 public class RawMaterialOrder {
-    
+    Order o;
+    ProductionOrder po;
     private RawMaterial rawMaterial;
     private String deliverStatus; //Material Order Not Placed/Material Order in Production/Material Order Delivered
     private int materialPrice;
@@ -25,6 +28,11 @@ public class RawMaterialOrder {
         this.deliveryDate = deliveryDate;
         this.deliveryNumber = deliveryNumber;
     }
+    public RawMaterialOrder(Order o, ProductionOrder po) {
+        this.o=o;
+        this.po=po;
+    }
+    
 
     public RawMaterial getRawMaterial() {
         return rawMaterial;

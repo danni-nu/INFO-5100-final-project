@@ -6,7 +6,8 @@ package ui.BrandCompany.Procurer;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import model.BrandCompany.Procurer;
+import model.BrandCompany.ProcurerProfile;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 
 /**
@@ -20,12 +21,14 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel procurerWorkArea;
     Business b;
-    Procurer procurer;
+    ProcurerProfile procurer;
+    BrandEnterprise brandCompany;
     
-    public ProcurerWorkAreaJPanel(Business b,Procurer procurer,JPanel procurerWorkArea) {
-        this.WorkArea=procurerWorkArea;
+    public ProcurerWorkAreaJPanel(Business b,ProcurerProfile procurer,JPanel procurerWorkArea,BrandEnterprise brandCompany) {
+        this.procurerWorkArea=procurerWorkArea;
         this.b=b;
         this.procurer=procurer;
+        this.brandCompany=brandCompany;
         initComponents();
     }
 
@@ -90,7 +93,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane1))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,18 +103,18 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void ManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageOrderActionPerformed
         // TODO add your handling code here:
-        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,procurerWorkArea);
-        procurerWorkArea.add("ManagerOrder",mo);
-        CardLayout layout=(CardLayout)procurerWorkArea.getLayout();
-        layout.next(procurerWorkArea);
+        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,WorkArea,brandCompany);
+        WorkArea.add("ManagerOrder",mo);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_ManageOrderActionPerformed
 
     private void CreateNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateNewOrderActionPerformed
         // TODO add your handling code here:
         CreatNewOrderJPanel cno=new CreatNewOrderJPanel(b,procurer,procurerWorkArea);
-        procurerWorkArea.add("Create New Order",cno);
-        CardLayout layout=(CardLayout)procurerWorkArea.getLayout();
-        layout.next(procurerWorkArea);
+        WorkArea.add("Create New Order",cno);
+        CardLayout layout=(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_CreateNewOrderActionPerformed
 
 

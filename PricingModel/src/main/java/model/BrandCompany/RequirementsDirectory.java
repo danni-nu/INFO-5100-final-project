@@ -2,9 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.DesignEnterprise;
+package model.BrandCompany;
 
 import java.util.ArrayList;
+import model.DesignEnterprise.DesignerProfile;
+import model.DesignEnterprise.RequirementAssignment;
+import model.DesignEnterprise.Style;
+import model.Production.ProductionMode;
+import model.RawMaterialEnterprise.RawMaterial;
 
 /**
  *
@@ -12,20 +17,9 @@ import java.util.ArrayList;
  */
 public class RequirementsDirectory {
     private ArrayList<Requirement> requirementsDirectory;
-    private ArrayList<RequirementAssignment> requirementAssignmentsDirectory;
 
-    public RequirementsDirectory(ArrayList<Requirement> requirementsDirectory, ArrayList<RequirementAssignment> requirementAssignments) {
-        this.requirementsDirectory = requirementsDirectory;
-        this.requirementAssignmentsDirectory = requirementAssignments;
-    }
-
-  
-    public void addRequirementAssignment(RequirementAssignment assignment) {
-        requirementAssignmentsDirectory.add(assignment);
-    }
-    
-    public void removeRequirementAssignment(RequirementAssignment assignment) {
-        requirementAssignmentsDirectory.remove(assignment);
+    public RequirementsDirectory() {
+        this.requirementsDirectory = new ArrayList<>();
     }
     
     public void addRequirement(Requirement requirement) {
@@ -43,13 +37,12 @@ public class RequirementsDirectory {
 
     public void setRequirementsDirectory(ArrayList<Requirement> requirementsDirectory) {
         this.requirementsDirectory = requirementsDirectory;
-    }
-
-    public ArrayList<RequirementAssignment> getRequirementAssignments() {
-        return requirementAssignmentsDirectory;
-    }
-
-   
+    }    
     
+    public Requirement addANewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp,Style style){
+        Requirement newrequirement=new Requirement(r,d,p,pp,style);
+        requirementsDirectory.add(newrequirement);
+        return newrequirement;
+    }
     
 }

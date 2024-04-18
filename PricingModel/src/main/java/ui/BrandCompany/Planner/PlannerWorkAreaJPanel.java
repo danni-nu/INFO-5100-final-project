@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.BrandCompany.ProductPlanner;
+package ui.BrandCompany.Planner;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import model.BrandCompany.RequirementsPlanner;
+import model.BrandCompany.PlannerProfile;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 
 /**
@@ -20,11 +21,15 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel WorkArea;
     Business business;
-    RequirementsPlanner requirementPlanner;
-    public PlannerWorkAreaJPanel(Business business,RequirementsPlanner requirementPlanner, JPanel PlannerWorkArea) {
+    PlannerProfile requirementPlanner;
+    BrandEnterprise e;
+    
+    
+    public PlannerWorkAreaJPanel(Business business,PlannerProfile requirementPlanner, JPanel PlannerWorkArea, BrandEnterprise e) {
         this.PlannerWorkArea=PlannerWorkArea;
         this.requirementPlanner=requirementPlanner;
         this.business=business;
+        this.e=e;
         initComponents();
     }
 
@@ -88,7 +93,7 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(

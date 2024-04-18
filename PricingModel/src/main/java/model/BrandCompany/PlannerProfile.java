@@ -11,9 +11,9 @@ import model.Personnel.Profile;
  *
  * @author qiaohui
  */
-public class RequirementsPlanner extends Profile{
+public class PlannerProfile extends Profile{
     
-    public RequirementsPlanner(Person p) {
+    public PlannerProfile(Person p) {
         super(p);
     }
 

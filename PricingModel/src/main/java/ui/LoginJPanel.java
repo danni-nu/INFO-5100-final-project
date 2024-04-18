@@ -4,14 +4,18 @@ package ui;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import model.BrandCompany.Procurer;
-import model.BrandCompany.RequirementsPlanner;
+import model.BrandCompany.ProcurerProfile;
+import model.BrandCompany.PlannerProfile;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.DesignEnterprise;
+import model.Business.ProductionEnterprise;
+import model.Business.RawMaterialEnterprise;
 import model.Personnel.Profile;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
-import ui.BrandCompany.ProductPlanner.PlannerWorkAreaJPanel;
+import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -31,6 +35,9 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.business=business;
         this.cardSequencePanel=cardSequencePanel;
+        
+        populateEnterpriseTypeCombo();
+        populateCompanyNameCombo();
     }
 
     /**
@@ -45,10 +52,12 @@ public class LoginJPanel extends javax.swing.JPanel {
         btnLogin = new javax.swing.JButton();
         lblUserAccount = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
-        txtUserName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        lblUserAccount1 = new javax.swing.JLabel();
+        txtUserAccount = new javax.swing.JTextField();
+        lblPassword = new javax.swing.JLabel();
+        cmbCompany = new javax.swing.JComboBox<>();
+        lblCompany = new javax.swing.JLabel();
+        cmbCompanyType = new javax.swing.JComboBox<>();
+        lblCompanyType = new javax.swing.JLabel();
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -59,48 +68,68 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         lblUserAccount.setText("User Account");
 
-        jLabel2.setText("Password");
+        lblPassword.setText("Password");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCompanyActionPerformed(evt);
+            }
+        });
 
-        lblUserAccount1.setText("Company");
+        lblCompany.setText("Company");
+
+        cmbCompanyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCompanyType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCompanyTypeActionPerformed(evt);
+            }
+        });
+
+        lblCompanyType.setText("Enterprise Type");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
+                .addContainerGap(239, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(btnLogin))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
+                            .addComponent(lblPassword)
                             .addComponent(lblUserAccount)
-                            .addComponent(lblUserAccount1))
-                        .addGap(53, 53, 53)
+                            .addComponent(lblCompany)
+                            .addComponent(lblCompanyType))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtUserName)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE))))
+                            .addComponent(cmbCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtUserAccount)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                            .addComponent(cmbCompanyType, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(196, 196, 196))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUserAccount1))
+                    .addComponent(cmbCompanyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCompanyType))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmbCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCompany))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUserAccount)
-                    .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblPassword)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(btnLogin)
@@ -110,7 +139,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String un = txtUserName.getText();
+        String un = txtUserAccount.getText();
         String pw = txtPassword.getText();
 
         UserAccountDirectory uad = business.getUserAccountDirectory();
@@ -123,9 +152,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
 
-        if (profile instanceof Procurer) {
-            Procurer p=(Procurer)profile;
-            ProcurerWorkAreaJPanel pp= new ProcurerWorkAreaJPanel(business, p,cardSequencePanel);
+        if (profile instanceof ProcurerProfile) {
+            ProcurerProfile p=(ProcurerProfile)profile;
+            String s=(String)cmbCompany.getSelectedItem();
+            BrandEnterprise e = business.getEnterpriseDirectory().getBrandCompany(s);
+            ProcurerWorkAreaJPanel pp= new ProcurerWorkAreaJPanel(business, p,cardSequencePanel,e);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("Procurer", pp);
             CardLayout layout =(CardLayout)cardSequencePanel.getLayout();
@@ -133,9 +164,11 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         }
 
-         if (profile instanceof RequirementsPlanner) {
-            RequirementsPlanner spp = (RequirementsPlanner) profile;
-            PlannerWorkAreaJPanel ppp= new PlannerWorkAreaJPanel(business, spp, cardSequencePanel);
+         if (profile instanceof PlannerProfile) {
+            PlannerProfile spp = (PlannerProfile) profile;
+            String s=(String)cmbCompany.getSelectedItem();
+            BrandEnterprise e = business.getEnterpriseDirectory().getBrandCompany(s);
+            PlannerWorkAreaJPanel ppp= new PlannerWorkAreaJPanel(business, spp, cardSequencePanel,e);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("Planner", ppp);
             CardLayout layout =(CardLayout)cardSequencePanel.getLayout();
@@ -154,14 +187,84 @@ public class LoginJPanel extends javax.swing.JPanel {
 //        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void cmbCompanyTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCompanyTypeActionPerformed
+        // TODO add your handling code here:
+        updateSupplierVisibility();
+        if (cmbCompanyType.getSelectedItem()!=null) {
+             populateCompanyNameCombo();
+        }
+       
+    }//GEN-LAST:event_cmbCompanyTypeActionPerformed
+
+    private void cmbCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCompanyActionPerformed
+        // TODO add your handling code here:
+        if (cmbCompany.getSelectedItem()==null) {
+            return;
+        }
+        String selectedComapnyName=(String)cmbCompany.getSelectedItem();
+    }//GEN-LAST:event_cmbCompanyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JComboBox<String> cmbCompany;
+    private javax.swing.JComboBox<String> cmbCompanyType;
+    private javax.swing.JLabel lblCompany;
+    private javax.swing.JLabel lblCompanyType;
+    private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUserAccount;
-    private javax.swing.JLabel lblUserAccount1;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUserName;
+    private javax.swing.JTextField txtUserAccount;
     // End of variables declaration//GEN-END:variables
+
+    private void populateEnterpriseTypeCombo() {
+        cmbCompanyType.removeAllItems();
+        String s1="Brand Company";
+        String s2="Design Company";
+        String s3="Production Company";
+        String s4="Raw Material Company";
+        cmbCompanyType.addItem(s1);
+        cmbCompanyType.addItem(s2);
+        cmbCompanyType.addItem(s3);
+        cmbCompanyType.addItem(s4);
+  
+    }
+
+    private void populateCompanyNameCombo() {
+        cmbCompany.removeAllItems();
+        String s=(String)cmbCompanyType.getSelectedItem();
+        if (s.equals("Brand Company")){
+            for(BrandEnterprise e:business.getEnterpriseDirectory().getBrandEnterpriseList()){
+                cmbCompany.addItem(e.toString());
+            }
+        }
+        if (s.equals("Design Company")){
+            for(DesignEnterprise e:business.getEnterpriseDirectory().getDesignEnterpriseList()){
+                cmbCompany.addItem(e.toString());
+            }
+        }
+        if (s.equals("Production Company")){
+            for(ProductionEnterprise e:business.getEnterpriseDirectory().getProductionEnterpriseList()){
+                cmbCompany.addItem(e.toString());
+            }
+        }
+        if (s.equals("Raw Material Company")){
+            for(RawMaterialEnterprise e:business.getEnterpriseDirectory().getRawMaterialEnterpriseList()){
+                cmbCompany.addItem(e.toString());
+            }
+        }
+        
+    }
+
+    private void updateSupplierVisibility() {
+        if((cmbCompanyType.getSelectedItem()==null)){
+            lblCompany.setVisible(false);
+            cmbCompany.setVisible(false);
+            return;
+        }else{
+            lblCompany.setVisible(true);
+            cmbCompany.setVisible(true);
+        }
+         
+    }
 }

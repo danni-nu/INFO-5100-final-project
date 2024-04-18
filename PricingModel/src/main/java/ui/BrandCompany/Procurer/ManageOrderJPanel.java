@@ -4,8 +4,12 @@
  */
 package ui.BrandCompany.Procurer;
 
+import java.awt.CardLayout;
 import javax.swing.JPanel;
-import model.BrandCompany.Procurer;
+import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.ProcurerProfile;
+import model.BrandCompany.Requirement;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 
 /**
@@ -17,8 +21,19 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrder
      */
-    public ManageOrderJPanel(Business b, Procurer procurer, JPanel workArea) {
+    JPanel workArea;
+    ProcurerProfile procurerProfile;
+    Business b;
+    BrandEnterprise brandCompany;
+    
+    
+    public ManageOrderJPanel(Business b, ProcurerProfile procurer, JPanel workArea,BrandEnterprise brandCompany) {
         initComponents();
+        this.b=b;
+        this.procurerProfile=procurer;
+        this.workArea=workArea;
+        this.brandCompany=brandCompany;
+        populateUnplacedOrderTable();
     }
 
     /**
@@ -30,33 +45,38 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        btnCheckUnfinishedOrder = new javax.swing.JButton();
+        btnCheckOrderDetail = new javax.swing.JButton();
+        BbtnCreateNewOrder = new javax.swing.JButton();
+        lblTitle = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton5 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tblOrderDetailStatus = new javax.swing.JTable();
+        btnRequestCancelOrder = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        tblUnplacedOrder = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tblOrderList = new javax.swing.JTable();
+        spnQuantity = new javax.swing.JSpinner();
 
-        jButton1.setText(">>Back");
+        btnBack.setText(">>Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Check Unfinished Order");
+        btnCheckUnfinishedOrder.setText("Check Unfinished Order");
 
-        jButton3.setText("Check Order Detail");
+        btnCheckOrderDetail.setText("Check Order Detail");
 
-        jButton4.setText("Create New Order");
+        BbtnCreateNewOrder.setText("Create New Order");
 
-        jLabel1.setText("Order Management");
+        lblTitle.setText("Order Management");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderDetailStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -67,17 +87,15 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 "OrderID", "OrderStatus", "Material ", "Material Status", "ProductionMode", "Product Status", "Deliver TIme"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblOrderDetailStatus);
 
-        jButton5.setText("Request Cancel Order");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        btnRequestCancelOrder.setText("Request Cancel Order");
 
         jLabel2.setText("Quantiy:");
 
         jButton6.setText("Check Unplaced Order");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        tblUnplacedOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -85,17 +103,12 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "RequirementsID", "OrderID", "OrderStatus", "OrderRawMaterial", "OrderProductionMode", "Quantity", "Message"
+                "RequirementsID", "RawMaterial", "OrderProductionMode", "Designer", "Color", "Style", "Message"
             }
         ));
-        jScrollPane4.setViewportView(jTable4);
-        if (jTable4.getColumnModel().getColumnCount() > 0) {
-            jTable4.getColumnModel().getColumn(0).setHeaderValue("RequirementsID");
-            jTable4.getColumnModel().getColumn(2).setHeaderValue("OrderStatus");
-            jTable4.getColumnModel().getColumn(3).setHeaderValue("OrderRawMaterial");
-        }
+        jScrollPane4.setViewportView(tblUnplacedOrder);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -106,7 +119,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(tblOrderList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -114,7 +127,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btnRequestCancelOrder)
                 .addGap(17, 17, 17))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
@@ -126,70 +139,93 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4))
+                                .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(BbtnCreateNewOrder))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(29, 29, 29)
-                                    .addComponent(jButton3))
+                                    .addComponent(btnCheckOrderDetail))
                                 .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(btnCheckUnfinishedOrder, javax.swing.GroupLayout.Alignment.TRAILING))))
                     .addComponent(jScrollPane4)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnBack)
                         .addGap(215, 215, 215)
-                        .addComponent(jLabel1))
+                        .addComponent(lblTitle))
                     .addComponent(jScrollPane2))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jLabel1))
+                    .addComponent(btnBack)
+                    .addComponent(lblTitle))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4))
+                            .addComponent(BbtnCreateNewOrder)
+                            .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
+                        .addComponent(btnCheckOrderDetail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnCheckUnfinishedOrder)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton5)
+                .addComponent(btnRequestCancelOrder)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        workArea.remove(this);
+        CardLayout layout =(CardLayout)workArea.getLayout();
+        layout.next(workArea);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton BbtnCreateNewOrder;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCheckOrderDetail;
+    private javax.swing.JButton btnCheckUnfinishedOrder;
+    private javax.swing.JButton btnRequestCancelOrder;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JSpinner spnQuantity;
+    private javax.swing.JTable tblOrderDetailStatus;
+    private javax.swing.JTable tblOrderList;
+    private javax.swing.JTable tblUnplacedOrder;
     // End of variables declaration//GEN-END:variables
+
+    private void populateUnplacedOrderTable() {
+        DefaultTableModel model = (DefaultTableModel) tblUnplacedOrder.getModel();
+        model.setRowCount(0);
+        for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
+            Object row[] = new Object[5];
+            row[0] = re;
+            row[1] = re.getRowMaterial().getMaterialName();
+            row[2] = re.getProductionMode().getModeName();
+            row[3] = re.getDesignerProfile().getPerson().getPersonName();
+            row[4] = re.getStyle().getStyleName();
+            //row[5] = re.getColor();
+            model.addRow(row);
+            }
+    }
+  
 }

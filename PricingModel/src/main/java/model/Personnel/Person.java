@@ -11,26 +11,21 @@ package model.Personnel;
  */
 public class Person {
 
-    String id;
+    String personName;
 
     public Person(String id) {
 
-        this.id = id;
+        this.personName = id;
     }
 
-    public String getPersonId() {
-        return id;
+    public String getPersonName() {
+        return personName;
     }
 
-    public boolean isMatch(String id) {
-        if (getPersonId().equals(id)) {
+    public boolean isMatch(String personName) {
+        if (getPersonName().equals(personName)) {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public String toString() {
-        return getPersonId();
     }
 }

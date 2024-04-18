@@ -15,6 +15,6 @@ public class MaterialOrderDirectory {
      private ArrayList<RawMaterialOrder> materialOrderList;
      
      public MaterialOrderDirectory() {
-     materialOrderList = new ArrayList();
+            materialOrderList = new ArrayList<>();
      }
 }

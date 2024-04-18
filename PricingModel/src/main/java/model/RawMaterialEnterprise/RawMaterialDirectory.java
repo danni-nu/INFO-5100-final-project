@@ -15,8 +15,8 @@ public class RawMaterialDirectory {
     
     public ArrayList<RawMaterial> RawMaterialDirectory;
 
-    public RawMaterialDirectory(ArrayList<RawMaterial> RawMaterialDirectory) {
-        this.RawMaterialDirectory = RawMaterialDirectory;
+    public RawMaterialDirectory() {
+        this.RawMaterialDirectory = new ArrayList<>();
     }
 
     public ArrayList<RawMaterial> getRawMaterialDirectory() {
@@ -35,4 +35,26 @@ public class RawMaterialDirectory {
         RawMaterialDirectory.remove(rawMaterial);
     }
     
+    public void addNewRawMaterial(String materialName, int price){
+        RawMaterial rawMaterial =new RawMaterial(materialName,price);
+        RawMaterialDirectory.add(rawMaterial);
+    }
+    
+    public RawMaterial addANewRawMaterial(String materialName, int price){
+        RawMaterial rawMaterial =new RawMaterial(materialName,price);
+        RawMaterialDirectory.add(rawMaterial);
+        return rawMaterial;
+    }
+    
+    public RawMaterial findRawMateiral(String m) {
+        for(RawMaterial ma: RawMaterialDirectory){
+            if(ma.getMaterialName().equals(m)){
+                return ma;
+            }
+            else{
+                return null;
+            }
+        }
+        return null;
+    }
 }

@@ -11,21 +11,57 @@ import model.Production.ProductionOrganization;
  *
  * @author qiaohui
  */
-public class ProductionEnterprise extends Enterprise{
+public class ProductionEnterprise{
     String enterpriseType="Production Company";
     String companyName;
     private InventoryOrganization inventoryOrganization;
     private ProductionOrganization productionOrganization;
 
     public ProductionEnterprise(String companyName) {
+        this.enterpriseType="Production Company";
+        this.companyName = companyName;
+        this.inventoryOrganization=new InventoryOrganization();
+        this.productionOrganization=new ProductionOrganization();
+    }
+
+    public ProductionEnterprise(Enterprise enterprise) {
+        enterpriseType="Production Company";
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
-    @Override
+    public InventoryOrganization getInventoryOrganization() {
+        return inventoryOrganization;
+    }
+
+    public void setInventoryOrganization(InventoryOrganization inventoryOrganization) {
+        this.inventoryOrganization = inventoryOrganization;
+    }
+
+    public ProductionOrganization getProductionOrganization() {
+        return productionOrganization;
+    }
+
+    public void setProductionOrganization(ProductionOrganization productionOrganization) {
+        this.productionOrganization = productionOrganization;
+    }
+
+    
+    //@Override
     public String getEnterpriseType() {
         return "Production Company";
     }
-
+    
+    @Override
+    public String toString(){
+        return companyName;
+    }
  
     
 }

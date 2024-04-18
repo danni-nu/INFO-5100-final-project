@@ -4,16 +4,25 @@
  */
 package ui.DesignerRole;
 
+import javax.swing.JPanel;
+import model.Business.Business;
+
 /**
  *
  * @author tianlyu
  */
 public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
+    
+    javax.swing.JPanel CardSequencePanel;
+    Business business;
+
 
     /**
-     * Creates new form DesignerWorkAreaJPanel
+     * Creates new form ManageRequirementsTask1JPanel
      */
-    public DesignerWorkAreaJPanel() {
+    public DesignerWorkAreaJPanel(Business b, JPanel clp) {
+        business = b;
+        this.CardSequencePanel = clp;
         initComponents();
     }
 
@@ -26,50 +35,12 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblSemester = new javax.swing.JTable();
         Back = new javax.swing.JButton();
-        SavejButton = new javax.swing.JButton();
-        removejButton = new javax.swing.JButton();
-        removejButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblSemester1 = new javax.swing.JTable();
-        removejButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        ManageRequirementsTaskButton = new javax.swing.JButton();
+        CheckPerformanceButton = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(236, 244, 251));
-
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Manage Requirements Task");
-
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Task ScheduleList");
-
-        tblSemester.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
-        tblSemester.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Design Order ID", "Order Name", "Order Type", "Order State"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblSemester);
+        setBackground(new java.awt.Color(236, 244, 251));
 
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -78,272 +49,92 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        SavejButton.setText("Add Requirement");
-        SavejButton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Designer Work Area");
+
+        ManageRequirementsTaskButton.setBackground(new java.awt.Color(102, 153, 255));
+        ManageRequirementsTaskButton.setForeground(new java.awt.Color(255, 255, 255));
+        ManageRequirementsTaskButton.setText("Manage Requirements Task");
+        ManageRequirementsTaskButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ManageRequirementsTaskButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        ManageRequirementsTaskButton.setMinimumSize(new java.awt.Dimension(20, 20));
+        ManageRequirementsTaskButton.setPreferredSize(new java.awt.Dimension(240, 25));
+        ManageRequirementsTaskButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SavejButtonActionPerformed(evt);
+                ManageRequirementsTaskButtonActionPerformed(evt);
             }
         });
 
-        removejButton.setText("Remove");
-        removejButton.addActionListener(new java.awt.event.ActionListener() {
+        CheckPerformanceButton.setBackground(new java.awt.Color(102, 153, 255));
+        CheckPerformanceButton.setForeground(new java.awt.Color(255, 255, 255));
+        CheckPerformanceButton.setText("Check Performance");
+        CheckPerformanceButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        CheckPerformanceButton.setMaximumSize(new java.awt.Dimension(200, 40));
+        CheckPerformanceButton.setMinimumSize(new java.awt.Dimension(20, 20));
+        CheckPerformanceButton.setPreferredSize(new java.awt.Dimension(240, 25));
+        CheckPerformanceButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButtonActionPerformed(evt);
+                CheckPerformanceButtonActionPerformed(evt);
             }
         });
-
-        removejButton1.setText("View Details");
-        removejButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton1ActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setText("My New Requirements To Schedule");
-
-        tblSemester1.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
-        tblSemester1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Design Order ID", "Order Name", "Order Type", "Order State"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, true, true
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblSemester1);
-
-        removejButton2.setText("Add solution");
-        removejButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton2ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(removejButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(SavejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 60, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(Back)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel2)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removejButton)
-                    .addComponent(removejButton1))
-                .addGap(47, 47, 47)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SavejButton)
-                    .addComponent(removejButton2))
-                .addContainerGap(85, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ManageRequirementsTaskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CheckPerformanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(268, 268, 268))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(Back)
+                .addGap(51, 51, 51)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(ManageRequirementsTaskButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(CheckPerformanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void removejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButtonActionPerformed
-        // TODO add your handling code here:
-//
-//        int row = tblSemester.getSelectedRow();
-//        if(row<0){
-//            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
-//            return;
-//        }
-//
-//        //remove seat assigment
-//        CourseOffer courseOfferToRemove = (CourseOffer)tblSemester.getValueAt(row, 3);
-//        //        Course removecourse = null;
-//        //        removecourse = business.getCourseCatalog().getCourseByNumber(courseNumberToRemove);
-//
-//        courseSchedule.getSchedule().remove(courseOfferToRemove);
-//
-//        //
-//        populateTable();
-    }//GEN-LAST:event_removejButtonActionPerformed
-
-    private void SavejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SavejButtonActionPerformed
-        // TODO add your handling code here:
-
-//        FacultyProfile newfacultyProfile = (FacultyProfile)cmbfacultyname.getSelectedItem();
-//        String newCourseNumber = (String)cmbcoursenumber.getSelectedItem();
-//
-//        //compare the course exist
-//        ArrayList<CourseOffer> courseOfferList= courseSchedule.getSchedule();
-//
-//        for(CourseOffer courseOffer:courseOfferList){
-//            if(courseOffer.getCourseNumber().equals(newCourseNumber) && courseOffer.getFacultyProfile().equals(newfacultyProfile)){
-//                JOptionPane.showMessageDialog(null, "Please don't add same Course with same teacher !!", "Warning", JOptionPane.WARNING_MESSAGE);
-//                return;
-//            }
-//        }
-
-        //        ArrayList<FacultyProfile> teacherlist =  business.getFacultyDirectory().getTeacherlist();
-        //        for(FacultyProfile  teacher:teacherlist){
-            //            if(teacher.equals(newfacultyProfile)){//if is same teacher check the facultyAssignment
-                //                ArrayList<FacultyAssignment> facultyAssignment = newfacultyProfile.getFacultyassignments();
-                //
-                //                for(FacultyAssignment facultyAssignmentOfTheTeacher:facultyAssignment){
-                    //
-                    //                    if(facultyAssignmentOfTheTeacher.getCourseoffer().getCourseNumber().equals(newCourseNumber)){
-                        //
-                        //                        JOptionPane.showMessageDialog(null, "Please don't add same Course with same teacher !!", "Warning", JOptionPane.WARNING_MESSAGE);
-                        //                        return;
-                        //                    }
-                    //
-                    //                }
-                //            }
-            //        }
-
-        //        String courseNumber = CourseNumberjTextField.getText();
-        //        String FacultyName = FacultyNamejTextField.getText();
-
-        //find faculty
-//        FacultyDirectory facultyDirectory = business.getFacultyDirectory();
-//        ArrayList<FacultyProfile> teaArrayList= facultyDirectory.getTeacherlist();
-//
-//        FacultyProfile fpres = null;
-//
-//        for(FacultyProfile fp:teaArrayList){
-//            if(fp.equals(newfacultyProfile) ){
-//                fpres = fp;
-//            }
-//        }
-        //        for(FacultyProfile fp:teaArrayList){
-            //            if(fp.toString().equals(newfacultyProfile) ){
-                //                fpres = fp;
-                //            }
-            //        }
-        //        if(fpres == null){
-            //            JOptionPane.showMessageDialog(null, "Please Check Faculty Name !!", "Warning", JOptionPane.WARNING_MESSAGE);
-            //            return;
-            //        }
-
-        //find course
-//        Course newcourse = null;
-//        newcourse = business.getCourseCatalog().getCourseByNumber(newCourseNumber);
-
-        //        if(newcourse == null){
-            //            JOptionPane.showMessageDialog(null, "Please Check the Course Number !!", "Warning", JOptionPane.WARNING_MESSAGE);
-            //            return;
-            //        }
-        //
-
-        //add course and faculty to course schedule
-        //        CourseCatalog courseCatalog = business.getCourseCatalog();
-        //        FacultyDirectory facultydirectory = business.getFacultyDirectory();
-        //        Degree degree = business.getDegree();
-
-//        StudentDirectory sd = business.getStudentDirectory();
-
-        //traversal the Student list to new the CourseLoad
-        //        for (StudentProfile studentProfile : sd.getStudentlist()) {
-            //            studentProfile.newCourseLoad(semester);
-            //        }
-        //traversal the Course list , new that course's course offer
-
-//        CourseOffer courseoffer = courseSchedule.newCourseOffer(newcourse.getCourseNumber());
-//        if (courseoffer == null) {
-//            System.out.println("Warning: Cannot find course: " + newcourse.getCourseNumber());
-//            return;
-//        }
-        //generat the Seats
-//        courseoffer.generatSeats(sd.getStudentlist().size());
-//        //assign to the faculty to course
-//        courseoffer.assignAsTeacher(fpres);
-//
-//        JOptionPane.showMessageDialog(null, "Course Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
-
-        //
-        //        CourseNumberjTextField.setText("");
-        //        FacultyNamejTextField.setText("");
-        //
-
-//        populateTable();
-    }//GEN-LAST:event_SavejButtonActionPerformed
-
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-//        // TODO add your handling code here:
-//        CardSequencePanel.remove(this);
-//        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+                // TODO add your handling code here:
+                CardSequencePanel.remove(this);
+                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_removejButton1ActionPerformed
+    private void ManageRequirementsTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageRequirementsTaskButtonActionPerformed
+//         TODO add your handling code here:
+        ManageRequirementsTaskJPanel aos = new ManageRequirementsTaskJPanel(business, CardSequencePanel);
+        CardSequencePanel.add("Manage Requirements Task", aos);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_ManageRequirementsTaskButtonActionPerformed
 
-    private void removejButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton2ActionPerformed
+    private void CheckPerformanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPerformanceButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_removejButton2ActionPerformed
+        CheckPerformanceJPanel aos = new CheckPerformanceJPanel(business, CardSequencePanel);
+        CardSequencePanel.add("Check Performance", aos);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+    }//GEN-LAST:event_CheckPerformanceButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
-    private javax.swing.JButton SavejButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton CheckPerformanceButton;
+    private javax.swing.JButton ManageRequirementsTaskButton;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton removejButton;
-    private javax.swing.JButton removejButton1;
-    private javax.swing.JButton removejButton2;
-    private javax.swing.JTable tblSemester;
-    private javax.swing.JTable tblSemester1;
     // End of variables declaration//GEN-END:variables
 }

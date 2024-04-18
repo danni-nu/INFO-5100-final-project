@@ -5,7 +5,6 @@
 package model.BrandCompany;
 
 import javax.swing.ImageIcon;
-import model.DesignEnterprise.Requirement;
 import model.DesignEnterprise.RequirementSolution;
 import model.Production.ProductionMode;
 import model.Production.ProductionOrder;
@@ -23,14 +22,16 @@ public class Order {
     ProductionMode productionMode;
     ProductionOrder productOrder;
     RawMaterialOrder rawMarerialOrder;
-    String Orderstatus="unplace";//waiting producing, received order;
+    String Orderstatus="false";//waiting producing, received order;
     int quantity;
     int OrderPrice;
 
-    public Order(String Orderstatus, int quantity, int OrderPrice) {
-        this.Orderstatus = Orderstatus;
+    public Order(Requirement requirement,int quantity) {
+        this.requirement=requirement;
+        this.Orderstatus = "false";
+        this.rawMaterial=requirement.getRowMaterial();
+        this.productionMode=requirement.getProductionMode();
         this.quantity = quantity;
-        this.OrderPrice = OrderPrice;
     }
 
     public Requirement getRequirement() {

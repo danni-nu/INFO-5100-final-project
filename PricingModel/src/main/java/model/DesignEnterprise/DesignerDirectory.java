@@ -5,31 +5,39 @@
 package model.DesignEnterprise;
 
 import java.util.ArrayList;
+import model.Personnel.Person;
 
 /**
  *
  * @author tianlyu
  */
 public class DesignerDirectory {
-    public ArrayList<DesignerProfile> DesignerProfile;
+    public ArrayList<DesignerProfile> DesignerProfileList;
 
-    public DesignerDirectory(ArrayList<DesignerProfile> DesignerProfile) {
-        this.DesignerProfile = DesignerProfile;
+    public DesignerDirectory() {
+        this.DesignerProfileList = new ArrayList<>();
     }
 
-    public ArrayList<DesignerProfile> getDesignerProfile() {
-        return DesignerProfile;
+    public ArrayList<DesignerProfile> getDesignerProfileList() {
+        return DesignerProfileList;
     }
 
-    public void setDesignerProfile(ArrayList<DesignerProfile> DesignerProfile) {
-        this.DesignerProfile = DesignerProfile;
+    public void setDesignerProfileList(ArrayList<DesignerProfile> DesignerProfileList) {
+        this.DesignerProfileList = DesignerProfileList;
     }
     
-    public void addNewDesignerProfile(DesignerProfile profile) {
-        DesignerProfile.add(profile);
+    public void addNewDesignerProfile(Person profile,int price) {
+        DesignerProfile newdesigner=new DesignerProfile(profile, price);
+        DesignerProfileList.add(newdesigner);
+    }
+    public DesignerProfile addANewDesignerProfile(Person profile,int price) {
+        DesignerProfile newdesigner=new DesignerProfile(profile, price);
+        DesignerProfileList.add(newdesigner);
+        return newdesigner;
     }
     
     public void deleteDesignerProfile(DesignerProfile profile) {
-        DesignerProfile.remove(profile);
+        DesignerProfileList.remove(profile);
     }
+    
 }

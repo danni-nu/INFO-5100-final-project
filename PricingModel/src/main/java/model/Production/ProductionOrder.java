@@ -22,17 +22,52 @@ public class ProductionOrder {
     private RawMaterialOrder materialOrder;
     //private ImageIcon logoImage;
 
+    public ProductionOrder(Order order) {
+        this.order = order;
+
+    }
     public ProductionOrder(Order order, ProductionMode productionMode, RawMaterialOrder materialOrder) {
         this.order = order;
         this.productionMode = productionMode;
         this.materialOrder = materialOrder;
     }
     
-    public ImageIcon getLogoImage() {
-        return order.getImageIcon();
+    public Order getOrder(){    
+        return order;
     }
-    
-    public int getQuantity(){
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public ProductionMode getProductionMode() {
+        return productionMode;
+    }
+
+    public void setProductionMode(ProductionMode productionMode) {
+        this.productionMode = productionMode;
+    }
+
+    public String getProductionOrderStatus() {
+        return productionOrderStatus;
+    }
+
+    public void setProductionOrderStatus(String productionOrderStatus) {
+        this.productionOrderStatus = productionOrderStatus;
+    }
+
+    public RawMaterialOrder getMaterialOrder() {
+        return materialOrder;
+    }
+
+//    public ImageIcon getLogoImage() {
+//        return order.getImageIcon();
+//    }
+    public void setMaterialOrder(RawMaterialOrder materialOrder) {
+        this.materialOrder = materialOrder;
+    }
+
+    public int getQuantity() {
         return order.getQuantity();
     }
 }

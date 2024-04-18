@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.DesignEnterprise;
-
 import java.util.ArrayList;
 
 /**
@@ -11,30 +10,32 @@ import java.util.ArrayList;
  * @author tianlyu
  */
 public class DesignOrganization {
-    public ArrayList<DesignerDirectory> DesignerDirectory;
-    public ArrayList<RequirementsDirectory> RequirementsDirectory;
+    public DesignerDirectory DesignerDirectory;
+    public RequirementAssignmentDirectory RequirementAssignmentDirectory;
 
-    public DesignOrganization(ArrayList<DesignerDirectory> DesignerDirectory, ArrayList<RequirementsDirectory> RequirementsDirectory) {
-        this.DesignerDirectory = DesignerDirectory;
-        this.RequirementsDirectory = RequirementsDirectory;
+    public DesignOrganization() {
+        this.DesignerDirectory=new DesignerDirectory();
+        this.RequirementAssignmentDirectory=new RequirementAssignmentDirectory();
     }
-
-    public ArrayList<DesignerDirectory> getDesignerDirectory() {
+    
+    public DesignerDirectory getDesignerDirectory() {
         return DesignerDirectory;
     }
 
-    public void setDesignerDirectory(ArrayList<DesignerDirectory> DesignerDirectory) {
+    public void setDesignerDirectory(DesignerDirectory DesignerDirectory) {
         this.DesignerDirectory = DesignerDirectory;
     }
 
-    public ArrayList<RequirementsDirectory> getRequirementsDirectory() {
-        return RequirementsDirectory;
+    public RequirementAssignmentDirectory getRequirementAssignmentDirectory() {
+        return RequirementAssignmentDirectory;
     }
 
-    public void setRequirementsDirectory(ArrayList<RequirementsDirectory> RequirementsDirectory) {
-        this.RequirementsDirectory = RequirementsDirectory;
+    public void setRequirementAssignmentDirectory(RequirementAssignmentDirectory RequirementAssignmentDirectory) {
+        this.RequirementAssignmentDirectory = RequirementAssignmentDirectory;
     }
-    
+
+ 
+
     
     
 }

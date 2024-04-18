@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.Business;
-
 import model.BrandCompany.ProcurementOrganization;
 import model.BrandCompany.ProductPlanningOrganization;
 
@@ -11,18 +10,21 @@ import model.BrandCompany.ProductPlanningOrganization;
  *
  * @author qiaohui
  */
-public class BrandEnterprise extends Enterprise {
+public class BrandEnterprise{
     String enterpriseType="Brand Company";
     String companyName;
     ProductPlanningOrganization  productPlanningOrganization;
     ProcurementOrganization procurementOrganization;
 
     public BrandEnterprise(String companyName) {
+        this.enterpriseType="Brand Company";
         this.companyName = companyName;
+        this.productPlanningOrganization= new ProductPlanningOrganization();
+        this.procurementOrganization=new ProcurementOrganization();
     }
 
     public String getEnterpriseType() {
-        return enterpriseType;
+        return "Brand Company";
     }
 
     public void setEnterpriseType(String enterpriseType) {
@@ -45,4 +47,12 @@ public class BrandEnterprise extends Enterprise {
         this.procurementOrganization = procurementOrganization;
     }
     
+    @Override
+    public String toString(){
+        return companyName;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
 }

@@ -4,6 +4,7 @@
  */
 package model.DesignEnterprise;
 
+import model.BrandCompany.Requirement;
 import java.util.ArrayList;
 
 /**
