@@ -12,15 +12,12 @@ import model.Business.DesignEnterprise;
 import model.Business.ProductionEnterprise;
 import model.Business.RawMaterialEnterprise;
 import model.Personnel.Profile;
-import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
-import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel;
 import ui.Production.Production.ProductionWorkAreaJPanel;
-import ui.RawMaterialRole.InventoryWorkAreaJPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -155,7 +152,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         ProcurerWorkAreaJPanel procurerWorkAreajpanel;
         PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
         ProductionWorkAreaJPanel productionworkarea;
-        ProductionEnterpriseInventoryWorkAreaJPanel productioninventoryworkarea;
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
 
@@ -200,14 +196,6 @@ public class LoginJPanel extends javax.swing.JPanel {
             productionworkarea = new ProductionWorkAreaJPanel(business, cardSequencePanel,(ProductionManagerProfile)profile);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("ProductionWorkAreaJPanel", productionworkarea);
-            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
-
-        }
-        
-        if (profile instanceof InventoryManagerProfile) {
-            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, cardSequencePanel,(InventoryManagerProfile)profile);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("ProductionWorkAreaJPanel", productioninventoryworkarea);
             ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
 
         }

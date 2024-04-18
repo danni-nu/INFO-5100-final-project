@@ -25,8 +25,8 @@ public class OrderDirectory {
         this.orderDirectory = orderDirectory;
     }
     
-    public Order addNewOrder(Requirement re, int quantity, String materialStatus){
-        Order order=new Order(re,quantity,materialStatus);
+    public Order addNewOrder(Requirement re, int quantity){
+        Order order=new Order(re,quantity);
         orderDirectory.add(order);
         return order;
     }   
