@@ -5,7 +5,6 @@
 package model.RawMaterialEnterprise;
 
 import java.util.ArrayList;
-import java.util.Random;
 import model.DesignEnterprise.DesignerDirectory;
 
 /**
@@ -58,9 +57,4 @@ public class RawMaterialDirectory {
         }
         return null;
     }
-    
-    //public RawMaterial pickRandomMaterial() {
-        //Random r = new Random();
-        
-    //}
 }
