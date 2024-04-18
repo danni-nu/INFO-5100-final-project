@@ -4,6 +4,7 @@
  */
 package model.RawMaterialEnterprise;
 
+import java.time.LocalDate;
 import java.util.Date;
 import model.BrandCompany.Order;
 import model.Production.ProductionOrder;
@@ -18,19 +19,32 @@ public class RawMaterialOrder {
     private RawMaterial rawMaterial;
     private String deliverStatus; //Material Order Not Placed/Material Order in Production/Material Order Delivered
     private int materialPrice;
-    private Date deliveryDate;
+    private LocalDate deliveryDate;
     private String deliveryNumber;
 
-    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, Date deliveryDate, String deliveryNumber) {
-        this.rawMaterial = rawMaterial;
-        this.deliverStatus = deliverStatus;
-        this.materialPrice = materialPrice;
-        this.deliveryDate = deliveryDate;
-        this.deliveryNumber = deliveryNumber;
-    }
-    public RawMaterialOrder(Order o, ProductionOrder po) {
+    //public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, Date deliveryDate, String deliveryNumber) {
+        //this.rawMaterial = rawMaterial;
+        //this.deliverStatus = deliverStatus;
+        //this.materialPrice = materialPrice;
+        //this.deliveryDate = deliveryDate;
+        //this.deliveryNumber = deliveryNumber;
+    //}
+    
+     //public RawMaterialOrder(Order o, ProductionOrder po,RawMaterial rawMaterial, String deliverStatus, int materialPrice, Date deliveryDate, String deliveryNumber) {
+        //this.rawMaterial = rawMaterial;
+        //this.deliverStatus = deliverStatus;
+        //this.materialPrice = materialPrice;
+        //this.deliveryDate = deliveryDate;
+        //this.deliveryNumber = deliveryNumber;
+        //this.o=o;
+        //this.po=po;
+    //}
+    //}
+    
+    public RawMaterialOrder(Order o, String deliverStatus, LocalDate deliveryDate) {
         this.o=o;
-        this.po=po;
+        this.deliverStatus = deliverStatus;
+        this.deliveryDate = deliveryDate;
     }
     
 
@@ -50,9 +64,6 @@ public class RawMaterialOrder {
         return materialPrice;
     }
 
-    public Date getDeliveryDate() {
-        return deliveryDate;
-    }
 
     public String getDeliveryNumber() {
         return deliveryNumber;

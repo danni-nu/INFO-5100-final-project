@@ -4,16 +4,27 @@
  */
 package ui.Production.Inventory;
 
+import javax.swing.JPanel;
+import model.Business.Business;
+import model.Production.InventoryManagerProfile;
+import model.Production.ProductionManagerProfile;
+
 /**
  *
  * @author administratorzi
  */
-public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
+public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPanel {
 
+    javax.swing.JPanel CardSequencePanel;
+    Business business;
+    InventoryManagerProfile inventoryManagerprofile;
     /**
      * Creates new form InventoryWorkAreaJPanel
      */
-    public InventoryWorkAreaJPanel() {
+    public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile inventorynManagerprofile) {
+        business = b;
+        this.CardSequencePanel = clp;
+        this.inventoryManagerprofile = inventoryManagerprofile;
         initComponents();
     }
 
