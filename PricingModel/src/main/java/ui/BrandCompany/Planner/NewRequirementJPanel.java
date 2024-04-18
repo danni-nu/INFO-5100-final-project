@@ -17,6 +17,9 @@ import model.DesignEnterprise.Style;
 import model.Production.ProductionMode;
 import model.RawMaterialEnterprise.RawMaterial;
 import java.lang.String;
+import model.BrandCompany.Requirement;
+import model.BrandCompany.RequirementsDirectory;
+import model.Business.BrandEnterprise;
 
 /**
  *
@@ -30,13 +33,15 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     PlannerProfile plannerProfile;
     Business business;
     JPanel plannerWorkArea;
+    BrandEnterprise brandEnterprise;
     
     
-    public NewRequirementJPanel(Business business, PlannerProfile requirementPlanner, JPanel PlannerWorkArea) {
+    public NewRequirementJPanel(Business business, PlannerProfile requirementPlanner, JPanel PlannerWorkArea,BrandEnterprise brandEnterprise) {
         initComponents();
         this.plannerProfile=requirementPlanner;
         this.business=business;
         this.plannerWorkArea=PlannerWorkArea;
+        this.brandEnterprise=brandEnterprise;
         populateRawMaterialCompanyCombo();
         populateRawMaterialCombp();
         populateProductionCompanyCombo();
@@ -420,9 +425,16 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
        RawMaterial rawmaterial=selectedEnterprise.getRawMaterialDirectory().findRawMateiral(m);
        String s1=(String)cmbDesignCompany.getSelectedItem();
        DesignEnterprise selectedEnterprise1=business.getEnterpriseDirectory().getDesignEnterprise(s1);
-       DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
-       ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
-       //business.getEnterpriseDirectory().getBrandEnterprise("Brand Company").getProductPlanningOrganization().getRequirementDirectory().addANewRrequirement(rawmaterial, designer, productionmode, plannerProfile);
+       String s2=(String) cmbDesigner.getSelectedItem();
+       DesignerProfile designer=selectedEnterprise1.getDesignOrganization().getDesignerDirectory().findDesignerProfile(s2);
+       String s3=(String) cmbProductionCompany.getSelectedItem();
+       ProductionEnterprise selectedEnterprise2=business.getEnterpriseDirectory().getProductionEnterprise(s3);
+       String s4=(String) cmbProductionMode.getSelectedItem();
+       ProductionMode productionmode=selectedEnterprise2.getProductionOrganization().findProductionMode(s4);
+       String s5=(String)cmbDesignStyle.getSelectedItem();
+       Style style=selectedEnterprise1.getStyleDirectory().findStyle(s5);
+       RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
+       requirementsdirectory.addNewRrequirement(rawmaterial, designer, productionmode, plannerProfile, style);
        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_CreateRerquirementActionPerformed
 

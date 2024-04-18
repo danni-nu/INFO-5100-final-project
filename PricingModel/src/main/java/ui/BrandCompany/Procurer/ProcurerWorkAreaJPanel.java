@@ -5,10 +5,12 @@
 package ui.BrandCompany.Procurer;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import model.BrandCompany.ProcurerProfile;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
+import ui.LoginJPanel;
 
 /**
  *
@@ -45,6 +47,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
         Memu = new javax.swing.JPanel();
         ManageOrder = new javax.swing.JButton();
         CreateNewOrder = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
 
         ManageOrder.setText("Manage Order");
@@ -61,6 +64,13 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MemuLayout = new javax.swing.GroupLayout(Memu);
         Memu.setLayout(MemuLayout);
         MemuLayout.setHorizontalGroup(
@@ -68,8 +78,10 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(MemuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(ManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CreateNewOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CreateNewOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MemuLayout.setVerticalGroup(
@@ -79,7 +91,9 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(ManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(CreateNewOrder)
-                .addContainerGap(503, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 254, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(226, 226, 226))
         );
 
         jSplitPane1.setLeftComponent(Memu);
@@ -117,12 +131,26 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(WorkArea);
     }//GEN-LAST:event_CreateNewOrderActionPerformed
 
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        procurerWorkArea.remove(this);
+        Component[] componentArray = procurerWorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) procurerWorkArea.getLayout();
+        layout.previous(procurerWorkArea);
+        
+    }//GEN-LAST:event_btnLogOutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateNewOrder;
     private javax.swing.JButton ManageOrder;
     private javax.swing.JPanel Memu;
     private javax.swing.JPanel WorkArea;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
