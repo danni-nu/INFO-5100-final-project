@@ -5,6 +5,7 @@
 package model.Business;
 
 import model.Production.InventoryOrganization;
+import model.Production.ProductionOrderDirectory;
 import model.Production.ProductionOrganization;
 
 /**
@@ -16,12 +17,14 @@ public class ProductionEnterprise{
     String companyName;
     private InventoryOrganization inventoryOrganization;
     private ProductionOrganization productionOrganization;
+    private ProductionOrderDirectory productionOrderDirectory;
 
     public ProductionEnterprise(String companyName) {
         this.enterpriseType="Production Company";
         this.companyName = companyName;
         this.inventoryOrganization=new InventoryOrganization();
         this.productionOrganization=new ProductionOrganization();
+        productionOrderDirectory = new ProductionOrderDirectory();
     }
 
     public ProductionEnterprise(Enterprise enterprise) {
@@ -62,6 +65,11 @@ public class ProductionEnterprise{
     public String toString(){
         return companyName;
     }
+
+    public ProductionOrderDirectory getProductionOrderDirectory() {
+        return productionOrderDirectory;
+    }
  
+    
     
 }

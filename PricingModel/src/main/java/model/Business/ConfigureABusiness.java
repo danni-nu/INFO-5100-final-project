@@ -21,10 +21,12 @@ import model.DesignEnterprise.Style;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.ProductionManagerProfile;
 import model.Production.ProductionMode;
 import model.Production.ProductionModeDirectory;
 import model.Production.ProductionOrder;
 import model.Production.ProductionOrderDirectory;
+import model.Production.ProductionOrganization;
 import model.RawMaterialEnterprise.RawMaterial;
 import model.RawMaterialEnterprise.RawMaterialDirectory;
 import model.RawMaterialEnterprise.RawMaterialOrder;
@@ -68,6 +70,8 @@ public class ConfigureABusiness {
         Person p18 = personDirectory.newPerson("Diana");
         Person p19 = personDirectory.newPerson( "Edward");
         Person p20 = personDirectory.newPerson("Fiona");
+        
+        //production enterprise managers
         Person p21 = personDirectory.newPerson("George");
         Person p22 = personDirectory.newPerson("Hannah");
 
@@ -150,8 +154,14 @@ public class ConfigureABusiness {
         Order order3=orderdirectory.addNewOrder(requirement3, 10);
         Order order4=orderdirectory.addNewOrder(requirement4, 10);
         
+        ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
+        ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
+        ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
+        //把production orderdirectory 设立在production enterprise下,
+        //production manager和inventory manager都能access production order
         
-        ProductionOrderDirectory productionOrderDirectory=productionEnterprise.getProductionOrganization().getProductionOrderDirectory();
+        
+        
         ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
         ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
         ProductionOrder productionOrder2 =productionOrderDirectory.addNewOrder(order2);
@@ -162,6 +172,11 @@ public class ConfigureABusiness {
         RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3, productionOrder3);
         RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2, productionOrder2);
         RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1, productionOrder1);
+        
+        UserAccountDirectory uadirectory = business.getUserAccountDirectory();
+        UserAccount ua1 = uadirectory.newUserAccount(pmp, "productionmanager", "****"); 
+       
+        
         
         
     return business;
