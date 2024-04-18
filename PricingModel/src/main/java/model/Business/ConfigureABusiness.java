@@ -21,6 +21,7 @@ import model.DesignEnterprise.Style;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
 import model.Production.ProductionMode;
 import model.Production.ProductionModeDirectory;
@@ -155,11 +156,12 @@ public class ConfigureABusiness {
         Order order4=orderdirectory.addNewOrder(requirement4, 10);
         
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
-        ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
+        
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
         //把production orderdirectory 设立在production enterprise下,
         //production manager和inventory manager都能access production order
-        
+        ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
+        InventoryManagerProfile imp = new InventoryManagerProfile(p22,productionOrganization);
         
         
         ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
@@ -174,8 +176,8 @@ public class ConfigureABusiness {
         RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1, productionOrder1);
         
         UserAccountDirectory uadirectory = business.getUserAccountDirectory();
-        UserAccount ua1 = uadirectory.newUserAccount(pmp, "productionmanager", "****"); 
-       
+        UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****");
+        UserAccount impua = uadirectory.newUserAccount(imp, "productionenterpriseinventorymanager", "****");
         
         
         
