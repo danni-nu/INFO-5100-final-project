@@ -6,7 +6,10 @@ package ui.BrandCompany.Procurer;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.ProcurerProfile;
+import model.BrandCompany.Requirement;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 
 /**
@@ -21,12 +24,16 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     JPanel workArea;
     ProcurerProfile procurerProfile;
     Business b;
+    BrandEnterprise brandCompany;
     
-    public ManageOrderJPanel(Business b, ProcurerProfile procurer, JPanel workArea) {
+    
+    public ManageOrderJPanel(Business b, ProcurerProfile procurer, JPanel workArea,BrandEnterprise brandCompany) {
         initComponents();
         this.b=b;
         this.procurerProfile=procurer;
         this.workArea=workArea;
+        this.brandCompany=brandCompany;
+        populateUnplacedOrderTable();
     }
 
     /**
@@ -96,15 +103,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "RequirementsID", "OrderID", "OrderStatus", "OrderRawMaterial", "OrderProductionMode", "Quantity", "Message"
+                "RequirementsID", "RawMaterial", "OrderProductionMode", "Designer", "Color", "Style", "Message"
             }
         ));
         jScrollPane4.setViewportView(tblUnplacedOrder);
-        if (tblUnplacedOrder.getColumnModel().getColumnCount() > 0) {
-            tblUnplacedOrder.getColumnModel().getColumn(0).setHeaderValue("RequirementsID");
-            tblUnplacedOrder.getColumnModel().getColumn(2).setHeaderValue("OrderStatus");
-            tblUnplacedOrder.getColumnModel().getColumn(3).setHeaderValue("OrderRawMaterial");
-        }
 
         tblOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -210,4 +212,20 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblOrderList;
     private javax.swing.JTable tblUnplacedOrder;
     // End of variables declaration//GEN-END:variables
+
+    private void populateUnplacedOrderTable() {
+        DefaultTableModel model = (DefaultTableModel) tblUnplacedOrder.getModel();
+        model.setRowCount(0);
+        for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
+            Object row[] = new Object[5];
+            row[0] = re;
+            row[1] = re.getRowMaterial().getMaterialName();
+            row[2] = re.getProductionMode().getModeName();
+            row[3] = re.getDesignerProfile().getPerson().getPersonName();
+            row[4] = re.getStyle().getStyleName();
+            //row[5] = re.getColor();
+            model.addRow(row);
+            }
+    }
+  
 }

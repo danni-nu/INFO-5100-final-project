@@ -7,6 +7,7 @@ package ui.BrandCompany.Procurer;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import model.BrandCompany.ProcurerProfile;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 
 /**
@@ -21,11 +22,13 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
     JPanel procurerWorkArea;
     Business b;
     ProcurerProfile procurer;
+    BrandEnterprise brandCompany;
     
-    public ProcurerWorkAreaJPanel(Business b,ProcurerProfile procurer,JPanel procurerWorkArea) {
+    public ProcurerWorkAreaJPanel(Business b,ProcurerProfile procurer,JPanel procurerWorkArea,BrandEnterprise brandCompany) {
         this.procurerWorkArea=procurerWorkArea;
         this.b=b;
         this.procurer=procurer;
+        this.brandCompany=brandCompany;
         initComponents();
     }
 
@@ -100,7 +103,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void ManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageOrderActionPerformed
         // TODO add your handling code here:
-        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,WorkArea);
+        ManageOrderJPanel mo=new ManageOrderJPanel(b,procurer,WorkArea,brandCompany);
         WorkArea.add("ManagerOrder",mo);
         CardLayout layout=(CardLayout)WorkArea.getLayout();
         layout.next(WorkArea);

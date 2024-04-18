@@ -16,6 +16,7 @@ import model.RawMaterialEnterprise.RawMaterial;
  * @author tianlyu
  */
 public class Requirement {
+    private String RequirementID;
     private RawMaterial rowMaterial;
     private DesignerProfile designerProfile;
     private ProductionMode productionMode;
@@ -25,22 +26,27 @@ public class Requirement {
     private String deadline;
     private String evaluation;
     private String status="waiting designing";// //designing, waitng review, waiting approcal
+    private static int count=0;
 
-    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile, Color color, Style style, String deadline, String evaluation) {
+//    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile, Color color, Style style, String deadline, String evaluation) {
+//        count++;
+//        this.rowMaterial = rowMaterial;
+//        this.designerProfile = designerProfile;
+//        this.productionMode = productionMode;
+//        this.plannerProfile=plannerProfile;
+//        this.color = color;
+//        this.style = style;
+//        this.deadline = deadline;
+//        this.evaluation = evaluation;
+//    }
+    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile,Style style) {
+        count++;
+        this.RequirementID=String.valueOf(count);
         this.rowMaterial = rowMaterial;
         this.designerProfile = designerProfile;
-        this.productionMode = productionMode;
+        this.productionMode = productionType;
         this.plannerProfile=plannerProfile;
-        this.color = color;
-        this.style = style;
-        this.deadline = deadline;
-        this.evaluation = evaluation;
-    }
-    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile) {
-        this.rowMaterial = rowMaterial;
-        this.designerProfile = designerProfile;
-        this.productionMode = productionMode;
-        this.plannerProfile=plannerProfile;
+        this.style=style;
     }
 
     public PlannerProfile getPlannerProfile() {
@@ -58,10 +64,6 @@ public class Requirement {
     
     public RequirementSolution addRequirementSolution(String solutionName, String deadline, String evaluation) {
         return new RequirementSolution(solutionName,deadline,evaluation);
-    }
-
-    public static Requirement createNewRequirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionMode,PlannerProfile plannerProfile, Color color, Style style, String deadline, String evaluation) {
-        return new Requirement(rowMaterial,designerProfile,productionMode,plannerProfile,color,style,deadline,evaluation);
     }
 
     public RawMaterial getRowMaterial() {
@@ -126,6 +128,19 @@ public class Requirement {
 
     public void setEvaluation(String evaluation) {
         this.evaluation = evaluation;
+    }
+    
+    @Override
+    public String toString(){
+        return RequirementID;
+    }
+
+    public Object getRowMaterialName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Object getProductionModeName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

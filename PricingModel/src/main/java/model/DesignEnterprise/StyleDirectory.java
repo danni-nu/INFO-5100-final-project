@@ -29,4 +29,10 @@ public class StyleDirectory {
           Style style=new Style(n);
           styleDirectory.add(style);
     }
+    public Style addANewStyle(String n){
+          Style style=new Style(n);
+          styleDirectory.add(style);
+          return style;
+    }
+    
 }

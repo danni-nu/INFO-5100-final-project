@@ -116,4 +116,13 @@ public class EnterpriseDirectory {
         return null;
     }
 
+    public BrandEnterprise getBrandCompany(String s) {
+        for(BrandEnterprise e:brandEnterpriseList){
+            if (e.getCompanyName().equals(s)) {
+            return e;
+            }
+        }
+        return null;
+    }
+
 }

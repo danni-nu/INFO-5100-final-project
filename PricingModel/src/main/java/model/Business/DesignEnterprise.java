@@ -11,7 +11,7 @@ import model.DesignEnterprise.StyleDirectory;
  *
  * @author qiaohui
  */
-public class DesignEnterprise extends Enterprise{
+public class DesignEnterprise{
 
     String enterprsieType="Design Company";
     String companyName;
@@ -25,7 +25,7 @@ public class DesignEnterprise extends Enterprise{
        this.styleDirectory=new StyleDirectory();  
     }
 
-    @Override
+    //@Override
     public String getEnterpriseType() {
         return "Design Company";
     }

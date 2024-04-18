@@ -215,18 +215,18 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="7" rowCount="4">
                 <Column editable="true" title="RequirementsID" type="java.lang.Object"/>
-                <Column editable="true" title="OrderID" type="java.lang.Object"/>
-                <Column editable="true" title="OrderStatus" type="java.lang.Object"/>
-                <Column editable="true" title="OrderRawMaterial" type="java.lang.Object"/>
+                <Column editable="true" title="RawMaterial" type="java.lang.Object"/>
                 <Column editable="true" title="OrderProductionMode" type="java.lang.Object"/>
-                <Column editable="true" title="Quantity" type="java.lang.Object"/>
+                <Column editable="true" title="Designer" type="java.lang.Object"/>
+                <Column editable="true" title="Color" type="java.lang.Object"/>
+                <Column editable="true" title="Style" type="java.lang.Object"/>
                 <Column editable="true" title="Message" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="RequirementsID"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
@@ -236,12 +236,12 @@
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="OrderStatus"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="OrderRawMaterial"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
