@@ -4,12 +4,19 @@
  */
 package ui.Production.Inventory;
 
+import model.Business.Business;
+import model.Production.InventoryManagerProfile;
+
 /**
  *
  * @author administratorzi
  */
 public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel {
 
+    javax.swing.JPanel CardSequencePanel;
+    Business business;
+    InventoryManagerProfile inventoryManagerprofile;
+    
     /**
      * Creates new form ManageMaterialOrderJPanel
      */

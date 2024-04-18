@@ -21,10 +21,10 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
     /**
      * Creates new form InventoryWorkAreaJPanel
      */
-    public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile inventorynManagerprofile) {
+    public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile imp) {
         business = b;
         this.CardSequencePanel = clp;
-        this.inventoryManagerprofile = inventoryManagerprofile;
+        this.inventoryManagerprofile = imp;
         initComponents();
     }
 
