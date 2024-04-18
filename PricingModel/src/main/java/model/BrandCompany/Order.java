@@ -4,6 +4,8 @@
  */
 package model.BrandCompany;
 
+import java.time.LocalDate;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.ImageIcon;
 import model.DesignEnterprise.RequirementSolution;
 import model.Production.ProductionMode;
@@ -20,18 +22,28 @@ public class Order {
     RequirementSolution requirementSolution;
     RawMaterial rawMaterial;
     ProductionMode productionMode;
-    ProductionOrder productOrder;
-    RawMaterialOrder rawMarerialOrder;
+    RawMaterialOrder rawMaterialOrder;
     String Orderstatus="false";//waiting producing, received order;
+    String materialStatus;
     int quantity;
     int OrderPrice;
 
-    public Order(Requirement requirement,int quantity) {
+    public Order(Requirement requirement,int quantity, String materialStatus) {
         this.requirement=requirement;
         this.Orderstatus = "false";
         this.rawMaterial=requirement.getRowMaterial();
         this.productionMode=requirement.getProductionMode();
         this.quantity = quantity;
+        
+        //generate random date from 2 years before to now
+        LocalDate date = null;
+        LocalDate now = LocalDate.now();
+        LocalDate twoYearsAgo = now.minusYears(2);
+        if (materialStatus == "material delivered"){
+            long day = ThreadLocalRandom.current().nextLong(twoYearsAgo.toEpochDay(), now.toEpochDay() + 1);
+            date = LocalDate.ofEpochDay(day);
+        }
+        rawMaterialOrder = new RawMaterialOrder(this,materialStatus, date);
     }
 
     public Requirement getRequirement() {
@@ -58,22 +70,6 @@ public class Order {
         this.productionMode = productionMode;
     }
 
-    public ProductionOrder getProductOrder() {
-        return productOrder;
-    }
-
-    public void setProductOrder(ProductionOrder productOrder) {
-        this.productOrder = productOrder;
-    }
-
-    public RawMaterialOrder getRawMarerialOrder() {
-        return rawMarerialOrder;
-    }
-
-    public void setRawMarerialOrder(RawMaterialOrder rawMarerialOrder) {
-        this.rawMarerialOrder = rawMarerialOrder;
-    }
-
     public String getOrderstatus() {
         return Orderstatus;
     }
@@ -96,5 +92,11 @@ public class Order {
 
     public void setOrderPrice(int OrderPrice) {
         this.OrderPrice = OrderPrice;
-    }    
+    }   
+
+    public RawMaterialOrder getRawMaterialOrder() {
+        return rawMaterialOrder;
+    }
+    
+    
 }

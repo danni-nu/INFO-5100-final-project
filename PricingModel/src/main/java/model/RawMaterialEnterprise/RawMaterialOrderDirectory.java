@@ -4,7 +4,9 @@
  */
 package model.RawMaterialEnterprise;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import model.BrandCompany.Order;
 import model.Production.ProductionOrder;
 
@@ -27,8 +29,8 @@ public class RawMaterialOrderDirectory {
         this.rawMaterialOrderDirectory = rawMaterialOrderDirectory;
     }
     
-    public RawMaterialOrder addNewRawMaterialOrder(Order o, ProductionOrder po){
-        RawMaterialOrder rawOrder=new RawMaterialOrder(o,po);
+    public RawMaterialOrder addNewRawMaterialOrder(RawMaterialOrder rawOrder){
+        
         rawMaterialOrderDirectory.add(rawOrder);
         return rawOrder;
     }

@@ -25,7 +25,7 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
         this.CardSequencePanel = clp;
         this.productionManagerprofile = productionManagerprofile;
         initComponents();
-        initComponents();
+        
     }
 
     /**

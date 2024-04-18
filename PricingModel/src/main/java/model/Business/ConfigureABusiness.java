@@ -5,6 +5,7 @@
  */
 package model.Business;
 
+import java.time.LocalDate;
 import java.util.Random;
 import model.BrandCompany.Order;
 import model.BrandCompany.OrderDirectory;
@@ -21,6 +22,7 @@ import model.DesignEnterprise.Style;
 import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
 import model.Production.ProductionMode;
 import model.Production.ProductionModeDirectory;
@@ -149,36 +151,36 @@ public class ConfigureABusiness {
         Requirement requirement5=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode2, planner1,style1);
         Requirement requirement6=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode1, planner1,style2);
         OrderDirectory orderdirectory=brandEnterprise.getProcurementOrganization().getOrderDirectory();
-        Order order1=orderdirectory.addNewOrder(requirement1, 10);
-        Order order2=orderdirectory.addNewOrder(requirement2, 10);
-        Order order3=orderdirectory.addNewOrder(requirement3, 10);
-        Order order4=orderdirectory.addNewOrder(requirement4, 10);
+        Order order1=orderdirectory.addNewOrder(requirement1, 10, "material delivered");
+        Order order2=orderdirectory.addNewOrder(requirement2, 10, "material delivered");
+        Order order3=orderdirectory.addNewOrder(requirement3, 10, "material delivered");
+        Order order4=orderdirectory.addNewOrder(requirement4, 10, "material delivered");
         
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
-        ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
         //把production orderdirectory 设立在production enterprise下,
         //production manager和inventory manager都能access production order
         
+        ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
+        InventoryManagerProfile imp = new InventoryManagerProfile(p22,productionOrganization);
         
-        
-        ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
-        ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
-        ProductionOrder productionOrder2 =productionOrderDirectory.addNewOrder(order2);
-        ProductionOrder productionOrder1 =productionOrderDirectory.addNewOrder(order1);
+        productionOrderDirectory.addNewOrder(order1);
+        productionOrderDirectory.addNewOrder(order2);
+        productionOrderDirectory.addNewOrder(order3);
+        productionOrderDirectory.addNewOrder(order4);
         
         RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4, productionOrder4);
-        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3, productionOrder3);
-        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2, productionOrder2);
-        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1, productionOrder1);
+        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1.getRawMaterialOrder());
+        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2.getRawMaterialOrder());
+        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3.getRawMaterialOrder());
+        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4.getRawMaterialOrder());
         
         UserAccountDirectory uadirectory = business.getUserAccountDirectory();
-        UserAccount ua1 = uadirectory.newUserAccount(pmp, "productionmanager", "****"); 
-       
+        UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****"); 
+        UserAccount impua = uadirectory.newUserAccount(imp, "productionenterpriseinventorymanager", "****");
         
         
         
-    return business;
+        return business;
   }
 }
