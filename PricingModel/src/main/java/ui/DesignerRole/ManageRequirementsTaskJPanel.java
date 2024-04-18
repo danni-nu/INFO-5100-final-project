@@ -70,17 +70,17 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         tbltask.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tbltask.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true, true
+                true, false, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -123,17 +123,17 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         tblSemester1.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblSemester1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true, true
+                true, false, false, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -162,15 +162,15 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AddSolutionjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 60, Short.MAX_VALUE))
+                .addGap(0, 115, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,18 +199,22 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddSolutionjButton)
                     .addComponent(removejButton))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -236,7 +240,17 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
 
     private void AddjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddjButtonActionPerformed
         // TODO add your handling code here:
+        int row = tbltask.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Requirement re =  (Requirement)tbltask.getValueAt(row, 0);
 
+        CourseLoad courseLoad = student.getCourseLoadBySemester(semester);
+     
+        
+        
         JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
 
         //
@@ -281,15 +295,16 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private void populateCartTable() {
         DefaultTableModel model = (DefaultTableModel) tbltask.getModel();
         model.setRowCount(0);
-        //Requirement 需要id
+        
         for (Requirement r : requirementsDirectory) {
-            Object row[] = new Object[6];
-            row[0] = r.getRowMaterial();
-            row[1] = r.getProductionMode();
-            row[2] = r.getColor();
-            row[3] = r.getStyle();
-            row[4] = r.getDeadline();
-            row[5] = r.getEvaluation();
+            Object row[] = new Object[7];
+            row[0] = r.getRequirementID();
+            row[1] = r.getRowMaterial();
+            row[2] = r.getProductionMode();
+            row[3] = r.getColor();
+            row[4] = r.getStyle();
+            row[5] = r.getDeadline();
+            row[6] = r.getEvaluation();
             model.addRow(row);
         }
     }
@@ -297,16 +312,16 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private void populateRequirmentTable() {
         DefaultTableModel model = (DefaultTableModel) tblSemester1.getModel();
         model.setRowCount(0);
-        //Requirement 需要id
+        
         for (Requirement r : requirementsDirectory) {
-            Object row[] = new Object[6];
-            row[0] = r.getRowMaterial();
-            row[1] = r.getProductionMode();
-            row[2] = r.getColor();
-            row[3] = r.getStyle();
-            row[4] = r.getDeadline();
-            row[5] = r.getEvaluation();
-            model.addRow(row);
+            Object row[] = new Object[7];
+            row[0] = r.getRequirementID();
+            row[1] = r.getRowMaterial();
+            row[2] = r.getProductionMode();
+            row[3] = r.getColor();
+            row[4] = r.getStyle();
+            row[5] = r.getDeadline();
+            row[6] = r.getEvaluation();
         }
         
     }

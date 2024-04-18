@@ -5,7 +5,9 @@
 package model.BrandCompany;
 import model.BrandCompany.PlannerProfile;
 import model.DesignEnterprise.Color;
+import model.DesignEnterprise.DesignerAssignmentRoad;
 import model.DesignEnterprise.DesignerProfile;
+import model.DesignEnterprise.RequirementAssignment;
 import model.DesignEnterprise.RequirementSolution;
 import model.DesignEnterprise.Style;
 import model.Production.ProductionMode;
@@ -136,11 +138,28 @@ public class Requirement {
     }
 
     public Object getRowMaterialName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return rowMaterial;
     }
 
     public Object getProductionModeName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return productionMode;
     }
+
+    public String getRequirementID() {
+        return RequirementID;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+    
+    public RequirementAssignment newRequirementAssignment(DesignerAssignmentRoad dar) {
+
+        RequirementAssignment requirementAssignment= new RequirementAssignment(dar, this); //links seatassignment to seat
+       
+        return requirementAssignment;
+    }
+    
+    
     
 }

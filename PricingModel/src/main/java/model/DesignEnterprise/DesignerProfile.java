@@ -39,4 +39,12 @@ public class DesignerProfile extends Profile {
     public String getRole() {
         return "Designer";
     }
+    
+    public DesignerAssignmentRoad newDesignerAssignmentRoad(String s) {
+        return this.newDesignerAssignmentRoad(s);
+    }
+    
+    public DesignerAssignmentRoad newDesignerAssignmentRoad() {
+        return this.newDesignerAssignmentRoad();
+    }
 }
