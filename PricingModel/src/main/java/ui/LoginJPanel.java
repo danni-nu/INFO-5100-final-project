@@ -12,10 +12,12 @@ import model.Business.DesignEnterprise;
 import model.Business.ProductionEnterprise;
 import model.Business.RawMaterialEnterprise;
 import model.Personnel.Profile;
+import model.Production.ProductionManagerProfile;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
+import ui.Production.Production.ProductionWorkAreaJPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -149,6 +151,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         }
         ProcurerWorkAreaJPanel procurerWorkAreajpanel;
         PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
+        ProductionWorkAreaJPanel productionworkarea;
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
 
@@ -175,7 +178,8 @@ public class LoginJPanel extends javax.swing.JPanel {
             layout.next(cardSequencePanel);
 
         }
-
+         
+        
 //        if (!(profile instanceof FacultyProfile)) {
 //        } else {
 //            FacultyProfile fp = (FacultyProfile) profile;
@@ -184,6 +188,17 @@ public class LoginJPanel extends javax.swing.JPanel {
 //            cardSequencePanel.add("faculty", facultyworkarea);
 //            CardLayout layout =(CardLayout)cardSequencePanel.getLayout();
 //            layout.next(cardSequencePanel);
+
+
+
+
+        if (profile instanceof ProductionManagerProfile) {
+            productionworkarea = new ProductionWorkAreaJPanel(business, cardSequencePanel,(ProductionManagerProfile)profile);
+            cardSequencePanel.removeAll();
+            cardSequencePanel.add("ProductionWorkAreaJPanel", productionworkarea);
+            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+
+        }
 //        }
     }//GEN-LAST:event_btnLoginActionPerformed
 

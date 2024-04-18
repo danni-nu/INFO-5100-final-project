@@ -4,16 +4,27 @@
  */
 package ui.Production.Production;
 
+import javax.swing.JPanel;
+import model.Business.Business;
+import model.Production.ProductionManagerProfile;
+
 /**
  *
  * @author administratorzi
  */
-public class ProducerWorkAreaJPanel extends javax.swing.JPanel {
+public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
 
+    javax.swing.JPanel CardSequencePanel;
+    Business business;
+    ProductionManagerProfile productionManagerprofile;
     /**
      * Creates new form ProducerWorkAreaJPanel
      */
-    public ProducerWorkAreaJPanel() {
+    public ProductionWorkAreaJPanel(Business b, JPanel clp,ProductionManagerProfile productionManagerprofile) {
+        business = b;
+        this.CardSequencePanel = clp;
+        this.productionManagerprofile = productionManagerprofile;
+        initComponents();
         initComponents();
     }
 

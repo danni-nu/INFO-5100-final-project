@@ -14,13 +14,13 @@ import model.Personnel.Profile;
  */
 public class ProductionManagerProfile extends Profile {
 
-    private ProductionOrderDirectory productionOrderDirectory;
-    ArrayList<ProductionMode> productionModeList;
+    
+    //ArrayList<ProductionMode> productionModeList;
 
-    public ProductionManagerProfile(Person p) {
+    public ProductionManagerProfile(Person p, ProductionOrganization po) {
         super(p); 
-        productionOrderDirectory = new ProductionOrderDirectory();
-        productionModeList = new ArrayList();
+        //productionOrderDirectory = new ProductionOrderDirectory();
+        //productionModeList = new ArrayList();
 
     }
     @Override
@@ -28,4 +28,9 @@ public class ProductionManagerProfile extends Profile {
         return  "ProductionManager";
     }
 
+    
+
+    
+
+    
 }
