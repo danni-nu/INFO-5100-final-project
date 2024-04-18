@@ -33,15 +33,19 @@ import ui.Production.Production.ProductionWorkAreaJPanel;
 public class LoginJPanel extends javax.swing.JPanel {
 
     Business business;
-    JPanel cardSequencePanel;
+    JPanel loginJPanel;
     
     public LoginJPanel(JPanel cardSequencePanel,Business business) {
         initComponents();
         this.business=business;
-        this.cardSequencePanel=cardSequencePanel;
+        this.loginJPanel=cardSequencePanel;
         
         populateEnterpriseTypeCombo();
         populateCompanyNameCombo();
+        
+        txtUserAccount.setText("");
+        txtPassword.setText("");
+        
     }
 
     /**
@@ -151,8 +155,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         if (useraccount == null) {
             JOptionPane.showMessageDialog(this, "Please input your account");
         }
-        ProcurerWorkAreaJPanel procurerWorkAreajpanel;
-        PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
+//        ProcurerWorkAreaJPanel procurerWorkAreajpanel;
+//        PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
         ProductionWorkAreaJPanel productionworkarea;
         ProductionEnterpriseInventoryWorkAreaJPanel productioninventoryworkarea;
         String r = useraccount.getRole();
@@ -162,11 +166,11 @@ public class LoginJPanel extends javax.swing.JPanel {
             ProcurerProfile p=(ProcurerProfile)profile;
             String s=(String)cmbCompany.getSelectedItem();
             BrandEnterprise e = business.getEnterpriseDirectory().getBrandCompany(s);
-            ProcurerWorkAreaJPanel pp= new ProcurerWorkAreaJPanel(business, p,cardSequencePanel,e);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("Procurer", pp);
-            CardLayout layout =(CardLayout)cardSequencePanel.getLayout();
-            layout.next(cardSequencePanel);
+            ProcurerWorkAreaJPanel procurerWorkJPanel= new ProcurerWorkAreaJPanel(business, p,loginJPanel,e);
+            //loginJPanel.removeAll();
+            loginJPanel.add("Procurer Work Area", procurerWorkJPanel);
+            CardLayout layout =(CardLayout)loginJPanel.getLayout();
+            layout.next(loginJPanel);
 
         }
 
@@ -174,11 +178,11 @@ public class LoginJPanel extends javax.swing.JPanel {
             PlannerProfile spp = (PlannerProfile) profile;
             String s=(String)cmbCompany.getSelectedItem();
             BrandEnterprise e = business.getEnterpriseDirectory().getBrandCompany(s);
-            PlannerWorkAreaJPanel ppp= new PlannerWorkAreaJPanel(business, spp, cardSequencePanel,e);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("Planner", ppp);
-            CardLayout layout =(CardLayout)cardSequencePanel.getLayout();
-            layout.next(cardSequencePanel);
+            PlannerWorkAreaJPanel ppp= new PlannerWorkAreaJPanel(business, spp, loginJPanel,e);
+            //loginJPanel.removeAll();
+            loginJPanel.add("Planner Work Area", ppp);
+            CardLayout layout =(CardLayout)loginJPanel.getLayout();
+            layout.next(loginJPanel);
 
         }
          
@@ -186,28 +190,28 @@ public class LoginJPanel extends javax.swing.JPanel {
 //        if (!(profile instanceof FacultyProfile)) {
 //        } else {
 //            FacultyProfile fp = (FacultyProfile) profile;
-//            facultyworkarea = new FacultyWorkAreaJPanel(business, fp,cardSequencePanel);
-//            cardSequencePanel.removeAll();
-//            cardSequencePanel.add("faculty", facultyworkarea);
-//            CardLayout layout =(CardLayout)cardSequencePanel.getLayout();
-//            layout.next(cardSequencePanel);
+//            facultyworkarea = new FacultyWorkAreaJPanel(business, fp,loginJPanel);
+//            loginJPanel.removeAll();
+//            loginJPanel.add("faculty", facultyworkarea);
+//            CardLayout layout =(CardLayout)loginJPanel.getLayout();
+//            layout.next(loginJPanel);
 
 
 
 
         if (profile instanceof ProductionManagerProfile) {
-            productionworkarea = new ProductionWorkAreaJPanel(business, cardSequencePanel,(ProductionManagerProfile)profile);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("ProductionWorkAreaJPanel", productionworkarea);
-            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+            productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile);
+            loginJPanel.removeAll();
+            loginJPanel.add("ProductionWorkAreaJPanel", productionworkarea);
+            ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
         }
         
          if (profile instanceof InventoryManagerProfile) {
-            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, cardSequencePanel,(InventoryManagerProfile)profile);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("ProductionWorkAreaJPanel", productioninventoryworkarea);
-            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile);
+            loginJPanel.removeAll();
+            loginJPanel.add("ProductionWorkAreaJPanel", productioninventoryworkarea);
+            ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
         }
 //        }
@@ -243,7 +247,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtUserAccount;
     // End of variables declaration//GEN-END:variables
 
-    private void populateEnterpriseTypeCombo() {
+    public void populateEnterpriseTypeCombo() {
         cmbCompanyType.removeAllItems();
         String s1="Brand Company";
         String s2="Design Company";
@@ -256,7 +260,7 @@ public class LoginJPanel extends javax.swing.JPanel {
   
     }
 
-    private void populateCompanyNameCombo() {
+    public void populateCompanyNameCombo() {
         cmbCompany.removeAllItems();
         String s=(String)cmbCompanyType.getSelectedItem();
         if (s.equals("Brand Company")){

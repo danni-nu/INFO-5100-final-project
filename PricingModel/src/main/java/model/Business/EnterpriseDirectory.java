@@ -7,6 +7,7 @@ package model.Business;
 import java.util.ArrayList;
 import java.lang.String;
 import model.Business.Enterprise;
+import model.DesignEnterprise.DesignerProfile;
 import model.RawMaterialEnterprise.RawMaterial;
 
 /**
@@ -124,5 +125,5 @@ public class EnterpriseDirectory {
         }
         return null;
     }
-
+    
 }

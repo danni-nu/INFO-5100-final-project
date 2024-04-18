@@ -5,7 +5,10 @@
 package ui.BrandCompany.Planner;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.PlannerProfile;
+import model.BrandCompany.Requirement;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 
 /**
@@ -20,11 +23,15 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     JPanel WorkArea;
     Business business;
     PlannerProfile requirementPlanner;
-    public RequirementManagementJPanel(Business business, PlannerProfile requirementPlanner, JPanel WorkArea) {
+    BrandEnterprise brandEnterprise;
+    
+    public RequirementManagementJPanel(Business business, PlannerProfile requirementPlanner, JPanel WorkArea,BrandEnterprise brandEnterprise) {
         initComponents();
         this.business=business;
         this.WorkArea=WorkArea;
         this.requirementPlanner=requirementPlanner;
+        this.brandEnterprise=brandEnterprise;
+        populateRequirementTable();
     }
 
 
@@ -38,8 +45,8 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        tblRequirementsTable = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        others = new javax.swing.JScrollPane();
+        tblRequirementTable = new javax.swing.JTable();
         btnCreateNewRequirement = new javax.swing.JButton();
         btnDeleteRequirement = new javax.swing.JButton();
         btnSearchRequirement = new javax.swing.JButton();
@@ -65,18 +72,18 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 
         btnBack.setText(">>Back");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblRequirementTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "RequirementsID", "Material", "Production", "Color", "Style", "Responsible Designer", "Solution Status"
+                "RequirementsID", "Material", "Production", "Color", "Style", "Responsible Designer", "Solution Status"
             }
         ));
-        tblRequirementsTable.setViewportView(jTable1);
+        others.setViewportView(tblRequirementTable);
 
         btnCreateNewRequirement.setText("Create New Requirement");
 
@@ -189,7 +196,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                         .addGap(36, 36, 36))))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tblRequirementsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(others, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -210,7 +217,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                     .addComponent(btnSearchRequirement)
                     .addComponent(txtSearchRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tblRequirementsTable, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(others, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateNewRequirement)
@@ -280,7 +287,6 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbProductionMode;
     private javax.swing.JComboBox<String> cmbRawMaterial;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDesignStyle;
     private javax.swing.JLabel lblPicture;
@@ -288,8 +294,24 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblProductionMode;
     private javax.swing.JLabel lblRawMaterial;
     private javax.swing.JLabel lblpicture2;
-    private javax.swing.JScrollPane tblRequirementsTable;
+    private javax.swing.JScrollPane others;
+    private javax.swing.JTable tblRequirementTable;
     private javax.swing.JTextField txtSearchRequirement;
     private javax.swing.JTextField txyProductName;
     // End of variables declaration//GEN-END:variables
+
+    private void populateRequirementTable() {
+        DefaultTableModel model=(DefaultTableModel)tblRequirementTable.getModel();
+        model.setRowCount(0);
+        for(Requirement re:brandEnterprise.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
+            Object row[] = new Object[5];
+            row[0] = re;
+            row[1] = re.getRowMaterial().getMaterialName();
+            row[2] = re.getProductionMode().getModeName();
+            row[3] = re.getDesignerProfile().getPerson().getPersonName();
+            row[4] = re.getStyle().getStyleName();
+            //row[5] = re.getColor();
+            model.addRow(row);
+            }
+    }
 }

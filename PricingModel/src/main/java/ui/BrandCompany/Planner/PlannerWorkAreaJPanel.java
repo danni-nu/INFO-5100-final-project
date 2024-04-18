@@ -5,10 +5,12 @@
 package ui.BrandCompany.Planner;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import model.BrandCompany.PlannerProfile;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
+import ui.LoginJPanel;
 
 /**
  *
@@ -19,17 +21,17 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form delivererWorkAreaJPanel
      */
-    JPanel WorkArea;
+    JPanel mainWorkArea;
     Business business;
     PlannerProfile requirementPlanner;
-    BrandEnterprise e;
+    BrandEnterprise brandEnterprise;
     
     
     public PlannerWorkAreaJPanel(Business business,PlannerProfile requirementPlanner, JPanel PlannerWorkArea, BrandEnterprise e) {
-        this.PlannerWorkArea=PlannerWorkArea;
+        this.mainWorkArea=PlannerWorkArea;
         this.requirementPlanner=requirementPlanner;
         this.business=business;
-        this.e=e;
+        this.brandEnterprise=e;
         initComponents();
     }
 
@@ -46,6 +48,7 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         RequirementManage = new javax.swing.JButton();
         NewRequirement = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         PlannerWorkArea = new javax.swing.JPanel();
 
         RequirementManage.setText("Requirement Manage");
@@ -62,15 +65,27 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnLogOut.setText("Log out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(NewRequirement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RequirementManage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(NewRequirement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RequirementManage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(btnLogOut)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -80,7 +95,9 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(RequirementManage)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(NewRequirement)
-                .addContainerGap(400, Short.MAX_VALUE))
+                .addGap(176, 176, 176)
+                .addComponent(btnLogOut)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -106,7 +123,7 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void RequirementManageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequirementManageActionPerformed
         // TODO add your handling code here:
-        RequirementManagementJPanel aos = new RequirementManagementJPanel(business,requirementPlanner, PlannerWorkArea);
+        RequirementManagementJPanel aos = new RequirementManagementJPanel(business,requirementPlanner, PlannerWorkArea,brandEnterprise);
         PlannerWorkArea.add("Requirement Management", aos);
         CardLayout layout =(CardLayout)PlannerWorkArea.getLayout();
         layout.next(PlannerWorkArea); 
@@ -114,17 +131,30 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void NewRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewRequirementActionPerformed
         // TODO add your handling code here:
-        NewRequirementJPanel aos = new NewRequirementJPanel(business,requirementPlanner, PlannerWorkArea);
+        NewRequirementJPanel aos = new NewRequirementJPanel(business,requirementPlanner, PlannerWorkArea,brandEnterprise);
         PlannerWorkArea.add("Requirement Management", aos);
         CardLayout layout =(CardLayout)PlannerWorkArea.getLayout();
         layout.next(PlannerWorkArea);
     }//GEN-LAST:event_NewRequirementActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        mainWorkArea.remove(this);
+        Component[] componentArray = mainWorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NewRequirement;
     private javax.swing.JPanel PlannerWorkArea;
     private javax.swing.JButton RequirementManage;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
