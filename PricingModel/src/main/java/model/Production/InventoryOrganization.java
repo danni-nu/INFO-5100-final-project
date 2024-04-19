@@ -5,6 +5,7 @@
 package model.Production;
 
 import java.util.ArrayList;
+import model.Business.ProductionEnterprise;
 
 
 
@@ -13,15 +14,22 @@ import java.util.ArrayList;
  * @author administratorzi
  */
 public class InventoryOrganization {
-    private InventoryManagerProfile inventoryManagerProfile;
-    private MaterialOrderDirectory materialOrderDIrectory;
+    //private InventoryManagerProfile inventoryManagerProfile;
+    //private ProdcutionMaterialOrderDirectory materialOrderDIrectory;
+    private ProductionEnterprise productionEnterprise;
+    
 
-    public InventoryOrganization() {
-       this.materialOrderDIrectory=new MaterialOrderDirectory();
+    public InventoryOrganization(ProductionEnterprise productionEnterprise) {
+       //this.materialOrderDIrectory=new ProdcutionMaterialOrderDirectory();
+       
     }
     
-    public InventoryManagerProfile getInventoryManagerProfile() {
-        return inventoryManagerProfile;
+    //public InventoryManagerProfile getInventoryManagerProfile() {
+        //return inventoryManagerProfile;
+    //}
+
+    public ProductionEnterprise getProductionEnterprise() {
+        return productionEnterprise;
     }
     
     

@@ -4,8 +4,11 @@
  */
 package ui.Production.Inventory;
 
+import javax.swing.JPanel;
 import model.Business.Business;
 import model.Production.InventoryManagerProfile;
+import model.Production.ProductionMode;
+import model.Production.ProductionOrder;
 
 /**
  *
@@ -13,15 +16,19 @@ import model.Production.InventoryManagerProfile;
  */
 public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel {
 
-    javax.swing.JPanel CardSequencePanel;
+    javax.swing.JPanel cardSequencePanel;
     Business business;
     InventoryManagerProfile inventoryManagerprofile;
-    
+    String selectedMaterialStatus = null;
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
-    public ManageMaterialsforProductionOrderJPanel() {
+    public ManageMaterialsforProductionOrderJPanel(JPanel cardSequencePanel, Business business,InventoryManagerProfile inventoryManagerprofile) {
         initComponents();
+        this.business = business;
+        this.cardSequencePanel = cardSequencePanel;
+        this.inventoryManagerprofile = inventoryManagerprofile;
+        populateMaterialStatusCombo();
     }
 
     /**
@@ -36,7 +43,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbMaterialStatus = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -57,7 +64,11 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Manage Materials for Production Order");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbMaterialStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMaterialStatusActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Material State: Material Order Not Placed/Material Order in Production/Material Order Delivered(when material delivered, the production order will automatically start producing)");
 
@@ -77,7 +88,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1028, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmbMaterialStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1))
@@ -98,7 +109,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
                 .addGap(12, 12, 12)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbMaterialStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addGap(45, 45, 45)
@@ -111,14 +122,28 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cmbMaterialStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMaterialStatusActionPerformed
+        // TODO add your handling code here:
+        if (cmbMaterialStatus.getSelectedItem() == null) return;
+        selectedMaterialStatus = (String) cmbMaterialStatus.getSelectedItem();
+    }//GEN-LAST:event_cmbMaterialStatusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cmbMaterialStatus;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
+
+    private void populateMaterialStatusCombo() {
+        cmbMaterialStatus.removeAllItems();
+        
+        for (ProductionOrder productionOrder:inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory().getProductionOrderList()){
+            cmbMaterialStatus.addItem(productionOrder.getMaterialOrder().getDeliverStatus());
+        }
+    }
 }

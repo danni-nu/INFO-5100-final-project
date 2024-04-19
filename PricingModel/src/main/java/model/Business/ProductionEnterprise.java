@@ -22,9 +22,9 @@ public class ProductionEnterprise{
     public ProductionEnterprise(String companyName) {
         this.enterpriseType="Production Company";
         this.companyName = companyName;
-        this.inventoryOrganization=new InventoryOrganization();
-        this.productionOrganization=new ProductionOrganization();
-        productionOrderDirectory = new ProductionOrderDirectory();
+        this.inventoryOrganization=new InventoryOrganization(this);
+        this.productionOrganization=new ProductionOrganization(this);
+        productionOrderDirectory = new ProductionOrderDirectory(this);
     }
 
     public ProductionEnterprise(Enterprise enterprise) {

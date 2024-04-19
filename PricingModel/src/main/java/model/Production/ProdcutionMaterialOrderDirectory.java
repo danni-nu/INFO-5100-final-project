@@ -11,10 +11,10 @@ import model.RawMaterialEnterprise.RawMaterialOrder;
  *
  * @author administratorzi
  */
-public class MaterialOrderDirectory {
+public class ProdcutionMaterialOrderDirectory {
      private ArrayList<RawMaterialOrder> materialOrderList;
      
-     public MaterialOrderDirectory() {
+     public ProdcutionMaterialOrderDirectory() {
             materialOrderList = new ArrayList<>();
      }
 }

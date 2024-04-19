@@ -15,9 +15,12 @@ import model.Personnel.Profile;
 public class InventoryManagerProfile extends Profile {
 
    //private MaterialOrderDirectory materialOrderDirectory;
+    private InventoryOrganization inventoryOrganization;
+    
 
-    public InventoryManagerProfile(Person p, ProductionOrganization po) {
+    public InventoryManagerProfile(Person p, InventoryOrganization inventoryOrganization) {
         super(p); 
+        this.inventoryOrganization = inventoryOrganization;
        // materialOrderDirectory = new MaterialOrderDirectory();
     }
     
@@ -26,5 +29,13 @@ public class InventoryManagerProfile extends Profile {
     public String getRole(){
         return  "InventoryManager";
     }
+
+    public InventoryOrganization getInventoryOrganization() {
+        return inventoryOrganization;
+    }
+
+   
+    
+    
 
 }
