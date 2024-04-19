@@ -18,10 +18,10 @@ public class RawMaterialOrder {
     private RawMaterial rawMaterial;
     private String deliverStatus; //Material Order Not Placed/Material Order in Production/Material Order Delivered
     private int materialPrice;
-    private Date deliveryDate;
+    private String deliveryDate;
     private String deliveryNumber;
 
-    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, Date deliveryDate, String deliveryNumber) {
+    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, String deliveryDate, String deliveryNumber) {
         this.rawMaterial = rawMaterial;
         this.deliverStatus = deliverStatus;
         this.materialPrice = materialPrice;
@@ -31,9 +31,17 @@ public class RawMaterialOrder {
     }
     
     
-    public RawMaterialOrder(Order o, ProductionOrder po) {
+    //public RawMaterialOrder(Order o) {
+        //this.o=o;
+        //this.po=po;
+    //}
+    
+     public RawMaterialOrder(Order o) {
         this.o=o;
-        this.po=po;
+        this.deliverStatus = "Not delivered";
+        this.deliveryDate = "N/A";
+        this.deliveryNumber = "N/A";
+        this.deliverStatus="false";
     }
     
 
@@ -53,7 +61,7 @@ public class RawMaterialOrder {
         return materialPrice;
     }
 
-    public Date getDeliveryDate() {
+    public String getDeliveryDate() {
         return deliveryDate;
     }
 
