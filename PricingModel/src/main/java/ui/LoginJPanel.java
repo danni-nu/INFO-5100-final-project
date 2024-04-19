@@ -226,6 +226,7 @@ public class LoginJPanel extends javax.swing.JPanel {
          
         
         //Designer to login
+
         if (profile instanceof DesignerProfile) {
             DesignerProfile dp = (DesignerProfile) profile;
             String s=(String)cmbCompany.getSelectedItem();

@@ -51,9 +51,6 @@ public class RawMaterialDirectory {
             if(ma.getMaterialName().equals(m)){
                 return ma;
             }
-            else{
-                return null;
-            }
         }
         return null;
     }

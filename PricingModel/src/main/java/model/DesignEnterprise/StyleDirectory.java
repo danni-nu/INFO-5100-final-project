@@ -41,7 +41,6 @@ public class StyleDirectory {
             if(s.getStyleName().equals(n)){
             return s;
         }
-          return null;
     }
         return null;
     }
