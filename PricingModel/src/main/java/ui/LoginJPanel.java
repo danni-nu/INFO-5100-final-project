@@ -227,26 +227,29 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         //Designer to login
 
-//        if (profile instanceof DesignerProfile) {
-//            DesignerProfile dp = (DesignerProfile) profile;
-//            String s=(String)cmbCompany.getSelectedItem();
-//            BrandEnterprise be = business.getEnterpriseDirectory().getBrandCompany(s);            
-//            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile,be);
-//            cardSequencePanel.removeAll();
-//            cardSequencePanel.add("Designer", designerWorkArea);
-//            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
-//
-//        }
-//       
-//        //RawMaterialManager to login 
-//        if (profile instanceof RawMaterialManager) {
-//
-//            inventoryWorkArea = new InventoryWorkAreaJPanel(business, cardSequencePanel,(RawMaterialManager)profile);
-//            cardSequencePanel.removeAll();
-//            cardSequencePanel.add("RawMaterialManager", inventoryWorkArea);
-//            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
-//
-//        }        
+
+        if (profile instanceof DesignerProfile) {
+            DesignerProfile dp = (DesignerProfile) profile;
+            String s=(String)cmbCompany.getSelectedItem();
+            DesignEnterprise ds = business.getEnterpriseDirectory().getDesignEnterprise(s); 
+            BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");//默认是Brand Company1
+            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile,ds,brandCompany);
+            cardSequencePanel.removeAll();
+            cardSequencePanel.add("Designer", designerWorkArea);
+            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+
+        }
+       
+        //RawMaterialManager to login 
+        if (profile instanceof RawMaterialManager) {
+
+            inventoryWorkArea = new InventoryWorkAreaJPanel(business, cardSequencePanel,(RawMaterialManager)profile);
+            cardSequencePanel.removeAll();
+            cardSequencePanel.add("RawMaterialManager", inventoryWorkArea);
+            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+
+        }        
+
 
     }//GEN-LAST:event_btnLoginActionPerformed
 

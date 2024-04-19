@@ -7,6 +7,7 @@ package ui.DesignerRole;
 import javax.swing.JPanel;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.DesignEnterprise;
 import model.DesignEnterprise.DesignerProfile;
 
 /**
@@ -18,16 +19,18 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
     javax.swing.JPanel CardSequencePanel;
     Business business;
     DesignerProfile designer;
+    DesignEnterprise designEnterprise;
     BrandEnterprise brandCompany;
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public DesignerWorkAreaJPanel(Business b, JPanel clp,DesignerProfile designerProfile,BrandEnterprise brandCompany) {
+    public DesignerWorkAreaJPanel(Business b, JPanel clp,DesignerProfile designerProfile,DesignEnterprise designEnterprise,BrandEnterprise brandCompany) {
         business = b;
+        this.brandCompany=brandCompany;
         this.CardSequencePanel = clp;
         designer = designerProfile;
-        this.brandCompany = brandCompany;
+        this.designEnterprise = designEnterprise;
         initComponents();
     }
 
@@ -125,7 +128,7 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void ManageRequirementsTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageRequirementsTaskButtonActionPerformed
 //         TODO add your handling code here:
-        ManageRequirementsTaskJPanel aos = new ManageRequirementsTaskJPanel(business, CardSequencePanel,  designer,  brandCompany);
+        ManageRequirementsTaskJPanel aos = new ManageRequirementsTaskJPanel(business, CardSequencePanel,  designer,  designEnterprise,brandCompany);
         CardSequencePanel.add("Manage Requirements Task", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_ManageRequirementsTaskButtonActionPerformed
