@@ -16,23 +16,56 @@ import model.RawMaterialEnterprise.RawMaterialOrder;
  * @author qiaohui
  */
 public class Order {
-    Requirement requirement;
-    RequirementSolution requirementSolution;
-    RawMaterial rawMaterial;
-    ProductionMode productionMode;
-    ProductionOrder productOrder;
-    RawMaterialOrder rawMarerialOrder;
-    String Orderstatus="false";//waiting producing, received order;
-    int quantity;
-    int OrderPrice;
+    private String orederID;
+    private Requirement requirement;
+    private RequirementSolution requirementSolution;
+    private RawMaterial rawMaterial;
+    private ProductionMode productionMode;
+    private ProductionOrder productOrder;
+    private RawMaterialOrder rawMarerialOrder;
+    private String Orderstatus="wait raw material";//waiting producing, received order;
+    private boolean status=false;
+    private int quantity;
+    private int OrderPrice;
+    private static int count=0;
+    
 
     public Order(Requirement requirement,int quantity) {
+        count++;
+        this.orederID=String.valueOf(count);
         this.requirement=requirement;
         this.Orderstatus = "false";
+        this.status=false;
         this.rawMaterial=requirement.getRowMaterial();
         this.productionMode=requirement.getProductionMode();
         this.quantity = quantity;
-        //productOrder = new ProductionOrder(this);
+        this.productOrder=new ProductionOrder(this);
+        this.rawMarerialOrder= new RawMaterialOrder(this,productOrder);
+    }
+
+    public String getOrederID() {
+        return orederID;
+    }
+
+    public void setOrederID(String orederID) {
+        this.orederID = orederID;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Order.count = count;
+       
     }
 
     public Requirement getRequirement() {
@@ -75,9 +108,22 @@ public class Order {
         this.rawMarerialOrder = rawMarerialOrder;
     }
 
-    public String getOrderstatus() {
-        return Orderstatus;
+  public String getOrderstatus() {
+    if(this.status==false&&this.productOrder.isStatus()==false&&this.rawMarerialOrder.isStatus()==false){
+        return "waiting raw material";
     }
+    if(this.status==false&&this.productOrder.isStatus()==false&&this.rawMarerialOrder.isStatus()==true){
+        return "waiting producing";
+    }
+    if(this.status==false&&this.productOrder.isStatus()==true&&this.rawMarerialOrder.isStatus()==true){
+        return "waiting delivering";
+    }
+    if(this.status==true&&this.productOrder.isStatus()==true&&this.rawMarerialOrder.isStatus()==true){
+        return "waiting delivering";
+    }else{
+        return "waiting delivering";
+    }
+   }
 
     public void setOrderstatus(String Orderstatus) {
         this.Orderstatus = Orderstatus;
@@ -98,4 +144,9 @@ public class Order {
     public void setOrderPrice(int OrderPrice) {
         this.OrderPrice = OrderPrice;
     }    
+    
+    @Override
+    public String toString(){
+        return orederID;
+    }
 }

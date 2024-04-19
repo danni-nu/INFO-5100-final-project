@@ -13,24 +13,59 @@ import model.Production.ProductionOrder;
  * @author tianlyu
  */
 public class RawMaterialOrder {
-    private Order o;
-    private ProductionOrder po;
+    private String rawMaterialOrderID;
+    private Order order;
+    private ProductionOrder productionOrder;
     private RawMaterial rawMaterial;
-    private String deliverStatus; //Material Order Not Placed/Material Order in Production/Material Order Delivered
+    private String deliverStatus="unplaced order"; //Material Order Not Placed/Material Order in Production/Material Order Delivered
+    private boolean status=false;
     private int materialPrice;
     private String deliveryDate;
     private String deliveryNumber;
+    private static int count;
+    
 
-    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, String deliveryDate, String deliveryNumber) {
+    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, Date deliveryDate, String deliveryNumber) {
+        count++;
         this.rawMaterial = rawMaterial;
         this.deliverStatus = deliverStatus;
         this.materialPrice = materialPrice;
         this.deliveryDate = deliveryDate;
         this.deliveryNumber = deliveryNumber;
-        this.deliverStatus="false";
+        this.deliverStatus="unplaced order";
+        this.status=false;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public ProductionOrder getProductionOrder() {
+        return productionOrder;
+    }
+
+    public void setProductionOrder(ProductionOrder productionOrder) {
+        this.productionOrder = productionOrder;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
     
+
+    public RawMaterialOrder(Order o, ProductionOrder po) {
+        this.order=o;
+        this.productionOrder=po;
+
     //public RawMaterialOrder(Order o) {
         //this.o=o;
         //this.po=po;

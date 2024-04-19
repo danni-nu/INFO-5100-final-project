@@ -44,7 +44,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         initComponents();
         this.business=business;
         this.loginJPanel=cardSequencePanel;
-        
         populateEnterpriseTypeCombo();
         populateCompanyNameCombo();
         

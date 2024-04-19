@@ -51,8 +51,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     DesignerProfile selectedDesigner=null;
     Style selectedStyle=null;
     Color selectedColor=null;
-    
-    
+
     
     public NewRequirementJPanel(Business business, PlannerProfile requirementPlanner, JPanel PlannerWorkArea,BrandEnterprise brandEnterprise) {
         initComponents();
@@ -83,7 +82,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         cmbProductionMode = new javax.swing.JComboBox<>();
         cmbColor = new javax.swing.JComboBox<>();
         lblDesignStyle = new javax.swing.JLabel();
-        lblProductName = new javax.swing.JLabel();
+        lblRequirementID = new javax.swing.JLabel();
         CreateRerquirement = new javax.swing.JButton();
         lblRawMaterialpCost = new javax.swing.JLabel();
         cmbRawMaterial = new javax.swing.JComboBox<>();
@@ -97,7 +96,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblRawMaterial = new javax.swing.JLabel();
         lblModeCost = new javax.swing.JLabel();
         lblDesignFee = new javax.swing.JLabel();
-        txtProductName = new javax.swing.JTextField();
+        txtRequirementID = new javax.swing.JTextField();
         lblDeadline = new javax.swing.JLabel();
         txtDeadLine = new javax.swing.JTextField();
         lblRawMaterialCompany = new javax.swing.JLabel();
@@ -135,8 +134,8 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblDesignStyle.setText("Designe Style");
         add(lblDesignStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 329, 146, 29));
 
-        lblProductName.setText("Product Name");
-        add(lblProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 110, 146, -1));
+        lblRequirementID.setText("RequirementID");
+        add(lblRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 110, 146, -1));
 
         CreateRerquirement.setText("Create Requirement");
         CreateRerquirement.addActionListener(new java.awt.event.ActionListener() {
@@ -199,12 +198,13 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblDesignFee.setText("Design Fee:");
         add(lblDesignFee, new org.netbeans.lib.awtextra.AbsoluteConstraints(528, 299, -1, 23));
 
-        txtProductName.addActionListener(new java.awt.event.ActionListener() {
+        txtRequirementID.setEnabled(false);
+        txtRequirementID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtProductNameActionPerformed(evt);
+                txtRequirementIDActionPerformed(evt);
             }
         });
-        add(txtProductName, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 104, 146, -1));
+        add(txtRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 104, 146, -1));
 
         lblDeadline.setText("Deadline ");
         add(lblDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 402, -1, -1));
@@ -286,11 +286,17 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         if(selectdProductionmode!=null) {
             lblModeCost.setText(String.valueOf(selectdProductionmode.getModePrice()));
         }
+        try{
+            lblTotalCost.setText(String.valueOf(selectedRawmaterial.getPrice()+selectdProductionmode.getModePrice()+selectedDesigner.getDefaultDesignPricing()));
+
+        }catch(Exception e){
+            return;
+        }
     }//GEN-LAST:event_cmbProductionModeActionPerformed
 
-    private void txtProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameActionPerformed
+    private void txtRequirementIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRequirementIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtProductNameActionPerformed
+    }//GEN-LAST:event_txtRequirementIDActionPerformed
 
     private void txtDeadLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDeadLineActionPerformed
         // TODO add your handling code here:
@@ -304,8 +310,13 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         String s=(String)cmbDesigner.getSelectedItem();
         selectedDesigner=selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().findDesignerProfile(s);
         if(selectedDesigner!=null) {
-            lblDesignCost.setText(String.valueOf(selectedDesigner.getDefaultDesignPricing()));
-            lblTotalCost.setText(String.valueOf(selectdProductionmode.getModePrice()+selectdProductionmode.getModePrice()+selectedDesigner.getDefaultDesignPricing()));
+            lblDesignCost.setText(String.valueOf(selectedDesigner.getDefaultDesignPricing()));      
+        }
+        try{
+            lblTotalCost.setText(String.valueOf(selectedRawmaterial.getPrice()+selectdProductionmode.getModePrice()+selectedDesigner.getDefaultDesignPricing()));
+
+        }catch(Exception e){
+            return;
         }
     }//GEN-LAST:event_cmbDesignerActionPerformed
 
@@ -319,6 +330,12 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         selectedRawmaterial=selectedRawMaterialEnterprise.getRawMaterialDirectory().findRawMateiral(s);
         if(selectedRawmaterial!=null) {
             lblMaterialCost.setText(String.valueOf(selectedRawmaterial.getPrice()));
+        }
+        try{
+            lblTotalCost.setText(String.valueOf(selectedRawmaterial.getPrice()+selectdProductionmode.getModePrice()+selectedDesigner.getDefaultDesignPricing()));
+
+        }catch(Exception e){
+            return;
         }
     
     }//GEN-LAST:event_cmbRawMaterialActionPerformed
@@ -334,22 +351,10 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void CreateRerquirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRerquirementActionPerformed
         // TODO add your handling code here:
-//       String s=(String)cmbRawMaterialCompany.getSelectedItem();
-//       RawMaterialEnterprise selectedRawMaterialEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
-//      RawMaterialEnterprise selectedRawmaterial=selectedRawMaterialEnterprise.getRawMaterialDirectory().findRawMateiral(m);
-//       String s1=(String)cmbDesignCompany.getSelectedItem();
-//       DesignEnterprise selectedDesignEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s1);
-//       String s2=(String) cmbDesigner.getSelectedItem();
-//       DesignerProfile selectedDesigner=selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().findDesignerProfile(s2);
-//       String s3=(String) cmbProductionCompany.getSelectedItem();
-//       ProductionEnterprise selectedEnterprise2=business.getEnterpriseDirectory().getProductionEnterprise(s3);
-//       String s4=(String) cmbProductionMode.getSelectedItem();
-//       ProductionMode selectdProductionmode=selectedEnterprise2.getProductionOrganization().findProductionMode(s4);
-//       String s5=(String)cmbDesignStyle.getSelectedItem();
-//       Style selectedStyle=selectedDesignEnterprise.getStyleDirectory().findStyle(s5);
         RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
         Requirement requirement=requirementsdirectory.addANewRrequirement(selectedRawmaterial, selectedDesigner, selectdProductionmode, plannerProfile, selectedStyle,selectedColor);
         requirement.setDeadline(txtDeadLine.getText());
+        txtRequirementID.setText(requirement.getRequirementID());
        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_CreateRerquirementActionPerformed
 
@@ -360,6 +365,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         }
         String s=(String)cmbRawMaterialCompany.getSelectedItem();
         selectedRawMaterialEnterprise = business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+        
     }//GEN-LAST:event_cmbRawMaterialCompanyActionPerformed
 
     private void cmbProductionCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionCompanyActionPerformed
@@ -426,16 +432,16 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblMaterialCost;
     private javax.swing.JLabel lblModeCost;
     private javax.swing.JLabel lblPicture;
-    private javax.swing.JLabel lblProductName;
     private javax.swing.JLabel lblProductionCompany;
     private javax.swing.JLabel lblProductionMode;
     private javax.swing.JLabel lblProductionModeCost1;
     private javax.swing.JLabel lblRawMaterial;
     private javax.swing.JLabel lblRawMaterialCompany;
     private javax.swing.JLabel lblRawMaterialpCost;
+    private javax.swing.JLabel lblRequirementID;
     private javax.swing.JLabel lblTotalCost;
     private javax.swing.JTextField txtDeadLine;
-    private javax.swing.JTextField txtProductName;
+    private javax.swing.JTextField txtRequirementID;
     // End of variables declaration//GEN-END:variables
 
     private void populateRawMaterialCompanyCombo() {

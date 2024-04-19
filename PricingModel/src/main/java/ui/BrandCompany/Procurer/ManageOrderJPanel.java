@@ -5,8 +5,10 @@
 package ui.BrandCompany.Procurer;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.Order;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.Requirement;
 import model.Business.BrandEnterprise;
@@ -38,7 +40,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         this.procurerProfile=procurer;
         this.workArea=workArea;
         this.brandCompany=brandCompany;
-        populateUnplacedOrderTable();
+        populateRequirementTable();
     }
 
     /**
@@ -58,10 +60,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrderDetailStatus = new javax.swing.JTable();
         btnRequestCancelOrder = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblquantity = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        tblUnplacedOrder = new javax.swing.JTable();
+        tblRequiementList = new javax.swing.JTable();
         spnQuantity = new javax.swing.JSpinner();
         lblOrderTotal = new javax.swing.JLabel();
         lblOrderCost = new javax.swing.JLabel();
@@ -77,9 +79,19 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 15, -1, -1));
 
         btnCheckUnfinishedOrder.setText("Check Unfinished Order");
+        btnCheckUnfinishedOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckUnfinishedOrderActionPerformed(evt);
+            }
+        });
         add(btnCheckUnfinishedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 303, -1, -1));
 
         btnCheckOrderDetail.setText("Check Order Detail");
+        btnCheckOrderDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckOrderDetailActionPerformed(evt);
+            }
+        });
         add(btnCheckOrderDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 274, -1, -1));
 
         BbtnCreateNewOrder.setText("Create New Order");
@@ -109,26 +121,26 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 384, 711, 178));
 
         btnRequestCancelOrder.setText("Request Cancel Order");
-        add(btnRequestCancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 626, -1, -1));
+        add(btnRequestCancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 580, -1, -1));
 
-        jLabel2.setText("Quantiy:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 59, 23));
+        lblquantity.setText("Quantiy:");
+        add(lblquantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 59, 23));
 
         jButton6.setText("Check Unplaced Order");
         add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 332, -1, -1));
 
-        tblUnplacedOrder.setModel(new javax.swing.table.DefaultTableModel(
+        tblRequiementList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "RequirementsID", "RawMaterial", "OrderProductionMode", "Designer", "Color", "Style", "Message"
+                "RequirementsID", "RawMaterial", "OrderProductionMode", "Designer", "Style", "Color", "DeadLine", "Message"
             }
         ));
-        jScrollPane4.setViewportView(tblUnplacedOrder);
+        jScrollPane4.setViewportView(tblRequiementList);
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 64, 722, 183));
         add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
@@ -149,18 +161,35 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
     private void BbtnCreateNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BbtnCreateNewOrderActionPerformed
         // TODO add your handling code here:
-        
-//        ProductionOrganization productionOrganization = selectdProductionEnterprise.getProductionOrganization();
-//        ProductionOrderDirectory productionOrderDirectory = selectdProductionEnterprise.getProductionOrderDirectory();
-//  
-//        ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
-//        ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
-//        ProductionOrder productionOrder2 =productionOrderDirectory.addNewOrder(order2);
-//        ProductionOrder productionOrder1 =productionOrderDirectory.addNewOrder(order1);
-//        
-//        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-//        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4, productionOrder4);
+        int selectedRowIndex = tblRequiementList.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequiementList.getValueAt(selectedRowIndex, 0);
+        int quantity=(Integer)spnQuantity.getValue();
+        if(quantity==0){
+        JOptionPane.showMessageDialog(this, "Please check quantity!Order quantity cannot be 0", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+        requirement.addNewOrderToRequirement(requirement, quantity);
+        JOptionPane.showMessageDialog(this, "Your order was successfully placed!", "Info", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_BbtnCreateNewOrderActionPerformed
+
+    private void btnCheckOrderDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOrderDetailActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequiementList.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequiementList.getValueAt(selectedRowIndex, 0);
+        populateOrderDetailStatus(requirement);
+    }//GEN-LAST:event_btnCheckOrderDetailActionPerformed
+
+    private void btnCheckUnfinishedOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckUnfinishedOrderActionPerformed
+        // TODO add your handling code here:
+        populateUnplacedOrderTable();
+        
+    }//GEN-LAST:event_btnCheckUnfinishedOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -170,21 +199,21 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCheckUnfinishedOrder;
     private javax.swing.JButton btnRequestCancelOrder;
     private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lblOrderCost;
     private javax.swing.JLabel lblOrderTotal;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblquantity;
     private javax.swing.JSpinner spnQuantity;
     private javax.swing.JTable tblOrderDetailStatus;
-    private javax.swing.JTable tblUnplacedOrder;
+    private javax.swing.JTable tblRequiementList;
     // End of variables declaration//GEN-END:variables
     
     
     
-    private void populateUnplacedOrderTable() {
-        DefaultTableModel model = (DefaultTableModel) tblUnplacedOrder.getModel();
+    private void populateRequirementTable() {
+        DefaultTableModel model = (DefaultTableModel) tblRequiementList.getModel();
         model.setRowCount(0);
         for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
             Object row[] = new Object[8];
@@ -199,6 +228,44 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             model.addRow(row);
             }
         
+    }
+
+
+    private void populateUnplacedOrderTable() {
+        DefaultTableModel model = (DefaultTableModel) tblRequiementList.getModel();
+        model.setRowCount(0);
+        for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
+            if(re.isStatus()==false){
+            Object row[] = new Object[8];
+            row[0] = re;
+            row[1] = re.get;
+            row[2] = re.getProductionMode();
+            row[3] = re.getDesignerProfile().getPerson().getPersonName();
+            row[4] = re.getStyle();
+            row[5] = re.getColor();
+            row[6] = re.getDeadline();
+            row[7] = re.getRequirementstatus();
+            model.addRow(row);
+            }
+            }
+    }
+
+    private void populateOrderDetailStatus(Requirement requirement) {
+        DefaultTableModel model = (DefaultTableModel) tblRequiementList.getModel();
+        model.setRowCount(0);
+        for(Order order:requirement.getRequirementOrderList()){
+            Object row[] = new Object[7];
+            row[0] = order;
+            row[1] = order.getOrderstatus();
+            row[2] = order.getRawMarerialOrder();
+            row[3] = order.getProductOrder().getProductionOrderStatus();
+            row[3] = order.getRawMarerialOrder().getDeliverStatus();
+            row[4] = order.getStyle();
+            row[5] = order.getColor();
+            row[6] = order.getDeadline();
+            model.addRow(row);
+          
+            }
     }
   
 }
