@@ -74,14 +74,16 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         lblProductionMode = new javax.swing.JLabel();
         lblColor = new javax.swing.JLabel();
         lblDesignStyle = new javax.swing.JLabel();
-        lblProductName = new javax.swing.JLabel();
+        lblRequirementID = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtSearchRequirement = new javax.swing.JTextField();
-        txyProductName = new javax.swing.JTextField();
-        txyProductName1 = new javax.swing.JTextField();
-        txyProductName2 = new javax.swing.JTextField();
-        txyProductName3 = new javax.swing.JTextField();
-        txyProductName4 = new javax.swing.JTextField();
+        txtRequirementID = new javax.swing.JTextField();
+        txtRawMaterial = new javax.swing.JTextField();
+        txtProductionMode = new javax.swing.JTextField();
+        txtDesignStyle = new javax.swing.JTextField();
+        txtColor = new javax.swing.JTextField();
+        lblDesigner = new javax.swing.JLabel();
+        txtDesigner = new javax.swing.JTextField();
 
         setForeground(new java.awt.Color(255, 255, 255));
 
@@ -94,16 +96,20 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 
         tblRequirementTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "RequirementsID", "Material", "Production", "Color", "Style", "Responsible Designer", "Solution Status"
+                "RequirementsID", "Material", "Production", "Designer", "Style", "Color", "Deadline", "Solution Status"
             }
         ));
         others.setViewportView(tblRequirementTable);
+        if (tblRequirementTable.getColumnModel().getColumnCount() > 0) {
+            tblRequirementTable.getColumnModel().getColumn(5).setResizable(false);
+            tblRequirementTable.getColumnModel().getColumn(7).setResizable(false);
+        }
 
         btnCreateNewRequirement.setText("Create New Requirement");
         btnCreateNewRequirement.addActionListener(new java.awt.event.ActionListener() {
@@ -139,8 +145,18 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         imgLogo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         btnApproval.setText("Approval ");
+        btnApproval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApprovalActionPerformed(evt);
+            }
+        });
 
         btnRefuse.setText("Refuse");
+        btnRefuse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefuseActionPerformed(evt);
+            }
+        });
 
         lblRawMaterial.setText("Raw Material");
 
@@ -150,40 +166,49 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 
         lblDesignStyle.setText("Design Style");
 
-        lblProductName.setText("Product Name");
+        lblRequirementID.setText("RequirementID");
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel8.setText("Requirement Management");
 
-        txyProductName.addActionListener(new java.awt.event.ActionListener() {
+        txtRequirementID.setEnabled(false);
+        txtRequirementID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txyProductNameActionPerformed(evt);
+                txtRequirementIDActionPerformed(evt);
             }
         });
 
-        txyProductName1.addActionListener(new java.awt.event.ActionListener() {
+        txtRawMaterial.setEnabled(false);
+        txtRawMaterial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txyProductName1ActionPerformed(evt);
+                txtRawMaterialActionPerformed(evt);
             }
         });
 
-        txyProductName2.addActionListener(new java.awt.event.ActionListener() {
+        txtProductionMode.setEnabled(false);
+        txtProductionMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txyProductName2ActionPerformed(evt);
+                txtProductionModeActionPerformed(evt);
             }
         });
 
-        txyProductName3.addActionListener(new java.awt.event.ActionListener() {
+        txtDesignStyle.setEnabled(false);
+        txtDesignStyle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txyProductName3ActionPerformed(evt);
+                txtDesignStyleActionPerformed(evt);
             }
         });
 
-        txyProductName4.addActionListener(new java.awt.event.ActionListener() {
+        txtColor.setEnabled(false);
+        txtColor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txyProductName4ActionPerformed(evt);
+                txtColorActionPerformed(evt);
             }
         });
+
+        lblDesigner.setText("Designer");
+
+        txtDesigner.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -204,17 +229,19 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblProductName)
+                                    .addComponent(lblRequirementID)
                                     .addComponent(lblProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblColor)
-                                    .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(49, 49, 49)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txyProductName3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txyProductName2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txyProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txyProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txyProductName4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtDesignStyle, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                    .addComponent(txtProductionMode, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                    .addComponent(txtRequirementID, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                    .addComponent(txtRawMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                    .addComponent(txtColor, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                    .addComponent(txtDesigner)))))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack)
                         .addGap(158, 158, 158)
@@ -272,28 +299,34 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblProductName)
-                            .addComponent(txyProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblRequirementID)
+                            .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRawMaterial)
-                            .addComponent(txyProductName1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(12, 12, 12)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblProductionMode)
-                            .addComponent(txyProductName2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                            .addComponent(txtProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblColor)
-                            .addComponent(txyProductName4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txyProductName3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(41, 41, 41)
+                            .addComponent(txtDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnApproval)
                     .addComponent(btnRefuse))
@@ -308,15 +341,17 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
          int selectedRowIndex = tblRequirementTable.getSelectedRow();
         if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Pls select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0); 
-        brandEnterprise.getProductPlanningOrganization().getRequirementDirectory().
+        brandEnterprise.getProductPlanningOrganization().getRequirementDirectory().deleteRequirement(requirement);
+        populateRequirementTable();
+        JOptionPane.showMessageDialog(null, "The requirement is deleted", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnDeleteRequirementActionPerformed
 
-    private void txyProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txyProductNameActionPerformed
+    private void txtRequirementIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRequirementIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txyProductNameActionPerformed
+    }//GEN-LAST:event_txtRequirementIDActionPerformed
 
     private void btnCreateNewRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateNewRequirementActionPerformed
         // TODO add your handling code here:
@@ -347,30 +382,60 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 //            imgLogo.setIcon(requriemeentSolution.getLogoImage());
 //        } else {
 //            imgLogo.setText("No Logo");
-//        }  
+//        } 
+         txtRequirementID.setText(requirement.getRequirementID());
+         txtProductionMode.setText(requirement.getProductionMode().getModeName());
+         txtRawMaterial.setText(requirement.getRowMaterialName());
+         txtColor.setText(requirement.getColor().getColorName());
+         txtDesignStyle.setText(requirement.getStyle().getStyleName());
+         txtDesigner.setText(requirement.getDesignerProfile().toString());
+    
     }//GEN-LAST:event_btnCheckDesignerSolutionActionPerformed
 
-    private void txyProductName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txyProductName1ActionPerformed
+    private void txtRawMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRawMaterialActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txyProductName1ActionPerformed
+    }//GEN-LAST:event_txtRawMaterialActionPerformed
 
-    private void txyProductName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txyProductName2ActionPerformed
+    private void txtProductionModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductionModeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txyProductName2ActionPerformed
+    }//GEN-LAST:event_txtProductionModeActionPerformed
 
-    private void txyProductName3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txyProductName3ActionPerformed
+    private void txtDesignStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDesignStyleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txyProductName3ActionPerformed
+    }//GEN-LAST:event_txtDesignStyleActionPerformed
 
-    private void txyProductName4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txyProductName4ActionPerformed
+    private void txtColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txyProductName4ActionPerformed
+    }//GEN-LAST:event_txtColorActionPerformed
 
     private void btnSearchRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchRequirementActionPerformed
         // TODO add your handling code here:
         String requirementID=txtSearchRequirement.getText();
         populateRequirementTable(requirementID);
     }//GEN-LAST:event_btnSearchRequirementActionPerformed
+
+    private void btnApprovalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovalActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequirementTable.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
+        //RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
+        requirement.setRequirementstatus("Approved");
+        JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnApprovalActionPerformed
+
+    private void btnRefuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefuseActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequirementTable.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0); 
+        requirement.setRequirementstatus("Approved");
+        JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnRefuseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -385,31 +450,35 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDesignStyle;
+    private javax.swing.JLabel lblDesigner;
     private javax.swing.JLabel lblPicture;
-    private javax.swing.JLabel lblProductName;
     private javax.swing.JLabel lblProductionMode;
     private javax.swing.JLabel lblRawMaterial;
+    private javax.swing.JLabel lblRequirementID;
     private javax.swing.JScrollPane others;
     private javax.swing.JTable tblRequirementTable;
+    private javax.swing.JTextField txtColor;
+    private javax.swing.JTextField txtDesignStyle;
+    private javax.swing.JTextField txtDesigner;
+    private javax.swing.JTextField txtProductionMode;
+    private javax.swing.JTextField txtRawMaterial;
+    private javax.swing.JTextField txtRequirementID;
     private javax.swing.JTextField txtSearchRequirement;
-    private javax.swing.JTextField txyProductName;
-    private javax.swing.JTextField txyProductName1;
-    private javax.swing.JTextField txyProductName2;
-    private javax.swing.JTextField txyProductName3;
-    private javax.swing.JTextField txyProductName4;
     // End of variables declaration//GEN-END:variables
 
     private void populateRequirementTable() {
         DefaultTableModel model=(DefaultTableModel)tblRequirementTable.getModel();
         model.setRowCount(0);
         for(Requirement re:brandEnterprise.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
-            Object row[] = new Object[5];
+            Object row[] = new Object[8];
             row[0] = re;
             row[1] = re.getRowMaterial();
-            row[2] = re.getProductionMode().getModeName();
+            row[2] = re.getProductionMode();
             row[3] = re.getDesignerProfile().getPerson().getPersonName();
-            row[4] = re.getStyle().getStyleName();
-            //row[5] = re.getColor();
+            row[4] = re.getStyle();
+            row[5] = re.getColor();
+            row[6] = re.getDeadline();
+            row[7] = re.getRequirementstatus();
             model.addRow(row);
             }
     }
@@ -419,13 +488,15 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for(Requirement re:brandEnterprise.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
             if(re.getRequirementID().equals(productName)){
-            Object row[] = new Object[5];
+            Object row[] = new Object[8];
             row[0] = re;
             row[1] = re.getRowMaterial();
-            row[2] = re.getProductionMode().getModeName();
+            row[2] = re.getProductionMode();
             row[3] = re.getDesignerProfile().getPerson().getPersonName();
-            row[4] = re.getStyle().getStyleName();
-            //row[5] = re.getColor();
+            row[4] = re.getStyle();
+            row[5] = re.getColor();
+            row[6] = re.getDeadline();
+            row[7] = re.getRequirementstatus();
             model.addRow(row);
             }
             }

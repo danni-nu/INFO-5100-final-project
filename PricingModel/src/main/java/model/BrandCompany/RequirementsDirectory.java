@@ -5,6 +5,7 @@
 package model.BrandCompany;
 
 import java.util.ArrayList;
+import model.DesignEnterprise.Color;
 import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.RequirementAssignment;
 import model.DesignEnterprise.Style;
@@ -39,13 +40,14 @@ public class RequirementsDirectory {
         this.requirementsDirectory = requirementsDirectory;
     }    
     
-    public Requirement addANewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp,Style style){
-        Requirement newrequirement=new Requirement(r,d,p,pp,style);
+    public Requirement addANewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp,Style style,Color c){
+        Requirement newrequirement=new Requirement(r,d,p,pp,style,c);
         requirementsDirectory.add(newrequirement);
         return newrequirement;
     }
-    public void addNewRrequirement(RawMaterial r, DesignerProfile designer, ProductionMode p, PlannerProfile planner,Style style){
-        Requirement newrequirement=new Requirement(r,designer,p,planner,style);
+    
+    public void addNewRrequirement(RawMaterial r, DesignerProfile designer, ProductionMode p, PlannerProfile planner,Style style,Color c){
+        Requirement newrequirement=new Requirement(r,designer,p,planner,style,c);
         requirementsDirectory.add(newrequirement);
     }
     

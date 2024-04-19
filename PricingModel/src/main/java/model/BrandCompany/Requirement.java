@@ -27,7 +27,9 @@ public class Requirement {
     private Style style;
     private String deadline;
     private String evaluation;
-    private String status="waiting designing";// //designing, waitng review, waiting approcal
+    // //designing, waitng review, waiting approcal
+    private String requirementstatus;
+    private boolean status=false;
     private static int count=0;
 
 //    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile, Color color, Style style, String deadline, String evaluation) {
@@ -41,7 +43,8 @@ public class Requirement {
 //        this.deadline = deadline;
 //        this.evaluation = evaluation;
 //    }
-    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile,Style style) {
+    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile,Style style,Color c) {
+        this.requirementstatus= "unfinished";
         count++;
         this.RequirementID=String.valueOf(count);
         this.rowMaterial = rowMaterial;
@@ -49,8 +52,26 @@ public class Requirement {
         this.productionMode = productionType;
         this.plannerProfile=plannerProfile;
         this.style=style;
+        this.color=c;
     }
 
+    public String getRequirementstatus() {
+        return requirementstatus;
+    }
+
+    public void setRequirementstatus(String requirementstatus) {
+        this.requirementstatus = requirementstatus;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    
     public RequirementAssignment getRequirementAssignment() {
         return requirementAssignment;
     }
@@ -90,14 +111,6 @@ public class Requirement {
 
     public void setProductionMode(ProductionMode productionMode) {
         this.productionMode = productionMode;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public Color getColor() {

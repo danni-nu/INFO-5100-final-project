@@ -4,6 +4,7 @@
  */
 package model.Business;
 
+import model.DesignEnterprise.ColorDirectory;
 import model.DesignEnterprise.DesignOrganization;
 import model.DesignEnterprise.StyleDirectory;
 
@@ -17,12 +18,22 @@ public class DesignEnterprise{
     String companyName;
     DesignOrganization designOrganization;
     StyleDirectory styleDirectory;
+    ColorDirectory colorDirectory;
     
     public DesignEnterprise(String companyName) {
        this.enterprsieType="Design Company";
        this.companyName=companyName;
        this.designOrganization=new DesignOrganization();
-       this.styleDirectory=new StyleDirectory();  
+       this.styleDirectory=new StyleDirectory();
+       this.colorDirectory=new ColorDirectory();
+    }
+
+    public ColorDirectory getColorDirectory() {
+        return colorDirectory;
+    }
+
+    public void setColorDirectory(ColorDirectory colorDirectory) {
+        this.colorDirectory = colorDirectory;
     }
 
     //@Override

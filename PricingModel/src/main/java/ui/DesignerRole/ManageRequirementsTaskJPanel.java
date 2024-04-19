@@ -12,6 +12,7 @@ import model.BrandCompany.Order;
 import model.BrandCompany.Requirement;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.DesignEnterprise;
 import model.DesignEnterprise.DesignerProfile;
 
 /**
@@ -23,14 +24,16 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     javax.swing.JPanel CardSequencePanel;
     Business business;
     DesignerProfile designerProfile;
+    DesignEnterprise designEnterprise;
     BrandEnterprise brandCompany;
     /**
      * Creates new form DesignerWorkAreaJPanel
      */
-    public ManageRequirementsTaskJPanel(Business b, JPanel clp,DesignerProfile designer,BrandEnterprise brandCompany) {
+    public ManageRequirementsTaskJPanel(Business b, JPanel clp,DesignerProfile designer,DesignEnterprise designEnterprise,BrandEnterprise e) {
         business = b;
-        designerProfile = designer;
-        this.brandCompany = brandCompany;
+        this.brandCompany=brandCompany;
+        this.designerProfile = designer;
+        this.designEnterprise = designEnterprise;
         this.CardSequencePanel = clp;
         initComponents();
         
@@ -314,8 +317,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
 
     private void populateRequirmentTable() {
         DefaultTableModel model = (DefaultTableModel) tblSemester1.getModel();
-        model.setRowCount(0);
-        
+        model.setRowCount(0);        
         for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
             row[0] = r.getRequirementID();
