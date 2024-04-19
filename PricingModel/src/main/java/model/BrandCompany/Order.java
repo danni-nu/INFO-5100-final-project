@@ -32,6 +32,7 @@ public class Order {
         this.rawMaterial=requirement.getRowMaterial();
         this.productionMode=requirement.getProductionMode();
         this.quantity = quantity;
+        //productOrder = new ProductionOrder(this);
     }
 
     public Requirement getRequirement() {

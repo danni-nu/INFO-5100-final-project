@@ -152,7 +152,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         cmbMaterialStatus.removeAllItems();
         
         for (ProductionOrder productionOrder:inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory().getProductionOrderList()){
-            cmbMaterialStatus.addItem(productionOrder.getMaterialOrder().getDeliverStatus());
+            cmbMaterialStatus.addItem(productionOrder.getRawMaterialOrder().getDeliverStatus());
         }
     }
 }

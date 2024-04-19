@@ -19,18 +19,19 @@ public class ProductionOrder {
     private Order order; //linked to Order Class
     private ProductionMode productionMode;
     private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
-    private RawMaterialOrder materialOrder;
+    private RawMaterialOrder rawMaterialOrder;
     //private ImageIcon logoImage;
 
-    public ProductionOrder(Order order) {
+    public ProductionOrder(Order order, RawMaterialOrder rawMaterialOrder) {
         this.order = order;
         this.productionOrderStatus = "false";
+        this.rawMaterialOrder = rawMaterialOrder;
 
     }
     public ProductionOrder(Order order, ProductionMode productionMode, RawMaterialOrder materialOrder) {
         this.order = order;
         this.productionMode = productionMode;
-        this.materialOrder = materialOrder;
+        //this.materialOrder = materialOrder;
     }
     
     public Order getOrder(){    
@@ -57,18 +58,26 @@ public class ProductionOrder {
         this.productionOrderStatus = productionOrderStatus;
     }
 
-    public RawMaterialOrder getMaterialOrder() {
-        return materialOrder;
-    }
+    
 
 //    public ImageIcon getLogoImage() {
 //        return order.getImageIcon();
 //    }
-    public void setMaterialOrder(RawMaterialOrder materialOrder) {
-        this.materialOrder = materialOrder;
-    }
+   // public void setMaterialOrder(RawMaterialOrder materialOrder) {
+        //this.materialOrder = materialOrder;
+    //}
 
     public int getQuantity() {
         return order.getQuantity();
     }
+
+    public RawMaterialOrder getRawMaterialOrder() {
+        return rawMaterialOrder;
+    }
+
+    public void setRawMaterialOrder(RawMaterialOrder rawMaterialOrder) {
+        this.rawMaterialOrder = rawMaterialOrder;
+    }
+    
+    
 }
