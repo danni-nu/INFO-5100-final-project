@@ -24,6 +24,7 @@ import model.DesignEnterprise.StyleDirectory;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
 import model.Production.InventoryManagerProfile;
+import model.Production.InventoryOrganization;
 import model.Production.ProductionManagerProfile;
 import model.Production.ProductionMode;
 import model.Production.ProductionModeDirectory;
@@ -210,13 +211,12 @@ public class ConfigureABusiness {
         Order order4=orderdirectory.addNewOrder(requirement4, 10);
         
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
-        
+        InventoryOrganization inventoryOrganization = productionEnterprise.getInventoryOrganization();
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
         //把production orderdirectory 设立在production enterprise下,
         //production manager和inventory manager都能access production order
         ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
-        InventoryManagerProfile imp = new InventoryManagerProfile(p22,productionOrganization);
-        
+        InventoryManagerProfile imp = new InventoryManagerProfile(p22,inventoryOrganization);
         
         ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
         ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
