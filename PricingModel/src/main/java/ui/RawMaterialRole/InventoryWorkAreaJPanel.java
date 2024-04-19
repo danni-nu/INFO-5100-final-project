@@ -5,6 +5,7 @@
 package ui.RawMaterialRole;
 
 import javax.swing.JPanel;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.RawMaterialEnterprise.RawMaterialManager;
 
@@ -17,6 +18,7 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
     javax.swing.JPanel CardSequencePanel;
     Business business;
     RawMaterialManager rawMaterialManager;
+    BrandEnterprise brandCompany;
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
