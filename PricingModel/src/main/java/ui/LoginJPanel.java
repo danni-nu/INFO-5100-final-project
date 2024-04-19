@@ -227,6 +227,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         //Designer to login
 
+
         if (profile instanceof DesignerProfile) {
             DesignerProfile dp = (DesignerProfile) profile;
             String s=(String)cmbCompany.getSelectedItem();
@@ -248,6 +249,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
 
         }        
+
 
     }//GEN-LAST:event_btnLoginActionPerformed
 

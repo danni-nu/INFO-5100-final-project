@@ -66,16 +66,21 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         lblOrderTotal = new javax.swing.JLabel();
         lblOrderCost = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnBack.setText(">>Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 15, -1, -1));
 
         btnCheckUnfinishedOrder.setText("Check Unfinished Order");
+        add(btnCheckUnfinishedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 303, -1, -1));
 
         btnCheckOrderDetail.setText("Check Order Detail");
+        add(btnCheckOrderDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 274, -1, -1));
 
         BbtnCreateNewOrder.setText("Create New Order");
         BbtnCreateNewOrder.addActionListener(new java.awt.event.ActionListener() {
@@ -83,8 +88,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 BbtnCreateNewOrderActionPerformed(evt);
             }
         });
+        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 283, -1, 60));
 
         lblTitle.setText("Order Management");
+        add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 18, -1, -1));
 
         tblOrderDetailStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,11 +106,16 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblOrderDetailStatus);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 384, 711, 178));
+
         btnRequestCancelOrder.setText("Request Cancel Order");
+        add(btnRequestCancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 626, -1, -1));
 
         jLabel2.setText("Quantiy:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 59, 23));
 
         jButton6.setText("Check Unplaced Order");
+        add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(572, 332, -1, -1));
 
         tblUnplacedOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,85 +130,14 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(tblUnplacedOrder);
 
+        add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 64, 722, 183));
+        add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
+
         lblOrderTotal.setText("Order Total:");
+        add(lblOrderTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 315, -1, 23));
 
         lblOrderCost.setText("<Cost>");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(215, 215, 215)
-                        .addComponent(lblTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(lblOrderTotal)
-                                .addGap(13, 13, 13))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(lblOrderCost)
-                                .addGap(83, 83, 83)
-                                .addComponent(BbtnCreateNewOrder)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(btnCheckOrderDetail))
-                            .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCheckUnfinishedOrder, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRequestCancelOrder))
-                .addGap(17, 17, 17))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(lblTitle))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spnQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BbtnCreateNewOrder)
-                            .addComponent(lblOrderTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblOrderCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCheckOrderDetail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCheckUnfinishedOrder)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(btnRequestCancelOrder)
-                .addContainerGap())
-        );
+        add(lblOrderCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(133, 315, -1, 23));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -246,15 +187,18 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblUnplacedOrder.getModel();
         model.setRowCount(0);
         for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
-            Object row[] = new Object[5];
+            Object row[] = new Object[8];
             row[0] = re;
             row[1] = re.getRowMaterial();
-            row[2] = re.getProductionMode().getModeName();
+            row[2] = re.getProductionMode();
             row[3] = re.getDesignerProfile().getPerson().getPersonName();
-            row[4] = re.getStyle().getStyleName();
-            //row[5] = re.getColor();
+            row[4] = re.getStyle();
+            row[5] = re.getColor();
+            row[6] = re.getDeadline();
+            row[7] = re.getRequirementstatus();
             model.addRow(row);
             }
+        
     }
   
 }

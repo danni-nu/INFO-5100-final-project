@@ -152,6 +152,11 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         });
 
         btnRefuse.setText("Refuse");
+        btnRefuse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefuseActionPerformed(evt);
+            }
+        });
 
         lblRawMaterial.setText("Raw Material");
 
@@ -413,12 +418,24 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int selectedRowIndex = tblRequirementTable.getSelectedRow();
         if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Pls select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
         //RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
         requirement.setRequirementstatus("Approved");
+        JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnApprovalActionPerformed
+
+    private void btnRefuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefuseActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequirementTable.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0); 
+        requirement.setRequirementstatus("Approved");
+        JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
+    }//GEN-LAST:event_btnRefuseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
