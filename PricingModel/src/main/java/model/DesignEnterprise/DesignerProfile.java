@@ -5,6 +5,7 @@
 package model.DesignEnterprise;
 
 import java.util.ArrayList;
+import model.BrandCompany.Requirement;
 import model.Personnel.Person;
 import model.Personnel.Profile;
 
@@ -15,24 +16,25 @@ import model.Personnel.Profile;
 public class DesignerProfile extends Profile {
     int defaultDesignPricing;
     String deginerTitle;
-    ArrayList<RequirementAssignment> requirementAssignmentList;
+    
 
     public DesignerProfile(Person p, int defaultDesignPricing) {
         super(p);
         this.defaultDesignPricing = defaultDesignPricing;
-        requirementAssignmentList = new ArrayList<>();
     }
 
     public int getDefaultDesignPricing() {
         return defaultDesignPricing;
     }
 
-    public void addRequirementAssignment(RequirementAssignment assignment) {
-        requirementAssignmentList.add(assignment);
+    //Designer add Requirement Assignment
+    public void addRequirementAssignment(Requirement requirement) {
+        RequirementAssignmentDirectory.assignRequirementToDesginer(this, requirement);
     }
     
-    public void removeRequirementAssignment(RequirementAssignment assignment) {
-        requirementAssignmentList.remove(assignment);
+    //Designer remove Requirement Assignment
+    public void removeRequirementAssignment(Requirement requirement) {
+        RequirementAssignmentDirectory.removeRequirementFromDesigner(this, requirement);
     }
 
     @Override
@@ -40,11 +42,15 @@ public class DesignerProfile extends Profile {
         return "Designer";
     }
     
-    public DesignerAssignmentRoad newDesignerAssignmentRoad(String s) {
-        return this.newDesignerAssignmentRoad(s);
-    }
+//    public DesignerAssignmentRoad getDesignerAssignmentRoadbyName(String desingerName) {
+//        return this.getDesignerAssignmentRoadbyName(desingerName);
+//    }
     
-    public DesignerAssignmentRoad newDesignerAssignmentRoad() {
-        return this.newDesignerAssignmentRoad();
-    }
+//    public DesignerAssignmentRoad newDesignerAssignmentRoad(String s) {
+//        return this.newDesignerAssignmentRoad(s);
+//    }
+//    
+//    public DesignerAssignmentRoad newDesignerAssignmentRoad() {
+//        return this.newDesignerAssignmentRoad();
+//    }
 }

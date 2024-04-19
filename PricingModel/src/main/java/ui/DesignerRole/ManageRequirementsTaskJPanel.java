@@ -11,6 +11,7 @@ import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Order;
 import model.BrandCompany.Requirement;
 import model.Business.Business;
+import model.DesignEnterprise.DesignerProfile;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
-    ArrayList<Order> orderDirectory;
+    DesignerProfile designerProfile;
     ArrayList<Requirement> requirementsDirectory;
     /**
      * Creates new form DesignerWorkAreaJPanel
@@ -247,8 +248,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         }
         Requirement re =  (Requirement)tbltask.getValueAt(row, 0);
 
-        CourseLoad courseLoad = student.getCourseLoadBySemester(semester);
-     
+//        CourseLoad courseLoad = student.getCourseLoadBySemester(semester);
+//        designerProfile.getDesignerAssignmentRoadbyName(TOOL_TIP_TEXT_KEY)
         
         
         JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);

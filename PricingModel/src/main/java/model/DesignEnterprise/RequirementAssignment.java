@@ -6,6 +6,7 @@ package model.DesignEnterprise;
 
 import model.BrandCompany.Requirement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -14,18 +15,18 @@ import java.util.ArrayList;
 public class RequirementAssignment {
     private DesignerProfile designerProfile;
     private Requirement requirement;
-    private ArrayList<RequirementAssignment> requirementAssignmentsDirectory;
-    private DesignerAssignmentRoad DesignerAssignmentRoad;
-    private RequirementSolution requirementSolution;
+    private boolean status = false;
+//    private DesignerAssignmentRoad DesignerAssignmentRoad;
+    private List<RequirementSolution> requirementSolutionlist; //each designerProfile have one
     //+Deadline: string 
     //+Evaluation:String 直接从requirementAssignmentsDirectory拿？
 
 
     
-    public RequirementAssignment(DesignerAssignmentRoad da, Requirement r) {
+    public RequirementAssignment(DesignerProfile dp, Requirement r) {
         requirement = r;
-        DesignerAssignmentRoad = da;
-        
+        designerProfile = dp;
+        requirementSolutionlist = new ArrayList<>();
     }
 
     public DesignerProfile getDesignerProfile() {
@@ -44,23 +45,15 @@ public class RequirementAssignment {
         this.requirement = requirement;
     }
 
-    public ArrayList<RequirementAssignment> getRequirementAssignmentsDirectory() {
-        return requirementAssignmentsDirectory;
+
+    public List<RequirementSolution> getRequirementSolution() {
+        return requirementSolutionlist;
     }
 
-    public void setRequirementAssignmentsDirectory(ArrayList<RequirementAssignment> requirementAssignmentsDirectory) {
-        this.requirementAssignmentsDirectory = requirementAssignmentsDirectory;
+    public void addRequirementSolution(RequirementSolution requirementSolution){
+        requirementSolutionlist.add(requirementSolution);
+        status = true;//update solution change status to true
     }
-
-
-    public RequirementSolution getRequirementSolution() {
-        return requirementSolution;
-    }
-
-    public void setRequirementSolution(RequirementSolution requirementSolution) {
-        this.requirementSolution = requirementSolution;
-    }
-
     
     
 }
