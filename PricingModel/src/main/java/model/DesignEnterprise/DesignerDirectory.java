@@ -44,8 +44,8 @@ public class DesignerDirectory {
     public DesignerProfile findDesignerProfile(String designName){
         for(DesignerProfile designer: DesignerProfileList){
             if(designer.getPerson().getPersonName().equals(designName)){
-                return designer;}
-            return null;
+                return designer;
+            }
             }
         return null;
         }
