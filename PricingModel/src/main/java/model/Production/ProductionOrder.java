@@ -32,14 +32,17 @@ public class ProductionOrder {
     }
 
     public ProductionOrder(Order order) {
+
+    public ProductionOrder(Order order, RawMaterialOrder rawMaterialOrder) {
         this.order = order;
-        this.productionOrderStatus = "false";
+        this.productionOrderStatus = "waiting placed";
+        this.rawMaterialOrder = rawMaterialOrder;
 
     }
     public ProductionOrder(Order order, ProductionMode productionMode, RawMaterialOrder materialOrder) {
         this.order = order;
         this.productionMode = productionMode;
-        this.materialOrder = materialOrder;
+        //this.materialOrder = materialOrder;
     }
     
     public Order getOrder(){    
@@ -66,18 +69,26 @@ public class ProductionOrder {
         this.productionOrderStatus = productionOrderStatus;
     }
 
-    public RawMaterialOrder getMaterialOrder() {
-        return materialOrder;
-    }
+    
 
 //    public ImageIcon getLogoImage() {
 //        return order.getImageIcon();
 //    }
-    public void setMaterialOrder(RawMaterialOrder materialOrder) {
-        this.materialOrder = materialOrder;
-    }
+   // public void setMaterialOrder(RawMaterialOrder materialOrder) {
+        //this.materialOrder = materialOrder;
+    //}
 
     public int getQuantity() {
         return order.getQuantity();
     }
+
+    public RawMaterialOrder getRawMaterialOrder() {
+        return rawMaterialOrder;
+    }
+
+    public void setRawMaterialOrder(RawMaterialOrder rawMaterialOrder) {
+        this.rawMaterialOrder = rawMaterialOrder;
+    }
+    
+    
 }

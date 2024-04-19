@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.lang.String;
 import model.Business.Enterprise;
 import model.DesignEnterprise.DesignerProfile;
+import model.Personnel.Person;
 import model.RawMaterialEnterprise.RawMaterial;
 
 /**
@@ -73,8 +74,8 @@ public class EnterpriseDirectory {
         return e;
     }
     
-    public ProductionEnterprise addProductionEnterprise(String name){
-        ProductionEnterprise e = new ProductionEnterprise( name);
+    public ProductionEnterprise addProductionEnterprise(String name, Person inventoryPerson, Person productionPerson){
+        ProductionEnterprise e = new ProductionEnterprise(name, inventoryPerson, productionPerson);
         productionEnterpriseList.add(e); 
         return e;
     

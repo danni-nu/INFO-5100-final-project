@@ -4,6 +4,7 @@
  */
 package model.Business;
 
+import model.Personnel.Person;
 import model.Production.InventoryOrganization;
 import model.Production.ProductionOrderDirectory;
 import model.Production.ProductionOrganization;
@@ -18,11 +19,12 @@ public class ProductionEnterprise{
     private InventoryOrganization inventoryOrganization;
     private ProductionOrganization productionOrganization;
     private ProductionOrderDirectory productionOrderDirectory;
+    
 
-    public ProductionEnterprise(String companyName) {
+    public ProductionEnterprise(String companyName,Person inventoryPerson,Person productionPerson) {
         this.enterpriseType="Production Company";
         this.companyName = companyName;
-        this.inventoryOrganization=new InventoryOrganization(this);
+        this.inventoryOrganization=new InventoryOrganization(inventoryPerson,this);
         this.productionOrganization=new ProductionOrganization(this);
         this.productionOrderDirectory = new ProductionOrderDirectory(this);
     }

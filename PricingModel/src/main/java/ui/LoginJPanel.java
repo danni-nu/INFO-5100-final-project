@@ -209,6 +209,8 @@ public class LoginJPanel extends javax.swing.JPanel {
 
 
         if (profile instanceof ProductionManagerProfile) {
+            String s=(String)cmbCompany.getSelectedItem();
+            ProductionEnterprise e = business.getEnterpriseDirectory().getProductionEnterprise(s);
             productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile);
             //loginJPanel.removeAll();
             loginJPanel.add("ProductionWorkAreaJPanel", productionworkarea);
@@ -217,6 +219,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         }
         
          if (profile instanceof InventoryManagerProfile) {
+            String s=(String)cmbCompany.getSelectedItem();
+            ProductionEnterprise e = business.getEnterpriseDirectory().getProductionEnterprise(s);
             productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile);
            // loginJPanel.removeAll();
             loginJPanel.add("ProductionWorkAreaJPane", productioninventoryworkarea);

@@ -46,14 +46,9 @@ import model.UserAccountManagement.UserAccountDirectory;
 public class ConfigureABusiness {
 
   public static Business initialize() {
-    Business business = new Business("Xerox");
-    EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
-    BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company1");
-    DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
-    ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1");
-    RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
-    PersonDirectory personDirectory=business.getPersonDirectory();
-    UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
+      Business business = new Business("Xerox");
+      PersonDirectory personDirectory=business.getPersonDirectory();
+      UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
     
         Person p1 = personDirectory.newPerson("Archil");
         Person p2 = personDirectory.newPerson("Bhargav");
@@ -85,7 +80,14 @@ public class ConfigureABusiness {
         //production enterprise managers
         Person p21 = personDirectory.newPerson("George");
         Person p22 = personDirectory.newPerson("Hannah");
-
+        
+    
+    EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
+    BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company1");
+    DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
+    ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
+    RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
+    
         
         ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);
@@ -215,23 +217,23 @@ public class ConfigureABusiness {
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
         //把production orderdirectory 设立在production enterprise下,
         //production manager和inventory manager都能access production order
-        ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
-        InventoryManagerProfile imp = new InventoryManagerProfile(p22,inventoryOrganization);
-        
-        ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
-        ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
-        ProductionOrder productionOrder2 =productionOrderDirectory.addNewOrder(order2);
-        ProductionOrder productionOrder1 =productionOrderDirectory.addNewOrder(order1);
+        //ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
+        //InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
+        InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
         
         RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4, productionOrder4);
-        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3, productionOrder3);
-        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2, productionOrder2);
-        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1, productionOrder1);
+        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1);
+        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2);
+        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3);
+        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4);
         
-        UserAccountDirectory uadirectory = business.getUserAccountDirectory();
-        UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****");
-        UserAccount impua = uadirectory.newUserAccount(imp, "productionenterpriseinventorymanager", "****");
+        ProductionOrder productionOrder4 =productionOrderDirectory.addNewProductionOrder(order1,rawMaterialOrder1);
+        ProductionOrder productionOrder3 =productionOrderDirectory.addNewProductionOrder(order2,rawMaterialOrder2);
+        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3,rawMaterialOrder3);
+        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4,rawMaterialOrder4);
+        
+        //UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****");
+        UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "****");
         
         
         

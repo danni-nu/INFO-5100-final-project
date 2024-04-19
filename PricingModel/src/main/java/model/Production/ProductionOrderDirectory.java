@@ -7,6 +7,7 @@ package model.Production;
 import java.util.ArrayList;
 import model.BrandCompany.Order;
 import model.Business.ProductionEnterprise;
+import model.RawMaterialEnterprise.RawMaterialOrder;
 
 /**
  *
@@ -29,8 +30,8 @@ public class ProductionOrderDirectory {
     }
      
     
-    public ProductionOrder addNewOrder(Order o){
-        ProductionOrder productionOrder=new ProductionOrder(o);
+    public ProductionOrder addNewProductionOrder(Order o, RawMaterialOrder rmo){
+        ProductionOrder productionOrder=new ProductionOrder(o,rmo);
         productionOrderList.add(productionOrder);
         return productionOrder;
     }

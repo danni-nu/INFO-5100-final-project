@@ -65,6 +65,7 @@ public class Order {
 
     public static void setCount(int count) {
         Order.count = count;
+       
     }
 
     public Requirement getRequirement() {
