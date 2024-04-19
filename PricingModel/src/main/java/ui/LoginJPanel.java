@@ -223,8 +223,10 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         //Designer to login
         if (profile instanceof DesignerProfile) {
-
-            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile);
+            DesignerProfile dp = (DesignerProfile) profile;
+            String s=(String)cmbCompany.getSelectedItem();
+            BrandEnterprise be = business.getEnterpriseDirectory().getBrandCompany(s);            
+            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile,be);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("Designer", designerWorkArea);
             ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);

@@ -4,6 +4,9 @@
  */
 package model.RawMaterialEnterprise;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author qiaohui
@@ -31,6 +34,10 @@ public class RawMaterialManageOrganization {
 
     public void setRawMaterialManager(RawMaterialManager rawMaterialManager) {
         this.rawMaterialManager = rawMaterialManager;
+    }
+    
+    public void addRawMaterialManager(Person p) {
+        new RawMaterialManager(p);
     }
     
     
