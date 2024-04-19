@@ -58,7 +58,7 @@
                           <Component id="jScrollPane2" alignment="0" min="-2" pref="699" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="removejButton1" min="-2" pref="115" max="-2" attributes="0"/>
+                          <Component id="viewjButton" min="-2" pref="115" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="AddjButton" min="-2" pref="140" max="-2" attributes="0"/>
                       </Group>
@@ -85,7 +85,7 @@
                   <Component id="jScrollPane1" min="-2" pref="135" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="removejButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="viewjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="AddjButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -213,12 +213,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removejButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="removejButton1">
+        <Component class="javax.swing.JButton" name="viewjButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="View Details"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removejButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="viewjButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -236,7 +236,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="tblSemester1">
+            <Component class="javax.swing.JTable" name="tblSchedule">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lucida Grande" size="13" style="0"/>
