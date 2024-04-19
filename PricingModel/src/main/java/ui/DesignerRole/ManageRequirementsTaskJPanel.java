@@ -31,7 +31,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
      */
     public ManageRequirementsTaskJPanel(Business b, JPanel clp,DesignerProfile designer,DesignEnterprise designEnterprise,BrandEnterprise e) {
         business = b;
-        this.brandCompany=brandCompany;
+        this.brandCompany= e;
         this.designerProfile = designer;
         this.designEnterprise = designEnterprise;
         this.CardSequencePanel = clp;
