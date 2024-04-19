@@ -37,18 +37,20 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblRawMaterial" linkSize="1" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
-                                  <Component id="lblProductName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRequirementID" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblProductionMode" linkSize="1" alignment="0" min="-2" pref="82" max="-2" attributes="0"/>
                                   <Component id="lblColor" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblDesignStyle" linkSize="1" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <Component id="lblDesigner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txyProductName3" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="txyProductName2" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="txyProductName" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="txyProductName1" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="txyProductName4" min="-2" pref="88" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtDesignStyle" pref="88" max="32767" attributes="0"/>
+                                  <Component id="txtProductionMode" pref="88" max="32767" attributes="0"/>
+                                  <Component id="txtRequirementID" pref="88" max="32767" attributes="0"/>
+                                  <Component id="txtRawMaterial" pref="88" max="32767" attributes="0"/>
+                                  <Component id="txtColor" pref="88" max="32767" attributes="0"/>
+                                  <Component id="txtDesigner" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -124,35 +126,43 @@
               <Component id="lblPicture" min="-2" pref="37" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="imgLogo" min="-2" pref="197" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="imgLogo" min="-2" pref="197" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblProductName" min="-2" max="-2" attributes="0"/>
-                          <Component id="txyProductName" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="lblRequirementID" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRequirementID" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblRawMaterial" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txyProductName1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtRawMaterial" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblProductionMode" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txyProductName2" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtProductionMode" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblDesigner" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="txtDesigner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblColor" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txyProductName4" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtColor" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDesignStyle" linkSize="2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="txyProductName3" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="txtDesignStyle" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnApproval" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnRefuse" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -181,13 +191,14 @@
         <Component class="javax.swing.JTable" name="tblRequirementTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="8" rowCount="4">
                 <Column editable="true" title="RequirementsID" type="java.lang.Object"/>
                 <Column editable="true" title="Material" type="java.lang.Object"/>
                 <Column editable="true" title="Production" type="java.lang.Object"/>
-                <Column editable="true" title="Color" type="java.lang.Object"/>
+                <Column editable="true" title="Designer" type="java.lang.Object"/>
                 <Column editable="true" title="Style" type="java.lang.Object"/>
-                <Column editable="true" title="Responsible Designer" type="java.lang.Object"/>
+                <Column editable="true" title="Color" type="java.lang.Object"/>
+                <Column editable="true" title="Deadline" type="java.lang.Object"/>
                 <Column editable="true" title="Solution Status" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -218,12 +229,17 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -288,6 +304,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Approval "/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnApprovalActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnRefuse">
       <Properties>
@@ -314,9 +333,9 @@
         <Property name="text" type="java.lang.String" value="Design Style"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblProductName">
+    <Component class="javax.swing.JLabel" name="lblRequirementID">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Product Name"/>
+        <Property name="text" type="java.lang.String" value="RequirementID"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -329,30 +348,55 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtSearchRequirement">
     </Component>
-    <Component class="javax.swing.JTextField" name="txyProductName">
+    <Component class="javax.swing.JTextField" name="txtRequirementID">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txyProductNameActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRequirementIDActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txyProductName1">
+    <Component class="javax.swing.JTextField" name="txtRawMaterial">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txyProductName1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtRawMaterialActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txyProductName2">
+    <Component class="javax.swing.JTextField" name="txtProductionMode">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txyProductName2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtProductionModeActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txyProductName3">
+    <Component class="javax.swing.JTextField" name="txtDesignStyle">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txyProductName3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDesignStyleActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txyProductName4">
+    <Component class="javax.swing.JTextField" name="txtColor">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txyProductName4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtColorActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDesigner">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Designer"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDesigner">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

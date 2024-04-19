@@ -15,6 +15,8 @@ import model.BrandCompany.ProductPlannerDirectory;
 import model.BrandCompany.Requirement;
 import model.BrandCompany.RequirementsDirectory;
 import model.Business.Business;
+import model.DesignEnterprise.Color;
+import model.DesignEnterprise.ColorDirectory;
 import model.DesignEnterprise.DesignerDirectory;
 import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.Style;
@@ -97,6 +99,31 @@ public class ConfigureABusiness {
         styleDirectory.addNewStyle("Art Deco");
         styleDirectory.addNewStyle("Bohemian");
         styleDirectory.addNewStyle("Transitional");
+        
+        
+        ColorDirectory colorDirectory=designEnterprise.getColorDirectory();
+        Color color1 =colorDirectory.addANewColor("Cobalt Blue");
+        Color color2 =colorDirectory.addANewColor("Charcoal Gray");
+        colorDirectory.addNewColor("Sky Blue");
+        colorDirectory.addNewColor("Mint Green");
+        colorDirectory.addNewColor("Coral");
+        colorDirectory.addNewColor("Lavender");
+        colorDirectory.addNewColor("Peach");
+        colorDirectory.addNewColor("Lemon Yellow");
+        colorDirectory.addNewColor("Salmon");
+        colorDirectory.addNewColor("Navy Blue");
+        colorDirectory.addNewColor("Olive Green");
+        colorDirectory.addNewColor("Maroon");
+        colorDirectory.addNewColor("Plum");
+        colorDirectory.addNewColor("Beige");
+        colorDirectory.addNewColor("Mustard");
+        colorDirectory.addNewColor("Teal");
+        colorDirectory.addNewColor("Rust");
+        colorDirectory.addNewColor("Ivory");
+        colorDirectory.addNewColor("Turquoise");
+        
+        
+        
 
         RawMaterialDirectory rawMaterialDirectory=rawMaterialEnterprise.getRawMaterialDirectory();
         Random random = new Random();
@@ -143,12 +170,19 @@ public class ConfigureABusiness {
         DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 9);
         
         RequirementsDirectory requirementsdirectory=brandEnterprise.productPlanningOrganization.getRequirementDirectory();
-        Requirement requirement1=requirementsdirectory.addANewRrequirement(rawmaterial1, designer1, productionmode1, planner1,style1);
-        Requirement requirement2=requirementsdirectory.addANewRrequirement(rawmaterial2, designer2, productionmode2, planner1,style1);
-        Requirement requirement3=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode1, planner1,style2);
-        Requirement requirement4=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode2, planner1,style2);
-        Requirement requirement5=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode2, planner1,style1);
-        Requirement requirement6=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode1, planner1,style2);
+        Requirement requirement1=requirementsdirectory.addANewRrequirement(rawmaterial1, designer1, productionmode1, planner1,style1,color1);
+        Requirement requirement2=requirementsdirectory.addANewRrequirement(rawmaterial2, designer2, productionmode2, planner1,style1,color2);
+        Requirement requirement3=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode1, planner1,style2,color1);
+        Requirement requirement4=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode2, planner1,style2,color2);
+        Requirement requirement5=requirementsdirectory.addANewRrequirement(rawmaterial1, designer2, productionmode2, planner1,style1,color1);
+        Requirement requirement6=requirementsdirectory.addANewRrequirement(rawmaterial2, designer1, productionmode1, planner1,style2,color2);
+        requirement1.setDeadline("05/23/2024");
+        requirement2.setDeadline("11/03/2024");
+        requirement3.setDeadline("04/23/2024");
+        requirement4.setDeadline("06/12/2024");
+        requirement5.setDeadline("08/13/2024");
+        requirement6.setDeadline("09/28/2024");
+        
         OrderDirectory orderdirectory=brandEnterprise.getProcurementOrganization().getOrderDirectory();
         Order order1=orderdirectory.addNewOrder(requirement1, 10);
         Order order2=orderdirectory.addNewOrder(requirement2, 10);

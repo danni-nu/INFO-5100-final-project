@@ -226,24 +226,24 @@ public class LoginJPanel extends javax.swing.JPanel {
          
         
         //Designer to login
-        if (profile instanceof DesignerProfile) {
-
-            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("Designer", designerWorkArea);
-            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
-
-        }
-       
-        //RawMaterialManager to login 
-        if (profile instanceof RawMaterialManager) {
-
-            inventoryWorkArea = new InventoryWorkAreaJPanel(business, cardSequencePanel,(RawMaterialManager)profile);
-            cardSequencePanel.removeAll();
-            cardSequencePanel.add("RawMaterialManager", inventoryWorkArea);
-            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
-
-        }        
+//        if (profile instanceof DesignerProfile) {
+//
+//            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile);
+//            cardSequencePanel.removeAll();
+//            cardSequencePanel.add("Designer", designerWorkArea);
+//            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+//
+//        }
+//       
+//        //RawMaterialManager to login 
+//        if (profile instanceof RawMaterialManager) {
+//
+//            inventoryWorkArea = new InventoryWorkAreaJPanel(business, cardSequencePanel,(RawMaterialManager)profile);
+//            cardSequencePanel.removeAll();
+//            cardSequencePanel.add("RawMaterialManager", inventoryWorkArea);
+//            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+//
+//        }        
 
     }//GEN-LAST:event_btnLoginActionPerformed
 
