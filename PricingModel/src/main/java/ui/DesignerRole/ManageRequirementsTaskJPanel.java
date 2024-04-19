@@ -266,9 +266,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         for(Requirement r: requirements){
             if(r.getRequirementID() == requirementID){
                 //get the RequirementAssignmentDirectoty
-                RequirementAssignmentDirectory requirementAssignmentDirectory = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory();
+//                RequirementAssignmentDirectory requirementAssignmentDirectory = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory();
+                
                 //assignRequirement To Desginer
-                requirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
+                designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory().assignRequirementToDesginer(designerProfile, r);
                 JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 populateRequirmentTable();
             }
