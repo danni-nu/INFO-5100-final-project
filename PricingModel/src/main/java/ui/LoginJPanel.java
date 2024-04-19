@@ -225,8 +225,9 @@ public class LoginJPanel extends javax.swing.JPanel {
         if (profile instanceof DesignerProfile) {
             DesignerProfile dp = (DesignerProfile) profile;
             String s=(String)cmbCompany.getSelectedItem();
-            BrandEnterprise be = business.getEnterpriseDirectory().getBrandCompany(s);            
-            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile,be);
+            DesignEnterprise ds = business.getEnterpriseDirectory().getDesignEnterprise(s); 
+            BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");//默认是Brand Company1
+            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile,ds,brandCompany);
             cardSequencePanel.removeAll();
             cardSequencePanel.add("Designer", designerWorkArea);
             ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
