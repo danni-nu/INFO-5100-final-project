@@ -16,7 +16,7 @@ public class InventoryManagerProfile extends Profile {
 
    //private MaterialOrderDirectory materialOrderDirectory;
 
-   public InventoryManagerProfile(Person p, ProductionOrganization po) {
+    public InventoryManagerProfile(Person p, ProductionOrganization po) {
         super(p); 
        // materialOrderDirectory = new MaterialOrderDirectory();
     }

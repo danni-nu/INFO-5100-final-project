@@ -6,6 +6,7 @@ package ui.RawMaterialRole;
 
 import javax.swing.JPanel;
 import model.Business.Business;
+import model.RawMaterialEnterprise.RawMaterialManager;
 
 /**
  *
@@ -15,16 +16,19 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
 
     javax.swing.JPanel CardSequencePanel;
     Business business;
-
+    RawMaterialManager rawMaterialManager;
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public InventoryWorkAreaJPanel(Business b, JPanel clp) {
+    public InventoryWorkAreaJPanel(Business b, JPanel clp,RawMaterialManager rawMaterialManager) {
         business = b;
         this.CardSequencePanel = clp;
         initComponents();
+        rawMaterialManager = rawMaterialManager;
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.

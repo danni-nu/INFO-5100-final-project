@@ -4,11 +4,23 @@
  */
 package model.RawMaterialEnterprise;
 
+import model.Personnel.Person;
+import model.Personnel.Profile;
+
 /**
  *
  * @author tianlyu
  */
-public class RawMaterialManager {
+public class RawMaterialManager extends Profile{
+
+    @Override
+    public String getRole() {
+        return "RawMaterialManager";
+    }
+
+    public RawMaterialManager(Person p) {
+        super(p);
+    }
     
     
     

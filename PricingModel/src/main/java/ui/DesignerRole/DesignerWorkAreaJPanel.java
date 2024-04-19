@@ -6,6 +6,7 @@ package ui.DesignerRole;
 
 import javax.swing.JPanel;
 import model.Business.Business;
+import model.DesignEnterprise.DesignerProfile;
 
 /**
  *
@@ -15,16 +16,19 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
-
+    DesignerProfile designer;
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public DesignerWorkAreaJPanel(Business b, JPanel clp) {
+    public DesignerWorkAreaJPanel(Business b, JPanel clp,DesignerProfile designerProfile) {
         business = b;
         this.CardSequencePanel = clp;
+        designer = designerProfile;
         initComponents();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
