@@ -339,7 +339,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 
     private void btnDeleteRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteRequirementActionPerformed
         // TODO add your handling code here:
-         int selectedRowIndex = tblRequirementTable.getSelectedRow();
+        int selectedRowIndex = tblRequirementTable.getSelectedRow();
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    

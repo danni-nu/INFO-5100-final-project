@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model.BrandCompany;
+import java.util.ArrayList;
 import model.BrandCompany.PlannerProfile;
 import model.DesignEnterprise.Color;
 import model.DesignEnterprise.DesignerProfile;
@@ -31,18 +32,8 @@ public class Requirement {
     private String requirementstatus;
     private boolean status=false;
     private static int count=0;
+    ArrayList<Order> requirementOrderList;
 
-//    public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile, Color color, Style style, String deadline, String evaluation) {
-//        count++;
-//        this.rowMaterial = rowMaterial;
-//        this.designerProfile = designerProfile;
-//        this.productionMode = productionMode;
-//        this.plannerProfile=plannerProfile;
-//        this.color = color;
-//        this.style = style;
-//        this.deadline = deadline;
-//        this.evaluation = evaluation;
-//    }
     public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile,Style style,Color c) {
         this.requirementstatus= "unfinished";
         count++;
@@ -53,10 +44,20 @@ public class Requirement {
         this.plannerProfile=plannerProfile;
         this.style=style;
         this.color=c;
+        this.requirementOrderList=new ArrayList<>();
     }
 
+    
     public String getRequirementstatus() {
         return requirementstatus;
+    }
+
+    public ArrayList<Order> getRequirementOrderList() {
+        return requirementOrderList;
+    }
+
+    public void setRequirementOrderList(ArrayList<Order> requirementOrderList) {
+        this.requirementOrderList = requirementOrderList;
     }
 
     public void setRequirementstatus(String requirementstatus) {
@@ -173,6 +174,11 @@ public class Requirement {
 //        return requirementAssignment;
 //    }
     
+    public Order addNewOrderToRequirement(Requirement re, int quantity){
+        Order order=new Order(re,quantity);
+        requirementOrderList.add(order);
+        return order;
+    }
     
     
 }
