@@ -18,27 +18,22 @@ import model.RawMaterialEnterprise.RawMaterialOrder;
 public class ProductionOrder {
     private Order order; //linked to Order Class
     private ProductionMode productionMode;
-    private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
-    private RawMaterialOrder materialOrder;
-    private boolean status=false;
+    //private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
+    private RawMaterialOrder rawMaterialOrder;
+    private boolean Delivered = false;
     //private ImageIcon logoImage;
 
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 
     public ProductionOrder(Order order) {
+      
+    }
 
     public ProductionOrder(Order order, RawMaterialOrder rawMaterialOrder) {
         this.order = order;
-        this.productionOrderStatus = "waiting placed";
+        this.Delivered = false;
         this.rawMaterialOrder = rawMaterialOrder;
-
     }
+    
     public ProductionOrder(Order order, ProductionMode productionMode, RawMaterialOrder materialOrder) {
         this.order = order;
         this.productionMode = productionMode;
@@ -61,13 +56,13 @@ public class ProductionOrder {
         this.productionMode = productionMode;
     }
 
-    public String getProductionOrderStatus() {
-        return productionOrderStatus;
-    }
+   // public String getProductionOrderStatus() {
+        //return productionOrderStatus;
+    //}
 
-    public void setProductionOrderStatus(String productionOrderStatus) {
-        this.productionOrderStatus = productionOrderStatus;
-    }
+    //public void setProductionOrderStatus(String productionOrderStatus) {
+        //this.productionOrderStatus = productionOrderStatus;
+    //}
 
     
 
@@ -89,6 +84,14 @@ public class ProductionOrder {
     public void setRawMaterialOrder(RawMaterialOrder rawMaterialOrder) {
         this.rawMaterialOrder = rawMaterialOrder;
     }
+
+    public boolean isDelivered() {
+        return Delivered;
+    }
+
+    
+    
+    
     
     
 }

@@ -222,15 +222,15 @@ public class ConfigureABusiness {
         InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
         
         RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1);
-        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2);
-        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3);
-        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4);
+        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1.getRawMarerialOrder());
+        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2.getRawMarerialOrder());
+        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3.getRawMarerialOrder());
+        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4.getRawMarerialOrder());
         
-        ProductionOrder productionOrder4 =productionOrderDirectory.addNewProductionOrder(order1,rawMaterialOrder1);
-        ProductionOrder productionOrder3 =productionOrderDirectory.addNewProductionOrder(order2,rawMaterialOrder2);
-        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3,rawMaterialOrder3);
-        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4,rawMaterialOrder4);
+        ProductionOrder productionOrder4 =productionOrderDirectory.addNewProductionOrder(order1.getProductOrder());
+        ProductionOrder productionOrder3 =productionOrderDirectory.addNewProductionOrder(order2.getProductOrder());
+        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3.getProductOrder());
+        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4.getProductOrder());
         
         //UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****");
         UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "****");

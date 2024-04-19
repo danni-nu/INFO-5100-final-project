@@ -27,8 +27,8 @@ public class RawMaterialOrderDirectory {
         this.rawMaterialOrderDirectory = rawMaterialOrderDirectory;
     }
     
-    public RawMaterialOrder addNewRawMaterialOrder(Order o){
-        RawMaterialOrder rawOrder=new RawMaterialOrder(o);
+    public RawMaterialOrder addNewRawMaterialOrder(RawMaterialOrder rawOrder){
+       
         rawMaterialOrderDirectory.add(rawOrder);
         return rawOrder;
     }

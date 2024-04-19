@@ -30,8 +30,8 @@ public class ProductionOrderDirectory {
     }
      
     
-    public ProductionOrder addNewProductionOrder(Order o, RawMaterialOrder rmo){
-        ProductionOrder productionOrder=new ProductionOrder(o,rmo);
+    public ProductionOrder addNewProductionOrder(ProductionOrder productionOrder){
+        
         productionOrderList.add(productionOrder);
         return productionOrder;
     }

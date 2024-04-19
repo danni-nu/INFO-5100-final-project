@@ -25,7 +25,7 @@ public class RawMaterialOrder {
     private static int count;
     
 
-    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, Date deliveryDate, String deliveryNumber) {
+    public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, String deliveryDate, String deliveryNumber) {
         count++;
         this.rawMaterial = rawMaterial;
         this.deliverStatus = deliverStatus;
@@ -65,14 +65,14 @@ public class RawMaterialOrder {
     public RawMaterialOrder(Order o, ProductionOrder po) {
         this.order=o;
         this.productionOrder=po;
-
+    }
     //public RawMaterialOrder(Order o) {
         //this.o=o;
         //this.po=po;
     //}
     
      public RawMaterialOrder(Order o) {
-        this.o=o;
+        this.order=o;
         this.deliverStatus = "Not delivered";
         this.deliveryDate = "N/A";
         this.deliveryNumber = "N/A";
