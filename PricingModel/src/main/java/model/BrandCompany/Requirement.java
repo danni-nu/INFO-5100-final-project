@@ -5,7 +5,6 @@
 package model.BrandCompany;
 import model.BrandCompany.PlannerProfile;
 import model.DesignEnterprise.Color;
-import model.DesignEnterprise.DesignerAssignmentRoad;
 import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.RequirementAssignment;
 import model.DesignEnterprise.RequirementSolution;
@@ -58,15 +57,7 @@ public class Requirement {
     public void setPlannerProfile(PlannerProfile plannerProfile) {
         this.plannerProfile = plannerProfile;
     }
-
-
-    public RequirementSolution addRequirementSolution() {
-        return new RequirementSolution();
-    }
     
-    public RequirementSolution addRequirementSolution(String solutionName, String deadline, String evaluation) {
-        return new RequirementSolution(solutionName,deadline,evaluation);
-    }
 
     public RawMaterial getRowMaterial() {
         return rowMaterial;
@@ -153,12 +144,12 @@ public class Requirement {
         return count;
     }
     
-    public RequirementAssignment newRequirementAssignment(DesignerAssignmentRoad dar) {
-
-        RequirementAssignment requirementAssignment= new RequirementAssignment(dar, this); //links seatassignment to seat
-       
-        return requirementAssignment;
-    }
+//    public RequirementAssignment newRequirementAssignment(DesignerAssignmentRoad dar) {
+//
+//        RequirementAssignment requirementAssignment= new RequirementAssignment(dar, this); //links seatassignment to seat
+//       
+//        return requirementAssignment;
+//    }
     
     
     
