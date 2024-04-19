@@ -4,27 +4,33 @@
  */
 package ui.Production.Inventory;
 
+import ui.BrandCompany.Procurer.*;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
+import model.BrandCompany.ProcurerProfile;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Production.InventoryManagerProfile;
-import model.Production.ProductionManagerProfile;
+import ui.LoginJPanel;
 
 /**
  *
- * @author administratorzi
+ * @author qiaohui
  */
 public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPanel {
 
-    javax.swing.JPanel CardSequencePanel;
-    Business business;
-    InventoryManagerProfile inventoryManagerprofile;
     /**
-     * Creates new form InventoryWorkAreaJPanel
+     * Creates new form NewJPanel
      */
-    public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile imp) {
+    javax.swing.JPanel cardSequencePanel;
+    Business business;
+    InventoryManagerProfile inventoryManagerProfile;
+    
+   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile imp) {
         business = b;
-        this.CardSequencePanel = clp;
-        this.inventoryManagerprofile = imp;
+        this.cardSequencePanel = clp;
+        this.inventoryManagerProfile = imp;
         initComponents();
     }
 
@@ -37,78 +43,93 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Back = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        addusersjButton = new javax.swing.JButton();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        Memu = new javax.swing.JPanel();
+        btnManageMaterials = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
+        WorkArea = new javax.swing.JPanel();
 
-        Back.setText("<< Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        btnManageMaterials.setText("Manage Materials for Production Order");
+        btnManageMaterials.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                btnManageMaterialsActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Inventory Work Area");
-
-        addusersjButton.setBackground(new java.awt.Color(102, 153, 255));
-        addusersjButton.setForeground(new java.awt.Color(255, 255, 255));
-        addusersjButton.setText("Manage Materials for Production Order");
-        addusersjButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addusersjButton.setMaximumSize(new java.awt.Dimension(200, 40));
-        addusersjButton.setMinimumSize(new java.awt.Dimension(20, 20));
-        addusersjButton.setPreferredSize(new java.awt.Dimension(240, 25));
-        addusersjButton.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addusersjButtonActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout MemuLayout = new javax.swing.GroupLayout(Memu);
+        Memu.setLayout(MemuLayout);
+        MemuLayout.setHorizontalGroup(
+            MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageMaterials, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MemuLayout.setVerticalGroup(
+            MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemuLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(btnManageMaterials, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(226, 226, 226))
+        );
+
+        jSplitPane1.setLeftComponent(Memu);
+
+        WorkArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(WorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(Back)
-                .addGap(51, 51, 51)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(597, Short.MAX_VALUE))
+            .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        //        // TODO add your handling code here:
-        //        CardSequencePanel.remove(this);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_BackActionPerformed
-
-    private void addusersjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersjButtonActionPerformed
+    private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
         // TODO add your handling code here:
-        //        AddUsersJPanel aos = new AddUsersJPanel(business, CardSequencePanel);
-        //        CardSequencePanel.add("Add Users", aos);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_addusersjButtonActionPerformed
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(cardSequencePanel, business, inventoryManagerProfile);
+        cardSequencePanel.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
+        CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
+        layout.next(cardSequencePanel);
+    }//GEN-LAST:event_btnManageMaterialsActionPerformed
+
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
+        // TODO add your handling code here:
+        cardSequencePanel.remove(this);
+        Component[] componentArray = cardSequencePanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
+        layout.previous(cardSequencePanel);
+        
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
-    private javax.swing.JButton addusersjButton;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel Memu;
+    private javax.swing.JPanel WorkArea;
+    private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnManageMaterials;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }

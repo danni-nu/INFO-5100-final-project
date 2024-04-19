@@ -22,6 +22,7 @@ import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 import ui.DesignerRole.DesignerWorkAreaJPanel;
 import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel;
+import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel1;
 import ui.Production.Production.ProductionWorkAreaJPanel;
 import ui.RawMaterialRole.InventoryWorkAreaJPanel;
 
@@ -210,7 +211,7 @@ public class LoginJPanel extends javax.swing.JPanel {
 
         if (profile instanceof ProductionManagerProfile) {
             productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile);
-            loginJPanel.removeAll();
+            //loginJPanel.removeAll();
             loginJPanel.add("ProductionWorkAreaJPanel", productionworkarea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
@@ -218,8 +219,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         
          if (profile instanceof InventoryManagerProfile) {
             productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile);
-            loginJPanel.removeAll();
-            loginJPanel.add("ProductionWorkAreaJPanel", productioninventoryworkarea);
+           // loginJPanel.removeAll();
+            loginJPanel.add("ProductionWorkAreaJPane", productioninventoryworkarea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
         }
