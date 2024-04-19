@@ -38,5 +38,15 @@ public class RequirementAssignmentDirectory {
         DesignerToRequirement.get(designerProfile).remove(requirement);
         RequirementToRequirementAssignment.remove(requirement);
     }
+
+    public static HashMap<DesignerProfile, List<Requirement>> getDesignerToRequirement() {
+        return DesignerToRequirement;
+    }
+
+    public static HashMap<Requirement, RequirementAssignment> getRequirementToRequirementAssignment() {
+        return RequirementToRequirementAssignment;
+    }
+    
+    
     
 }

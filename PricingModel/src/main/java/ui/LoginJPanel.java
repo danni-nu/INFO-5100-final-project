@@ -11,15 +11,19 @@ import model.Business.Business;
 import model.Business.DesignEnterprise;
 import model.Business.ProductionEnterprise;
 import model.Business.RawMaterialEnterprise;
+import model.DesignEnterprise.DesignerProfile;
 import model.Personnel.Profile;
 import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
+import model.RawMaterialEnterprise.RawMaterialManager;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
+import ui.DesignerRole.DesignerWorkAreaJPanel;
 import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel;
 import ui.Production.Production.ProductionWorkAreaJPanel;
+import ui.RawMaterialRole.InventoryWorkAreaJPanel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -155,6 +159,11 @@ public class LoginJPanel extends javax.swing.JPanel {
         PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
         ProductionWorkAreaJPanel productionworkarea;
         ProductionEnterpriseInventoryWorkAreaJPanel productioninventoryworkarea;
+        
+        DesignerWorkAreaJPanel designerWorkArea;//Designer work area
+        InventoryWorkAreaJPanel inventoryWorkArea;//RowMaterial work area
+       
+        
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
 
@@ -210,7 +219,28 @@ public class LoginJPanel extends javax.swing.JPanel {
             ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
 
         }
-//        }
+         
+        
+        //Designer to login
+        if (profile instanceof DesignerProfile) {
+
+            designerWorkArea = new DesignerWorkAreaJPanel(business, cardSequencePanel,(DesignerProfile)profile);
+            cardSequencePanel.removeAll();
+            cardSequencePanel.add("Designer", designerWorkArea);
+            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+
+        }
+       
+        //RawMaterialManager to login 
+        if (profile instanceof RawMaterialManager) {
+
+            inventoryWorkArea = new InventoryWorkAreaJPanel(business, cardSequencePanel,(RawMaterialManager)profile);
+            cardSequencePanel.removeAll();
+            cardSequencePanel.add("RawMaterialManager", inventoryWorkArea);
+            ((java.awt.CardLayout) cardSequencePanel.getLayout()).next(cardSequencePanel);
+
+        }        
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void cmbCompanyTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCompanyTypeActionPerformed
