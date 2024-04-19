@@ -44,9 +44,12 @@ public class RequirementsDirectory {
         requirementsDirectory.add(newrequirement);
         return newrequirement;
     }
-    public void addNewRrequirement(RawMaterial r, DesignerProfile d, ProductionMode p, PlannerProfile pp,Style style){
-        Requirement newrequirement=new Requirement(r,d,p,pp,style);
+    public void addNewRrequirement(RawMaterial r, DesignerProfile designer, ProductionMode p, PlannerProfile planner,Style style){
+        Requirement newrequirement=new Requirement(r,designer,p,planner,style);
         requirementsDirectory.add(newrequirement);
     }
     
+    public void deleteRequirement(Requirement re){;
+        requirementsDirectory.remove(re);
+    }
 }

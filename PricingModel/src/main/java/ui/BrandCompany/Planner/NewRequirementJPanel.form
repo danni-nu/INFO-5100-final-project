@@ -20,7 +20,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -99,7 +99,7 @@
                                   </Group>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblDesignFee1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDesignCost" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -121,10 +121,10 @@
                                       <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                       <Component id="lblRawMaterialpCost" linkSize="1" min="-2" pref="76" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblRawMaterialpCost1" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="lblMaterialCost" min="-2" pref="76" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblProductionModeCost" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblModeCost" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -153,7 +153,7 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -171,7 +171,7 @@
                   <Component id="lblRawMaterialpCost" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbRawMaterial" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblRawMaterial" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblRawMaterialpCost1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMaterialCost" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -182,7 +182,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblProductionMode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbProductionMode" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblProductionModeCost" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="lblModeCost" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -194,7 +194,7 @@
                   <Component id="lblDesignStyle1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="cmbDesigner" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblDesignFee" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="lblDesignFee1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                  <Component id="lblDesignCost" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -355,10 +355,13 @@
         <Property name="text" type="java.lang.String" value="Creat New Reuirement"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
         <Property name="text" type="java.lang.String" value="&gt;&gt;Back"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblPicture">
       <Properties>
@@ -380,7 +383,7 @@
         <Property name="text" type="java.lang.String" value="Raw Material"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblProductionModeCost">
+    <Component class="javax.swing.JLabel" name="lblModeCost">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;Cost&gt;"/>
       </Properties>
@@ -421,6 +424,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbRawMaterialCompanyActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -441,6 +447,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbProductionCompanyActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -461,6 +470,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDesignCompanyActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -493,7 +505,7 @@
         <Property name="text" type="java.lang.String" value="&lt;Total Price &gt;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblRawMaterialpCost1">
+    <Component class="javax.swing.JLabel" name="lblMaterialCost">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt; Cost&gt;"/>
       </Properties>
@@ -503,7 +515,7 @@
         <Property name="text" type="java.lang.String" value="Production Cost:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblDesignFee1">
+    <Component class="javax.swing.JLabel" name="lblDesignCost">
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;Cost&gt;"/>
       </Properties>

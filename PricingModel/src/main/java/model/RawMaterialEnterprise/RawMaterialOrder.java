@@ -27,6 +27,7 @@ public class RawMaterialOrder {
         this.materialPrice = materialPrice;
         this.deliveryDate = deliveryDate;
         this.deliveryNumber = deliveryNumber;
+        this.deliverStatus="false";
     }
     
     
