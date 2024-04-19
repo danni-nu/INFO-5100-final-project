@@ -73,6 +73,11 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         jLabel2.setText("Material State: Material Order Not Placed/Material Order in Production/Material Order Delivered(when material delivered, the production order will automatically start producing)");
 
         jButton1.setText("Purchase Marerials");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Production Order Material Information");
@@ -127,6 +132,10 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         if (cmbMaterialStatus.getSelectedItem() == null) return;
         selectedMaterialStatus = (String) cmbMaterialStatus.getSelectedItem();
     }//GEN-LAST:event_cmbMaterialStatusActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
