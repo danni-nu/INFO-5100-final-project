@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Order;
 import model.BrandCompany.Requirement;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.DesignEnterprise.DesignerProfile;
 
@@ -22,12 +23,14 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     javax.swing.JPanel CardSequencePanel;
     Business business;
     DesignerProfile designerProfile;
-    ArrayList<Requirement> requirementsDirectory;
+    BrandEnterprise brandCompany;
     /**
      * Creates new form DesignerWorkAreaJPanel
      */
-    public ManageRequirementsTaskJPanel(Business b, JPanel clp) {
+    public ManageRequirementsTaskJPanel(Business b, JPanel clp,DesignerProfile designer,BrandEnterprise brandCompany) {
         business = b;
+        designerProfile = designer;
+        this.brandCompany = brandCompany;
         this.CardSequencePanel = clp;
         initComponents();
         
@@ -296,8 +299,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private void populateCartTable() {
         DefaultTableModel model = (DefaultTableModel) tbltask.getModel();
         model.setRowCount(0);
-        
-        for (Requirement r : requirementsDirectory) {
+        for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
             row[0] = r.getRequirementID();
             row[1] = r.getRowMaterial();
@@ -314,7 +316,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblSemester1.getModel();
         model.setRowCount(0);
         
-        for (Requirement r : requirementsDirectory) {
+        for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
             row[0] = r.getRequirementID();
             row[1] = r.getRowMaterial();
