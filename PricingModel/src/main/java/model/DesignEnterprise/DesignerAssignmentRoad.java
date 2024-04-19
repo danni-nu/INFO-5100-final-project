@@ -11,19 +11,19 @@ import model.BrandCompany.Requirement;
  *
  * @author tianlyu
  */
-public class DesignerAssignmentRoad {
-    private DesignerProfile designerProfile;
-    private ArrayList<RequirementAssignment> requirementAssignments;
-
-    public DesignerAssignmentRoad(DesignerProfile designerProfile) {
-        this.designerProfile = designerProfile;
-        requirementAssignments = new ArrayList<>();//designerprofile to create the 
-    }
-    
-    public RequirementAssignment newRequirementAssignment(Requirement r) {
-        RequirementAssignment ra = r.newRequirementAssignment(this);
-        requirementAssignments.add(ra);  //add RequirementAssignment to requirementAssignments
-        return ra;
-    }    
-    
-}
+//public class DesignerAssignmentRoad {
+//    private DesignerProfile designerProfile;
+//    private ArrayList<RequirementAssignment> requirementAssignments;
+//
+//    public DesignerAssignmentRoad(DesignerProfile designerProfile) {
+//        this.designerProfile = designerProfile;
+//        requirementAssignments = new ArrayList<>();//designerprofile to create the 
+//    }
+//    
+//    public RequirementAssignment newRequirementAssignment(Requirement r) {
+//        RequirementAssignment ra = r.newRequirementAssignment(this);
+//        requirementAssignments.add(ra);  //add RequirementAssignment to requirementAssignments
+//        return ra;
+//    }    
+//    
+//}

@@ -5,7 +5,6 @@
 package model.BrandCompany;
 import model.BrandCompany.PlannerProfile;
 import model.DesignEnterprise.Color;
-import model.DesignEnterprise.DesignerAssignmentRoad;
 import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.RequirementAssignment;
 import model.DesignEnterprise.RequirementSolution;
@@ -23,6 +22,7 @@ public class Requirement {
     private DesignerProfile designerProfile;
     private ProductionMode productionMode;
     private PlannerProfile plannerProfile;
+    private RequirementAssignment requirementAssignment;
     private Color color;
     private Style style;
     private String deadline;
@@ -51,6 +51,14 @@ public class Requirement {
         this.style=style;
     }
 
+    public RequirementAssignment getRequirementAssignment() {
+        return requirementAssignment;
+    }
+
+    public void setRequirementAssignment(RequirementAssignment requirementAssignment) {
+        this.requirementAssignment = requirementAssignment;
+    }
+
     public PlannerProfile getPlannerProfile() {
         return plannerProfile;
     }
@@ -58,15 +66,7 @@ public class Requirement {
     public void setPlannerProfile(PlannerProfile plannerProfile) {
         this.plannerProfile = plannerProfile;
     }
-
-
-    public RequirementSolution addRequirementSolution() {
-        return new RequirementSolution();
-    }
     
-    public RequirementSolution addRequirementSolution(String solutionName, String deadline, String evaluation) {
-        return new RequirementSolution(solutionName,deadline,evaluation);
-    }
 
     public RawMaterial getRowMaterial() {
         return rowMaterial;
@@ -137,12 +137,12 @@ public class Requirement {
         return RequirementID;
     }
 
-    public Object getRowMaterialName() {
-        return rowMaterial;
+    public String getRowMaterialName() {
+        return rowMaterial.getMaterialName();
     }
 
-    public Object getProductionModeName() {
-        return productionMode;
+    public String getProductionModeName() {
+        return productionMode.getModeName();
     }
 
     public String getRequirementID() {
@@ -153,12 +153,12 @@ public class Requirement {
         return count;
     }
     
-    public RequirementAssignment newRequirementAssignment(DesignerAssignmentRoad dar) {
-
-        RequirementAssignment requirementAssignment= new RequirementAssignment(dar, this); //links seatassignment to seat
-       
-        return requirementAssignment;
-    }
+//    public RequirementAssignment newRequirementAssignment(DesignerAssignmentRoad dar) {
+//
+//        RequirementAssignment requirementAssignment= new RequirementAssignment(dar, this); //links seatassignment to seat
+//       
+//        return requirementAssignment;
+//    }
     
     
     

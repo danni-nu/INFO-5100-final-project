@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Order;
 import model.BrandCompany.Requirement;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.DesignEnterprise.DesignerProfile;
 
 /**
  *
@@ -20,13 +22,15 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
-    ArrayList<Order> orderDirectory;
-    ArrayList<Requirement> requirementsDirectory;
+    DesignerProfile designerProfile;
+    BrandEnterprise brandCompany;
     /**
      * Creates new form DesignerWorkAreaJPanel
      */
-    public ManageRequirementsTaskJPanel(Business b, JPanel clp) {
+    public ManageRequirementsTaskJPanel(Business b, JPanel clp,DesignerProfile designer,BrandEnterprise brandCompany) {
         business = b;
+        designerProfile = designer;
+        this.brandCompany = brandCompany;
         this.CardSequencePanel = clp;
         initComponents();
         
@@ -247,8 +251,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         }
         Requirement re =  (Requirement)tbltask.getValueAt(row, 0);
 
-        CourseLoad courseLoad = student.getCourseLoadBySemester(semester);
-     
+//        CourseLoad courseLoad = student.getCourseLoadBySemester(semester);
+//        designerProfile.getDesignerAssignmentRoadbyName(TOOL_TIP_TEXT_KEY)
         
         
         JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -295,8 +299,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private void populateCartTable() {
         DefaultTableModel model = (DefaultTableModel) tbltask.getModel();
         model.setRowCount(0);
-        
-        for (Requirement r : requirementsDirectory) {
+        for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
             row[0] = r.getRequirementID();
             row[1] = r.getRowMaterial();
@@ -313,7 +316,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblSemester1.getModel();
         model.setRowCount(0);
         
-        for (Requirement r : requirementsDirectory) {
+        for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
             row[0] = r.getRequirementID();
             row[1] = r.getRowMaterial();

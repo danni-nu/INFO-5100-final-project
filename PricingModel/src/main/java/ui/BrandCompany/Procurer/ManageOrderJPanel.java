@@ -11,6 +11,11 @@ import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.Requirement;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Production.ProductionOrder;
+import model.Production.ProductionOrderDirectory;
+import model.Production.ProductionOrganization;
+import model.RawMaterialEnterprise.RawMaterialOrder;
+import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 
 /**
  *
@@ -204,7 +209,16 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private void BbtnCreateNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BbtnCreateNewOrderActionPerformed
         // TODO add your handling code here:
         
-        
+//        ProductionOrganization productionOrganization = selectdProductionEnterprise.getProductionOrganization();
+//        ProductionOrderDirectory productionOrderDirectory = selectdProductionEnterprise.getProductionOrderDirectory();
+//  
+//        ProductionOrder productionOrder4 =productionOrderDirectory.addNewOrder(order4);
+//        ProductionOrder productionOrder3 =productionOrderDirectory.addNewOrder(order3);
+//        ProductionOrder productionOrder2 =productionOrderDirectory.addNewOrder(order2);
+//        ProductionOrder productionOrder1 =productionOrderDirectory.addNewOrder(order1);
+//        
+//        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
+//        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4, productionOrder4);
     }//GEN-LAST:event_BbtnCreateNewOrderActionPerformed
 
 
@@ -234,7 +248,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
             Object row[] = new Object[5];
             row[0] = re;
-            row[1] = re.getRowMaterial().getMaterialName();
+            row[1] = re.getRowMaterial();
             row[2] = re.getProductionMode().getModeName();
             row[3] = re.getDesignerProfile().getPerson().getPersonName();
             row[4] = re.getStyle().getStyleName();

@@ -5,7 +5,9 @@
 package ui.DesignerRole;
 
 import javax.swing.JPanel;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.DesignEnterprise.DesignerProfile;
 
 /**
  *
@@ -15,16 +17,21 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
-
+    DesignerProfile designer;
+    BrandEnterprise brandCompany;
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public DesignerWorkAreaJPanel(Business b, JPanel clp) {
+    public DesignerWorkAreaJPanel(Business b, JPanel clp,DesignerProfile designerProfile,BrandEnterprise brandCompany) {
         business = b;
         this.CardSequencePanel = clp;
+        designer = designerProfile;
+        this.brandCompany = brandCompany;
         initComponents();
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,7 +125,7 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void ManageRequirementsTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageRequirementsTaskButtonActionPerformed
 //         TODO add your handling code here:
-        ManageRequirementsTaskJPanel aos = new ManageRequirementsTaskJPanel(business, CardSequencePanel);
+        ManageRequirementsTaskJPanel aos = new ManageRequirementsTaskJPanel(business, CardSequencePanel,  designer,  brandCompany);
         CardSequencePanel.add("Manage Requirements Task", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_ManageRequirementsTaskButtonActionPerformed

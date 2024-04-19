@@ -30,6 +30,7 @@ import model.Production.ProductionOrderDirectory;
 import model.Production.ProductionOrganization;
 import model.RawMaterialEnterprise.RawMaterial;
 import model.RawMaterialEnterprise.RawMaterialDirectory;
+import model.RawMaterialEnterprise.RawMaterialManager;
 import model.RawMaterialEnterprise.RawMaterialOrder;
 import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 import model.UserAccountManagement.UserAccount;
@@ -57,8 +58,7 @@ public class ConfigureABusiness {
         Person p4 = personDirectory.newPerson("Dhruv");
         Person p5 = personDirectory.newPerson("Esha");
         Person p6 = personDirectory.newPerson("Fenil");
-        Person p7 = personDirectory.newPerson("Gaurav");
-        Person p8 = personDirectory.newPerson("Hemant");
+        
         Person p9 = personDirectory.newPerson( "Isha");
         Person p10 = personDirectory.newPerson( "Jainam");
         Person p11 = personDirectory.newPerson( "Kal");
@@ -70,13 +70,20 @@ public class ConfigureABusiness {
         Person p17 = personDirectory.newPerson( "Carl");
         Person p18 = personDirectory.newPerson("Diana");
         Person p19 = personDirectory.newPerson( "Edward");
+        
+        //Designers
+        Person p7 = personDirectory.newPerson("Gaurav");
+        Person p8 = personDirectory.newPerson("Hemant");
+
+        
+        //RawMaterial Manager
         Person p20 = personDirectory.newPerson("Fiona");
         
         //production enterprise managers
         Person p21 = personDirectory.newPerson("George");
         Person p22 = personDirectory.newPerson("Hannah");
 
-    
+        
         ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);
         UserAccount us2=useAccountDirectory.newUserAccount(pricurerProfile, "Procurer1", "123");
@@ -84,6 +91,18 @@ public class ConfigureABusiness {
         ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
         PlannerProfile planner1=plannerDirectory.addNewPlanner(p3);
         UserAccount us3=useAccountDirectory.newUserAccount(planner1, "Planner1", "123");
+
+        //add designer account
+        DesignerDirectory designerDirectory = designEnterprise.getDesignOrganization().getDesignerDirectory();
+        DesignerProfile designer1=designerDirectory.addANewDesignerProfile(p7, 100);//primary designer-Gaurav 100$/requirment
+        DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 200);//advanced designer-Hemant 200$/requirment
+        UserAccount us4=useAccountDirectory.newUserAccount(designer1,"designer1","123");//login password
+        UserAccount us5=useAccountDirectory.newUserAccount(designer2,"designer2","123");//login password
+        
+        //add RawMaterial Manager account
+        rawMaterialEnterprise.getRawMaterialManageOrganization().addRawMaterialManager(p20);//Fiona
+        RawMaterialManager rawMaterialManager= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
+        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"rawMaterialManager","123");//login password
         
         StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
         Style style1=styleDirectory.addANewStyle("Modern");
@@ -137,10 +156,11 @@ public class ConfigureABusiness {
         productionModeDirectory.addNewProductionMode("Flock printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Direct-to-garment printing", random.nextInt(11) + 5);
         productionModeDirectory.addNewProductionMode("Laser printing", random.nextInt(11) + 5);
-            
-        DesignerDirectory designerDirectory=designEnterprise.getDesignOrganization().getDesignerDirectory();
-        DesignerProfile designer1=designerDirectory.addANewDesignerProfile(p7, 10);
-        DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 9);
+        
+        //ctreate two designer move to top
+//        DesignerDirectory designerDirectory=designEnterprise.getDesignOrganization().getDesignerDirectory();
+//        DesignerProfile designer1=designerDirectory.addANewDesignerProfile(p7, 100);primary designer-Gaurav 100$/requirment
+//        DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 200);advanced designer-Hemant 200$/requirment
         
         RequirementsDirectory requirementsdirectory=brandEnterprise.productPlanningOrganization.getRequirementDirectory();
         Requirement requirement1=requirementsdirectory.addANewRrequirement(rawmaterial1, designer1, productionmode1, planner1,style1);

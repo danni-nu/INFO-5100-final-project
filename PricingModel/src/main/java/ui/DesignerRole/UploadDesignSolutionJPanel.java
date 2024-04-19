@@ -256,6 +256,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
 
     private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_removejButton1ActionPerformed
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
