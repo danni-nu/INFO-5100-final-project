@@ -22,6 +22,7 @@ public class Requirement {
     private DesignerProfile designerProfile;
     private ProductionMode productionMode;
     private PlannerProfile plannerProfile;
+    private RequirementAssignment requirementAssignment;
     private Color color;
     private Style style;
     private String deadline;
@@ -48,6 +49,14 @@ public class Requirement {
         this.productionMode = productionType;
         this.plannerProfile=plannerProfile;
         this.style=style;
+    }
+
+    public RequirementAssignment getRequirementAssignment() {
+        return requirementAssignment;
+    }
+
+    public void setRequirementAssignment(RequirementAssignment requirementAssignment) {
+        this.requirementAssignment = requirementAssignment;
     }
 
     public PlannerProfile getPlannerProfile() {
@@ -128,12 +137,12 @@ public class Requirement {
         return RequirementID;
     }
 
-    public Object getRowMaterialName() {
-        return rowMaterial;
+    public String getRowMaterialName() {
+        return rowMaterial.getMaterialName();
     }
 
-    public Object getProductionModeName() {
-        return productionMode;
+    public String getProductionModeName() {
+        return productionMode.getModeName();
     }
 
     public String getRequirementID() {

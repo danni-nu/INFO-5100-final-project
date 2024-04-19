@@ -4,6 +4,7 @@
  */
 package ui.BrandCompany.Planner;
 
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.BrandCompany.PlannerProfile;
@@ -20,6 +21,13 @@ import java.lang.String;
 import model.BrandCompany.Requirement;
 import model.BrandCompany.RequirementsDirectory;
 import model.Business.BrandEnterprise;
+import model.Production.InventoryManagerProfile;
+import model.Production.ProductionManagerProfile;
+import model.Production.ProductionOrder;
+import model.Production.ProductionOrderDirectory;
+import model.Production.ProductionOrganization;
+import model.RawMaterialEnterprise.RawMaterialOrder;
+import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 
 /**
  *
@@ -34,6 +42,14 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     Business business;
     JPanel plannerWorkArea;
     BrandEnterprise brandEnterprise;
+    RawMaterialEnterprise selectedRawMaterialEnterprise=null;
+    RawMaterial selectedRawmaterial=null;
+    ProductionEnterprise selectdProductionEnterprise=null;
+    ProductionMode selectdProductionmode=null;
+    DesignEnterprise selectedDesignEnterprise=null;
+    DesignerProfile selectedDesigner=null;
+    Style selectedStyle=null;
+    
     
     
     public NewRequirementJPanel(Business business, PlannerProfile requirementPlanner, JPanel PlannerWorkArea,BrandEnterprise brandEnterprise) {
@@ -73,11 +89,11 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblProductionMode = new javax.swing.JLabel();
         lblColor = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         lblPicture = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblRawMaterial = new javax.swing.JLabel();
-        lblProductionModeCost = new javax.swing.JLabel();
+        lblModeCost = new javax.swing.JLabel();
         lblDesignFee = new javax.swing.JLabel();
         txtProductName = new javax.swing.JTextField();
         lblDeadline = new javax.swing.JLabel();
@@ -91,9 +107,9 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblDesignStyle1 = new javax.swing.JLabel();
         cmbDesigner = new javax.swing.JComboBox<>();
         lblTotalCost = new javax.swing.JLabel();
-        lblRawMaterialpCost1 = new javax.swing.JLabel();
+        lblMaterialCost = new javax.swing.JLabel();
         lblProductionModeCost1 = new javax.swing.JLabel();
-        lblDesignFee1 = new javax.swing.JLabel();
+        lblDesignCost = new javax.swing.JLabel();
         lblDeadline2 = new javax.swing.JLabel();
 
         cmbProductionMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -139,7 +155,12 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Creat New Reuirement");
 
-        jButton1.setText(">>Back");
+        btnBack.setText(">>Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         lblPicture.setText("Renderings");
 
@@ -148,7 +169,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
         lblRawMaterial.setText("Raw Material");
 
-        lblProductionModeCost.setText("<Cost>");
+        lblModeCost.setText("<Cost>");
 
         lblDesignFee.setText("Design Fee:");
 
@@ -169,14 +190,29 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblRawMaterialCompany.setText("Raw Material Company");
 
         cmbRawMaterialCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRawMaterialCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbRawMaterialCompanyActionPerformed(evt);
+            }
+        });
 
         lblProductionCompany.setText("Production Company");
 
         cmbProductionCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbProductionCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProductionCompanyActionPerformed(evt);
+            }
+        });
 
         lblDesignCompany.setText("Design Company");
 
         cmbDesignCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbDesignCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDesignCompanyActionPerformed(evt);
+            }
+        });
 
         lblDesignStyle1.setText("Designer");
 
@@ -189,11 +225,11 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
         lblTotalCost.setText("<Total Price >");
 
-        lblRawMaterialpCost1.setText("< Cost>");
+        lblMaterialCost.setText("< Cost>");
 
         lblProductionModeCost1.setText("Production Cost:");
 
-        lblDesignFee1.setText("<Cost>");
+        lblDesignCost.setText("<Cost>");
 
         lblDeadline2.setText("Total Price ");
 
@@ -205,7 +241,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jButton1)
+                        .addComponent(btnBack)
                         .addGap(200, 200, 200)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
@@ -264,7 +300,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                                                     .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                         .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDesignFee1)
+                                .addComponent(lblDesignCost)
                                 .addGap(19, 19, 19))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,9 +318,9 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                                         .addGap(49, 49, 49)
                                         .addComponent(lblRawMaterialpCost, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblRawMaterialpCost1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lblMaterialCost, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblProductionModeCost)
+                                        .addComponent(lblModeCost)
                                         .addGap(29, 29, 29)))))))
                 .addGap(23, 23, 23))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +341,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(jButton1)))
+                        .addComponent(btnBack)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblProductName)
@@ -319,7 +355,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                     .addComponent(lblRawMaterialpCost)
                     .addComponent(cmbRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRawMaterial)
-                    .addComponent(lblRawMaterialpCost1))
+                    .addComponent(lblMaterialCost))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbProductionCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -328,7 +364,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProductionMode)
                     .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblProductionModeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblModeCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDesignCompany)
@@ -338,7 +374,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                     .addComponent(lblDesignStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblDesignFee, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblDesignFee1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDesignCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,10 +414,14 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbProductionModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionModeActionPerformed
         // TODO add your handling code here:
-//        ProductionMode productionmode=(ProductionMode)cmbProductionMode.getSelectedItem();
-//        if(productionmode!=null) {
-//            lblRawMaterial.setText(String.valueOf(productionmode.getModePrice()));
-//        }
+        if (cmbProductionMode.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbProductionMode.getSelectedItem();
+        selectdProductionmode=selectdProductionEnterprise.getProductionOrganization().findProductionMode(s);
+        if(selectdProductionmode!=null) {
+            lblModeCost.setText(String.valueOf(selectdProductionmode.getModePrice()));
+        }
     }//GEN-LAST:event_cmbProductionModeActionPerformed
 
     private void txtProductNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductNameActionPerformed
@@ -394,53 +434,103 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void cmbDesignerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignerActionPerformed
         // TODO add your handling code here:
-//        DesignerProfile designer=(DesignerProfile)cmbDesigner.getSelectedItem();
-//        if(designer!=null) {
-//            lblRawMaterial.setText(String.valueOf(designer.getDefaultDesignPricing()));
-//        }
+        if (cmbDesigner.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbDesigner.getSelectedItem();
+        selectedDesigner=selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().findDesignerProfile(s);
+        if(selectedDesigner!=null) {
+            lblDesignCost.setText(String.valueOf(selectedDesigner.getDefaultDesignPricing()));
+        }
     }//GEN-LAST:event_cmbDesignerActionPerformed
 
     private void cmbRawMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRawMaterialActionPerformed
         // TODO add your handling code here:
-        String s=(String)cmbRawMaterialCompany.getSelectedItem();
-        RawMaterialEnterprise selectedEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
-        String m=(String)cmbRawMaterial.getSelectedItem();
-        RawMaterial rawmaterial=selectedEnterprise.getRawMaterialDirectory().findRawMateiral(m);
-        if(rawmaterial!=null) {
-            lblRawMaterial.setText(String.valueOf(rawmaterial.getPrice()));
+        
+         if (cmbRawMaterial.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbRawMaterial.getSelectedItem();
+        selectedRawmaterial=selectedRawMaterialEnterprise.getRawMaterialDirectory().findRawMateiral(s);
+        if(selectedRawmaterial!=null) {
+            lblMaterialCost.setText(String.valueOf(selectedRawmaterial.getPrice()));
         }
     
     }//GEN-LAST:event_cmbRawMaterialActionPerformed
 
     private void cmbDesignStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignStyleActionPerformed
         // TODO add your handling code here:
-        //Style style=(Style)cmbDesignStyle.getSelectedItem();
+        if (cmbDesignStyle.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbDesignStyle.getSelectedItem();
+        selectedStyle=selectedDesignEnterprise.getStyleDirectory().findStyle(s);
     }//GEN-LAST:event_cmbDesignStyleActionPerformed
 
     private void CreateRerquirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRerquirementActionPerformed
         // TODO add your handling code here:
-       String s=(String)cmbRawMaterialCompany.getSelectedItem();
-       RawMaterialEnterprise selectedEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
-       String m=(String)cmbRawMaterial.getSelectedItem();
-       RawMaterial rawmaterial=selectedEnterprise.getRawMaterialDirectory().findRawMateiral(m);
-       String s1=(String)cmbDesignCompany.getSelectedItem();
-       DesignEnterprise selectedEnterprise1=business.getEnterpriseDirectory().getDesignEnterprise(s1);
-       String s2=(String) cmbDesigner.getSelectedItem();
-       DesignerProfile designer=selectedEnterprise1.getDesignOrganization().getDesignerDirectory().findDesignerProfile(s2);
-       String s3=(String) cmbProductionCompany.getSelectedItem();
-       ProductionEnterprise selectedEnterprise2=business.getEnterpriseDirectory().getProductionEnterprise(s3);
-       String s4=(String) cmbProductionMode.getSelectedItem();
-       ProductionMode productionmode=selectedEnterprise2.getProductionOrganization().findProductionMode(s4);
-       String s5=(String)cmbDesignStyle.getSelectedItem();
-       Style style=selectedEnterprise1.getStyleDirectory().findStyle(s5);
-       RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
-       requirementsdirectory.addNewRrequirement(rawmaterial, designer, productionmode, plannerProfile, style);
+//       String s=(String)cmbRawMaterialCompany.getSelectedItem();
+//       RawMaterialEnterprise selectedRawMaterialEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+//      RawMaterialEnterprise selectedRawmaterial=selectedRawMaterialEnterprise.getRawMaterialDirectory().findRawMateiral(m);
+//       String s1=(String)cmbDesignCompany.getSelectedItem();
+//       DesignEnterprise selectedDesignEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s1);
+//       String s2=(String) cmbDesigner.getSelectedItem();
+//       DesignerProfile selectedDesigner=selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().findDesignerProfile(s2);
+//       String s3=(String) cmbProductionCompany.getSelectedItem();
+//       ProductionEnterprise selectedEnterprise2=business.getEnterpriseDirectory().getProductionEnterprise(s3);
+//       String s4=(String) cmbProductionMode.getSelectedItem();
+//       ProductionMode selectdProductionmode=selectedEnterprise2.getProductionOrganization().findProductionMode(s4);
+//       String s5=(String)cmbDesignStyle.getSelectedItem();
+//       Style selectedStyle=selectedDesignEnterprise.getStyleDirectory().findStyle(s5);
+        RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
+        Requirement requirement=requirementsdirectory.addANewRrequirement(selectedRawmaterial, selectedDesigner, selectdProductionmode, plannerProfile, selectedStyle);
+        
        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_CreateRerquirementActionPerformed
+
+    private void cmbRawMaterialCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRawMaterialCompanyActionPerformed
+        // TODO add your handling code here:
+        if (cmbRawMaterialCompany.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbRawMaterialCompany.getSelectedItem();
+        selectedRawMaterialEnterprise = business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+    }//GEN-LAST:event_cmbRawMaterialCompanyActionPerformed
+
+    private void cmbProductionCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionCompanyActionPerformed
+        // TODO add your handling code here:
+        if (cmbProductionCompany.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbProductionCompany.getSelectedItem();
+        selectdProductionEnterprise = business.getEnterpriseDirectory().getProductionEnterprise(s);
+        
+    }//GEN-LAST:event_cmbProductionCompanyActionPerformed
+
+    private void cmbDesignCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignCompanyActionPerformed
+        // TODO add your handling code here:
+        if (cmbDesignCompany.getSelectedItem()==null) {
+            return;
+        }
+        String s=(String)cmbDesignCompany.getSelectedItem();
+        selectedDesignEnterprise = business.getEnterpriseDirectory().getDesignEnterprise(s);
+        
+        populateDesginerCombp();
+        populateDesignStyleCombo();
+        
+    }//GEN-LAST:event_cmbDesignCompanyActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        plannerWorkArea.remove(this);
+        CardLayout layout = (CardLayout) plannerWorkArea.getLayout();
+        layout.previous(plannerWorkArea);
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CreateRerquirement;
+    private javax.swing.JButton btnBack;
     private javax.swing.JComboBox<String> cmbColor;
     private javax.swing.JComboBox<String> cmbDesignCompany;
     private javax.swing.JComboBox<String> cmbDesignStyle;
@@ -449,27 +539,26 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbProductionMode;
     private javax.swing.JComboBox<String> cmbRawMaterial;
     private javax.swing.JComboBox<String> cmbRawMaterialCompany;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDeadline;
     private javax.swing.JLabel lblDeadline2;
     private javax.swing.JLabel lblDesignCompany;
+    private javax.swing.JLabel lblDesignCost;
     private javax.swing.JLabel lblDesignFee;
-    private javax.swing.JLabel lblDesignFee1;
     private javax.swing.JLabel lblDesignStyle;
     private javax.swing.JLabel lblDesignStyle1;
+    private javax.swing.JLabel lblMaterialCost;
+    private javax.swing.JLabel lblModeCost;
     private javax.swing.JLabel lblPicture;
     private javax.swing.JLabel lblProductName;
     private javax.swing.JLabel lblProductionCompany;
     private javax.swing.JLabel lblProductionMode;
-    private javax.swing.JLabel lblProductionModeCost;
     private javax.swing.JLabel lblProductionModeCost1;
     private javax.swing.JLabel lblRawMaterial;
     private javax.swing.JLabel lblRawMaterialCompany;
     private javax.swing.JLabel lblRawMaterialpCost;
-    private javax.swing.JLabel lblRawMaterialpCost1;
     private javax.swing.JLabel lblTotalCost;
     private javax.swing.JTextField txtDeadLine;
     private javax.swing.JTextField txtProductName;
@@ -505,39 +594,37 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     
     private void populateDesignStyleCombo() {
         cmbDesignStyle.removeAllItems();
-        //DesignEnterprise selectedEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
-        String s=(String)cmbDesignCompany.getSelectedItem();
-        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
-        for(Style style:selectedEnterprise.getStyleDirectory().getStyleDirectory()){
+        //DesignEnterprise selectedRawMaterialEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
+//        String s=(String)cmbDesignCompany.getSelectedItem();
+//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
+        for(Style style:selectedDesignEnterprise.getStyleDirectory().getStyleDirectory()){
             cmbDesignStyle.addItem(style.toString());
         }    
     }
 
     private void populateRawMaterialCombp() {
         cmbRawMaterial.removeAllItems();
-        //RawMaterialEnterprise selectedEnterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
-        String s=(String)cmbRawMaterialCompany.getSelectedItem();
-        RawMaterialEnterprise selectedEnterprise=business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
-        for(RawMaterial rawmaterial:selectedEnterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
+        //RawMaterialEnterprise selectedRawMaterialEnterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
+        for(RawMaterial rawmaterial:selectedRawMaterialEnterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
             cmbRawMaterial.addItem(rawmaterial.toString());
         }
-        }
+    }
 
     private void populateProductionModeCombo() {
         cmbProductionMode.removeAllItems();
-        String s=(String)cmbProductionCompany.getSelectedItem();
-        ProductionEnterprise selectedEnterprise=business.getEnterpriseDirectory().getProductionEnterprise(s);
+//        String s=(String)cmbProductionCompany.getSelectedItem();
+//        ProductionEnterprise selectedEnterprise=business.getEnterpriseDirectory().getProductionEnterprise(s);
         //ProductionEnterprise productionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
-        for(ProductionMode productionmode:selectedEnterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
+        for(ProductionMode productionmode:selectdProductionEnterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
             cmbProductionMode.addItem(productionmode.toString());
         }
     }
 
     private void populateDesginerCombp() {
         cmbDesigner.removeAllItems();
-        String s=(String)cmbDesignCompany.getSelectedItem();
-        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
-        for(DesignerProfile designer: selectedEnterprise.getDesignOrganization().getDesignerDirectory().getDesignerProfileList()){
+//        String s=(String)cmbDesignCompany.getSelectedItem();
+//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
+        for(DesignerProfile designer: selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().getDesignerProfileList()){
             cmbDesigner.addItem(designer.toString());
         }
     }
