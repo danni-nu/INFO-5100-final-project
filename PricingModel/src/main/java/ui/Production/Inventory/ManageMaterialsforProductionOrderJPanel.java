@@ -131,6 +131,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         // TODO add your handling code here:
         if (cmbMaterialStatus.getSelectedItem() == null) return;
         selectedMaterialStatus = (String) cmbMaterialStatus.getSelectedItem();
+        //refreshTable();
     }//GEN-LAST:event_cmbMaterialStatusActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -150,9 +151,9 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
     private void populateMaterialStatusCombo() {
         cmbMaterialStatus.removeAllItems();
+        cmbMaterialStatus.addItem("all production orders");
+        cmbMaterialStatus.addItem("material not arrived");
+        cmbMaterialStatus.addItem("material arrived");
         
-        for (ProductionOrder productionOrder:inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory().getProductionOrderList()){
-            cmbMaterialStatus.addItem(productionOrder.getRawMaterialOrder().getDeliverStatus());
-        }
     }
 }
