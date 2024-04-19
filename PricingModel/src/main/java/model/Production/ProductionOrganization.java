@@ -36,7 +36,6 @@ public class ProductionOrganization {
                 if(productionMode.getModeName().equals(s)){
                     return productionMode;
                 }
-                return null;
             }
         return null;
     }

@@ -20,7 +20,16 @@ public class ProductionOrder {
     private ProductionMode productionMode;
     private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
     private RawMaterialOrder materialOrder;
+    private boolean status=false;
     //private ImageIcon logoImage;
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     public ProductionOrder(Order order) {
         this.order = order;
