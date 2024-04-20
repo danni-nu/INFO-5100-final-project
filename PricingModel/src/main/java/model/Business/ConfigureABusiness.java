@@ -222,7 +222,7 @@ public class ConfigureABusiness {
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
         //把production orderdirectory 设立在production enterprise下,
         //production manager和inventory manager都能access production order
-        //ProductionManagerProfile pmp = new ProductionManagerProfile(p21,productionOrganization);
+        ProductionManagerProfile pmp = productionOrganization.getProductionManagerProfile();
         //InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
         InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
         
@@ -237,8 +237,8 @@ public class ConfigureABusiness {
 //        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3.getProductOrder());
 //        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4.getProductOrder());
         
-        //UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****");
-        UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "****");
+        UserAccount pmpua = useAccountDirectory.newUserAccount(pmp, "productionmanager1", "123");
+        UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "123");
          
     return business;
   }

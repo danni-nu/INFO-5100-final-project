@@ -14,11 +14,12 @@ import model.Personnel.Profile;
  */
 public class ProductionManagerProfile extends Profile {
 
-    
+    private ProductionOrganization productionOrganization;
     //ArrayList<ProductionMode> productionModeList;
 
     public ProductionManagerProfile(Person p, ProductionOrganization po) {
         super(p); 
+        this.productionOrganization = po;
         //productionOrderDirectory = new ProductionOrderDirectory();
         //productionModeList = new ArrayList();
 
@@ -27,6 +28,12 @@ public class ProductionManagerProfile extends Profile {
     public String getRole(){
         return  "ProductionManager";
     }
+
+    public ProductionOrganization getProductionOrganization() {
+        return productionOrganization;
+    }
+
+   
 
     
 
