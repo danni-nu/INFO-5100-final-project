@@ -135,7 +135,7 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void CheckPerformanceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPerformanceButtonActionPerformed
         // TODO add your handling code here:
-        CheckPerformanceJPanel aos = new CheckPerformanceJPanel(business, CardSequencePanel);
+        CheckPerformanceJPanel aos = new CheckPerformanceJPanel(business, CardSequencePanel,designer,designEnterprise);
         CardSequencePanel.add("Check Performance", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_CheckPerformanceButtonActionPerformed

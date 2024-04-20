@@ -32,6 +32,7 @@ public class Requirement {
     private String requirementstatus;
     private boolean status=false;
     private static int count=0;
+    private String requirementFeedback;//feedback of requirment
     ArrayList<Order> requirementOrderList;
 
     public Requirement(RawMaterial rowMaterial, DesignerProfile designerProfile, ProductionMode productionType, PlannerProfile plannerProfile,Style style,Color c) {
@@ -179,6 +180,18 @@ public class Requirement {
         requirementOrderList.add(order);
         return order;
     }
+    public void addOrderToRequirement(Order order){     
+        requirementOrderList.add(order);
+    }
+
+    public String getRequirementFeedback() {
+        return requirementFeedback;
+    }
+
+    public void setRequirementFeedback(String requirementFeedback) {
+        this.requirementFeedback = requirementFeedback;
+    }
+    
     
     
 }

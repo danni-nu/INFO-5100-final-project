@@ -16,19 +16,19 @@ import model.RawMaterialEnterprise.RawMaterialOrder;
  * @author administratorzi
  */
 public class ProductionOrder {
+    private String productionOrderID;
+    private static int count=100;
     private Order order; //linked to Order Class
     private ProductionMode productionMode;
-    //private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
+    private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
     private RawMaterialOrder rawMaterialOrder;
     private boolean Delivered = false;
     //private ImageIcon logoImage;
 
 
-    public ProductionOrder(Order order) {
-      
-    }
-
     public ProductionOrder(Order order, RawMaterialOrder rawMaterialOrder) {
+        count++;
+        this.productionOrderID=String.valueOf(count);
         this.order = order;
         this.Delivered = false;
         this.rawMaterialOrder = rawMaterialOrder;
@@ -48,6 +48,14 @@ public class ProductionOrder {
         this.order = order;
     }
 
+    public String getProductionOrderID() {
+        return productionOrderID;
+    }
+
+    public void setProductionOrderID(String productionOrderID) {
+        this.productionOrderID = productionOrderID;
+    }
+
     public ProductionMode getProductionMode() {
         return productionMode;
     }
@@ -56,13 +64,13 @@ public class ProductionOrder {
         this.productionMode = productionMode;
     }
 
-   // public String getProductionOrderStatus() {
-        //return productionOrderStatus;
-    //}
+    public String getProductionOrderStatus() {
+        return productionOrderStatus;
+    }
 
-    //public void setProductionOrderStatus(String productionOrderStatus) {
-        //this.productionOrderStatus = productionOrderStatus;
-    //}
+    public void setProductionOrderStatus(String productionOrderStatus) {
+        this.productionOrderStatus = productionOrderStatus;
+    }
 
     
 
@@ -89,6 +97,9 @@ public class ProductionOrder {
         return Delivered;
     }
 
+    public String toString(){
+      return productionOrderID;
+    }
     
     
     

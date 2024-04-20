@@ -22,11 +22,12 @@ public class RawMaterialOrder {
     private int materialPrice;
     private String deliveryDate;
     private String deliveryNumber;
-    private static int count;
+    private static int count=200;
     
 
     public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, String deliveryDate, String deliveryNumber) {
         count++;
+        this.rawMaterialOrderID=String.valueOf(count);
         this.rawMaterial = rawMaterial;
         this.deliverStatus = deliverStatus;
         this.materialPrice = materialPrice;
@@ -34,6 +35,26 @@ public class RawMaterialOrder {
         this.deliveryNumber = deliveryNumber;
         this.deliverStatus="unplaced order";
         this.status=false;
+    }
+    public RawMaterialOrder(Order o, ProductionOrder po) {
+        count++;
+        this.rawMaterialOrderID=String.valueOf(count);
+        this.order=o;
+        this.productionOrder=po;
+    }
+    //public RawMaterialOrder(Order o) {
+        //this.o=o;
+        //this.po=po;
+    //}
+    
+     public RawMaterialOrder(Order o) {
+        count++;
+        this.rawMaterialOrderID=String.valueOf(count);
+        this.order=o;
+        this.deliverStatus = "Not delivered";
+        this.deliveryDate = "N/A";
+        this.deliveryNumber = "N/A";
+        this.deliverStatus="false";
     }
 
     public Order getOrder() {
@@ -60,26 +81,7 @@ public class RawMaterialOrder {
         this.status = status;
     }
     
-    
-
-    public RawMaterialOrder(Order o, ProductionOrder po) {
-        this.order=o;
-        this.productionOrder=po;
-    }
-    //public RawMaterialOrder(Order o) {
-        //this.o=o;
-        //this.po=po;
-    //}
-    
-     public RawMaterialOrder(Order o) {
-        this.order=o;
-        this.deliverStatus = "Not delivered";
-        this.deliveryDate = "N/A";
-        this.deliveryNumber = "N/A";
-        this.deliverStatus="false";
-    }
-    
-
+   
     public RawMaterial getRawMaterial() {
         return rawMaterial;
     }
@@ -104,5 +106,9 @@ public class RawMaterialOrder {
         return deliveryNumber;
     }
 
+    @Override
+    public String toString(){
+        return rawMaterialOrderID;
+    }
     
 }

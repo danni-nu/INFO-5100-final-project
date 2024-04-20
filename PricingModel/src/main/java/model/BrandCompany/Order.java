@@ -28,12 +28,14 @@ public class Order {
     private int quantity;
     private int OrderPrice;
     private static int count=0;
+    private String orderMessage;
     
 
     public Order(Requirement requirement,int quantity) {
         count++;
         this.orederID=String.valueOf(count);
         this.requirement=requirement;
+        requirement.addOrderToRequirement(this);
         this.Orderstatus = "false";
         this.status=false;
         this.rawMaterial=requirement.getRowMaterial();
@@ -118,11 +120,8 @@ public class Order {
     }
     if(this.status==false&&this.productOrder.isDelivered()==true&&this.rawMarerialOrder.isStatus()==true){
         return "waiting delivering";
-    }
-    if(this.status==true&&this.productOrder.isDelivered()==true&&this.rawMarerialOrder.isStatus()==true){
-        return "waiting delivering";
     }else{
-        return "waiting delivering";
+        return "delivered";
     }
    }
 
@@ -144,7 +143,16 @@ public class Order {
 
     public void setOrderPrice(int OrderPrice) {
         this.OrderPrice = OrderPrice;
-    }    
+    }  
+
+    public String getOrderMessage() {
+        return orderMessage;
+    }
+
+    public void setOrderMessage(String orderMessage) {
+        this.orderMessage = orderMessage;
+    }
+    
     
     @Override
     public String toString(){

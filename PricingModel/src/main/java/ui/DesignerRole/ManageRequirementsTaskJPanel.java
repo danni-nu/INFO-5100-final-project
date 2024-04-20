@@ -4,6 +4,7 @@
  */
 package ui.DesignerRole;
 
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +32,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     DesignerProfile designerProfile;
     DesignEnterprise designEnterprise;
     BrandEnterprise brandCompany;
+    private JPanel userProcessContainer;
     /**
      * Creates new form DesignerWorkAreaJPanel
      */
@@ -64,11 +66,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         AddjButton = new javax.swing.JButton();
         removejButton = new javax.swing.JButton();
-        viewjButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblSchedule = new javax.swing.JTable();
         AddSolutionjButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblSchedule = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(236, 244, 251));
 
@@ -122,15 +123,15 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewjButton.setText("View Details");
-        viewjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewjButtonActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("My New Requirements To Schedule");
+
+        AddSolutionjButton.setText("Add solution");
+        AddSolutionjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddSolutionjButtonActionPerformed(evt);
+            }
+        });
 
         tblSchedule.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblSchedule.setModel(new javax.swing.table.DefaultTableModel(
@@ -145,21 +146,14 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, true, true, true, true
+                true, false, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblSchedule);
-
-        AddSolutionjButton.setText("Add solution");
-        AddSolutionjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddSolutionjButtonActionPerformed(evt);
-            }
-        });
+        jScrollPane3.setViewportView(tblSchedule);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,15 +167,14 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                         .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AddSolutionjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(viewjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25))
+                    .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 115, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
@@ -200,13 +193,11 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewjButton)
-                    .addComponent(AddjButton))
+                .addComponent(AddjButton)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddSolutionjButton)
@@ -260,21 +251,17 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             return;
         }
         //chose the specific Requirement
-        String requirementID =  (String)tbltask.getValueAt(row, 0);
-        ArrayList<Requirement> requirements= brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory();
+        Requirement r =  (Requirement)tbltask.getValueAt(row, 0);   
+        //get the RequirementAssignmentDirectoty
+        //RequirementAssignmentDirectory requirementAssignmentDirectory = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory();                
+        //assignRequirement To Desginer
+        RequirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
         
-        for(Requirement r: requirements){
-            if(r.getRequirementID() == requirementID){
-                //get the RequirementAssignmentDirectoty
-//                RequirementAssignmentDirectory requirementAssignmentDirectory = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory();
-                
-                //assignRequirement To Desginer
-                designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory().assignRequirementToDesginer(designerProfile, r);
-                JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
-                populateRequirmentTable();
-            }
-        }
-     
+        
+        JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
+        
+        populateRequirmentTable();             
     }//GEN-LAST:event_AddjButtonActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
@@ -283,10 +270,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void viewjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewjButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewjButtonActionPerformed
-
     private void AddSolutionjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSolutionjButtonActionPerformed
         // TODO add your handling code here:
         int row = tblSchedule.getSelectedRow();
@@ -294,7 +277,13 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        tblSchedule.getValueAt(row, 0);
+        //chose one requirement
+        Requirement r =  (Requirement)tblSchedule.getValueAt(row, 0); 
+        
+        UploadDesignSolutionJPanel upds = new UploadDesignSolutionJPanel(CardSequencePanel, r,business,designerProfile,designEnterprise);
+        CardSequencePanel.add("UploadDesignSolutionJPanel", upds);
+        CardLayout layout = (CardLayout) CardSequencePanel.getLayout();
+        layout.next(CardSequencePanel);
         
     }//GEN-LAST:event_AddSolutionjButtonActionPerformed
 
@@ -308,11 +297,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton removejButton;
     private javax.swing.JTable tblSchedule;
     private javax.swing.JTable tbltask;
-    private javax.swing.JButton viewjButton;
     // End of variables declaration//GEN-END:variables
 
     private void populateCartTable() {
@@ -320,7 +308,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
-            row[0] = r.getRequirementID();
+            row[0] = r;
             row[1] = r.getRowMaterial();
             row[2] = r.getProductionMode();
             row[3] = r.getColor();
@@ -336,19 +324,22 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblSchedule.getModel();
         model.setRowCount(0);    
         //get the designerToRequirement HashMap
-        HashMap<DesignerProfile, List<Requirement>> designerToRequirement = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory().getDesignerToRequirement();
-        List<Requirement> requirementOfDesigner = designerToRequirement.get(designerProfile);
+        HashMap<DesignerProfile, List<Requirement>> designerToRequirement = RequirementAssignmentDirectory.getDesignerToRequirement();
+        List<Requirement> requirementsOfDesigner = designerToRequirement.get(designerProfile);
+
         
-        for (Requirement r : requirementOfDesigner) {
+        for (Requirement r : requirementsOfDesigner) {
        
             Object row[] = new Object[7];
-            row[0] = r.getRequirementID();
+            row[0] = r;
             row[1] = r.getRowMaterial();
             row[2] = r.getProductionMode();
             row[3] = r.getColor();
             row[4] = r.getStyle();
             row[5] = r.getDeadline();
             row[6] = r.getEvaluation();
+            model.addRow(row);
+            
         }
         
     }

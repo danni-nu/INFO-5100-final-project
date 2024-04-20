@@ -9,13 +9,20 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.BrandCompany.Requirement;
 import model.Business.Business;
+import model.Business.DesignEnterprise;
+import model.DesignEnterprise.DesignerProfile;
+import model.DesignEnterprise.RequirementAssignment;
+import model.DesignEnterprise.RequirementAssignmentDirectory;
+import model.DesignEnterprise.RequirementSolution;
 
 /**
  *
@@ -25,21 +32,29 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
-    private ArrayList<Requirement> requirementsDirectory;
-    Requirement requirement;//需要修改
+    Requirement requirement;
+    DesignerProfile designerProfile;
+    DesignEnterprise designEnterprise;
+    URL url;
 
     private final JFileChooser fileChooser = new JFileChooser();
     ImageIcon logoImage;
     /**
      * Creates new form UploadDesignSolutionJPanel
      */
-    public UploadDesignSolutionJPanel(Business b,JPanel clp) {
-        business = b;
-        this.CardSequencePanel = clp;
+
+
+    public UploadDesignSolutionJPanel(JPanel userProcessContainer, Requirement r, Business business, DesignerProfile designerProfile,DesignEnterprise designEnterprise) {
+        this.business = business;
+        this.CardSequencePanel = userProcessContainer;
+        this.requirement = r;
+        System.out.println("2"+requirement);
+        this.designerProfile = designerProfile;
         initComponents();
+        this.designEnterprise = designEnterprise;
         
         displayRequirement();
-    
+        
     }
 
     /**
@@ -54,7 +69,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        removejButton1 = new javax.swing.JButton();
+        addjButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         imgLogo = new javax.swing.JLabel();
         btnAttach = new javax.swing.JButton();
@@ -88,10 +103,10 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("Requirement Details");
 
-        removejButton1.setText("Add solution");
-        removejButton1.addActionListener(new java.awt.event.ActionListener() {
+        addjButton.setText("Add solution");
+        addjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton1ActionPerformed(evt);
+                addjButtonActionPerformed(evt);
             }
         });
 
@@ -132,7 +147,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 772, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 863, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,20 +156,17 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(183, 183, 183)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(133, 133, 133)
                                         .addComponent(btnAttach, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(137, 137, 137)
-                                        .addComponent(btnRemove)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)))
-                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(91, 91, 91)
+                                        .addComponent(btnRemove)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addComponent(addjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,24 +236,24 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDeadline, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(txtEvaluation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(187, 187, 187)
+                        .addComponent(addjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAttach)
                             .addComponent(btnRemove))
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))))
+                        .addGap(29, 29, 29))))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAttach, btnRemove});
@@ -254,10 +266,15 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
+    private void addjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addjButtonActionPerformed
         // TODO add your handling code here:
+        HashMap<Requirement, RequirementAssignment> rtraMap = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
+        RequirementAssignment ra = rtraMap.get(requirement);
+        ImageIcon desiImageIcon = new ImageIcon(url);
+        ra.addRequirementSolution(new RequirementSolution(desiImageIcon));
         
-    }//GEN-LAST:event_removejButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, "Requirement Added Solution successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_addjButtonActionPerformed
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
         // TODO add your handling code here:
@@ -265,7 +282,6 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
 
         if(returnVal == JFileChooser.APPROVE_OPTION){
             File file = fileChooser.getSelectedFile();
-            URL url;
             try{
 
                 url = file.toURI().toURL();
@@ -285,7 +301,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
 
     private void displayRequirement() {
       
-//        txtID.setText(requirement);
+        txtID.setText(requirement.getRequirementID());
         txtDeadline.setText(requirement.getDeadline());
         txtEvaluation.setText(requirement.getEvaluation());
         txtStyle.setText(requirement.getStyle().toString());
@@ -303,6 +319,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private javax.swing.JButton addjButton;
     private javax.swing.JButton btnAttach;
     private javax.swing.JButton btnRemove;
     private javax.swing.JLabel imgLogo;
@@ -315,7 +332,6 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton removejButton1;
     private javax.swing.JTextField txtDeadline;
     private javax.swing.JTextField txtEvaluation;
     private javax.swing.JTextField txtID;

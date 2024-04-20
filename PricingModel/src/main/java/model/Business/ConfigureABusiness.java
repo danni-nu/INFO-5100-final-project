@@ -211,6 +211,11 @@ public class ConfigureABusiness {
         Order order2=orderdirectory.addNewOrder(requirement2, 10);
         Order order3=orderdirectory.addNewOrder(requirement3, 10);
         Order order4=orderdirectory.addNewOrder(requirement4, 10);
+        order1.setOrderPrice(order1.getRawMaterial().getPrice()+order1.getProductionMode().getModePrice()+requirement1.getDesignerProfile().getDefaultDesignPricing());
+        order2.setOrderPrice(order2.getRawMaterial().getPrice()+order2.getProductionMode().getModePrice()+requirement2.getDesignerProfile().getDefaultDesignPricing());
+        order3.setOrderPrice(order3.getRawMaterial().getPrice()+order3.getProductionMode().getModePrice()+requirement3.getDesignerProfile().getDefaultDesignPricing());
+        order4.setOrderPrice(order4.getRawMaterial().getPrice()+order4.getProductionMode().getModePrice()+requirement4.getDesignerProfile().getDefaultDesignPricing());
+        
         
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
         InventoryOrganization inventoryOrganization = productionEnterprise.getInventoryOrganization();
