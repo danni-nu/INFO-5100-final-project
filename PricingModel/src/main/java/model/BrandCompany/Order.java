@@ -43,7 +43,8 @@ public class Order {
         this.quantity = quantity;
         this.rawMarerialOrder= new RawMaterialOrder(this);
         this.productOrder=new ProductionOrder(this, rawMarerialOrder);
-          
+        
+        
     }
 
     public String getOrederID() {
