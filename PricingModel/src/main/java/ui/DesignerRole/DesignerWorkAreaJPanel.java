@@ -55,7 +55,7 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(236, 244, 251));
 
-        Back.setText("<< Back");
+        Back.setText("<< log out");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);

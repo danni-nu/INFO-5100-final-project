@@ -252,7 +252,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             RawMaterialManager rawMaterialManager = (RawMaterialManager) profile;
             
             inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise);
-            loginJPanel.removeAll();
+//            loginJPanel.removeAll();
             loginJPanel.add("RawMaterialManager", inventoryWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
