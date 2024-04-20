@@ -65,7 +65,7 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Inventory Work Area");
+        jLabel2.setText("Raw Material Manager Work Area");
 
         addusersjButton.setBackground(new java.awt.Color(102, 153, 255));
         addusersjButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,9 +99,9 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(Back)
-                .addGap(51, 51, 51)
+                .addGap(72, 72, 72)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(394, Short.MAX_VALUE))
         );
