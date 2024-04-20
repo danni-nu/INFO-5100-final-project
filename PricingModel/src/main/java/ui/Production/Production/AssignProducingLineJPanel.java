@@ -8,6 +8,7 @@ import model.BrandCompany.Order;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Production.ProductionManagerProfile;
+import model.Production.ProductionMode;
 import model.Production.ProductionOrder;
 import model.Production.ProductionOrderDirectory;
 

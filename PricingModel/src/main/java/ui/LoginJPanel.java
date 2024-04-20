@@ -22,7 +22,6 @@ import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 import ui.DesignerRole.DesignerWorkAreaJPanel;
 import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel;
-import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel1;
 import ui.Production.Production.ProductionWorkAreaJPanel;
 import ui.RawMaterialRole.InventoryWorkAreaJPanel;
 
@@ -222,7 +221,6 @@ public class LoginJPanel extends javax.swing.JPanel {
         
         //Designer to login
 
-
         if (profile instanceof DesignerProfile) {
             DesignerProfile dp = (DesignerProfile) profile;
             String s=(String)cmbCompany.getSelectedItem();
@@ -289,10 +287,12 @@ public class LoginJPanel extends javax.swing.JPanel {
         String s2="Design Company";
         String s3="Production Company";
         String s4="Raw Material Company";
+        String s5="Admin";
         cmbCompanyType.addItem(s1);
         cmbCompanyType.addItem(s2);
         cmbCompanyType.addItem(s3);
         cmbCompanyType.addItem(s4);
+        cmbCompanyType.addItem(s5);
   
     }
 
@@ -319,7 +319,6 @@ public class LoginJPanel extends javax.swing.JPanel {
                 cmbCompany.addItem(e.toString());
             }
         }
-        
     }
 
     private void updateSupplierVisibility() {

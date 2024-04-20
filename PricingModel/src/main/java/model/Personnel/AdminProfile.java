@@ -9,11 +9,11 @@ package model.Personnel;
  *
  * @author kal bugrara
  */
-public class EmployeeProfile extends Profile {
+public class AdminProfile extends Profile {
 
 
 
-    public EmployeeProfile(Person p) {
+    public AdminProfile(Person p) {
 
         super(p); 
 
