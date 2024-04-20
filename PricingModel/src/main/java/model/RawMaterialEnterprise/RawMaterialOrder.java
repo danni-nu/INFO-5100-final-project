@@ -52,9 +52,8 @@ public class RawMaterialOrder {
         this.rawMaterialOrderID=String.valueOf(count);
         this.order=o;
         this.deliverStatus = "Not delivered";
-        this.deliveryDate = "N/A";
-        this.deliveryNumber = "N/A";
-        this.deliverStatus="false";
+        this.deliveryDate ="";
+        this.deliveryNumber = "";
     }
 
     public Order getOrder() {
