@@ -273,7 +273,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
         ImageIcon desiImageIcon = new ImageIcon(url);
         ra.addRequirementSolution(new RequirementSolution(desiImageIcon));
         
-        JOptionPane.showMessageDialog(null, "Requirement Added Solution ccessfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Requirement Added Solution successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_addjButtonActionPerformed
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
