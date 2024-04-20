@@ -31,10 +31,11 @@ public class ProductionOrderDirectory {
      
     
     public ProductionOrder addNewProductionOrder(ProductionOrder productionOrder){
-        
         productionOrderList.add(productionOrder);
         return productionOrder;
     }
+    
+    
     public void addProductionOrder(Order order,RawMaterialOrder ro){
         ProductionOrder po=new ProductionOrder(order,ro);
         productionOrderList.add(po);       

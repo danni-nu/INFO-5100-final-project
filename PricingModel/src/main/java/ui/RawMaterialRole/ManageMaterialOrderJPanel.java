@@ -29,8 +29,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     RawMaterialEnterprise rawMaterialEnterprise;
     RawMaterialManager rawMaterialManager;
     BrandEnterprise brandEnterprise;
- 
-
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
