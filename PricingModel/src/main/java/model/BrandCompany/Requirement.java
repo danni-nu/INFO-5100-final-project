@@ -30,7 +30,7 @@ public class Requirement {
     private String evaluation;
     // //designing, waitng review, waiting approcal
     private String requirementstatus;
-    private boolean status=false;
+    private String status;//initial not designened
     private static int count=0;
     private String requirementFeedback;//feedback of requirment
     ArrayList<Order> requirementOrderList;
@@ -46,6 +46,7 @@ public class Requirement {
         this.style=style;
         this.color=c;
         this.requirementOrderList=new ArrayList<>();
+        this.status = "Not designed";
     }
 
     
@@ -65,11 +66,11 @@ public class Requirement {
         this.requirementstatus = requirementstatus;
     }
 
-    public boolean isStatus() {
+    public String isStatus() {
         return status;
     }
 
-    public void setStatus(boolean status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
