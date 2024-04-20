@@ -267,9 +267,9 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     }
 
     private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
-        ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
+        pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
         for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
-           pod.addProductionOrder(order,order.getRawMarerialOrder());
+           pod.addNewProductionOrder(order.getProductOrder());
         }
         return pod;
     }

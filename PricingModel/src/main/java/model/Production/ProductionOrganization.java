@@ -14,13 +14,14 @@ import model.Personnel.Person;
  * @author administratorzi
  */
 public class ProductionOrganization {
-    //private ProductionManagerProfile productManagerProfile;
+    private ProductionManagerProfile productionManagerProfile;
     private ProductionModeDirectory productionModeDirectory;
     private ProductionEnterprise productionEnterprise;
     
-    public ProductionOrganization(ProductionEnterprise productionEnterprise) {
+    public ProductionOrganization(Person p, ProductionEnterprise productionEnterprise) {
         this.productionModeDirectory = new ProductionModeDirectory();
-        
+        productionManagerProfile = new ProductionManagerProfile(p, this);
+        this.productionEnterprise = productionEnterprise;
     }
     
     public ProductionModeDirectory getProductionModeDirectory() {
@@ -39,5 +40,14 @@ public class ProductionOrganization {
             }
         return null;
     }
+
+    public ProductionManagerProfile getProductionManagerProfile() {
+        return productionManagerProfile;
+    }
+
+    public ProductionEnterprise getProductionEnterprise() {
+        return productionEnterprise;
+    }
+    
     
 }

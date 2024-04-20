@@ -16,21 +16,21 @@ import ui.LoginJPanel;
 
 /**
  *
- * @author qiaohui
+ * @author administorzi
  */
 public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    javax.swing.JPanel cardSequencePanel;
+    javax.swing.JPanel mainWorkArea;
     Business business;
     InventoryManagerProfile inventoryManagerProfile;
     BrandEnterprise brandEnterprise;
     
-   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile imp,BrandEnterprise brandEnterprise) {
+   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel mainWorkArea,InventoryManagerProfile imp,BrandEnterprise brandEnterprise) {
         business = b;
-        this.cardSequencePanel = clp;
+        this.mainWorkArea = mainWorkArea;
         this.inventoryManagerProfile = imp;
         this.brandEnterprise=brandEnterprise;
         initComponents();
@@ -107,22 +107,22 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
 
     private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
         // TODO add your handling code here:
-        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(cardSequencePanel, business, inventoryManagerProfile,brandEnterprise);
-        cardSequencePanel.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
-        CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
-        layout.next(cardSequencePanel);
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,brandEnterprise);
+        WorkArea.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
     }//GEN-LAST:event_btnManageMaterialsActionPerformed
 
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-        cardSequencePanel.remove(this);
-        Component[] componentArray = cardSequencePanel.getComponents();
+        mainWorkArea.remove(this);
+        Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
         LoginJPanel loginPanel = (LoginJPanel) component;
         loginPanel.populateEnterpriseTypeCombo();
         loginPanel.populateCompanyNameCombo();
-        CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
-        layout.previous(cardSequencePanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
         
     }//GEN-LAST:event_btnLogOutActionPerformed
 

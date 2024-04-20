@@ -41,7 +41,6 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         addusersjButton = new javax.swing.JButton();
         manageusersjButton1 = new javax.swing.JButton();
-        manageusersjButton2 = new javax.swing.JButton();
 
         Back.setText("<< Back");
         Back.addActionListener(new java.awt.event.ActionListener() {
@@ -80,19 +79,6 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageusersjButton2.setBackground(new java.awt.Color(102, 153, 255));
-        manageusersjButton2.setForeground(new java.awt.Color(255, 255, 255));
-        manageusersjButton2.setText("Delivery Order");
-        manageusersjButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        manageusersjButton2.setMaximumSize(new java.awt.Dimension(200, 40));
-        manageusersjButton2.setMinimumSize(new java.awt.Dimension(20, 20));
-        manageusersjButton2.setPreferredSize(new java.awt.Dimension(240, 25));
-        manageusersjButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageusersjButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -111,8 +97,7 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageusersjButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(339, 339, 339))))
         );
         layout.setVerticalGroup(
@@ -124,9 +109,7 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(manageusersjButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(121, 121, 121)
                 .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(429, Short.MAX_VALUE))
         );
@@ -152,16 +135,11 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
         //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_manageusersjButton1ActionPerformed
 
-    private void manageusersjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageusersjButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageusersjButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton addusersjButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageusersjButton1;
-    private javax.swing.JButton manageusersjButton2;
     // End of variables declaration//GEN-END:variables
 }
