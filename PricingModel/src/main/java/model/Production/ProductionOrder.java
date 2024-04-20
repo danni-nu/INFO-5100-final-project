@@ -20,7 +20,7 @@ public class ProductionOrder {
     private static int count=100;
     private Order order; //linked to Order Class
     private ProductionMode productionMode;
-    private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
+    private String productionOrderStatus = "not yet in production"; //(1.waiting placed  )2.waiting delivery 3.delivered
     private RawMaterialOrder rawMaterialOrder;
     //private boolean Delivered = false;
     //private ImageIcon logoImage;

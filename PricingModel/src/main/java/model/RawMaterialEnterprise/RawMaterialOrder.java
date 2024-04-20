@@ -98,6 +98,14 @@ public class RawMaterialOrder {
     public void setDeliveryNumber(String deliveryNumber) {
         this.deliveryNumber = deliveryNumber;
     }
+
+    public String getProductionEnterpriseWarehouseAddress() {
+        return productionEnterpriseWarehouseAddress;
+    }
+
+    public void setProductionEnterpriseWarehouseAddress(String productionEnterpriseWarehouseAddress) {
+        this.productionEnterpriseWarehouseAddress = productionEnterpriseWarehouseAddress;
+    }
     
     
 }
