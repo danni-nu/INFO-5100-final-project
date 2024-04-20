@@ -20,15 +20,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="1028" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="cmbMaterialStatus" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -41,6 +33,18 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnPutIntoProduction" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="857" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="156" max="32767" attributes="0"/>
@@ -62,7 +66,9 @@
               <Component id="jScrollPane2" min="-2" pref="247" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="361" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnPutIntoProduction" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="332" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,7 +84,7 @@
         <Component class="javax.swing.JTable" name="tblMaterialInformation">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="7" rowCount="4">
+              <Table columnCount="8" rowCount="4">
                 <Column editable="true" title="Production Order ID" type="java.lang.Object"/>
                 <Column editable="true" title="Material Name" type="java.lang.Object"/>
                 <Column editable="true" title="Material Price" type="java.lang.Object"/>
@@ -86,10 +92,16 @@
                 <Column editable="true" title="Material Status" type="java.lang.Object"/>
                 <Column editable="true" title="Warehouse Address" type="java.lang.Object"/>
                 <Column editable="true" title="Delivered Time" type="java.lang.Object"/>
+                <Column editable="true" title="production status" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -131,6 +143,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblMaterialInformationMousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -175,6 +190,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Production Order Material Information"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPutIntoProduction">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="put into production line"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPutIntoProductionActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
