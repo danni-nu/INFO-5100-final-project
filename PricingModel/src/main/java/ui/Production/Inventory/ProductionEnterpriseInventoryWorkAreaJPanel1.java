@@ -6,6 +6,7 @@ package ui.Production.Inventory;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
@@ -101,7 +102,7 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel1 extends javax.swing.JP
 
     private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
         // TODO add your handling code here:
-        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(cardSequencePanel, business, inventoryManagerProfile);
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(cardSequencePanel, business, inventoryManagerProfile,brandCompany);
         cardSequencePanel.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
         CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
         layout.next(cardSequencePanel);

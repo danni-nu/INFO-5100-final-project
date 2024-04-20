@@ -26,11 +26,13 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
     javax.swing.JPanel cardSequencePanel;
     Business business;
     InventoryManagerProfile inventoryManagerProfile;
+    BrandEnterprise brandEnterprise;
     
-   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile imp) {
+   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel clp,InventoryManagerProfile imp,BrandEnterprise brandEnterprise) {
         business = b;
         this.cardSequencePanel = clp;
         this.inventoryManagerProfile = imp;
+        this.brandEnterprise=brandEnterprise;
         initComponents();
     }
 
@@ -105,7 +107,7 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
 
     private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
         // TODO add your handling code here:
-        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(cardSequencePanel, business, inventoryManagerProfile);
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(cardSequencePanel, business, inventoryManagerProfile,brandEnterprise);
         cardSequencePanel.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
         CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
         layout.next(cardSequencePanel);
