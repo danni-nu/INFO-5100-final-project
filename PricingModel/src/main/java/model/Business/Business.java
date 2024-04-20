@@ -6,6 +6,7 @@
 package model.Business;
 
 import java.util.ArrayList;
+import model.Personnel.AdminDirectory;
 import model.Personnel.PersonDirectory;
 import model.UserAccountManagement.UserAccountDirectory;
 
@@ -18,6 +19,7 @@ public class Business {
     EnterpriseDirectory EnterpriseDirectory;
     UserAccountDirectory userAccountDirectory;
     PersonDirectory personDirectory;
+    AdminDirectory adminDirectory;
          
 
     public Business(String n) {
@@ -25,6 +27,15 @@ public class Business {
         this.EnterpriseDirectory=new EnterpriseDirectory();
         this.personDirectory = new PersonDirectory();
         this.userAccountDirectory = new UserAccountDirectory();
+        this.adminDirectory=new AdminDirectory(this);
+    }
+
+    public AdminDirectory getAdminDirectory() {
+        return adminDirectory;
+    }
+
+    public void setAdminDirectory(AdminDirectory adminDirectory) {
+        this.adminDirectory = adminDirectory;
     }
 
     public String getName() {

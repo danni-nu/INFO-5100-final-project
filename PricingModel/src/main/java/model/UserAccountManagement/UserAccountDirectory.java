@@ -42,5 +42,15 @@ public class UserAccountDirectory {
             }
         }
             return null; //not found after going through the whole list
-         }   
+         }  
+
+    public ArrayList<UserAccount> getUseraccountlist() {
+        return useraccountlist;
+    }
+
+    public void setUseraccountlist(ArrayList<UserAccount> useraccountlist) {
+        this.useraccountlist = useraccountlist;
+    }
+     
+     
 }
