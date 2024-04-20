@@ -35,35 +35,6 @@ public class RawMaterialOrder {
         this.deliveryNumber = deliveryNumber;
         this.deliverStatus="Not delivered";
     }
-//    public RawMaterialOrder(Order o, ProductionOrder po) {
-//        count++;
-//        this.rawMaterialOrderID=String.valueOf(count);
-//        this.order=o;
-//        this.productionOrder=po;
-//    }
-
-    //public RawMaterialOrder(RawMaterial rawMaterial, String deliver, int materialPrice, String deliveryDate, String deliveryNumber) {
-        //count++;
-        //this.rawMaterialOrderID=String.valueOf(count);
-        //this.rawMaterial = rawMaterial;
-        //this.deliverStatus = deliverStatus;
-        //this.materialPrice = materialPrice;
-        //this.deliveryDate = deliveryDate;
-        //this.deliveryNumber = deliveryNumber;
-        //this.deliverStatus="unplaced order";
-        //this.status=false;
-    //}
-    //public RawMaterialOrder(Order o, ProductionOrder po) {
-        //count++;
-        //this.rawMaterialOrderID=String.valueOf(count);
-        //this.order=o;
-        //this.productionOrder=po;
-    //}
-
-    //public RawMaterialOrder(Order o) {
-        //this.o=o;
-        //this.po=po;
-    //}
     
      public RawMaterialOrder(Order o) {
         count++;
@@ -72,8 +43,6 @@ public class RawMaterialOrder {
         this.deliverStatus = "Not delivered";
         this.deliveryDate ="";
         this.deliveryNumber = "";
-
-
     }
 
     public Order getOrder() {
@@ -83,14 +52,6 @@ public class RawMaterialOrder {
     public void setOrder(Order order) {
         this.order = order;
     }
-
-//    public ProductionOrder getProductionOrder() {
-//        return productionOrder;
-//    }
-//
-//    public void setProductionOrder(ProductionOrder productionOrder) {
-//        this.productionOrder = productionOrder;
-//    }
 
     public boolean isStatus() {
         return status;

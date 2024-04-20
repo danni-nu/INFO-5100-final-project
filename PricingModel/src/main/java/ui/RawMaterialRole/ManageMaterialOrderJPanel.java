@@ -8,8 +8,11 @@ import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.Order;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Business.RawMaterialEnterprise;
+import model.RawMaterialEnterprise.RawMaterialManageOrganization;
 import model.RawMaterialEnterprise.RawMaterialManager;
 import model.RawMaterialEnterprise.RawMaterialOrder;
 import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
@@ -25,17 +28,20 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     Business business;
     RawMaterialEnterprise rawMaterialEnterprise;
     RawMaterialManager rawMaterialManager;
+    BrandEnterprise brandEnterprise;
+ 
 
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
 
-    public ManageMaterialOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager) {
+    public ManageMaterialOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager,BrandEnterprise brandEnterprise) {
         
         this.business = business;
         this.CardSequencePanel = CardSequencePanel;
         this.rawMaterialEnterprise = rawMaterialEnterprise;
+        this.brandEnterprise=brandEnterprise;
         this.rawMaterialManager = rawMaterialManager;
         initComponents();
         populateTable();
@@ -182,8 +188,8 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
         model.setRowCount(0);
-        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-       
+        //RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
+        RawMaterialOrderDirectory rawMaterialOrderDirectory=initialBrandCompanyOrder();
         for (RawMaterialOrder roMaterialOrder : rawMaterialOrderDirectory.getRawMaterialOrderDirectory()) {
             Object row[] = new Object[6];
             row[0] = roMaterialOrder;
@@ -195,5 +201,14 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
         
+    }
+
+    private RawMaterialOrderDirectory initialBrandCompanyOrder() {
+        RawMaterialManageOrganization RWO=rawMaterialEnterprise.getRawMaterialManageOrganization();
+        RawMaterialOrderDirectory rawMaterialOrderDirectory=RWO.getRawMaterialOrderDirectory();
+        for(Order order:brandEnterprise.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+            rawMaterialOrderDirectory.addARelatedOrder(order);
+        }
+        return rawMaterialOrderDirectory;
     }
 }
