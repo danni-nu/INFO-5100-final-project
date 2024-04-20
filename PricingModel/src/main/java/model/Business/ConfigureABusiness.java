@@ -233,9 +233,9 @@ public class ConfigureABusiness {
 //        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4.getRawMarerialOrder());
         
         ProductionOrder productionOrder4 =productionOrderDirectory.addNewProductionOrder(order1.getProductOrder());
-        ProductionOrder productionOrder3 =productionOrderDirectory.addNewProductionOrder(order2.getProductOrder());
-        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3.getProductOrder());
-        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4.getProductOrder());
+//        ProductionOrder productionOrder3 =productionOrderDirectory.addNewProductionOrder(order2.getProductOrder());
+//        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3.getProductOrder());
+//        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4.getProductOrder());
         
         //UserAccount pmpua = uadirectory.newUserAccount(pmp, "productionmanager", "****");
         UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "****");

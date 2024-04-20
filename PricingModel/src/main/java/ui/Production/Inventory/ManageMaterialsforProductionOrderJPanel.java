@@ -7,6 +7,8 @@ package ui.Production.Inventory;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.Order;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Production.InventoryManagerProfile;
 import model.Production.ProductionMode;
@@ -23,16 +25,18 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     Business business;
     InventoryManagerProfile inventoryManagerprofile;
     String selectedMaterialStatus;
-    ProductionOrderDirectory lastedOrderDirecotry= populatedAllBrandCompanyOrder();
-    BrandCompany 
+    BrandEnterprise brandCompany;
+    ProductionOrderDirectory pod;
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
-    public ManageMaterialsforProductionOrderJPanel(JPanel cardSequencePanel, Business business,InventoryManagerProfile inventoryManagerprofile) {
+    public ManageMaterialsforProductionOrderJPanel(JPanel cardSequencePanel, Business business,InventoryManagerProfile inventoryManagerprofile,BrandEnterprise brandCompany) {
         initComponents();
         this.business = business;
         this.cardSequencePanel = cardSequencePanel;
         this.inventoryManagerprofile = inventoryManagerprofile;
+        this.brandCompany=brandCompany;
+        this.pod=populatedAllBrandCompanyOrder();
         populateMaterialStatusCombo();
         selectedMaterialStatus = "all production orders";
         refreshTable();
@@ -171,10 +175,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
             ((DefaultTableModel) tblMaterialInformation.getModel()).removeRow(i);
         }
 
-        ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
-        
-        
- 
+        //ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
         if (selectedMaterialStatus.equals("all production orders")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
               Object[] row = new Object[7];
@@ -192,17 +193,17 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         if(selectedMaterialStatus.equals("material not arrived")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
                 if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
-                    Object[] row = new Object[7];
-                    row[0] = productionOrder;
-                    row[1] = productionOrder.getOrder().getRawMaterial();
-                    row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
-                    row[3] = productionOrder.getOrder().getQuantity();
-                    row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-                    row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();   }
-                    ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
+                    Object[] row1 = new Object[7];
+                    row1[0] = productionOrder;
+                    row1[1] = productionOrder.getOrder().getRawMaterial();
+                    row1[2] = productionOrder.getOrder().getRawMaterial().getPrice();
+                    row1[3] = productionOrder.getOrder().getQuantity();
+                    row1[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row1[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row1[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();
+                    ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row1);
             }
-            
+            }  
         }
         
         if(selectedMaterialStatus.equals("material arrived")){
@@ -220,20 +221,16 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
             }
             
         }
-        
     }
 
     private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
         ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
-        for(Object bc:business.getEnterpriseDirectory().getBrandEnterpriseList()){
-            for(Order order:(BrandCompany)bc.get){
-            
-            
-            }
-            
-            
-            
-        }}
-        
+        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+           pod.addProductionOrder(order,order.getRawMarerialOrder());
+        }
+        return pod;
+    }
+    
+   
 }
 

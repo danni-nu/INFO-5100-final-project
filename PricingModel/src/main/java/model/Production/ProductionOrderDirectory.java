@@ -35,5 +35,9 @@ public class ProductionOrderDirectory {
         productionOrderList.add(productionOrder);
         return productionOrder;
     }
+    public void addProductionOrder(Order order,RawMaterialOrder ro){
+        ProductionOrder po=new ProductionOrder(order,ro);
+        productionOrderList.add(po);       
+    }
      
 }
