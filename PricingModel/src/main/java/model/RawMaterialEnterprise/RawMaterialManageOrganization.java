@@ -37,7 +37,7 @@ public class RawMaterialManageOrganization {
     }
     
     public void addRawMaterialManager(Person p) {
-        new RawMaterialManager(p);
+        this.rawMaterialManager = new RawMaterialManager(p);
     }
     
     

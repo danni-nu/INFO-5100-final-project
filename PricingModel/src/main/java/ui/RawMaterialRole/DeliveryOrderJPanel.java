@@ -4,8 +4,12 @@
  */
 package ui.RawMaterialRole;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Business.Business;
+import model.Business.RawMaterialEnterprise;
+import model.RawMaterialEnterprise.RawMaterialManager;
+import model.RawMaterialEnterprise.RawMaterialOrder;
 
 /**
  *
@@ -15,15 +19,28 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
 
     javax.swing.JPanel CardSequencePanel;
     Business business;
+    RawMaterialEnterprise rawMaterialEnterprise;
+    RawMaterialManager rawMaterialManager;
+    RawMaterialOrder rmrOrder;
 
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public DeliveryOrderJPanel(Business b, JPanel clp) {
-        business = b;
-        this.CardSequencePanel = clp;
+
+
+    DeliveryOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager,RawMaterialOrder rmrOrder) {
+        this.business = business;
+        this.CardSequencePanel = CardSequencePanel;
+        this.rawMaterialEnterprise = rawMaterialEnterprise;
+        this.rawMaterialManager = rawMaterialManager;
+        this.rmrOrder = rmrOrder;
         initComponents();
+        
+        txtName.setText(rmrOrder.getOrder().toString());
+//        txtAddress.setText(rmrOrder.getAddress);//需要再加地址
+        
+        
     }
 
     /**
@@ -37,15 +54,15 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
 
         jLabel2 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
-        removejButton2 = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         lblName = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         lblName1 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         lblName2 = new javax.swing.JLabel();
-        txtPhone = new javax.swing.JTextField();
+        txtTime = new javax.swing.JTextField();
         lblName3 = new javax.swing.JLabel();
-        txtPhone1 = new javax.swing.JTextField();
+        txtNumber = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(236, 244, 251));
 
@@ -60,10 +77,10 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
             }
         });
 
-        removejButton2.setText("Add Delivery Details");
-        removejButton2.addActionListener(new java.awt.event.ActionListener() {
+        addButton.setText("Add Delivery Details");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton2ActionPerformed(evt);
+                addButtonActionPerformed(evt);
             }
         });
 
@@ -79,17 +96,17 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
 
         lblName2.setText("Delivery Time:");
 
-        txtPhone.addActionListener(new java.awt.event.ActionListener() {
+        txtTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhoneActionPerformed(evt);
+                txtTimeActionPerformed(evt);
             }
         });
 
         lblName3.setText("Delivery Number:");
 
-        txtPhone1.addActionListener(new java.awt.event.ActionListener() {
+        txtNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPhone1ActionPerformed(evt);
+                txtNumberActionPerformed(evt);
             }
         });
 
@@ -108,7 +125,7 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(removejButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblName1)
@@ -116,7 +133,7 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
                             .addComponent(lblName3)
                             .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(txtPhone1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -125,7 +142,7 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(txtPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(216, 216, 216)))
         );
         layout.setVerticalGroup(
@@ -143,10 +160,10 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
                 .addComponent(lblName2)
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPhone1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName3))
                 .addGap(31, 31, 31)
-                .addComponent(removejButton2)
+                .addComponent(addButton)
                 .addGap(195, 195, 195))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -155,45 +172,54 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
                     .addGap(34, 34, 34)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(36, 36, 36)
-                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(300, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-                // TODO add your handling code here:
-                CardSequencePanel.remove(this);
-                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void removejButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton2ActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_removejButton2ActionPerformed
+        String time = txtTime.getText();
+        String number = txtNumber.getText();
+        
+        rmrOrder.setDeliveryDate(time);
+        rmrOrder.setDeliveryNumber(number);
+        //在这里修改订单发货的String
+        
+        JOptionPane.showMessageDialog(null, "Added Delivery Details Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        
+    }//GEN-LAST:event_addButtonActionPerformed
 
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
 
-    private void txtPhoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneActionPerformed
+    private void txtTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhoneActionPerformed
+    }//GEN-LAST:event_txtTimeActionPerformed
 
-    private void txtPhone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhone1ActionPerformed
+    private void txtNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPhone1ActionPerformed
+    }//GEN-LAST:event_txtNumberActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private javax.swing.JButton addButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblName2;
     private javax.swing.JLabel lblName3;
-    private javax.swing.JButton removejButton2;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPhone;
-    private javax.swing.JTextField txtPhone1;
+    private javax.swing.JTextField txtNumber;
+    private javax.swing.JTextField txtTime;
     // End of variables declaration//GEN-END:variables
 }

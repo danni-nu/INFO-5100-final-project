@@ -4,10 +4,13 @@
  */
 package ui.RawMaterialRole;
 
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
-import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.RawMaterialEnterprise;
 import model.RawMaterialEnterprise.RawMaterialManager;
+import ui.LoginJPanel;
 
 /**
  *
@@ -18,16 +21,19 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
     javax.swing.JPanel CardSequencePanel;
     Business business;
     RawMaterialManager rawMaterialManager;
-    BrandEnterprise brandCompany;
+    RawMaterialEnterprise rawMaterialEnterprise;
+    
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public InventoryWorkAreaJPanel(Business b, JPanel clp,RawMaterialManager rawMaterialManager) {
-        business = b;
-        this.CardSequencePanel = clp;
+    public InventoryWorkAreaJPanel(Business business, JPanel loginJPanel, RawMaterialManager rawMaterialManager, RawMaterialEnterprise rawMaterialEnterprise) {
+        this.business = business;
+        this.CardSequencePanel = loginJPanel;
+        this.rawMaterialManager = rawMaterialManager;
+        this.rawMaterialEnterprise = rawMaterialEnterprise;
         initComponents();
-        rawMaterialManager = rawMaterialManager;
+        
     }
 
 
@@ -44,11 +50,10 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         addusersjButton = new javax.swing.JButton();
-        manageusersjButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(236, 244, 251));
 
-        Back.setText("<< Back");
+        Back.setText("<< log out");
         Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackActionPerformed(evt);
@@ -72,19 +77,6 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        manageusersjButton1.setBackground(new java.awt.Color(102, 153, 255));
-        manageusersjButton1.setForeground(new java.awt.Color(255, 255, 255));
-        manageusersjButton1.setText("Delivery Order");
-        manageusersjButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        manageusersjButton1.setMaximumSize(new java.awt.Dimension(200, 40));
-        manageusersjButton1.setMinimumSize(new java.awt.Dimension(20, 20));
-        manageusersjButton1.setPreferredSize(new java.awt.Dimension(240, 25));
-        manageusersjButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageusersjButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,9 +84,7 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(268, 268, 268))
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
@@ -110,37 +100,34 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-                // TODO add your handling code here:
-                CardSequencePanel.remove(this);
-                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        Component[] componentArray = CardSequencePanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) CardSequencePanel.getLayout();
+        layout.previous(CardSequencePanel);
+  
     }//GEN-LAST:event_BackActionPerformed
 
     private void addusersjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersjButtonActionPerformed
         // TODO add your handling code here:
-                ManageMaterialOrderJPanel aos = new ManageMaterialOrderJPanel(business, CardSequencePanel);
+                ManageMaterialOrderJPanel aos = new ManageMaterialOrderJPanel(business, CardSequencePanel,rawMaterialEnterprise,rawMaterialManager);
                 CardSequencePanel.add("ManageMaterial Order", aos);
                 ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_addusersjButtonActionPerformed
-
-    private void manageusersjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageusersjButton1ActionPerformed
-//         TODO add your handling code here:
-                DeliveryOrderJPanel aos = new DeliveryOrderJPanel(business, CardSequencePanel);
-                CardSequencePanel.add("Delivery Order", aos);
-                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_manageusersjButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton addusersjButton;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton manageusersjButton1;
     // End of variables declaration//GEN-END:variables
 }
