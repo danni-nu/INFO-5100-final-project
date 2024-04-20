@@ -23,7 +23,7 @@ import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 import ui.DesignerRole.DesignerWorkAreaJPanel;
 import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel;
 import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel1;
-import ui.Production.Production.ProductionWorkAreaJPanel;
+import ui.Production.Production.ProductionWorkAreaJPanel2;
 import ui.RawMaterialRole.InventoryWorkAreaJPanel;
 
 /*
@@ -161,7 +161,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         }
 //        ProcurerWorkAreaJPanel procurerWorkAreajpanel;
 //        PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
-        ProductionWorkAreaJPanel productionworkarea;
+        ProductionWorkAreaJPanel2 productionworkarea;
         ProductionEnterpriseInventoryWorkAreaJPanel productioninventoryworkarea;
         
         DesignerWorkAreaJPanel designerWorkArea;//Designer work area

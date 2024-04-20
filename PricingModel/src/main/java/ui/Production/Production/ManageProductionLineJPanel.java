@@ -4,10 +4,12 @@
  */
 package ui.Production.Production;
 
+import javax.swing.JPanel;
 import model.BrandCompany.Order;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Production.ProductionManagerProfile;
+import model.Production.ProductionMode;
 import model.Production.ProductionOrder;
 import model.Production.ProductionOrderDirectory;
 
@@ -15,7 +17,7 @@ import model.Production.ProductionOrderDirectory;
  *
  * @author administratorzi
  */
-public class AssignProducingLineJPanel extends javax.swing.JPanel {
+public class ManageProductionLineJPanel extends javax.swing.JPanel {
 
     javax.swing.JPanel cardSequencePanel;
     Business business;
@@ -29,7 +31,7 @@ public class AssignProducingLineJPanel extends javax.swing.JPanel {
      * Creates new form AssignProducingLineJPanel
      */
     
-    public AssignProducingLineJPanel(JPanel cardSequencePanel, Business business,ProductionManagerProfile productionManagerprofile,BrandEnterprise brandCompany) {
+    public ManageProductionLineJPanel(JPanel cardSequencePanel, Business business,ProductionManagerProfile productionManagerprofile,BrandEnterprise brandCompany) {
         initComponents();
          this.business = business;
         this.cardSequencePanel = cardSequencePanel;
@@ -37,8 +39,8 @@ public class AssignProducingLineJPanel extends javax.swing.JPanel {
         this.brandCompany=brandCompany;
         this.pod=populatedAllBrandCompanyOrder();
         populateProductionModeCombo();
-        selectedProductionMode = "all production orders";
-        refreshTable();
+        //selectedProductionMode = "all production orders";
+        //refreshTable();
     }
 
     /**
@@ -126,17 +128,19 @@ public class AssignProducingLineJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
-         ProductionOrderDirectory pod = productionManagerprofile.getProductionOrganization().getProductionEnterprise().getProductionOrderDirectory();
+        pod = productionManagerprofile.getProductionOrganization().getProductionEnterprise().getProductionOrderDirectory();
         for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
-           pod.addProductionOrder(order,order.getRawMarerialOrder());
+           pod.addNewProductionOrder(order.getProductOrder());
         }
         return pod;
     }
 
     private void populateProductionModeCombo() {
-        cmbMaterialStatus.removeAllItems();
-        cmbMaterialStatus.addItem("all production orders");
-        cmbMaterialStatus.addItem("material not arrived");
-        cmbMaterialStatus.addItem("material arrived");
+        cmbProductionMode.removeAllItems();
+        for (ProductionMode productionMode: productionManagerprofile.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
+            
+                    cmbProductionMode.addItem(productionMode);
+                
+            }
     }
 }
