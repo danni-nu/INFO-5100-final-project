@@ -5,8 +5,8 @@
 package ui.RawMaterialRole;
 
 import javax.swing.JPanel;
-import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.RawMaterialEnterprise;
 import model.RawMaterialEnterprise.RawMaterialManager;
 
 /**
@@ -18,16 +18,19 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
     javax.swing.JPanel CardSequencePanel;
     Business business;
     RawMaterialManager rawMaterialManager;
-    BrandEnterprise brandCompany;
+    RawMaterialEnterprise rawMaterialEnterprise;
+    
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public InventoryWorkAreaJPanel(Business b, JPanel clp,RawMaterialManager rawMaterialManager) {
-        business = b;
-        this.CardSequencePanel = clp;
+    public InventoryWorkAreaJPanel(Business business, JPanel loginJPanel, RawMaterialManager rawMaterialManager, RawMaterialEnterprise rawMaterialEnterprise) {
+        this.business = business;
+        this.CardSequencePanel = loginJPanel;
+        this.rawMaterialManager = rawMaterialManager;
+        this.rawMaterialEnterprise = rawMaterialEnterprise;
         initComponents();
-        rawMaterialManager = rawMaterialManager;
+        
     }
 
 
