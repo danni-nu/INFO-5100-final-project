@@ -179,6 +179,9 @@ public class Requirement {
         requirementOrderList.add(order);
         return order;
     }
+    public void addOrderToRequirement(Order order){     
+        requirementOrderList.add(order);
+    }
     
     
 }
