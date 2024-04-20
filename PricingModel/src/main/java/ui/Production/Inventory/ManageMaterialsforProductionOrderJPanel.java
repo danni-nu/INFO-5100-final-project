@@ -5,10 +5,12 @@
 package ui.Production.Inventory;
 
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import model.Business.Business;
 import model.Production.InventoryManagerProfile;
 import model.Production.ProductionMode;
 import model.Production.ProductionOrder;
+import model.Production.ProductionOrderDirectory;
 
 /**
  *
@@ -19,7 +21,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     javax.swing.JPanel cardSequencePanel;
     Business business;
     InventoryManagerProfile inventoryManagerprofile;
-    String selectedMaterialStatus = null;
+    String selectedMaterialStatus;
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
@@ -29,6 +31,8 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         this.cardSequencePanel = cardSequencePanel;
         this.inventoryManagerprofile = inventoryManagerprofile;
         populateMaterialStatusCombo();
+        selectedMaterialStatus = "all production orders";
+        refreshTable();
     }
 
     /**
@@ -41,14 +45,14 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblMaterialInformation = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         cmbMaterialStatus = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblMaterialInformation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -56,10 +60,10 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Production Order ID", "Material Type", "Material Cost", "Quantity", "Material State", "Inventory Address", "Delivered Time"
+                "Production Order ID", "Material Name", "Material Price", "Quantity", "Material Status", "Inventory Address", "Delivered Time"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblMaterialInformation);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Manage Materials for Production Order");
@@ -131,7 +135,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         // TODO add your handling code here:
         if (cmbMaterialStatus.getSelectedItem() == null) return;
         selectedMaterialStatus = (String) cmbMaterialStatus.getSelectedItem();
-        //refreshTable();
+        refreshTable();
     }//GEN-LAST:event_cmbMaterialStatusActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -146,7 +150,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblMaterialInformation;
     // End of variables declaration//GEN-END:variables
 
     private void populateMaterialStatusCombo() {
@@ -156,4 +160,60 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         cmbMaterialStatus.addItem("material arrived");
         
     }
+
+    private void refreshTable() {
+        int rc = tblMaterialInformation.getRowCount();
+        int i;
+        for (i = rc - 1; i >= 0; i--) {
+            ((DefaultTableModel) tblMaterialInformation.getModel()).removeRow(i);
+        }
+
+        ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
+        
+        Object[] row = new Object[7];
+ 
+        if (selectedMaterialStatus.equals("all production orders")){
+            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
+              row[0] = productionOrder;
+              row[1] = productionOrder.getOrder().getRawMaterial();
+              row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
+              row[3] = productionOrder.getOrder().getQuantity();
+              row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+              row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+              row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();    
+            }
+        }
+        
+        if(selectedMaterialStatus.equals("material not arrived")){
+            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
+                if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
+                    row[0] = productionOrder;
+                    row[1] = productionOrder.getOrder().getRawMaterial();
+                    row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
+                    row[3] = productionOrder.getOrder().getQuantity();
+                    row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();   }
+              
+            }
+            
+        }
+        
+        if(selectedMaterialStatus.equals("material arrived")){
+            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
+                if(!productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
+                    row[0] = productionOrder;
+                    row[1] = productionOrder.getOrder().getRawMaterial();
+                    row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
+                    row[3] = productionOrder.getOrder().getQuantity();
+                    row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();   }
+              
+            }
+            
+        }
+        ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
+    }
 }
+
