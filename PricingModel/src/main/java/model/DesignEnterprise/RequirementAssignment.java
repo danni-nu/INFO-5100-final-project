@@ -17,7 +17,7 @@ public class RequirementAssignment {
     private Requirement requirement;
     private boolean status = false;
 //    private DesignerAssignmentRoad DesignerAssignmentRoad;
-    private List<RequirementSolution> requirementSolutionlist; //each designerProfile have one
+    private RequirementSolution requirementSolution; //each designerProfile have one
     //+Deadline: string 
     //+Evaluation:String 直接从requirementAssignmentsDirectory拿？
 
@@ -26,7 +26,6 @@ public class RequirementAssignment {
     public RequirementAssignment(DesignerProfile dp, Requirement r) {
         requirement = r;
         designerProfile = dp;
-        requirementSolutionlist = new ArrayList<>();
     }
 
     public DesignerProfile getDesignerProfile() {
@@ -46,12 +45,12 @@ public class RequirementAssignment {
     }
 
 
-    public List<RequirementSolution> getRequirementSolution() {
-        return requirementSolutionlist;
+    public RequirementSolution getRequirementSolution() {
+        return requirementSolution;
     }
 
     public void addRequirementSolution(RequirementSolution requirementSolution){
-        requirementSolutionlist.add(requirementSolution);
+        this.requirementSolution = requirementSolution;
         status = true;//update solution change status to true
     }
     

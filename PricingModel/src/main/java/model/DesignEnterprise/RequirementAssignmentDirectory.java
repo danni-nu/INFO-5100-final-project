@@ -30,7 +30,7 @@ public class RequirementAssignmentDirectory {
         DesignerToRequirement.get(designerProfile).add(requirement);
         
         RequirementAssignment requirementAssignment = new RequirementAssignment(designerProfile, requirement);
-        RequirementToRequirementAssignment.putIfAbsent(requirement, requirementAssignment);
+        RequirementToRequirementAssignment.put(requirement, requirementAssignment);
     }
     
     //remove Requirement FromDesigner
