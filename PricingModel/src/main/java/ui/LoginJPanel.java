@@ -239,7 +239,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             DesignEnterprise ds = business.getEnterpriseDirectory().getDesignEnterprise(s); 
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");//默认是Brand Company1
             designerWorkArea = new DesignerWorkAreaJPanel(business, loginJPanel,(DesignerProfile)profile,ds,brandCompany);
-            loginJPanel.removeAll();
+//            loginJPanel.removeAll();
             loginJPanel.add("Designer", designerWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 

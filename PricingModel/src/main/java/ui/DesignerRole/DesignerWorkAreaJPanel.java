@@ -4,11 +4,14 @@
  */
 package ui.DesignerRole;
 
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Business.DesignEnterprise;
 import model.DesignEnterprise.DesignerProfile;
+import ui.LoginJPanel;
 
 /**
  *
@@ -121,9 +124,19 @@ public class DesignerWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-                // TODO add your handling code here:
-                CardSequencePanel.remove(this);
-                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+        // TODO add your handling code here:
+        CardSequencePanel.remove(this);
+        Component[] componentArray = CardSequencePanel.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) CardSequencePanel.getLayout();
+        layout.previous(CardSequencePanel);
+                
+//                CardSequencePanel.remove(this);
+//                ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
+
     }//GEN-LAST:event_BackActionPerformed
 
     private void ManageRequirementsTaskButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManageRequirementsTaskButtonActionPerformed
