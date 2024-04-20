@@ -35,7 +35,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="removejButton2" min="-2" pref="255" max="-2" attributes="0"/>
+                  <Component id="addButton" min="-2" pref="255" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="lblName1" min="-2" max="-2" attributes="0"/>
@@ -44,7 +44,7 @@
                           <Component id="lblName" min="-2" pref="134" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txtPhone1" min="-2" pref="253" max="-2" attributes="1"/>
+                      <Component id="txtNumber" min="-2" pref="253" max="-2" attributes="1"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -57,7 +57,7 @@
                           <Component id="txtName" alignment="0" min="-2" pref="253" max="-2" attributes="1"/>
                           <Component id="txtAddress" alignment="0" min="-2" pref="253" max="-2" attributes="1"/>
                       </Group>
-                      <Component id="txtPhone" alignment="1" min="-2" pref="253" max="-2" attributes="1"/>
+                      <Component id="txtTime" alignment="1" min="-2" pref="253" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
               </Group>
@@ -79,11 +79,11 @@
               <Component id="lblName2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtPhone1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblName3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Component id="removejButton2" min="-2" max="-2" attributes="0"/>
+              <Component id="addButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
@@ -93,7 +93,7 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="txtAddress" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  <Component id="txtPhone" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTime" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="300" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -118,12 +118,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="removejButton2">
+    <Component class="javax.swing.JButton" name="addButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Delivery Details"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removejButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblName">
@@ -148,9 +148,9 @@
         <Property name="text" type="java.lang.String" value="Delivery Time:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPhone">
+    <Component class="javax.swing.JTextField" name="txtTime">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTimeActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblName3">
@@ -158,9 +158,9 @@
         <Property name="text" type="java.lang.String" value="Delivery Number:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPhone1">
+    <Component class="javax.swing.JTextField" name="txtNumber">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhone1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumberActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
