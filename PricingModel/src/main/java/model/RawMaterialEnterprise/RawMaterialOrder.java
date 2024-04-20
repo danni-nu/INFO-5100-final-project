@@ -36,6 +36,26 @@ public class RawMaterialOrder {
         this.deliverStatus="unplaced order";
         this.status=false;
     }
+    public RawMaterialOrder(Order o, ProductionOrder po) {
+        count++;
+        this.rawMaterialOrderID=String.valueOf(count);
+        this.order=o;
+        this.productionOrder=po;
+    }
+    //public RawMaterialOrder(Order o) {
+        //this.o=o;
+        //this.po=po;
+    //}
+    
+     public RawMaterialOrder(Order o) {
+        count++;
+        this.rawMaterialOrderID=String.valueOf(count);
+        this.order=o;
+        this.deliverStatus = "Not delivered";
+        this.deliveryDate = "N/A";
+        this.deliveryNumber = "N/A";
+        this.deliverStatus="false";
+    }
 
     public Order getOrder() {
         return order;
@@ -61,24 +81,6 @@ public class RawMaterialOrder {
         this.status = status;
     }
     
-    
-
-    public RawMaterialOrder(Order o, ProductionOrder po) {
-        this.order=o;
-        this.productionOrder=po;
-    }
-    //public RawMaterialOrder(Order o) {
-        //this.o=o;
-        //this.po=po;
-    //}
-    
-     public RawMaterialOrder(Order o) {
-        this.order=o;
-        this.deliverStatus = "Not delivered";
-        this.deliveryDate = "N/A";
-        this.deliveryNumber = "N/A";
-        this.deliverStatus="false";
-    }
    
     public RawMaterial getRawMaterial() {
         return rawMaterial;
