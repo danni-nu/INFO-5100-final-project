@@ -84,7 +84,7 @@
                 <Column editable="true" title="Material Price" type="java.lang.Object"/>
                 <Column editable="true" title="Quantity" type="java.lang.Object"/>
                 <Column editable="true" title="Material Status" type="java.lang.Object"/>
-                <Column editable="true" title="Inventory Address" type="java.lang.Object"/>
+                <Column editable="true" title="Warehouse Address" type="java.lang.Object"/>
                 <Column editable="true" title="Delivered Time" type="java.lang.Object"/>
               </Table>
             </Property>
@@ -162,7 +162,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Purchase Marerials"/>
+        <Property name="text" type="java.lang.String" value="Add WareHouse Address"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

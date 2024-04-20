@@ -60,7 +60,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Production Order ID", "Material Name", "Material Price", "Quantity", "Material Status", "Inventory Address", "Delivered Time"
+                "Production Order ID", "Material Name", "Material Price", "Quantity", "Material Status", "Warehouse Address", "Delivered Time"
             }
         ));
         jScrollPane2.setViewportView(tblMaterialInformation);
@@ -76,7 +76,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
         jLabel2.setText("Material State: Material Order Not Placed/Material Order in Production/Material Order Delivered(when material delivered, the production order will automatically start producing)");
 
-        jButton1.setText("Purchase Marerials");
+        jButton1.setText("Add WareHouse Address");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
