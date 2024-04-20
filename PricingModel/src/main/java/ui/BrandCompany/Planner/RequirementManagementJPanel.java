@@ -375,20 +375,22 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(null, "Pls select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    
-        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);
         RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
-        RequirementSolution requriemeentSolution =requirementAssignment.getRequirementSolution();
-        if (requriemeentSolution.getProductImage()!=null) {
-            imgLogo.setIcon(requriemeentSolution.getProductImage());
-        } else {
-            imgLogo.setText("No Logo");
-        } 
-        txtRequirementID.setText(requirement.getRequirementID());
-        txtProductionMode.setText(requirement.getProductionMode().getModeName());
-        txtRawMaterial.setText(requirement.getRowMaterialName());
-        txtColor.setText(requirement.getColor().getColorName());
-        txtDesignStyle.setText(requirement.getStyle().getStyleName());
-        txtDesigner.setText(requirement.getDesignerProfile().toString());
+        if(requirementAssignment!=null){
+            RequirementSolution requriemeentSolution =requirementAssignment.getRequirementSolution();
+                if (requriemeentSolution.getProductImage()!=null) {
+                    imgLogo.setIcon(requriemeentSolution.getProductImage());
+                } else {
+                    imgLogo.setText("No Logo");
+                } 
+        }
+         txtRequirementID.setText(requirement.getRequirementID());
+         txtProductionMode.setText(requirement.getProductionMode().getModeName());
+         txtRawMaterial.setText(requirement.getRowMaterialName());
+         txtColor.setText(requirement.getColor().getColorName());
+         txtDesignStyle.setText(requirement.getStyle().getStyleName());
+         txtDesigner.setText(requirement.getDesignerProfile().toString());
     
     }//GEN-LAST:event_btnCheckDesignerSolutionActionPerformed
 

@@ -270,6 +270,7 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         HashMap<Requirement, RequirementAssignment> rtraMap = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
         RequirementAssignment ra = rtraMap.get(requirement);
+        requirement.setRequirementAssignment(ra);
         ImageIcon desiImageIcon = new ImageIcon(url);
         ra.addRequirementSolution(new RequirementSolution(desiImageIcon));
         
