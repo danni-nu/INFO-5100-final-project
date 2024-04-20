@@ -200,7 +200,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             String s=(String)cmbCompany.getSelectedItem();
             ProductionEnterprise e = business.getEnterpriseDirectory().getProductionEnterprise(s);
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
-            productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile);
+            productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile,brandCompany);
             //loginJPanel.removeAll();
             loginJPanel.add("ProductionWorkAreaJPanel", productionworkarea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);

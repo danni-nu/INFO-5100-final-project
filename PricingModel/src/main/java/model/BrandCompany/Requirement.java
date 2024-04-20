@@ -47,6 +47,7 @@ public class Requirement {
         this.color=c;
         this.requirementOrderList=new ArrayList<>();
         this.status = "Not designed";
+        this.requirementFeedback = "No feed back yet";
     }
 
     

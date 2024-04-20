@@ -22,6 +22,7 @@ public class RawMaterialOrder {
     private int materialPrice;
     private String deliveryDate;
     private String deliveryNumber;
+    private String deliveryaddress;
     private static int count= 100;
     String productionEnterpriseWarehouseAddress;
     
@@ -31,8 +32,9 @@ public class RawMaterialOrder {
         this.rawMaterialOrderID=String.valueOf(count);
         this.rawMaterial = rawMaterial;
         this.materialPrice = materialPrice;
-        this.deliveryDate = deliveryDate;
-        this.deliveryNumber = deliveryNumber;
+        this.deliveryDate = "N/A";
+        this.deliveryNumber = "N/A";
+        this.deliveryaddress = "N/A";
         this.deliverStatus="Not delivered";
     }
     
@@ -41,8 +43,9 @@ public class RawMaterialOrder {
         this.rawMaterialOrderID=String.valueOf(count);
         this.order=o;
         this.deliverStatus = "Not delivered";
-        this.deliveryDate ="";
-        this.deliveryNumber = "";
+        this.deliveryDate ="N/A";
+        this.deliveryNumber = "N/A";
+        this.deliveryaddress = "N/A";
     }
 
     public Order getOrder() {
@@ -105,6 +108,18 @@ public class RawMaterialOrder {
 
     public void setProductionEnterpriseWarehouseAddress(String productionEnterpriseWarehouseAddress) {
         this.productionEnterpriseWarehouseAddress = productionEnterpriseWarehouseAddress;
+    }
+
+    public String getRawMaterialOrderID() {
+        return rawMaterialOrderID;
+    }
+
+    public String getDeliveryaddress() {
+        return deliveryaddress;
+    }
+
+    public static int getCount() {
+        return count;
     }
     
     
