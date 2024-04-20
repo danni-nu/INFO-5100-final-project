@@ -375,14 +375,16 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(null, "Pls select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    
-        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);
         RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
-        //RequirementSolution requriemeentSolution =requirementAssignment.getRequirementSolution();
-//        if (requriemeentSolution.getLogoImage()!=null) {
-//            imgLogo.setIcon(requriemeentSolution.getLogoImage());
-//        } else {
-//            imgLogo.setText("No Logo");
-//        } 
+        if(requirementAssignment!=null){
+            RequirementSolution requriemeentSolution =requirementAssignment.getRequirementSolution();
+                if (requriemeentSolution.getProductImage()!=null) {
+                    imgLogo.setIcon(requriemeentSolution.getProductImage());
+                } else {
+                    imgLogo.setText("No Logo");
+                } 
+        }
          txtRequirementID.setText(requirement.getRequirementID());
          txtProductionMode.setText(requirement.getProductionMode().getModeName());
          txtRawMaterial.setText(requirement.getRowMaterialName());
@@ -423,6 +425,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
         //RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
         requirement.setRequirementstatus("Approved");
+        populateRequirementTable();
         JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnApprovalActionPerformed
 
@@ -433,8 +436,9 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0); 
-        requirement.setRequirementstatus("Approved");
-        JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
+        requirement.setRequirementstatus("refused");
+        populateRequirementTable();
+        JOptionPane.showMessageDialog(null, "Your refused this requirement.This assignment will go back to Design Enterprise!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnRefuseActionPerformed
 
 

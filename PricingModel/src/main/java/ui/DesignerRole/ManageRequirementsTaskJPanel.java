@@ -257,11 +257,11 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         //assignRequirement To Desginer
         RequirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
         
-        
-        JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        populateRequirmentTable(); 
         System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
-        
-        populateRequirmentTable();             
+        JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+//        System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
+//        populateRequirmentTable();             
     }//GEN-LAST:event_AddjButtonActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed

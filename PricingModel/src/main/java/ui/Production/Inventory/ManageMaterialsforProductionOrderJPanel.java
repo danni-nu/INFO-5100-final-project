@@ -4,6 +4,7 @@
  */
 package ui.Production.Inventory;
 
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.Business.Business;
@@ -22,6 +23,8 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     Business business;
     InventoryManagerProfile inventoryManagerprofile;
     String selectedMaterialStatus;
+    ProductionOrderDirectory lastedOrderDirecotry= populatedAllBrandCompanyOrder();
+    BrandCompany 
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
@@ -219,5 +222,18 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         }
         
     }
+
+    private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
+        ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
+        for(Object bc:business.getEnterpriseDirectory().getBrandEnterpriseList()){
+            for(Order order:(BrandCompany)bc.get){
+            
+            
+            }
+            
+            
+            
+        }}
+        
 }
 

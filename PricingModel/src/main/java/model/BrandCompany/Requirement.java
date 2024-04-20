@@ -168,17 +168,8 @@ public class Requirement {
         return count;
     }
     
-//    public RequirementAssignment newRequirementAssignment(DesignerAssignmentRoad dar) {
-//
-//        RequirementAssignment requirementAssignment= new RequirementAssignment(dar, this); //links seatassignment to seat
-//       
-//        return requirementAssignment;
-//    }
-    
-    public Order addNewOrderToRequirement(Requirement re, int quantity){
-        Order order=new Order(re,quantity);
+    public void setOrderToAssignment(Order order){
         requirementOrderList.add(order);
-        return order;
     }
     public void addOrderToRequirement(Order order){     
         requirementOrderList.add(order);

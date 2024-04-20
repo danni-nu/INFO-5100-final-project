@@ -28,9 +28,13 @@ public class RawMaterialOrderDirectory {
     }
     
     public RawMaterialOrder addNewRawMaterialOrder(RawMaterialOrder rawOrder){
-       
         rawMaterialOrderDirectory.add(rawOrder);
         return rawOrder;
+    }
+
+    public void addARelatedOrder(Order order) {
+        RawMaterialOrder ro=new RawMaterialOrder(order);
+        rawMaterialOrderDirectory.add(ro);
     }
    
 }

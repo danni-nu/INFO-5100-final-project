@@ -195,18 +195,6 @@ public class LoginJPanel extends javax.swing.JPanel {
             layout.next(loginJPanel);
 
         }
-         
-        
-//        if (!(profile instanceof FacultyProfile)) {
-//        } else {
-//            FacultyProfile fp = (FacultyProfile) profile;
-//            facultyworkarea = new FacultyWorkAreaJPanel(business, fp,loginJPanel);
-//            loginJPanel.removeAll();
-//            loginJPanel.add("faculty", facultyworkarea);
-//            CardLayout layout =(CardLayout)loginJPanel.getLayout();
-//            layout.next(loginJPanel);
-
-
 
 
         if (profile instanceof ProductionManagerProfile) {
@@ -250,9 +238,9 @@ public class LoginJPanel extends javax.swing.JPanel {
             String s=(String)cmbCompany.getSelectedItem();
             RawMaterialEnterprise rawMaterialEnterprise = business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
             RawMaterialManager rawMaterialManager = (RawMaterialManager) profile;
-            
-            inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise);
-            loginJPanel.removeAll();
+            BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
+            inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise,brandCompany);
+//            loginJPanel.removeAll();
             loginJPanel.add("RawMaterialManager", inventoryWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 

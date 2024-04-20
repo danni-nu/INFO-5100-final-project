@@ -43,7 +43,7 @@ public class Order {
         this.quantity = quantity;
         this.rawMarerialOrder= new RawMaterialOrder(this);
         this.productOrder=new ProductionOrder(this, rawMarerialOrder);
-        
+          
     }
 
     public String getOrederID() {
@@ -111,19 +111,19 @@ public class Order {
         this.rawMarerialOrder = rawMarerialOrder;
     }
 
-  public String getOrderstatus() {
-    if(this.status==false&&this.productOrder.isDelivered()==false&&this.rawMarerialOrder.isStatus()==false){
-        return "waiting raw material";
-    }
-    if(this.status==false&&this.productOrder.isDelivered()==false&&this.rawMarerialOrder.isStatus()==true){
-        return "waiting producing";
-    }
-    if(this.status==false&&this.productOrder.isDelivered()==true&&this.rawMarerialOrder.isStatus()==true){
-        return "waiting delivering";
-    }else{
-        return "delivered";
-    }
-   }
+    public String getOrderstatus() {
+      if(this.status==false&&this.productOrder.getProductionOrderStatus()=="waiting placed"&&this.rawMarerialOrder.getDeliverStatus()=="Not delivered"){
+          return "waiting raw material";
+      }
+      if(this.status==false&&this.productOrder.getProductionOrderStatus()=="waiting placed"==false&&this.rawMarerialOrder.getDeliverStatus()=="delivered"){
+          return "waiting producing";
+      }
+      if(this.status==false&&this.productOrder.getProductionOrderStatus()=="placed"&&this.rawMarerialOrder.getDeliverStatus()=="delivered"){
+          return "waiting delivering";
+      }else{
+          return "delivered";
+      }
+     }
 
     public void setOrderstatus(String Orderstatus) {
         this.Orderstatus = Orderstatus;
