@@ -259,9 +259,12 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JSpinner" name="spnQuantity">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="spnQuantityMouseClicked"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="470" y="270" width="-1" height="-1"/>
+          <AbsoluteConstraints x="470" y="270" width="90" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -303,7 +306,7 @@
               <Table columnCount="4" rowCount="4">
                 <Column editable="true" title="Order ID" type="java.lang.Object"/>
                 <Column editable="true" title="Quantity" type="java.lang.Object"/>
-                <Column editable="true" title="Requirement Creater" type="java.lang.Object"/>
+                <Column editable="true" title="Order Price" type="java.lang.Object"/>
                 <Column editable="true" title="Order Creater" type="java.lang.Object"/>
               </Table>
             </Property>

@@ -383,12 +383,12 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         } else {
             imgLogo.setText("No Logo");
         } 
-         txtRequirementID.setText(requirement.getRequirementID());
-         txtProductionMode.setText(requirement.getProductionMode().getModeName());
-         txtRawMaterial.setText(requirement.getRowMaterialName());
-         txtColor.setText(requirement.getColor().getColorName());
-         txtDesignStyle.setText(requirement.getStyle().getStyleName());
-         txtDesigner.setText(requirement.getDesignerProfile().toString());
+        txtRequirementID.setText(requirement.getRequirementID());
+        txtProductionMode.setText(requirement.getProductionMode().getModeName());
+        txtRawMaterial.setText(requirement.getRowMaterialName());
+        txtColor.setText(requirement.getColor().getColorName());
+        txtDesignStyle.setText(requirement.getStyle().getStyleName());
+        txtDesigner.setText(requirement.getDesignerProfile().toString());
     
     }//GEN-LAST:event_btnCheckDesignerSolutionActionPerformed
 
@@ -423,6 +423,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
         //RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
         requirement.setRequirementstatus("Approved");
+        populateRequirementTable();
         JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnApprovalActionPerformed
 
@@ -434,6 +435,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         }    
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0); 
         requirement.setRequirementstatus("refused");
+        populateRequirementTable();
         JOptionPane.showMessageDialog(null, "Your refused this requirement.This assignment will go back to Design Enterprise!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnRefuseActionPerformed
 

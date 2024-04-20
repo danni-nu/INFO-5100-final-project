@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Order;
+import model.BrandCompany.OrderDirectory;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.Requirement;
 import model.Business.BrandEnterprise;
@@ -147,7 +148,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jScrollPane4.setViewportView(tblRequiementList);
 
         add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 64, 722, 183));
-        add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, -1));
+
+        spnQuantity.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                spnQuantityMouseClicked(evt);
+            }
+        });
+        add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, 90, 20));
 
         lblOrderTotal.setText("Order Total:");
         add(lblOrderTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, 23));
@@ -163,7 +170,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Order ID", "Quantity", "Requirement Creater", "Order Creater"
+                "Order ID", "Quantity", "Order Price", "Order Creater"
             }
         ));
         jScrollPane1.setViewportView(tablOrderList);
@@ -190,8 +197,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this, "Please check quantity!Order quantity cannot be 0", "Info", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
-        requirement.addNewOrderToRequirement(requirement, quantity);
+        OrderDirectory orderdirectory=brandCompany.getProcurementOrganization().getOrderDirectory();
+        Order order=orderdirectory.addNewOrder(requirement, quantity);
+        requirement.setOrderToAssignment(order);
+        order.setOrderPrice(requirement.getDesignerProfile().getDefaultDesignPricing()+requirement.getProductionMode().getModePrice()+requirement.getRowMaterial().getPrice());
         JOptionPane.showMessageDialog(this, "Your order was successfully placed!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        populateOrderDetailStatus(requirement);
+        populateOrderList(requirement);
     }//GEN-LAST:event_BbtnCreateNewOrderActionPerformed
 
     private void btnCheckOrderDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckOrderDetailActionPerformed
@@ -209,6 +221,16 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         populateUnplacedOrderTable();
     }//GEN-LAST:event_btnCheckUnfinishedOrderActionPerformed
+
+    private void spnQuantityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnQuantityMouseClicked
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequiementList.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequiementList.getValueAt(selectedRowIndex, 0);
+        lblOrderCost.setText(String.valueOf(requirement.getDesignerProfile().getDefaultDesignPricing()+requirement.getProductionMode().getModePrice()+requirement.getRowMaterial().getPrice()));
+    }//GEN-LAST:event_spnQuantityMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,8 +269,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             row[6] = re.getDeadline();
             row[7] = re.getRequirementstatus();
             model.addRow(row);
-            }
-        
+            }    
     }
 
 
