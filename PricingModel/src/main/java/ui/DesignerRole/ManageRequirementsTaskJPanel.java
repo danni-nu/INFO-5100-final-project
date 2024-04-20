@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
@@ -45,6 +45,16 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         initComponents();
         
         populateCartTable();
+        
+        
+        
+        HashMap<DesignerProfile, List<Requirement>> designerToRequirement = RequirementAssignmentDirectory.getDesignerToRequirement();
+        List<Requirement> requirementsOfDesigner = designerToRequirement.get(designerProfile);
+        if(requirementsOfDesigner != null){
+           populateRequirmentTable(); 
+        }
+        
+        
     }
 
 
@@ -70,6 +80,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         AddSolutionjButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSchedule = new javax.swing.JTable();
+        removejButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(236, 244, 251));
 
@@ -89,7 +100,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -142,7 +153,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -155,6 +166,13 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(tblSchedule);
 
+        removejButton1.setText("Remove");
+        removejButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removejButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -164,6 +182,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AddSolutionjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -201,7 +221,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddSolutionjButton)
-                    .addComponent(removejButton))
+                    .addComponent(removejButton)
+                    .addComponent(removejButton1))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
@@ -241,6 +262,9 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
 
 
         populateRequirmentTable();
+        
+        
+        
     }//GEN-LAST:event_removejButtonActionPerformed
 
     private void AddjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddjButtonActionPerformed
@@ -287,6 +311,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_AddSolutionjButtonActionPerformed
 
+    private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_removejButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddSolutionjButton;
@@ -299,6 +327,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton removejButton;
+    private javax.swing.JButton removejButton1;
     private javax.swing.JTable tblSchedule;
     private javax.swing.JTable tbltask;
     // End of variables declaration//GEN-END:variables
@@ -306,6 +335,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private void populateCartTable() {
         DefaultTableModel model = (DefaultTableModel) tbltask.getModel();
         model.setRowCount(0);
+        HashMap<Requirement, RequirementAssignment>  hashMap = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
         for (Requirement r : brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()) {
             Object row[] = new Object[7];
             row[0] = r;
@@ -314,7 +344,15 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             row[3] = r.getColor();
             row[4] = r.getStyle();
             row[5] = r.getDeadline();
-            row[6] = r.getEvaluation();
+            
+            //check if has the RequirementAssignment: inistial is null
+            if(hashMap.get(r) == null){
+                row[6] = "Not assigned";
+            }else{
+                row[6] = hashMap.get(r).getStatus();
+            }
+            
+            
             model.addRow(row);
         }
     }
@@ -326,7 +364,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         //get the designerToRequirement HashMap
         HashMap<DesignerProfile, List<Requirement>> designerToRequirement = RequirementAssignmentDirectory.getDesignerToRequirement();
         List<Requirement> requirementsOfDesigner = designerToRequirement.get(designerProfile);
-
+        
+        HashMap<Requirement, RequirementAssignment>  hashMap2 = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
         
         for (Requirement r : requirementsOfDesigner) {
        
@@ -336,8 +375,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             row[2] = r.getProductionMode();
             row[3] = r.getColor();
             row[4] = r.getStyle();
-            row[5] = r.getDeadline();
-            row[6] = r.getEvaluation();
+            row[5] = r.getDeadline();           
+            row[6] = hashMap2.get(r).getStatus();
             model.addRow(row);
             
         }
