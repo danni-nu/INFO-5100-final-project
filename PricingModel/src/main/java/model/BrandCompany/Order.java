@@ -34,6 +34,7 @@ public class Order {
         count++;
         this.orederID=String.valueOf(count);
         this.requirement=requirement;
+        requirement.addOrderToRequirement(this);
         this.Orderstatus = "false";
         this.status=false;
         this.rawMaterial=requirement.getRowMaterial();
@@ -118,11 +119,8 @@ public class Order {
     }
     if(this.status==false&&this.productOrder.isDelivered()==true&&this.rawMarerialOrder.isStatus()==true){
         return "waiting delivering";
-    }
-    if(this.status==true&&this.productOrder.isDelivered()==true&&this.rawMarerialOrder.isStatus()==true){
-        return "waiting delivering";
     }else{
-        return "waiting delivering";
+        return "delivered";
     }
    }
 

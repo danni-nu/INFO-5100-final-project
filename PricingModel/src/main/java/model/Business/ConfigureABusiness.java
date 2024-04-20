@@ -212,6 +212,7 @@ public class ConfigureABusiness {
         Order order3=orderdirectory.addNewOrder(requirement3, 10);
         Order order4=orderdirectory.addNewOrder(requirement4, 10);
         
+        
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
         InventoryOrganization inventoryOrganization = productionEnterprise.getInventoryOrganization();
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();

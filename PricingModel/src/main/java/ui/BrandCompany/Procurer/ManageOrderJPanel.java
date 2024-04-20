@@ -41,6 +41,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         this.workArea=workArea;
         this.brandCompany=brandCompany;
         populateRequirementTable();
+        populateUnplacedOrderTable();
     }
 
     /**
@@ -232,39 +233,36 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
 
     private void populateUnplacedOrderTable() {
-        DefaultTableModel model = (DefaultTableModel) tblRequiementList.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblOrderDetailStatus.getModel();
         model.setRowCount(0);
         for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
-            if(re.isStatus()==false){
-            Object row[] = new Object[8];
-            row[0] = re;
-            row[1] = re.get;
-            row[2] = re.getProductionMode();
-            row[3] = re.getDesignerProfile().getPerson().getPersonName();
-            row[4] = re.getStyle();
-            row[5] = re.getColor();
-            row[6] = re.getDeadline();
-            row[7] = re.getRequirementstatus();
+            for(Order order:re.getRequirementOrderList()){
+            Object row[] = new Object[7];
+            row[0] = order;
+            row[1] = order.getOrderstatus();
+            row[2] = order.getRawMarerialOrder();
+            row[3] = order.getRawMarerialOrder().getDeliverStatus();
+            row[4] = order.getProductOrder();
+            row[5] = order.getProductOrder().getProductionOrderStatus();
+            row[6] = order.getRawMarerialOrder().getDeliveryDate();
             model.addRow(row);
             }
             }
     }
 
     private void populateOrderDetailStatus(Requirement requirement) {
-        DefaultTableModel model = (DefaultTableModel) tblRequiementList.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblOrderDetailStatus.getModel();
         model.setRowCount(0);
         for(Order order:requirement.getRequirementOrderList()){
             Object row[] = new Object[7];
             row[0] = order;
             row[1] = order.getOrderstatus();
             row[2] = order.getRawMarerialOrder();
-            row[3] = order.getProductOrder().getProductionOrderStatus();
             row[3] = order.getRawMarerialOrder().getDeliverStatus();
-            row[4] = order.getStyle();
-            row[5] = order.getColor();
-            row[6] = order.getDeadline();
+            row[4] = order.getProductOrder();
+            row[5] = order.getProductOrder().getProductionOrderStatus();
+            row[6] = order.getRawMarerialOrder().getDeliveryDate();
             model.addRow(row);
-          
             }
     }
   
