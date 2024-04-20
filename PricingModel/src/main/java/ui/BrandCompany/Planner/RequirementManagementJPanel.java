@@ -375,14 +375,16 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(null, "Pls select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
         }    
-        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);   
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);
         RequirementAssignment requirementAssignment=requirement.getRequirementAssignment();
+        if(requirementAssignment!=null){
         RequirementSolution requriemeentSolution =requirementAssignment.getRequirementSolution();
         if (requriemeentSolution.getProductImage()!=null) {
             imgLogo.setIcon(requriemeentSolution.getProductImage());
         } else {
             imgLogo.setText("No Logo");
         } 
+        }
          txtRequirementID.setText(requirement.getRequirementID());
          txtProductionMode.setText(requirement.getProductionMode().getModeName());
          txtRawMaterial.setText(requirement.getRowMaterialName());
