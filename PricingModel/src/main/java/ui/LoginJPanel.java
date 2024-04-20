@@ -157,7 +157,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         UserAccountDirectory uad = business.getUserAccountDirectory();
         UserAccount useraccount = uad.AuthenticateUser(un, pw);
         if (useraccount == null) {
-            JOptionPane.showMessageDialog(this, "Please input your account");
+            JOptionPane.showMessageDialog(this, "Please input your account");//return
         }
 //        ProcurerWorkAreaJPanel procurerWorkAreajpanel;
 //        PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
@@ -167,9 +167,10 @@ public class LoginJPanel extends javax.swing.JPanel {
         DesignerWorkAreaJPanel designerWorkArea;//Designer work area
         InventoryWorkAreaJPanel inventoryWorkArea;//RowMaterial work area
        
-        
+        System.out.println(useraccount);
         String r = useraccount.getRole();
         Profile profile = useraccount.getAssociatedPersonProfile();
+        System.out.println(useraccount.getRole());
 
         if (profile instanceof ProcurerProfile) {
             ProcurerProfile p=(ProcurerProfile)profile;
@@ -238,7 +239,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             DesignEnterprise ds = business.getEnterpriseDirectory().getDesignEnterprise(s); 
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");//默认是Brand Company1
             designerWorkArea = new DesignerWorkAreaJPanel(business, loginJPanel,(DesignerProfile)profile,ds,brandCompany);
-            loginJPanel.removeAll();
+//            loginJPanel.removeAll();
             loginJPanel.add("Designer", designerWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
@@ -246,8 +247,11 @@ public class LoginJPanel extends javax.swing.JPanel {
        
         //RawMaterialManager to login 
         if (profile instanceof RawMaterialManager) {
-
-            inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,(RawMaterialManager)profile);
+            String s=(String)cmbCompany.getSelectedItem();
+            RawMaterialEnterprise rawMaterialEnterprise = business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+            RawMaterialManager rawMaterialManager = (RawMaterialManager) profile;
+            
+            inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise);
             loginJPanel.removeAll();
             loginJPanel.add("RawMaterialManager", inventoryWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);

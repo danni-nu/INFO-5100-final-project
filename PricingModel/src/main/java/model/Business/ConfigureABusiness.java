@@ -101,13 +101,13 @@ public class ConfigureABusiness {
         DesignerDirectory designerDirectory = designEnterprise.getDesignOrganization().getDesignerDirectory();
         DesignerProfile designer1=designerDirectory.addANewDesignerProfile(p7, 100);//primary designer-Gaurav 100$/requirment
         DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 200);//advanced designer-Hemant 200$/requirment
-        UserAccount us4=useAccountDirectory.newUserAccount(designer1,"designer1","123");//login password
-        UserAccount us5=useAccountDirectory.newUserAccount(designer2,"designer2","123");//login password
+        UserAccount us4=useAccountDirectory.newUserAccount(designer1,"Designer1","123");//login password
+        UserAccount us5=useAccountDirectory.newUserAccount(designer2,"Designer2","123");//login password
         
         //add RawMaterial Manager account
         rawMaterialEnterprise.getRawMaterialManageOrganization().addRawMaterialManager(p20);//Fiona
         RawMaterialManager rawMaterialManager= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
-        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"rawMaterialManager","123");//login password
+        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"RawMM","123");//login password
         
         StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
         Style style1=styleDirectory.addANewStyle("Modern");
