@@ -74,17 +74,17 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         tblPerformance.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblPerformance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation", "Feedback"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Feedback"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, true, true, true
+                true, false, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -102,13 +102,11 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
                 .addGap(19, 19, 19)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(316, 316, 316))
             .addGroup(layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,9 +116,9 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
                 .addComponent(Back)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
-                .addGap(24, 24, 24)
+                .addGap(51, 51, 51)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(159, Short.MAX_VALUE))
         );
@@ -149,15 +147,14 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         
         for (Requirement r : requirementsOfDesigner) {
        
-            Object row[] = new Object[8];
+            Object row[] = new Object[7];
             row[0] = r;
             row[1] = r.getRowMaterial();
             row[2] = r.getProductionMode();
             row[3] = r.getColor();
             row[4] = r.getStyle();
             row[5] = r.getDeadline();
-            row[6] = r.getEvaluation();
-            row[7] = r.getRequirementFeedback();
+            row[6] = r.getRequirementFeedback();
             model.addRow(row);
             
         }

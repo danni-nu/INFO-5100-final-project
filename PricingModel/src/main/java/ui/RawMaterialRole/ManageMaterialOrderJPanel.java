@@ -75,7 +75,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setText("Order list");
+        jLabel1.setText("Manage Material Order");
 
         tblorder.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblorder.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,7 +99,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblorder);
 
-        addButton.setText("Add Delivery Order");
+        addButton.setText("Add Delivery Details");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);

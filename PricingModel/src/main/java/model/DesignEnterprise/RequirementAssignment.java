@@ -19,7 +19,7 @@ public class RequirementAssignment {
 //    private DesignerAssignmentRoad DesignerAssignmentRoad;
     private RequirementSolution requirementSolution; //each designerProfile have one
     //+Deadline: string 
-    //+Evaluation:String 直接从requirementAssignmentsDirectory拿？
+    //+Evaluation:String 
 
 
     
