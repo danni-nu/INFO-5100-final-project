@@ -4,27 +4,37 @@
  */
 package ui.Production.Production;
 
+import ui.Production.Inventory.*;
+import ui.BrandCompany.Procurer.*;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
+import model.BrandCompany.ProcurerProfile;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
+import ui.LoginJPanel;
 
 /**
  *
- * @author administratorzi
+ * @author administorzi
  */
 public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
 
-    javax.swing.JPanel CardSequencePanel;
-    Business business;
-    ProductionManagerProfile productionManagerprofile;
     /**
-     * Creates new form ProducerWorkAreaJPanel
+     * Creates new form NewJPanel
      */
-    public ProductionWorkAreaJPanel(Business b, JPanel clp,ProductionManagerProfile productionManagerprofile) {
+    javax.swing.JPanel mainWorkArea;
+    Business business;
+    ProductionManagerProfile productionManagerProfile;
+    BrandEnterprise brandEnterprise;
+    
+   public ProductionWorkAreaJPanel(Business b, JPanel mainWorkArea,ProductionManagerProfile imp,BrandEnterprise brandEnterprise) {
         business = b;
-        this.CardSequencePanel = clp;
-        this.productionManagerprofile = productionManagerprofile;
-        initComponents();
+        this.mainWorkArea = mainWorkArea;
+        this.productionManagerProfile = imp;
+        this.brandEnterprise=brandEnterprise;
         initComponents();
     }
 
@@ -37,47 +47,51 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Back = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        addusersjButton = new javax.swing.JButton();
-        manageusersjButton1 = new javax.swing.JButton();
+        jSplitPane1 = new javax.swing.JSplitPane();
+        Memu = new javax.swing.JPanel();
+        btnManageProductionLine = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
+        WorkArea = new javax.swing.JPanel();
 
-        Back.setText("<< Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        btnManageProductionLine.setText("Manage Production Line");
+        btnManageProductionLine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                btnManageProductionLineActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Production Work Area");
-
-        addusersjButton.setBackground(new java.awt.Color(102, 153, 255));
-        addusersjButton.setForeground(new java.awt.Color(255, 255, 255));
-        addusersjButton.setText("Manage Material Order");
-        addusersjButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addusersjButton.setMaximumSize(new java.awt.Dimension(200, 40));
-        addusersjButton.setMinimumSize(new java.awt.Dimension(20, 20));
-        addusersjButton.setPreferredSize(new java.awt.Dimension(240, 25));
-        addusersjButton.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addusersjButtonActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
 
-        manageusersjButton1.setBackground(new java.awt.Color(102, 153, 255));
-        manageusersjButton1.setForeground(new java.awt.Color(255, 255, 255));
-        manageusersjButton1.setText("Browse Order History");
-        manageusersjButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        manageusersjButton1.setMaximumSize(new java.awt.Dimension(200, 40));
-        manageusersjButton1.setMinimumSize(new java.awt.Dimension(20, 20));
-        manageusersjButton1.setPreferredSize(new java.awt.Dimension(240, 25));
-        manageusersjButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageusersjButton1ActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout MemuLayout = new javax.swing.GroupLayout(Memu);
+        Memu.setLayout(MemuLayout);
+        MemuLayout.setHorizontalGroup(
+            MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageProductionLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        MemuLayout.setVerticalGroup(
+            MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MemuLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(btnManageProductionLine, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                .addComponent(btnLogOut)
+                .addGap(226, 226, 226))
+        );
+
+        jSplitPane1.setLeftComponent(Memu);
+
+        WorkArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(WorkArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,61 +99,41 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(771, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(339, 339, 339))))
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(Back)
-                .addGap(51, 51, 51)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(addusersjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121)
-                .addComponent(manageusersjButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(429, Short.MAX_VALUE))
+            .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        //        // TODO add your handling code here:
-        //        CardSequencePanel.remove(this);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_BackActionPerformed
-
-    private void addusersjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersjButtonActionPerformed
+    private void btnManageProductionLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductionLineActionPerformed
         // TODO add your handling code here:
-        //        AddUsersJPanel aos = new AddUsersJPanel(business, CardSequencePanel);
-        //        CardSequencePanel.add("Add Users", aos);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_addusersjButtonActionPerformed
+       ManageProductionLineJPanel mmpojp = new ManageProductionLineJPanel(WorkArea, business, inventoryManagerProfile,brandEnterprise);
+        WorkArea.add("ManageProductionLineJPanel", mmpojp);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnManageProductionLineActionPerformed
 
-    private void manageusersjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageusersjButton1ActionPerformed
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-        //        ManageUserAccountsJPanel aos = new ManageUserAccountsJPanel(business, CardSequencePanel);
-        //        CardSequencePanel.add("Manage Users", aos);
-        //        ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
-    }//GEN-LAST:event_manageusersjButton1ActionPerformed
+        mainWorkArea.remove(this);
+        Component[] componentArray = mainWorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
+        
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
-    private javax.swing.JButton addusersjButton;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JButton manageusersjButton1;
+    private javax.swing.JPanel Memu;
+    private javax.swing.JPanel WorkArea;
+    private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnManageProductionLine;
+    private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
