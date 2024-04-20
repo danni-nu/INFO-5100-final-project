@@ -17,7 +17,7 @@ public class RawMaterialOrder {
     private Order order;
     //private ProductionOrder productionOrder;
     private RawMaterial rawMaterial;
-    //private String deliverStatus="unplaced order"; //Material Order Not Placed/Material Order in Production/Material Order Delivered
+    private String deliverStatus="unplaced order"; //Material Order Not Placed/Material Order in Production/Material Order Delivered
     private boolean status=false;
     private int materialPrice;
     private String deliveryDate;
@@ -30,18 +30,17 @@ public class RawMaterialOrder {
         count++;
         this.rawMaterialOrderID=String.valueOf(count);
         this.rawMaterial = rawMaterial;
-        this.deliverStatus = deliverStatus;
         this.materialPrice = materialPrice;
         this.deliveryDate = deliveryDate;
         this.deliveryNumber = deliveryNumber;
         this.deliverStatus="Not delivered";
     }
-    public RawMaterialOrder(Order o, ProductionOrder po) {
-        count++;
-        this.rawMaterialOrderID=String.valueOf(count);
-        this.order=o;
-        this.productionOrder=po;
-    }
+//    public RawMaterialOrder(Order o, ProductionOrder po) {
+//        count++;
+//        this.rawMaterialOrderID=String.valueOf(count);
+//        this.order=o;
+//        this.productionOrder=po;
+//    }
 
     //public RawMaterialOrder(RawMaterial rawMaterial, String deliver, int materialPrice, String deliveryDate, String deliveryNumber) {
         //count++;
@@ -85,13 +84,13 @@ public class RawMaterialOrder {
         this.order = order;
     }
 
-    public ProductionOrder getProductionOrder() {
-        return productionOrder;
-    }
-
-    public void setProductionOrder(ProductionOrder productionOrder) {
-        this.productionOrder = productionOrder;
-    }
+//    public ProductionOrder getProductionOrder() {
+//        return productionOrder;
+//    }
+//
+//    public void setProductionOrder(ProductionOrder productionOrder) {
+//        this.productionOrder = productionOrder;
+//    }
 
     public boolean isStatus() {
         return status;
@@ -106,13 +105,13 @@ public class RawMaterialOrder {
         return rawMaterial;
     }
 
-    //public String getDeliverStatus() {
-        //return deliverStatus;
-    //}
+    public String getDeliverStatus() {
+        return deliverStatus;
+    }
 
-    //public void setDeliverStatus(String deliverStatus) {
-        //this.deliverStatus = deliverStatus;
-    //}
+    public void setDeliverStatus(String deliverStatus) {
+        this.deliverStatus = deliverStatus;
+    }
 
     public int getMaterialPrice() {
         return materialPrice;
