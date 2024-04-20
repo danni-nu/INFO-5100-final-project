@@ -21,10 +21,8 @@ public class RequirementSolution {
     ImageIcon productImage;    
    
 
-    public RequirementSolution(String solutionName, String deadline, String evaluation) {
-        this.solutionName = solutionName;
-        this.deadline = deadline;
-        this.evaluation = evaluation;
+    public RequirementSolution(ImageIcon productImage) {
+        this.productImage = productImage;
     }
 
     public RequirementSolution() {
@@ -34,13 +32,6 @@ public class RequirementSolution {
         return solutionName;
     }
 
-    public String getDeadline() {
-        return deadline;
-    }
-
-    public String getEvaluation() {
-        return evaluation;
-    }
 
     public ImageIcon getProductImage() {
         return productImage;
