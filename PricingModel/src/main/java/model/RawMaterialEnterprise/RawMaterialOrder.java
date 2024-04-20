@@ -111,5 +111,14 @@ public class RawMaterialOrder {
     public String toString(){
         return rawMaterialOrderID;
     }
+
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public void setDeliveryNumber(String deliveryNumber) {
+        this.deliveryNumber = deliveryNumber;
+    }
+    
     
 }
