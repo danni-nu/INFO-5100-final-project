@@ -22,7 +22,7 @@ public class ProductionOrder {
     private ProductionMode productionMode;
     private String productionOrderStatus = "waiting placed"; //(1.waiting placed  )2.waiting delivery 3.delivered
     private RawMaterialOrder rawMaterialOrder;
-    private boolean Delivered = false;
+    //private boolean Delivered = false;
     //private ImageIcon logoImage;
 
 
@@ -30,7 +30,7 @@ public class ProductionOrder {
         count++;
         this.productionOrderID=String.valueOf(count);
         this.order = order;
-        this.Delivered = false;
+        //this.Delivered = false;
         this.rawMaterialOrder = rawMaterialOrder;
     }
     
@@ -93,9 +93,9 @@ public class ProductionOrder {
         this.rawMaterialOrder = rawMaterialOrder;
     }
 
-    public boolean isDelivered() {
-        return Delivered;
-    }
+//    public boolean isDelivered() {
+//        return Delivered;
+//    }
 
     public String toString(){
       return productionOrderID;

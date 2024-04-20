@@ -33,8 +33,7 @@ public class RawMaterialOrder {
         this.materialPrice = materialPrice;
         this.deliveryDate = deliveryDate;
         this.deliveryNumber = deliveryNumber;
-        this.deliverStatus="unplaced order";
-        this.status=false;
+        this.deliverStatus="Not delivered";
     }
     public RawMaterialOrder(Order o, ProductionOrder po) {
         count++;
