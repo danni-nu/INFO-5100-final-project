@@ -15,17 +15,18 @@ import java.util.List;
 public class RequirementAssignment {
     private DesignerProfile designerProfile;
     private Requirement requirement;
-    private boolean status = false;
+    private String status;//inistial Assigned not designed
 //    private DesignerAssignmentRoad DesignerAssignmentRoad;
     private RequirementSolution requirementSolution; //each designerProfile have one
     //+Deadline: string 
-    //+Evaluation:String 直接从requirementAssignmentsDirectory拿？
+    //+Evaluation:String 
 
 
     
     public RequirementAssignment(DesignerProfile dp, Requirement r) {
         requirement = r;
         designerProfile = dp;
+        this.status = "Assigned Not finished";
     }
 
     public DesignerProfile getDesignerProfile() {
@@ -51,7 +52,11 @@ public class RequirementAssignment {
 
     public void addRequirementSolution(RequirementSolution requirementSolution){
         this.requirementSolution = requirementSolution;
-        status = true;//update solution change status to true
+        this.status = "Finished design";//update solution Finished design
+    }
+
+    public String getStatus() {
+        return status;
     }
     
     

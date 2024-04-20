@@ -239,6 +239,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         if (profile instanceof RawMaterialManager) {
             String s=(String)cmbCompany.getSelectedItem();
             RawMaterialEnterprise rawMaterialEnterprise = business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
+            System.out.println(rawMaterialEnterprise);
+            System.out.println(s);
             RawMaterialManager rawMaterialManager = (RawMaterialManager) profile;
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
             inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise,brandCompany);
