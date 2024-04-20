@@ -38,7 +38,7 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
         initComponents();
         
         txtName.setText(rmrOrder.getOrder().toString());
-//        txtAddress.setText(rmrOrder.getAddress);//需要再加地址
+        txtAddress.setText(rmrOrder.getDeliveryaddress());
         
         
     }
@@ -190,7 +190,8 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
         
         rmrOrder.setDeliveryDate(time);
         rmrOrder.setDeliveryNumber(number);
-        //在这里修改订单发货的String
+        //change the status
+        rmrOrder.setDeliverStatus("Delivered");
         
         JOptionPane.showMessageDialog(null, "Added Delivery Details Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
         
