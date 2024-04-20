@@ -33,7 +33,7 @@ public class RawMaterialOrderDirectory {
     }
 
     public void addARelatedOrder(Order order) {
-        RawMaterialOrder ro=new RawMaterialOrder(order);
+        RawMaterialOrder ro=order.getRawMarerialOrder();
         rawMaterialOrderDirectory.add(ro);
     }
    
