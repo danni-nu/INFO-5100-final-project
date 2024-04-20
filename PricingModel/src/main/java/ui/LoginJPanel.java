@@ -22,8 +22,7 @@ import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 import ui.DesignerRole.DesignerWorkAreaJPanel;
 import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel;
-import ui.Production.Inventory.ProductionEnterpriseInventoryWorkAreaJPanel1;
-import ui.Production.Production.ProductionWorkAreaJPanel2;
+import ui.Production.Production.ProductionWorkAreaJPanel;
 import ui.RawMaterialRole.InventoryWorkAreaJPanel;
 
 /*
@@ -161,7 +160,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         }
 //        ProcurerWorkAreaJPanel procurerWorkAreajpanel;
 //        PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
-        ProductionWorkAreaJPanel2 productionworkarea;
+        ProductionWorkAreaJPanel productionworkarea;
         ProductionEnterpriseInventoryWorkAreaJPanel productioninventoryworkarea;
         
         DesignerWorkAreaJPanel designerWorkArea;//Designer work area
@@ -201,7 +200,7 @@ public class LoginJPanel extends javax.swing.JPanel {
             String s=(String)cmbCompany.getSelectedItem();
             ProductionEnterprise e = business.getEnterpriseDirectory().getProductionEnterprise(s);
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
-            productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile);
+            productionworkarea = new ProductionWorkAreaJPanel(business, loginJPanel,(ProductionManagerProfile)profile,brandCompany);
             //loginJPanel.removeAll();
             loginJPanel.add("ProductionWorkAreaJPanel", productionworkarea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);

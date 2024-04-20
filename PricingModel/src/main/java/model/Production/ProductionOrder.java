@@ -32,6 +32,9 @@ public class ProductionOrder {
         this.order = order;
         //this.Delivered = false;
         this.rawMaterialOrder = rawMaterialOrder;
+        this.productionMode = this.order.getProductionMode();
+        this.revenue = this.getQuantity()*this.getProductionMode().getModePrice();
+        this.message = "";
     }
     
     public ProductionOrder(Order order, ProductionMode productionMode, RawMaterialOrder materialOrder) {
@@ -101,6 +104,17 @@ public class ProductionOrder {
       return productionOrderID;
     }
     
+    
+    private int revenue;
+    private String message;
+
+    public int getRevenue() {
+        return revenue;
+    }
+
+    public String getMessage() {
+        return message;
+    }
     
     
     
