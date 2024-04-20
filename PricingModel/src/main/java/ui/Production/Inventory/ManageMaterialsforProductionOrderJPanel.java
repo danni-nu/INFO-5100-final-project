@@ -170,10 +170,11 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
         ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
         
-        Object[] row = new Object[7];
+        
  
         if (selectedMaterialStatus.equals("all production orders")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
+              Object[] row = new Object[7];
               row[0] = productionOrder;
               row[1] = productionOrder.getOrder().getRawMaterial();
               row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
@@ -181,12 +182,14 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
               row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
               row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
               row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();    
+              ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
             }
         }
         
         if(selectedMaterialStatus.equals("material not arrived")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
                 if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
+                    Object[] row = new Object[7];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getOrder().getRawMaterial();
                     row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
@@ -194,7 +197,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                     row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
                     row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
                     row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();   }
-              
+                    ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
             }
             
         }
@@ -202,18 +205,19 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         if(selectedMaterialStatus.equals("material arrived")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
                 if(!productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
+                    Object[] row = new Object[7];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getOrder().getRawMaterial();
                     row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
                     row[3] = productionOrder.getOrder().getQuantity();
                     row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
                     row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-                    row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();   }
-              
+                    row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();   
+                    ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);}
             }
             
         }
-        ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
+        
     }
 }
 
