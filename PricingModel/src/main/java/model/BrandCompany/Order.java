@@ -28,6 +28,7 @@ public class Order {
     private int quantity;
     private int OrderPrice;
     private static int count=0;
+    private String orderMessage;
     
 
     public Order(Requirement requirement,int quantity) {
@@ -142,7 +143,16 @@ public class Order {
 
     public void setOrderPrice(int OrderPrice) {
         this.OrderPrice = OrderPrice;
-    }    
+    }  
+
+    public String getOrderMessage() {
+        return orderMessage;
+    }
+
+    public void setOrderMessage(String orderMessage) {
+        this.orderMessage = orderMessage;
+    }
+    
     
     @Override
     public String toString(){
