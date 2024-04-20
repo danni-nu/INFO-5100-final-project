@@ -16,7 +16,6 @@ public class RequirementSolution {
     private String solutionName;
     private String deadline;
     private String evaluation;
-    
     private final JFileChooser fileChooser = new JFileChooser();
     ImageIcon productImage;    
    
