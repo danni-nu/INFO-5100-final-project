@@ -4,8 +4,15 @@
  */
 package ui.DesignerRole;
 
+import java.util.HashMap;
+import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.Requirement;
 import model.Business.Business;
+import model.Business.DesignEnterprise;
+import model.DesignEnterprise.DesignerProfile;
+import model.DesignEnterprise.RequirementAssignmentDirectory;
 
 /**
  *
@@ -15,16 +22,22 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
     
     javax.swing.JPanel CardSequencePanel;
     Business business;
+    DesignerProfile designerProfile;
+    DesignEnterprise designEnterprise;
 
     /**
      * Creates new form UploadDesignSolutionJPanel
      */
     
 
-    public CheckPerformanceJPanel(Business b, JPanel clp) {
+    public CheckPerformanceJPanel(Business b, JPanel clp,DesignerProfile designerProfile,DesignEnterprise designEnterprise) {
         business = b;
         this.CardSequencePanel = clp;
+        this.designerProfile = designerProfile;
+        this.designEnterprise = designEnterprise;
         initComponents();
+        populateFeedbackTable();
+        
     }
 
     /**
@@ -39,8 +52,8 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblSemester = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblPerformance = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(236, 244, 251));
 
@@ -58,43 +71,45 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setText("My Requirements Task Performance");
 
-        tblSemester.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
-        tblSemester.setModel(new javax.swing.table.DefaultTableModel(
+        tblPerformance.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
+        tblPerformance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Order Name", "Order Type", "Feedback", "Commission"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Evaluation", "Feedback"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true
+                true, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblSemester);
+        jScrollPane3.setViewportView(tblPerformance);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 640, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(316, 316, 316))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,9 +120,9 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel2)
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -122,7 +137,29 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
     private javax.swing.JButton Back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblSemester;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable tblPerformance;
     // End of variables declaration//GEN-END:variables
+
+    private void populateFeedbackTable() {
+        DefaultTableModel model = (DefaultTableModel) tblPerformance.getModel();
+        model.setRowCount(0); 
+        HashMap<DesignerProfile, List<Requirement>> designerToRequirement = RequirementAssignmentDirectory.getDesignerToRequirement();
+        List<Requirement> requirementsOfDesigner = designerToRequirement.get(designerProfile);
+        
+        for (Requirement r : requirementsOfDesigner) {
+       
+            Object row[] = new Object[8];
+            row[0] = r;
+            row[1] = r.getRowMaterial();
+            row[2] = r.getProductionMode();
+            row[3] = r.getColor();
+            row[4] = r.getStyle();
+            row[5] = r.getDeadline();
+            row[6] = r.getEvaluation();
+            row[7] = r.getRequirementFeedback();
+            model.addRow(row);
+            
+        }
+    }
 }

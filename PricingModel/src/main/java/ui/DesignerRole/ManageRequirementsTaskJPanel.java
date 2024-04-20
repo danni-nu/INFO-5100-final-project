@@ -66,7 +66,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         Back = new javax.swing.JButton();
         AddjButton = new javax.swing.JButton();
         removejButton = new javax.swing.JButton();
-        viewjButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         AddSolutionjButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -124,13 +123,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             }
         });
 
-        viewjButton.setText("View Details");
-        viewjButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                viewjButtonActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel6.setText("My New Requirements To Schedule");
 
@@ -182,10 +174,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(viewjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 115, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
@@ -204,9 +193,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(viewjButton)
-                    .addComponent(AddjButton))
+                .addComponent(AddjButton)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
                 .addGap(12, 12, 12)
@@ -283,10 +270,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
-    private void viewjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewjButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_viewjButtonActionPerformed
-
     private void AddSolutionjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSolutionjButtonActionPerformed
         // TODO add your handling code here:
         int row = tblSchedule.getSelectedRow();
@@ -318,7 +301,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private javax.swing.JButton removejButton;
     private javax.swing.JTable tblSchedule;
     private javax.swing.JTable tbltask;
-    private javax.swing.JButton viewjButton;
     // End of variables declaration//GEN-END:variables
 
     private void populateCartTable() {
@@ -343,8 +325,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         model.setRowCount(0);    
         //get the designerToRequirement HashMap
         HashMap<DesignerProfile, List<Requirement>> designerToRequirement = RequirementAssignmentDirectory.getDesignerToRequirement();
-
-        
         List<Requirement> requirementsOfDesigner = designerToRequirement.get(designerProfile);
 
         
