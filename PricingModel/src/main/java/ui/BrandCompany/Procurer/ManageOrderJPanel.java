@@ -108,7 +108,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 BbtnCreateNewOrderActionPerformed(evt);
             }
         });
-        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 160, 20));
+        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, 20));
 
         lblTitle.setText("Order Management");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 18, -1, -1));
@@ -140,7 +140,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 btnCheckUnplacedOrderActionPerformed(evt);
             }
         });
-        add(btnCheckUnplacedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        add(btnCheckUnplacedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         tblRequiementList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,11 +190,12 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 cmbProductionCompanyActionPerformed(evt);
             }
         });
-        add(cmbProductionCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, -1));
+        add(cmbProductionCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 380, 150, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+      
         workArea.remove(this);
         CardLayout layout =(CardLayout)workArea.getLayout();
         layout.next(workArea);

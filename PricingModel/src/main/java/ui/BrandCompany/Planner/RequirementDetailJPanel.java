@@ -5,6 +5,7 @@
 package ui.BrandCompany.Planner;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.BrandCompany.PlannerProfile;
@@ -84,7 +85,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         cmbColor = new javax.swing.JComboBox<>();
         lblDesignStyle = new javax.swing.JLabel();
         lblRequirementID = new javax.swing.JLabel();
-        CreateRerquirement = new javax.swing.JButton();
+        btnUpdateRequirement = new javax.swing.JButton();
         lblRawMaterialpCost = new javax.swing.JLabel();
         cmbRawMaterial = new javax.swing.JComboBox<>();
         cmbDesignStyle = new javax.swing.JComboBox<>();
@@ -93,7 +94,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblPicture = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         lblRawMaterial = new javax.swing.JLabel();
         lblModeCost = new javax.swing.JLabel();
         lblDesignFee = new javax.swing.JLabel();
@@ -105,7 +105,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         cmbProductionCompany = new javax.swing.JComboBox<>();
         lblDesignCompany = new javax.swing.JLabel();
         cmbDesignCompany = new javax.swing.JComboBox<>();
-        lblDesignStyle1 = new javax.swing.JLabel();
+        lblDesigner = new javax.swing.JLabel();
         cmbDesigner = new javax.swing.JComboBox<>();
         lblTotalCost = new javax.swing.JLabel();
         lblMaterialCost = new javax.swing.JLabel();
@@ -113,6 +113,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         lblDesignCost = new javax.swing.JLabel();
         lblDeadline2 = new javax.swing.JLabel();
         txtRequirementID = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
 
         cmbProductionMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbProductionMode.setEnabled(false);
@@ -134,10 +135,10 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
         lblRequirementID.setText("RequirementID");
 
-        CreateRerquirement.setText("Create Requirement");
-        CreateRerquirement.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateRequirement.setText("Update Requirement");
+        btnUpdateRequirement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateRerquirementActionPerformed(evt);
+                btnUpdateRequirementActionPerformed(evt);
             }
         });
 
@@ -175,9 +176,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         });
 
         lblPicture.setText("Renderings");
-
-        jLabel8.setText("Picture is Here:*******");
-        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblRawMaterial.setText("Raw Material");
 
@@ -226,7 +224,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblDesignStyle1.setText("Designer");
+        lblDesigner.setText("Designer");
 
         cmbDesigner.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbDesigner.setEnabled(false);
@@ -257,6 +255,14 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setText("Save");
+        btnSave.setEnabled(false);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,77 +271,76 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
                 .addContainerGap(229, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(200, 200, 200)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CreateRerquirement))
+                                .addComponent(lblRawMaterial)
+                                .addGap(119, 119, 119)
+                                .addComponent(cmbRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(62, 62, 62)
+                                .addComponent(lblRawMaterialpCost, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblMaterialCost, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblProductionCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(cmbProductionCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addComponent(lblProductionModeCost1)
+                                .addGap(44, 44, 44)
+                                .addComponent(lblModeCost))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(25, 25, 25)
+                                .addComponent(cmbDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(115, 115, 115)
+                                .addComponent(cmbDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)
+                                .addComponent(lblDesignFee)
+                                .addGap(64, 64, 64)
+                                .addComponent(lblDesignCost))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(cmbColor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblDeadline2)
+                                .addGap(130, 130, 130)
+                                .addComponent(lblTotalCost))
+                            .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblRawMaterial)
-                                        .addGap(119, 119, 119)
-                                        .addComponent(cmbRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(62, 62, 62)
-                                        .addComponent(lblRawMaterialpCost, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(lblMaterialCost, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblProductionCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(25, 25, 25)
-                                        .addComponent(cmbProductionCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(77, 77, 77)
-                                        .addComponent(lblProductionModeCost1)
-                                        .addGap(44, 44, 44)
-                                        .addComponent(lblModeCost))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(25, 25, 25)
-                                        .addComponent(cmbDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDesignStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(115, 115, 115)
-                                        .addComponent(cmbDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(95, 95, 95)
-                                        .addComponent(lblDesignFee)
-                                        .addGap(64, 64, 64)
-                                        .addComponent(lblDesignCost))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblColor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(cmbColor, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnUpdateRequirement)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblDeadline)
                                         .addGap(140, 140, 140)
-                                        .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblDeadline2)
-                                        .addGap(130, 130, 130)
-                                        .addComponent(lblTotalCost))
-                                    .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(25, 25, 25)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cmbRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 21, Short.MAX_VALUE)))))
-                .addGap(72, 72, 72))
+                                        .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(28, 28, 28)
+                                .addComponent(btnSave)))
+                        .addGap(0, 93, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel1)
+                        .addGap(72, 345, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +394,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
                     .addComponent(cmbDesignCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDesignStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -397,35 +402,34 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
                             .addComponent(lblDesignFee, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblDesignCost, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(3, 3, 3)
+                        .addComponent(cmbDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(lblColor))
-                            .addComponent(cmbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(lblDeadline))
-                            .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDeadline2)
-                            .addComponent(lblTotalCost))
-                        .addGap(4, 4, 4)
-                        .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(CreateRerquirement))
-                .addContainerGap(87, Short.MAX_VALUE))
+                        .addComponent(lblColor))
+                    .addComponent(cmbColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lblDeadline))
+                    .addComponent(txtDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDeadline2)
+                    .addComponent(lblTotalCost))
+                .addGap(4, 4, 4)
+                .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateRequirement)
+                    .addComponent(btnSave))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -456,14 +460,19 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         selectedColor=selectedDesignEnterprise.getColorDirectory().findColor(s);
     }//GEN-LAST:event_cmbColorActionPerformed
 
-    private void CreateRerquirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRerquirementActionPerformed
+    private void btnUpdateRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRequirementActionPerformed
         // TODO add your handling code here:
-        RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
-        Requirement requirement=requirementsdirectory.addANewRrequirement(selectedRawmaterial, selectedDesigner, selectdProductionmode, requirementPlanner, selectedStyle,selectedColor);
-        requirement.setDeadline(txtDeadLine.getText());
-        txtRequirementID.setText(requirement.getRequirementID());
-        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_CreateRerquirementActionPerformed
+        cmbProductionCompany.setEnabled(true);
+        cmbProductionMode.setEnabled(true);
+        cmbRawMaterialCompany.setEnabled(true);
+        cmbRawMaterial.setEnabled(true);
+        cmbDesignCompany.setEnabled(true);
+        cmbDesigner.setEnabled(true);
+        cmbDesignStyle.setEnabled(true);
+        cmbColor.setEnabled(true);
+        txtDeadLine.setEnabled(true);
+        btnSave.setEnabled(true);
+    }//GEN-LAST:event_btnUpdateRequirementActionPerformed
 
     private void cmbRawMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRawMaterialActionPerformed
         // TODO add your handling code here:
@@ -496,9 +505,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        WorkArea.remove(this);
-        CardLayout layout = (CardLayout) WorkArea.getLayout();
-        layout.previous(WorkArea);
+        backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void txtDeadLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDeadLineActionPerformed
@@ -533,9 +540,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         String s=(String)cmbDesignCompany.getSelectedItem();
         selectedDesignEnterprise = business.getEnterpriseDirectory().getDesignEnterprise(s);
 
-        //        populateDesginerCombp();
-        //        populateDesignStyleCombo();
-
     }//GEN-LAST:event_cmbDesignCompanyActionPerformed
 
     private void cmbDesignerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDesignerActionPerformed
@@ -560,10 +564,23 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRequirementIDActionPerformed
 
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+         if(txtDeadLine.getText()==null){
+            JOptionPane.showMessageDialog(this, "Please input dealline.It's very important for you to be satisfied", "Information", JOptionPane.INFORMATION_MESSAGE);
+        }
+        RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
+        Requirement requirement=requirementsdirectory.addANewRrequirement(selectedRawmaterial, selectedDesigner, selectdProductionmode, requirementPlanner, selectedStyle,selectedColor);
+        requirement.setDeadline(txtDeadLine.getText());
+        txtRequirementID.setText(requirement.getRequirementID());
+        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnSaveActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CreateRerquirement;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUpdateRequirement;
     private javax.swing.JComboBox<String> cmbColor;
     private javax.swing.JComboBox<String> cmbDesignCompany;
     private javax.swing.JComboBox<String> cmbDesignStyle;
@@ -573,7 +590,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbRawMaterial;
     private javax.swing.JComboBox<String> cmbRawMaterialCompany;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDeadline;
     private javax.swing.JLabel lblDeadline2;
@@ -581,7 +597,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDesignCost;
     private javax.swing.JLabel lblDesignFee;
     private javax.swing.JLabel lblDesignStyle;
-    private javax.swing.JLabel lblDesignStyle1;
+    private javax.swing.JLabel lblDesigner;
     private javax.swing.JLabel lblMaterialCost;
     private javax.swing.JLabel lblModeCost;
     private javax.swing.JLabel lblPicture;
@@ -601,9 +617,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         for(RawMaterialEnterprise enterprise:business.getEnterpriseDirectory().getRawMaterialEnterpriseList()){
             cmbRawMaterialCompany.addItem(enterprise.toString());
         }
-//        for(Enterprise enterprise:business.getEnterpriseDirectory().findRawMaterialEnterpriseList()){
-//            cmbRawMaterialCompany.addItem(enterprise);
-//        }
     }
 
     private void populateProductionCompanyCombo() {
@@ -611,9 +624,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         for(ProductionEnterprise enterprise:business.getEnterpriseDirectory().getProductionEnterpriseList()){
             cmbProductionCompany.addItem(enterprise.toString());
         }  
-//        for(Enterprise enterprise:business.getEnterpriseDirectory().findProductionEnterpriseList()){
-//            cmbProductionCompany.addItem(enterprise);
-//        }
     }
 
     private void populateDesignCompanyCombo() {
@@ -626,9 +636,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
     
     private void populateDesignStyleCombo() {
         cmbDesignStyle.removeAllItems();
-        //DesignEnterprise selectedRawMaterialEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
-//        String s=(String)cmbDesignCompany.getSelectedItem();
-//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
         for(Style style:selectedDesignEnterprise.getStyleDirectory().getStyleDirectory()){
             cmbDesignStyle.addItem(style.toString());
         }    
@@ -636,7 +643,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
     private void populateRawMaterialCombp() {
         cmbRawMaterial.removeAllItems();
-        //RawMaterialEnterprise selectedRawMaterialEnterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
         for(RawMaterial rawmaterial:selectedRawMaterialEnterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
             cmbRawMaterial.addItem(rawmaterial.toString());
         }
@@ -644,9 +650,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
     private void populateProductionModeCombo() {
         cmbProductionMode.removeAllItems();
-//        String s=(String)cmbProductionCompany.getSelectedItem();
-//        ProductionEnterprise selectedEnterprise=business.getEnterpriseDirectory().getProductionEnterprise(s);
-        //ProductionEnterprise productionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
+
         for(ProductionMode productionmode:selectdProductionEnterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
             cmbProductionMode.addItem(productionmode.toString());
         }
@@ -654,8 +658,6 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
     private void populateDesginerCombp() {
         cmbDesigner.removeAllItems();
-//        String s=(String)cmbDesignCompany.getSelectedItem();
-//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
         for(DesignerProfile designer: selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().getDesignerProfileList()){
             cmbDesigner.addItem(designer.toString());
         }
@@ -663,12 +665,20 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
     private void populateDesignColorCombo() {
         cmbColor.removeAllItems();
-        //DesignEnterprise selectedRawMaterialEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
-//        String s=(String)cmbDesignCompany.getSelectedItem();
-//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
+    
         for(Color color:selectedDesignEnterprise.getColorDirectory().getCorlorlist()){
             cmbColor.addItem(color.toString());
         } 
+    }
+
+    private void backAction() {
+        WorkArea.remove(this);
+        Component[] componentArray = WorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RequirementManagementJPanel manageSuppliersJPanel =(RequirementManagementJPanel) component;
+        manageSuppliersJPanel.populateRequirementTable();
+        CardLayout layout =(CardLayout) WorkArea.getLayout();
+        layout.previous( WorkArea);
     }
     
 

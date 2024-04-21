@@ -495,7 +495,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSearchRequirement;
     // End of variables declaration//GEN-END:variables
 
-    private void populateRequirementTable() {
+    public void populateRequirementTable() {
         DefaultTableModel model=(DefaultTableModel)tblRequirementTable.getModel();
         model.setRowCount(0);
         for(Requirement re:brandEnterprise.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){

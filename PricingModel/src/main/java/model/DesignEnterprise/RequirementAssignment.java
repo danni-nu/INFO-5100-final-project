@@ -16,10 +16,8 @@ public class RequirementAssignment {
     private DesignerProfile designerProfile;
     private Requirement requirement;
     private String status;//inistial Assigned not designed
-//    private DesignerAssignmentRoad DesignerAssignmentRoad;
     private RequirementSolution requirementSolution; //each designerProfile have one
-    //+Deadline: string 
-    //+Evaluation:String 
+
 
 
     
