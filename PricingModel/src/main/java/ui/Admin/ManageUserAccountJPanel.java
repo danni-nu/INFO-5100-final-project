@@ -72,6 +72,11 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         jLabel1.setText("Manage Account");
 
         AddButton.setText("Add Account");
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
 
         DeleteButton.setText("Delete Account");
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +157,15 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Remove UserAccount Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);                    
         populatePersonDirectoryTable();
     }//GEN-LAST:event_DeleteButtonActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        // TODO add your handling code here:
+        AddAccountJPanel aos = new AddAccountJPanel(business, mainWorkArea,adminProfile);
+        mainWorkArea.add("Add Users", aos);
+        ((java.awt.CardLayout) mainWorkArea.getLayout()).next(mainWorkArea);
+        
+        
+    }//GEN-LAST:event_AddButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
