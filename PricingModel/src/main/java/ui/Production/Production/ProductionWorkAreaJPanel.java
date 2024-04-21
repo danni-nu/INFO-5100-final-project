@@ -109,7 +109,7 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageProductionLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductionLineActionPerformed
         // TODO add your handling code here:
-       ManageProductionLineJPanel mmpojp = new ManageProductionLineJPanel(WorkArea, business, productionManagerProfile,brandEnterprise);
+       ManageProductionLineJPanel mmpojp = new ManageProductionLineJPanel(WorkArea, business, productionManagerProfile);
         WorkArea.add("ManageProductionLineJPanel", mmpojp);
         CardLayout layout = (CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

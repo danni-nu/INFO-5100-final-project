@@ -28,18 +28,18 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     Business business;
     RawMaterialEnterprise rawMaterialEnterprise;
     RawMaterialManager rawMaterialManager;
-    BrandEnterprise brandEnterprise;
+
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
 
-    public ManageMaterialOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager,BrandEnterprise brandEnterprise) {
+    public ManageMaterialOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager) {
         
         this.business = business;
         this.CardSequencePanel = CardSequencePanel;
         this.rawMaterialEnterprise = rawMaterialEnterprise;
-        this.brandEnterprise=brandEnterprise;
+        //this.rawMaterialOrderDirectory=rawMaterialOrderDirectory;
         this.rawMaterialManager = rawMaterialManager;
         initComponents();
         populateTable();
@@ -173,10 +173,8 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
         //chose one order
         RawMaterialOrder rmrOrder =  (RawMaterialOrder)tblorder.getValueAt(row, 0); 
-        
         DeliveryOrderJPanel dojp = new DeliveryOrderJPanel(business,CardSequencePanel,rawMaterialEnterprise,rawMaterialManager,rmrOrder);
         CardSequencePanel.add("UploadDesignSolutionJPanel", dojp);
         CardLayout layout = (CardLayout) CardSequencePanel.getLayout();
@@ -185,8 +183,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
 
     private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
         // TODO add your handling code here:
-        populateTable();
-        
+        populateTable(); 
     }//GEN-LAST:event_addButton1ActionPerformed
 
 
@@ -203,8 +200,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
         model.setRowCount(0);
-        //RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-        RawMaterialOrderDirectory rawMaterialOrderDirectory=initialBrandCompanyOrder();
+        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
         for (RawMaterialOrder roMaterialOrder : rawMaterialOrderDirectory.getRawMaterialOrderDirectory()) {
             Object row[] = new Object[6];
             row[0] = roMaterialOrder;
@@ -214,16 +210,6 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             row[4] = roMaterialOrder.getDeliveryNumber();
             row[5] = roMaterialOrder.getDeliveryDate();
             model.addRow(row);
-        }
-        
-    }
-
-    private RawMaterialOrderDirectory initialBrandCompanyOrder() {
-        RawMaterialManageOrganization RWO=rawMaterialEnterprise.getRawMaterialManageOrganization();
-        RawMaterialOrderDirectory rawMaterialOrderDirectory=RWO.getRawMaterialOrderDirectory();
-        for(Order order:brandEnterprise.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
-            rawMaterialOrderDirectory.addARelatedOrder(order);
-        }
-        return rawMaterialOrderDirectory;
+            }  
     }
 }

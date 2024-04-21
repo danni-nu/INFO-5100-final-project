@@ -204,7 +204,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         }
         OrderDirectory orderdirectory=brandCompany.getProcurementOrganization().getOrderDirectory();
         Order order=orderdirectory.addNewOrder(requirement, quantity);
-        requirement.setOrderToAssignment(order);
+        //requirement.setOrderToAssignment(order);
         order.setOrderPrice(requirement.getDesignerProfile().getDefaultDesignPricing()+requirement.getProductionMode().getModePrice()+requirement.getRowMaterial().getPrice());
         JOptionPane.showMessageDialog(this, "Your order was successfully placed!", "Info", JOptionPane.INFORMATION_MESSAGE);
         populateOrderDetailStatus(requirement);

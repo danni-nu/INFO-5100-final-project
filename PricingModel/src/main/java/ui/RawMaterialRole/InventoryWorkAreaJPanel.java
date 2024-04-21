@@ -11,6 +11,7 @@ import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Business.RawMaterialEnterprise;
 import model.RawMaterialEnterprise.RawMaterialManager;
+import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 import ui.LoginJPanel;
 
 /**
@@ -23,18 +24,18 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
     Business business;
     RawMaterialManager rawMaterialManager;
     RawMaterialEnterprise rawMaterialEnterprise;
-    BrandEnterprise brandCompany;
+    //RawMaterialOrderDirectory rawMaterialOrderDirectory;
     
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
-    public InventoryWorkAreaJPanel(Business business, JPanel loginJPanel, RawMaterialManager rawMaterialManager, RawMaterialEnterprise rawMaterialEnterprise, BrandEnterprise brandCompany) {
+    public InventoryWorkAreaJPanel(Business business, JPanel loginJPanel, RawMaterialManager rawMaterialManager, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialOrderDirectory rawMaterialOrderDirectory) {
         this.business = business;
         this.CardSequencePanel = loginJPanel;
         this.rawMaterialManager = rawMaterialManager;
         this.rawMaterialEnterprise = rawMaterialEnterprise;
-        this.brandCompany=brandCompany;
+        //this.rawMaterialOrderDirectory=rawMaterialOrderDirectory;
         initComponents();
         
     }
@@ -122,7 +123,7 @@ public class InventoryWorkAreaJPanel extends javax.swing.JPanel {
 
     private void addusersjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addusersjButtonActionPerformed
         // TODO add your handling code here:
-        ManageMaterialOrderJPanel aos = new ManageMaterialOrderJPanel(business, CardSequencePanel,rawMaterialEnterprise,rawMaterialManager,brandCompany);
+        ManageMaterialOrderJPanel aos = new ManageMaterialOrderJPanel(business, CardSequencePanel,rawMaterialEnterprise,rawMaterialManager);
         CardSequencePanel.add("ManageMaterial Order", aos);
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).next(CardSequencePanel);
     }//GEN-LAST:event_addusersjButtonActionPerformed
