@@ -4,6 +4,8 @@
  */
 package ui.Production.Inventory;
 
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import model.Production.ProductionOrder;
 
 /**
@@ -55,9 +57,10 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
         txtMaterialID = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtMaterialOrderPrice = new javax.swing.JTextField();
+        Back = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Place Material Order for Production Order");
+        jLabel1.setText("Place Material Order for Production");
 
         jLabel4.setText("Inventory Warehouse Address");
 
@@ -92,6 +95,13 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
 
         txtMaterialOrderPrice.setEnabled(false);
 
+        Back.setText("<< Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,20 +135,25 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(373, 373, 373)
-                        .addComponent(btnSetAddress)))
-                .addContainerGap(192, Short.MAX_VALUE))
+                        .addGap(344, 344, 344)
+                        .addComponent(btnSetAddress))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(52, 52, 52)
+                .addComponent(Back)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtProductionID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtMaterialID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -162,21 +177,37 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(43, 43, 43)
                 .addComponent(btnSetAddress)
-                .addContainerGap(380, Short.MAX_VALUE))
+                .addContainerGap(368, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSetAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSetAddressActionPerformed
         // TODO add your handling code here:
+        if(txtAddress.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Please Input Inventory Warehouse Address!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         selectedProdutionOrder.getRawMaterialOrder().setDeliveryaddress((txtAddress.getText()));
-        selectedProdutionOrder.getRawMaterialOrder().setDeliverStatus("Not delivered");
-                
+        selectedProdutionOrder.getRawMaterialOrder().setDeliverStatus("Not Delivered");
+        
+        JOptionPane.showMessageDialog(null, "Material Order Placed Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);        
     }//GEN-LAST:event_btnSetAddressActionPerformed
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        cardSequencePanel.remove(this);
+        Component[] components =cardSequencePanel.getComponents();
+        Component component = components[components.length -1];
+        ManageMaterialsforProductionOrderJPanel manageMaterialOrderJPanel = (ManageMaterialsforProductionOrderJPanel)component;
+        manageMaterialOrderJPanel.refreshTable();
+        ((java.awt.CardLayout) cardSequencePanel.getLayout()).previous(cardSequencePanel);
+    }//GEN-LAST:event_BackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Back;
     private javax.swing.JButton btnSetAddress;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
