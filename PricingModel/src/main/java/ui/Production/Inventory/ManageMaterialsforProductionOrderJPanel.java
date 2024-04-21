@@ -4,6 +4,7 @@
  */
 package ui.Production.Inventory;
 
+import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -57,7 +58,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         jLabel1 = new javax.swing.JLabel();
         cmbMaterialStatus = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnAddAddress = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnPutIntoProduction = new javax.swing.JButton();
 
@@ -90,10 +91,10 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
         jLabel2.setText("Material State: Material Order Not Placed/Material Order in Production/Material Order Delivered(when material delivered, the production order will automatically start producing)");
 
-        jButton1.setText("Add WareHouse Address");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddAddress.setText("Add WareHouse Address");
+        btnAddAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAddAddressActionPerformed(evt);
             }
         });
 
@@ -127,7 +128,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
+                        .addComponent(btnAddAddress))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnPutIntoProduction))
@@ -150,7 +151,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnAddAddress)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnPutIntoProduction)
                 .addContainerGap(332, Short.MAX_VALUE))
@@ -164,9 +165,13 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         refreshTable();
     }//GEN-LAST:event_cmbMaterialStatusActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAddAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAddressActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        PurchaseMaterialsforProductionOrderJPanel mmpojp = new PurchaseMaterialsforProductionOrderJPanel(selectedProdutionOrder,cardSequencePanel);
+        cardSequencePanel.add("PurchaseMaterialsforProductionOrderJPanel", mmpojp);
+        CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
+        layout.next(cardSequencePanel);
+    }//GEN-LAST:event_btnAddAddressActionPerformed
 
     private void btnPutIntoProductionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPutIntoProductionActionPerformed
         // TODO add your handling code here:
@@ -190,9 +195,9 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddAddress;
     private javax.swing.JButton btnPutIntoProduction;
     private javax.swing.JComboBox<String> cmbMaterialStatus;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
