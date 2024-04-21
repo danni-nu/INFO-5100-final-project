@@ -247,6 +247,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         
         //remove Requirement from Desginer
         requirementAssignmentDirectory.removeRequirementFromDesigner(designerProfile, re);
+        JOptionPane.showMessageDialog(null, "Remove Requirement form schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);                    
+
 
 
         populateRequirmentTable();
