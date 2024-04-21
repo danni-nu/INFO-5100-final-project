@@ -259,13 +259,22 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
 
     private void addjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addjButtonActionPerformed
         // TODO add your handling code here:
+      
         HashMap<Requirement, RequirementAssignment> rtraMap = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
         RequirementAssignment ra = rtraMap.get(requirement);
         requirement.setRequirementAssignment(ra);
-        ImageIcon desiImageIcon = new ImageIcon(url);
-        ra.addRequirementSolution(new RequirementSolution(desiImageIcon));
         
-        JOptionPane.showMessageDialog(null, "Requirement Added Solution successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        
+        if(url == null){            
+            JOptionPane.showMessageDialog(null, "Please add picture first!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            ImageIcon desiImageIcon = new ImageIcon(url);
+            ra.addRequirementSolution(new RequirementSolution(desiImageIcon));        
+            JOptionPane.showMessageDialog(null, "Requirement Added Solution successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+        
+        
     }//GEN-LAST:event_addjButtonActionPerformed
 
     private void btnAttachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAttachActionPerformed
