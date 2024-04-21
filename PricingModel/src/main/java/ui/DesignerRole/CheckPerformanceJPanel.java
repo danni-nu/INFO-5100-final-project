@@ -12,6 +12,7 @@ import model.BrandCompany.Requirement;
 import model.Business.Business;
 import model.Business.DesignEnterprise;
 import model.DesignEnterprise.DesignerProfile;
+import model.DesignEnterprise.RequirementAssignment;
 import model.DesignEnterprise.RequirementAssignmentDirectory;
 
 /**
@@ -74,17 +75,17 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         tblPerformance.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblPerformance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Feedback"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Status", "Feedback"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, true, true
+                true, false, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -97,7 +98,7 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 936, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -106,7 +107,7 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 878, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -120,7 +121,7 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -144,17 +145,19 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         model.setRowCount(0); 
         HashMap<DesignerProfile, List<Requirement>> designerToRequirement = RequirementAssignmentDirectory.getDesignerToRequirement();
         List<Requirement> requirementsOfDesigner = designerToRequirement.get(designerProfile);
+        HashMap<Requirement, RequirementAssignment>  hashMap2 = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
         
         for (Requirement r : requirementsOfDesigner) {
        
-            Object row[] = new Object[7];
+            Object row[] = new Object[8];
             row[0] = r;
             row[1] = r.getRowMaterial();
             row[2] = r.getProductionMode();
             row[3] = r.getColor();
             row[4] = r.getStyle();
             row[5] = r.getDeadline();
-            row[6] = r.getRequirementFeedback();
+            row[6] = hashMap2.get(r).getStatus();
+            row[7] = r.getRequirementFeedback();
             model.addRow(row);
             
         }
