@@ -83,6 +83,11 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblProductionStatus);
 
         btnProductionFinished.setText("Production Finished");
+        btnProductionFinished.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProductionFinishedActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Design Solution picture");
 
@@ -103,12 +108,12 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnProductionFinished)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel2))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProductionFinished))
+                        .addGap(28, 28, 28)
+                        .addComponent(jLabel2)))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,14 +124,14 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(428, 428, 428)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnProductionFinished)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(502, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -150,6 +155,12 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
         selectedProductionMode = (String) cmbProductionMode.getSelectedItem();
         refreshTable();
     }//GEN-LAST:event_cmbProductionModeActionPerformed
+
+    private void btnProductionFinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductionFinishedActionPerformed
+        // TODO add your handling code here:
+        selectedProdutionOrder.setProductionOrderStatus("production ends");
+        refreshTable();
+    }//GEN-LAST:event_btnProductionFinishedActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
