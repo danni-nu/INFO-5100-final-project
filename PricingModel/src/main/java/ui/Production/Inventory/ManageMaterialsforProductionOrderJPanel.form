@@ -28,14 +28,6 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnAddAddress" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -44,7 +36,15 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="857" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" pref="253" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="807" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="156" max="32767" attributes="0"/>
@@ -54,9 +54,9 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="cmbMaterialStatus" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -85,14 +85,14 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="8" rowCount="4">
-                <Column editable="true" title="Production Order ID" type="java.lang.Object"/>
-                <Column editable="true" title="Material Name" type="java.lang.Object"/>
+                <Column editable="true" title="Order ID" type="java.lang.Object"/>
+                <Column editable="true" title="Material" type="java.lang.Object"/>
                 <Column editable="true" title="Material Price" type="java.lang.Object"/>
                 <Column editable="true" title="Quantity" type="java.lang.Object"/>
                 <Column editable="true" title="Material Status" type="java.lang.Object"/>
-                <Column editable="true" title="Warehouse Address" type="java.lang.Object"/>
+                <Column editable="true" title="Address" type="java.lang.Object"/>
                 <Column editable="true" title="Delivered Time" type="java.lang.Object"/>
-                <Column editable="true" title="production status" type="java.lang.Object"/>
+                <Column editable="true" title="Production Status" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -193,7 +193,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPutIntoProduction">
       <Properties>
-        <Property name="text" type="java.lang.String" value="put into production line"/>
+        <Property name="text" type="java.lang.String" value="Put into Production Line"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPutIntoProductionActionPerformed"/>

@@ -36,11 +36,15 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         btnSetAddress = new javax.swing.JButton();
+        txtAddress1 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Place Material Order");
+        jLabel1.setText("Place Material Order for Production Order");
 
-        jLabel4.setText("Inventory Address");
+        jLabel4.setText("Inventory Warehouse Address");
 
         btnSetAddress.setText("save");
         btnSetAddress.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +53,12 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel5.setText("Production Order ID");
+
+        jLabel6.setText("Material Order ID");
+
+        jLabel7.setText("Production Order ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -56,30 +66,45 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(219, 219, 219)
-                        .addComponent(jLabel4)
-                        .addGap(30, 30, 30)
-                        .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(312, 312, 312)
                         .addComponent(btnSetAddress))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(269, 269, 269)
-                        .addComponent(jLabel1)))
-                .addContainerGap(344, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7))))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addComponent(jLabel1)
-                .addGap(183, 183, 183)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel7)
+                .addGap(67, 67, 67)
+                .addComponent(txtAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(btnSetAddress)
-                .addContainerGap(480, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -94,6 +119,10 @@ public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSetAddress;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAddress1;
     // End of variables declaration//GEN-END:variables
 }

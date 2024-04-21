@@ -25,7 +25,7 @@ public class ProductionEnterprise{
         this.enterpriseType="Production Company";
         this.companyName = companyName;
         this.inventoryOrganization=new InventoryOrganization(inventoryPerson,this);
-        this.productionOrganization=new ProductionOrganization(inventoryPerson,this);
+        this.productionOrganization=new ProductionOrganization(productionPerson,this);
         this.productionOrderDirectory = new ProductionOrderDirectory(this);
     }
 

@@ -42,7 +42,7 @@ public class RawMaterialOrder {
         count++;
         this.rawMaterialOrderID=String.valueOf(count);
         this.order=o;
-        this.deliverStatus = "Not delivered";
+        this.deliverStatus = "Order Unplaced";
         this.deliveryDate ="N/A";
         this.deliveryNumber = "N/A";
         this.deliveryaddress = "N/A";
