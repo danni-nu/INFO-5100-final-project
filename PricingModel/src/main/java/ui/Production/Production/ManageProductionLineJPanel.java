@@ -4,6 +4,7 @@
  */
 package ui.Production.Production;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Order;
@@ -55,9 +56,7 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProductionStatus = new javax.swing.JTable();
         btnProductionFinished = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         cmbProductionMode = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("Manage Production Line");
@@ -73,11 +72,6 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                 "Production Order ID", "Production Mode", "Mode Price", "Quantity", "Revenue", "Material Status", "Status", "Message"
             }
         ));
-        tblProductionStatus.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tblProductionStatusMousePressed(evt);
-            }
-        });
         jScrollPane1.setViewportView(tblProductionStatus);
 
         btnProductionFinished.setText("Production Finished");
@@ -87,15 +81,11 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setText("Design Solution picture");
-
         cmbProductionMode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbProductionModeActionPerformed(evt);
             }
         });
-
-        jButton2.setText("jButton2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,10 +97,6 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                     .addComponent(jLabel1)
                     .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProductionFinished)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel2))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
@@ -123,29 +109,11 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                 .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addComponent(btnProductionFinished)
-                .addContainerGap(502, Short.MAX_VALUE))
+                .addContainerGap(508, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tblProductionStatusMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductionStatusMousePressed
-        // TODO add your handling code here:
-        int size = tblProductionStatus.getRowCount();
-        int selectedrow = tblProductionStatus.getSelectionModel().getLeadSelectionIndex();
-
-        if (selectedrow < 0 || selectedrow > size - 1) {
-            return;
-        }
-        selectedProdutionOrder = ((ProductionOrder) tblProductionStatus.getValueAt(selectedrow, 0));
-        if (selectedProdutionOrder == null) {
-            return;
-        }
-    }//GEN-LAST:event_tblProductionStatusMousePressed
 
     private void cmbProductionModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionModeActionPerformed
         // TODO add your handling code here:
@@ -156,7 +124,16 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
 
     private void btnProductionFinishedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductionFinishedActionPerformed
         // TODO add your handling code here:
+        int size = tblProductionStatus.getRowCount();
+        int selectedrow = tblProductionStatus.getSelectionModel().getLeadSelectionIndex();
+
+        if (selectedrow < 0 || selectedrow > size - 1) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        selectedProdutionOrder = ((ProductionOrder) tblProductionStatus.getValueAt(selectedrow, 0));
         selectedProdutionOrder.setProductionOrderStatus("production ends");
+        JOptionPane.showMessageDialog(null, "Production Ends Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
         refreshTable();
     }//GEN-LAST:event_btnProductionFinishedActionPerformed
 
@@ -164,9 +141,7 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProductionFinished;
     private javax.swing.JComboBox<String> cmbProductionMode;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblProductionStatus;
     // End of variables declaration//GEN-END:variables
