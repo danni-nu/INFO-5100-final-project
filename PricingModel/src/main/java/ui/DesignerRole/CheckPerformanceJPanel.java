@@ -157,7 +157,15 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
             row[4] = r.getStyle();
             row[5] = r.getDeadline();
             row[6] = hashMap2.get(r).getStatus();
-            row[7] = r.getRequirementAssignment().getRate();
+            
+            //check the rate if is 0
+            int rate = r.getRequirementAssignment().getRate();
+            if(rate == 0){
+                row[7] = "No rate";
+            }else{
+                row[7] = r.getRequirementAssignment().getRate();
+            }
+            
             row[8] = r.getRequirementAssignment().getEvaluation();
             model.addRow(row);
             
