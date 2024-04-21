@@ -55,7 +55,7 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
         btnLogOut = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
 
-        btnManageMaterials.setText("Manage Materials for Production Order");
+        btnManageMaterials.setText("Manage Materials");
         btnManageMaterials.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageMaterialsActionPerformed(evt);
@@ -75,19 +75,19 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
             MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageMaterials, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnManageMaterials)
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MemuLayout.setVerticalGroup(
             MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemuLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(btnManageMaterials, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                .addGap(86, 86, 86)
+                .addComponent(btnManageMaterials)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
-                .addGap(226, 226, 226))
+                .addGap(228, 228, 228))
         );
 
         jSplitPane1.setLeftComponent(Memu);
@@ -109,14 +109,6 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
-        // TODO add your handling code here:
-        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,brandEnterprise);
-        WorkArea.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
-        CardLayout layout = (CardLayout) WorkArea.getLayout();
-        layout.next(WorkArea);
-    }//GEN-LAST:event_btnManageMaterialsActionPerformed
-
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
         mainWorkArea.remove(this);
@@ -127,8 +119,16 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
         loginPanel.populateCompanyNameCombo();
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
-        
+
     }//GEN-LAST:event_btnLogOutActionPerformed
+
+    private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
+        // TODO add your handling code here:
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,brandEnterprise);
+        WorkArea.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnManageMaterialsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

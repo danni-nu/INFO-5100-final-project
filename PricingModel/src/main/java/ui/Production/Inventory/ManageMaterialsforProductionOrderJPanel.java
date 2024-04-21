@@ -71,7 +71,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Production Order ID", "Material Name", "Material Price", "Quantity", "Material Status", "Warehouse Address", "Delivered Time", "production status"
+                "Order ID", "Material", "Material Price", "Quantity", "Material Status", "Address", "Delivered Time", "Production Status"
             }
         ));
         tblMaterialInformation.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -102,7 +102,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("Production Order Material Information");
 
-        btnPutIntoProduction.setText("put into production line");
+        btnPutIntoProduction.setText("Put into Production Line");
         btnPutIntoProduction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPutIntoProductionActionPerformed(evt);
@@ -123,27 +123,27 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnAddAddress))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btnPutIntoProduction))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(210, 210, 210)
+                        .addComponent(jLabel1)))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbMaterialStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
