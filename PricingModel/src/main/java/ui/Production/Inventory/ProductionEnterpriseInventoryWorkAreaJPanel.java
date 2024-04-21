@@ -12,6 +12,7 @@ import model.BrandCompany.ProcurerProfile;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
 import model.Production.InventoryManagerProfile;
+import model.Production.ProductionOrderDirectory;
 import ui.LoginJPanel;
 
 /**
@@ -26,13 +27,16 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
     javax.swing.JPanel mainWorkArea;
     Business business;
     InventoryManagerProfile inventoryManagerProfile;
-    BrandEnterprise brandEnterprise;
+    //BrandEnterprise brandEnterprise;
+    ProductionOrderDirectory pod;
     
-   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel mainWorkArea,InventoryManagerProfile imp,BrandEnterprise brandEnterprise) {
+    
+   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel mainWorkArea,InventoryManagerProfile imp,ProductionOrderDirectory pod) {
         business = b;
         this.mainWorkArea = mainWorkArea;
         this.inventoryManagerProfile = imp;
-        this.brandEnterprise=brandEnterprise;
+        this.pod=pod;
+        //this.brandEnterprise=brandEnterprise;
         initComponents();
     }
 
@@ -107,7 +111,7 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
 
     private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
         // TODO add your handling code here:
-        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,brandEnterprise);
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,pod);
         WorkArea.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
         CardLayout layout = (CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

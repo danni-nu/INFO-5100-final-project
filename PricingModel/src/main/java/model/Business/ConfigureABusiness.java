@@ -224,19 +224,26 @@ public class ConfigureABusiness {
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
         InventoryOrganization inventoryOrganization = productionEnterprise.getInventoryOrganization();
         ProductionOrderDirectory productionOrderDirectory = productionEnterprise.getProductionOrderDirectory();
+        for(Order order:brandEnterprise.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+            productionOrderDirectory.addRelatedProductionOrder(order);
+        }
         //把production orderdirectory 设立在production enterprise下,
         //production manager和inventory manager都能access production order
         ProductionManagerProfile pmp = productionOrganization.getProductionManagerProfile();
         //InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
         InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
         
-        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
+//        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
+//        for(Order order:brandEnterprise.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+//            rawMaterialOrderDirectory.addARelatedOrder(order);
+//        }
+        
 //        RawMaterialOrder rawMaterialOrder1 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order1.getRawMarerialOrder());
 //        RawMaterialOrder rawMaterialOrder2 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order2.getRawMarerialOrder());
 //        RawMaterialOrder rawMaterialOrder3 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order3.getRawMarerialOrder());
 //        RawMaterialOrder rawMaterialOrder4 =rawMaterialOrderDirectory.addNewRawMaterialOrder(order4.getRawMarerialOrder());
         
-        ProductionOrder productionOrder4 =productionOrderDirectory.addNewProductionOrder(order1.getProductOrder());
+        //ProductionOrder productionOrder4 =productionOrderDirectory.addNewProductionOrder(order1.getProductOrder());
 //        ProductionOrder productionOrder3 =productionOrderDirectory.addNewProductionOrder(order2.getProductOrder());
 //        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3.getProductOrder());
 //        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4.getProductOrder());

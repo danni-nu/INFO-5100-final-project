@@ -19,26 +19,24 @@ import model.Production.ProductionOrderDirectory;
  * @author administratorzi
  */
 public class ManageProductionLineJPanel extends javax.swing.JPanel {
-
     javax.swing.JPanel cardSequencePanel;
     Business business;
     ProductionManagerProfile productionManagerprofile;
     String selectedProductionMode;
-    BrandEnterprise brandCompany;
-    ProductionOrderDirectory pod;
+//    BrandEnterprise brandCompany;
+//    ProductionOrderDirectory pod;
     ProductionOrder selectedProdutionOrder;
     
     /**
      * Creates new form AssignProducingLineJPanel
      */
     
-    public ManageProductionLineJPanel(JPanel cardSequencePanel, Business business,ProductionManagerProfile productionManagerprofile,BrandEnterprise brandCompany) {
+    public ManageProductionLineJPanel(JPanel cardSequencePanel, Business business,ProductionManagerProfile productionManagerprofile) {
         initComponents();
-         this.business = business;
+        this.business = business;
         this.cardSequencePanel = cardSequencePanel;
         this.productionManagerprofile = productionManagerprofile;
-        this.brandCompany=brandCompany;
-        this.pod=populatedAllBrandCompanyOrder();
+//        this.brandCompany=brandCompany;
         populateProductionModeCombo();
         selectedProductionMode = "All production modes";
         refreshTable();
@@ -173,13 +171,13 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblProductionStatus;
     // End of variables declaration//GEN-END:variables
 
-    private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
-        pod = productionManagerprofile.getProductionOrganization().getProductionEnterprise().getProductionOrderDirectory();
-        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
-           pod.addNewProductionOrder(order.getProductOrder());
-        }
-        return pod;
-    }
+//    private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
+//        pod = productionManagerprofile.getProductionOrganization().getProductionEnterprise().getProductionOrderDirectory();
+//        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+//           pod.addNewProductionOrder(order.getProductOrder());
+//        }
+//        return pod;
+//    }
 
     private void populateProductionModeCombo() {
         cmbProductionMode.removeAllItems();
@@ -197,11 +195,9 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
         for (i = rc - 1; i >= 0; i--) {
             ((DefaultTableModel) tblProductionStatus.getModel()).removeRow(i);
         }
-
-        //ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
+        ProductionOrderDirectory pod = productionManagerprofile.getProductionOrganization().getProductionEnterprise().getProductionOrderDirectory();
         if (selectedProductionMode.equals("All production modes")) {
-            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
-                
+            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {   
                 Object[] row = new Object[8];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getProductionMode();
@@ -214,7 +210,6 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                 ((DefaultTableModel) tblProductionStatus.getModel()).addRow(row);
             }
         } else {
-
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
                 if (productionOrder.getProductionMode().getModeName().equals(selectedProductionMode)) {
                     Object[] row = new Object[8];

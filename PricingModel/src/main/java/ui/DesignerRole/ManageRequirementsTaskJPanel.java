@@ -120,7 +120,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             }
         });
 
-        AddjButton.setText("Add Requirement");
+        AddjButton.setText("Add Requirement To My Schedule");
         AddjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddjButtonActionPerformed(evt);
@@ -186,15 +186,10 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(AddSolutionjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,7 +198,12 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 58, Short.MAX_VALUE))))
+                        .addGap(0, 58, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +218,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddjButton)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(removejButton1))
@@ -228,7 +228,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddSolutionjButton)
                     .addComponent(removejButton))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGap(86, 86, 86))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -276,17 +276,50 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
             return;
         }
         //chose the specific Requirement
-        Requirement r =  (Requirement)tbltask.getValueAt(row, 0);   
-        //get the RequirementAssignmentDirectoty
-        //RequirementAssignmentDirectory requirementAssignmentDirectory = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory();                
-        //assignRequirement To Desginer
-        RequirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
+        Requirement r =  (Requirement)tbltask.getValueAt(row, 0); 
         
-        populateRequirmentTable(); 
-        System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
-        JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
-//        System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
-//        populateRequirmentTable();             
+        //check can not chose the same one requirment
+        if(RequirementAssignmentDirectory.getRequirementToRequirementAssignment().containsKey(r)){
+            JOptionPane.showMessageDialog(null, "Already exist in your schedule!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }else{
+            RequirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
+            populateRequirmentTable(); 
+            System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
+            JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);            
+        }
+        
+//        HashMap<DesignerProfile, List<Requirement>> hashMap = RequirementAssignmentDirectory.getDesignerToRequirement();
+//        
+//        if(hashMap.get(designerProfile) != null){
+//            List<Requirement> requirements = hashMap.get(designerProfile);
+//            for(Requirement re : requirements){
+//            if(re == r){
+//                JOptionPane.showMessageDialog(null, "Already exist in your schedule!!", "Warning", JOptionPane.WARNING_MESSAGE);
+//            }else{
+//                //assignRequirement To Desginer
+//                RequirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
+//                populateRequirmentTable(); 
+//                System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
+//                JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+//                
+//            }
+//        }
+//            
+//        }else{
+//            RequirementAssignmentDirectory.assignRequirementToDesginer(designerProfile, r);
+//            populateRequirmentTable(); 
+//            System.out.println(RequirementAssignmentDirectory.getDesignerToRequirement());
+//            JOptionPane.showMessageDialog(null, "Requirement Added to Schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+//            
+//        }
+        
+        
+        
+        
+        
+        
+        
+                          
     }//GEN-LAST:event_AddjButtonActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed

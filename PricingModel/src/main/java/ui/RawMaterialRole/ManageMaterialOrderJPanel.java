@@ -28,18 +28,18 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     Business business;
     RawMaterialEnterprise rawMaterialEnterprise;
     RawMaterialManager rawMaterialManager;
-    BrandEnterprise brandEnterprise;
+
 
     /**
      * Creates new form ManageRequirementsTask1JPanel
      */
 
-    public ManageMaterialOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager,BrandEnterprise brandEnterprise) {
+    public ManageMaterialOrderJPanel(Business business, JPanel CardSequencePanel, RawMaterialEnterprise rawMaterialEnterprise, RawMaterialManager rawMaterialManager) {
         
         this.business = business;
         this.CardSequencePanel = CardSequencePanel;
         this.rawMaterialEnterprise = rawMaterialEnterprise;
-        this.brandEnterprise=brandEnterprise;
+        //this.rawMaterialOrderDirectory=rawMaterialOrderDirectory;
         this.rawMaterialManager = rawMaterialManager;
         initComponents();
         populateTable();
@@ -87,7 +87,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Material Order ID", "Related Order Name", "Price", "Marerial Order Status", "Delivery Date", "Delivery Number"
+                "Material Order ID", "Order ID", "Material Name", "Marerial Order Status", "Delivery Date", "Delivery Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -100,7 +100,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblorder);
 
-        addButton.setText("Add Delivery Details");
+        addButton.setText("Deliver Material");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
@@ -121,24 +121,21 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 891, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(addButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))))
+                        .addGap(19, 19, 19)
+                        .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 895, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -148,15 +145,15 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 .addComponent(Back)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(addButton)
                     .addComponent(addButton1))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -173,10 +170,8 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        
         //chose one order
         RawMaterialOrder rmrOrder =  (RawMaterialOrder)tblorder.getValueAt(row, 0); 
-        
         DeliveryOrderJPanel dojp = new DeliveryOrderJPanel(business,CardSequencePanel,rawMaterialEnterprise,rawMaterialManager,rmrOrder);
         CardSequencePanel.add("UploadDesignSolutionJPanel", dojp);
         CardLayout layout = (CardLayout) CardSequencePanel.getLayout();
@@ -185,8 +180,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
 
     private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
         // TODO add your handling code here:
-        populateTable();
-        
+        populateTable(); 
     }//GEN-LAST:event_addButton1ActionPerformed
 
 
@@ -203,27 +197,16 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
     private void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblorder.getModel();
         model.setRowCount(0);
-        //RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
-        RawMaterialOrderDirectory rawMaterialOrderDirectory=initialBrandCompanyOrder();
+        RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
         for (RawMaterialOrder roMaterialOrder : rawMaterialOrderDirectory.getRawMaterialOrderDirectory()) {
             Object row[] = new Object[6];
             row[0] = roMaterialOrder;
             row[1] = roMaterialOrder.getOrder();
-            row[2] = roMaterialOrder.getMaterialPrice();
+            row[2] = roMaterialOrder.getRawMaterial();
             row[3] = roMaterialOrder.getDeliverStatus();
             row[4] = roMaterialOrder.getDeliveryNumber();
             row[5] = roMaterialOrder.getDeliveryDate();
             model.addRow(row);
-        }
-        
-    }
-
-    private RawMaterialOrderDirectory initialBrandCompanyOrder() {
-        RawMaterialManageOrganization RWO=rawMaterialEnterprise.getRawMaterialManageOrganization();
-        RawMaterialOrderDirectory rawMaterialOrderDirectory=RWO.getRawMaterialOrderDirectory();
-        for(Order order:brandEnterprise.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
-            rawMaterialOrderDirectory.addARelatedOrder(order);
-        }
-        return rawMaterialOrderDirectory;
+            }  
     }
 }
