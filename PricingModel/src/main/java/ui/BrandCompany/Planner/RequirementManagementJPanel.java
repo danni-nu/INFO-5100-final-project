@@ -84,6 +84,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         txtColor = new javax.swing.JTextField();
         lblDesigner = new javax.swing.JLabel();
         txtDesigner = new javax.swing.JTextField();
+        btnRequirementDetail = new javax.swing.JButton();
 
         setForeground(new java.awt.Color(255, 255, 255));
 
@@ -210,6 +211,13 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 
         txtDesigner.setEnabled(false);
 
+        btnRequirementDetail.setText("Check Requirement Detail");
+        btnRequirementDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRequirementDetailActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -257,6 +265,8 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(btnRequirementDetail)
+                                        .addGap(18, 18, 18)
                                         .addComponent(btnCreateNewRequirement))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,7 +304,8 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreateNewRequirement)
                     .addComponent(btnDeleteRequirement)
-                    .addComponent(btnCheckDesignerSolution))
+                    .addComponent(btnCheckDesignerSolution)
+                    .addComponent(btnRequirementDetail))
                 .addGap(4, 4, 4)
                 .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -441,6 +452,19 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(null, "Your refused this requirement.This assignment will go back to Design Enterprise!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnRefuseActionPerformed
 
+    private void btnRequirementDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequirementDetailActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequirementTable.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0); 
+        RequirementDetailJPanel rdjpanel= new RequirementDetailJPanel(WorkArea,business,requirement,brandEnterprise,requirementPlanner);
+        WorkArea.add("Requirement Management", rdjpanel);
+        CardLayout layout =(CardLayout)WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnRequirementDetailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApproval;
@@ -449,6 +473,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCreateNewRequirement;
     private javax.swing.JButton btnDeleteRequirement;
     private javax.swing.JButton btnRefuse;
+    private javax.swing.JButton btnRequirementDetail;
     private javax.swing.JButton btnSearchRequirement;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel jLabel8;

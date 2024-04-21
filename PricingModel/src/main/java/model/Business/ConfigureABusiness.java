@@ -21,6 +21,8 @@ import model.DesignEnterprise.DesignerDirectory;
 import model.DesignEnterprise.DesignerProfile;
 import model.DesignEnterprise.Style;
 import model.DesignEnterprise.StyleDirectory;
+import model.Personnel.AdminDirectory;
+import model.Personnel.AdminProfile;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
 import model.Production.InventoryManagerProfile;
@@ -82,12 +84,14 @@ public class ConfigureABusiness {
         Person p22 = personDirectory.newPerson("Hannah");
         
     
-    EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
-    BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company1");
-    DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
-    ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
-    RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
+        EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
+        BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise("Brand Company1");
+        DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
+        ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
+        RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
     
+        AdminDirectory addirectory=business.getAdminDirectory();
+        AdminProfile admin=addirectory.newEmployeeProfile(p1);
         
         ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);

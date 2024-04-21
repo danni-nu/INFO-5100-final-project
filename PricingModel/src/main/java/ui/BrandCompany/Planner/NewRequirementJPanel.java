@@ -204,7 +204,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 txtRequirementIDActionPerformed(evt);
             }
         });
-        add(txtRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(287, 104, 146, -1));
+        add(txtRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(-670, -520, 146, -1));
 
         lblDeadline.setText("Deadline ");
         add(lblDeadline, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 402, -1, -1));

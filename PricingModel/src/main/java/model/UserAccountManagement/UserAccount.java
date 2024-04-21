@@ -20,7 +20,6 @@ public class UserAccount {
          username = un;
          password = pw;
          this.profile = profile;
-
     }
 
     public String getPersonName(){
@@ -42,12 +41,12 @@ public class UserAccount {
         }
         
         
-        public String getRole(){
-            return profile.getRole();
-        }
+    public String getRole(){
+        return profile.getRole();
+    }
         
-        public Profile getAssociatedPersonProfile(){
-            return profile;
-        }    
+    public Profile getAssociatedPersonProfile(){
+        return profile;
+    }    
         
 }

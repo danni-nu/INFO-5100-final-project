@@ -13,28 +13,31 @@ import model.Business.Business;
  *
  * @author kal bugrara
  */
-public class EmployeeDirectory {
+public class AdminDirectory {
 
     Business business;
-    ArrayList<EmployeeProfile> employeelist;
+    ArrayList<AdminProfile> employeelist;
 
-    public EmployeeDirectory(Business d) {
-
+    public AdminDirectory(Business d) {
         business = d;
         employeelist = new ArrayList();
 
     }
 
-    public EmployeeProfile newEmployeeProfile(Person p) {
+    public AdminDirectory() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-        EmployeeProfile sp = new EmployeeProfile(p);
+    public AdminProfile newEmployeeProfile(Person p) {
+
+        AdminProfile sp = new AdminProfile(p);
         employeelist.add(sp);
         return sp;
     }
 
-    public EmployeeProfile findEmployee(String id) {
+    public AdminProfile findEmployee(String id) {
 
-        for (EmployeeProfile sp : employeelist) {
+        for (AdminProfile sp : employeelist) {
 
             if (sp.isMatch(id)) {
                 return sp;
