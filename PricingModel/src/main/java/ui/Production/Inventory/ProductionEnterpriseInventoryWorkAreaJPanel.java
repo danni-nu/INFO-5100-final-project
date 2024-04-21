@@ -27,16 +27,16 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
     javax.swing.JPanel mainWorkArea;
     Business business;
     InventoryManagerProfile inventoryManagerProfile;
-    //BrandEnterprise brandEnterprise;
-    ProductionOrderDirectory pod;
+    BrandEnterprise brandEnterprise;
+    //ProductionOrderDirectory pod;
     
     
-   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel mainWorkArea,InventoryManagerProfile imp,ProductionOrderDirectory pod) {
+   public ProductionEnterpriseInventoryWorkAreaJPanel(Business b, JPanel mainWorkArea,InventoryManagerProfile imp,BrandEnterprise brandEnterprise) {
         business = b;
         this.mainWorkArea = mainWorkArea;
         this.inventoryManagerProfile = imp;
-        this.pod=pod;
-        //this.brandEnterprise=brandEnterprise;
+        //this.pod=pod;
+        this.brandEnterprise=brandEnterprise;
         initComponents();
     }
 
@@ -111,7 +111,7 @@ public class ProductionEnterpriseInventoryWorkAreaJPanel extends javax.swing.JPa
 
     private void btnManageMaterialsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMaterialsActionPerformed
         // TODO add your handling code here:
-        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,pod);
+        ManageMaterialsforProductionOrderJPanel mmpojp = new ManageMaterialsforProductionOrderJPanel(WorkArea, business, inventoryManagerProfile,brandEnterprise);
         WorkArea.add("ManageMaterialsforProductionOrderJPanel", mmpojp);
         CardLayout layout = (CardLayout) WorkArea.getLayout();
         layout.next(WorkArea);

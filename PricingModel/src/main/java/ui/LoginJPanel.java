@@ -215,11 +215,11 @@ public class LoginJPanel extends javax.swing.JPanel {
             String s=(String)cmbCompany.getSelectedItem();
             ProductionEnterprise e = business.getEnterpriseDirectory().getProductionEnterprise(s);
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
-            ProductionOrderDirectory rawMaterialOrderDirectory = initialRelatedBrandCompanyOrder(e,brandCompany);
-            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile,rawMaterialOrderDirectory);
+            //ProductionOrderDirectory rawMaterialOrderDirectory = initialRelatedBrandCompanyOrder(e,brandCompany);
+            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile,brandCompany);
             
            // loginJPanel.removeAll();
-            loginJPanel.add("ProductionWorkAreaJPane", productioninventoryworkarea);
+            loginJPanel.add("ProductionWorkAreaInventoryJPane", productioninventoryworkarea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
         }

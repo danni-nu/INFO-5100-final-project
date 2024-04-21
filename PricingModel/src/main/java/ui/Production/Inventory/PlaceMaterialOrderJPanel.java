@@ -10,14 +10,14 @@ import model.Production.ProductionOrder;
  *
  * @author administratorzi
  */
-public class PurchaseMaterialsforProductionOrderJPanel extends javax.swing.JPanel {
+public class PlaceMaterialOrderJPanel extends javax.swing.JPanel {
 
     ProductionOrder selectedProdutionOrder;
     javax.swing.JPanel cardSequencePanel;
     /**
      * Creates new form PlaceMaterialOrderJPanel
      */
-    public PurchaseMaterialsforProductionOrderJPanel(ProductionOrder selectedProdutionOrder, javax.swing.JPanel cardSequencePanel) {
+    public PlaceMaterialOrderJPanel(ProductionOrder selectedProdutionOrder, javax.swing.JPanel cardSequencePanel) {
         initComponents();
         this.cardSequencePanel = cardSequencePanel;
         this.selectedProdutionOrder = selectedProdutionOrder;
@@ -38,7 +38,7 @@ public class PurchaseMaterialsforProductionOrderJPanel extends javax.swing.JPane
         btnSetAddress = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Set Warehouse Address for Material");
+        jLabel1.setText("Place Material Order");
 
         jLabel4.setText("Inventory Address");
 
@@ -56,24 +56,24 @@ public class PurchaseMaterialsforProductionOrderJPanel extends javax.swing.JPane
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
                         .addComponent(jLabel4)
                         .addGap(30, 30, 30)
                         .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(312, 312, 312)
-                        .addComponent(btnSetAddress)))
-                .addContainerGap(321, Short.MAX_VALUE))
+                        .addComponent(btnSetAddress))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(269, 269, 269)
+                        .addComponent(jLabel1)))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
+                .addGap(81, 81, 81)
                 .addComponent(jLabel1)
-                .addGap(186, 186, 186)
+                .addGap(183, 183, 183)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
