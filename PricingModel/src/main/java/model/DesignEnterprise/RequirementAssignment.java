@@ -25,6 +25,8 @@ public class RequirementAssignment {
         requirement = r;
         designerProfile = dp;
         this.status = "Assigned Not finished";
+        this.evaluation = "No Evaluation";
+                
     }
 
     public DesignerProfile getDesignerProfile() {
