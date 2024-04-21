@@ -5,16 +5,33 @@
 package ui.Admin;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import model.BrandCompany.PlannerProfile;
+import model.BrandCompany.ProcurerDirectory;
+import model.BrandCompany.ProcurerProfile;
+import model.BrandCompany.ProductPlannerDirectory;
 import model.BrandCompany.Requirement;
+import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.DesignEnterprise;
+import model.Business.EnterpriseDirectory;
+import model.Business.ProductionEnterprise;
+import model.Business.RawMaterialEnterprise;
+import model.DesignEnterprise.DesignerDirectory;
+import model.DesignEnterprise.DesignerProfile;
+import model.Personnel.AdminDirectory;
 import model.Personnel.AdminProfile;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.ProductionManagerProfile;
+import model.Production.ProductionOrganization;
+import model.RawMaterialEnterprise.RawMaterialManager;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import ui.DesignerRole.ManageRequirementsTaskJPanel;
 
 /**
  *
@@ -37,7 +54,6 @@ public class AddAccountJPanel extends javax.swing.JPanel {
         this.adminProfile = adminProfile;
         initComponents();
         
-        cmbaccounttp.setSelectedItem(business);
 
     }
 
@@ -104,7 +120,7 @@ public class AddAccountJPanel extends javax.swing.JPanel {
 
         lblName3.setText("Account Type:");
 
-        cmbaccounttp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Brand Company", "Design Company", "Production Company", "Raw Material Company" }));
+        cmbaccounttp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Procurer", "Planner", "Designer", "Raw Material Manager", " ", " " }));
         cmbaccounttp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbaccounttpActionPerformed(evt);
@@ -189,13 +205,19 @@ public class AddAccountJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         mainWorkArea.remove(this);
+        Component[] components = mainWorkArea.getComponents();
+        Component component = components[components.length -1];
+        ManageUserAccountJPanel manageUserAccountJPanel = (ManageUserAccountJPanel)component;
+        manageUserAccountJPanel.populatePersonDirectoryTable();
+        
+        
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here:
-        String ompanyName = txtCName.getText();
+        String companyName = txtCName.getText();
         String uername = txtMName.getText();
         String password = txtpass.getText();
         String profname = txtp.getText();
@@ -204,10 +226,62 @@ public class AddAccountJPanel extends javax.swing.JPanel {
         UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
         Person p = personDirectory.newPerson(profname);
         
-//        UserAccount us=useAccountDirectory.newUserAccount(p, uername, password,ompanyName);
+        String type = (String) cmbaccounttp.getSelectedItem();
+               
+        EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
+        BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise(companyName);
+        DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise(companyName);
+        RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
+
 
         
+        switch (type) {
+            case "Admin":
+                AdminDirectory addirectory=business.getAdminDirectory();
+                AdminProfile profile=addirectory.newEmployeeProfile(p);
+                UserAccount us=useAccountDirectory.newUserAccount(profile, uername, password,companyName);
+                break;
+            case "Procurer":
+                ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
+                ProcurerProfile profile1=prurerDirectory.newProcurerProfile(p);
+                UserAccount us1=useAccountDirectory.newUserAccount(profile1, uername, password,companyName);
+                break;
+            case "Planner":
+                ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
+                PlannerProfile profile2=plannerDirectory.addNewPlanner(p);
+                UserAccount us2=useAccountDirectory.newUserAccount(profile2, uername, password,companyName);
+                break;
+            case "Designer":
+                DesignerDirectory designerDirectory = designEnterprise.getDesignOrganization().getDesignerDirectory();
+                DesignerProfile profile3 = designerDirectory.addANewDesignerProfile(p, 100);
+                UserAccount us3=useAccountDirectory.newUserAccount(profile3, uername, password,companyName);
+
+                break;
+            case "Raw Material Manager":
+                rawMaterialEnterprise.getRawMaterialManageOrganization().addRawMaterialManager(p);
+                RawMaterialManager profile4= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
+                UserAccount us4=useAccountDirectory.newUserAccount(profile4, uername, password,companyName);                  
+                break;
+//            case "Production Manager":
+//                ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
+//                ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
+//                ProductionManagerProfile pmp = productionOrganization.getProductionManagerProfile();
+//             break;
+//            case "Inventory Manager":
+//              break;
+            default:
+                break;
+        }
         
+
+        JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        
+        
+        txtCName.setText(" ");
+        txtMName.setText(" ");
+        txtpass.setText(" ");
+        txtp.setText(" ");
+    
         
     }//GEN-LAST:event_AddButtonActionPerformed
 
