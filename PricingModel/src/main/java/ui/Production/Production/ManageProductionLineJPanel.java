@@ -60,7 +60,7 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel1.setText("Manage Undelivered Production Order");
+        jLabel1.setText("Manage Production Line");
 
         tblProductionStatus.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -106,13 +106,13 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(cmbProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnProductionFinished)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2)
                         .addGap(28, 28, 28)
-                        .addComponent(jLabel2)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                        .addComponent(jLabel2))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 816, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +197,8 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
         }
         ProductionOrderDirectory pod = productionManagerprofile.getProductionOrganization().getProductionEnterprise().getProductionOrderDirectory();
         if (selectedProductionMode.equals("All production modes")) {
-            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {   
+            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {  
+                if (!productionOrder.getProductionOrderStatus().equals("not yet in production")){
                 Object[] row = new Object[8];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getProductionMode();
@@ -208,10 +209,11 @@ public class ManageProductionLineJPanel extends javax.swing.JPanel {
                     row[6] = productionOrder.getProductionOrderStatus();
                     row[7] = productionOrder.getMessage();
                 ((DefaultTableModel) tblProductionStatus.getModel()).addRow(row);
+                }
             }
         } else {
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
-                if (productionOrder.getProductionMode().getModeName().equals(selectedProductionMode)) {
+                if (productionOrder.getProductionMode().getModeName().equals(selectedProductionMode)&&!productionOrder.getProductionOrderStatus().equals("not yet in production")) {
                     Object[] row = new Object[8];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getProductionMode();
