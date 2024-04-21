@@ -225,6 +225,13 @@ public class AddAccountJPanel extends javax.swing.JPanel {
         String password = txtpass.getText();
         String profname = txtp.getText();
         
+        
+        //check the string if it is null
+        if(companyName.equals("") || uername.equals("") || password.equals("") || profname.equals("")){
+            JOptionPane.showMessageDialog(null, "Please add full information !!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         PersonDirectory personDirectory=business.getPersonDirectory();
         UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
         Person p = personDirectory.newPerson(profname);
@@ -237,7 +244,7 @@ public class AddAccountJPanel extends javax.swing.JPanel {
         EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
         BrandEnterprise brandEnterprise= enterpriseDirectory.addBrandEnterprise(companyName);
         DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise(companyName);
-        RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
+        RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise(companyName);
 
 
         
@@ -246,46 +253,53 @@ public class AddAccountJPanel extends javax.swing.JPanel {
                 AdminDirectory addirectory=business.getAdminDirectory();
                 AdminProfile profile=addirectory.newEmployeeProfile(p);
                 UserAccount us=useAccountDirectory.newUserAccount(profile, uername, password,companyName);
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Procurer":
                 ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
                 ProcurerProfile profile1=prurerDirectory.newProcurerProfile(p);
                 UserAccount us1=useAccountDirectory.newUserAccount(profile1, uername, password,companyName);
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Planner":
                 ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
                 PlannerProfile profile2=plannerDirectory.addNewPlanner(p);
                 UserAccount us2=useAccountDirectory.newUserAccount(profile2, uername, password,companyName);
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Designer":
                 DesignerDirectory designerDirectory = designEnterprise.getDesignOrganization().getDesignerDirectory();
                 DesignerProfile profile3 = designerDirectory.addANewDesignerProfile(p, 100);
                 UserAccount us3=useAccountDirectory.newUserAccount(profile3, uername, password,companyName);
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
 
                 break;
             case "Raw Material Manager":
                 rawMaterialEnterprise.getRawMaterialManageOrganization().addRawMaterialManager(p);
                 RawMaterialManager profile4= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
-                UserAccount us4=useAccountDirectory.newUserAccount(profile4, uername, password,companyName);                  
+                UserAccount us4=useAccountDirectory.newUserAccount(profile4, uername, password,companyName); 
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Production Manager":
                 ProductionEnterprise productionEnterprise1= enterpriseDirectory.addProductionEnterprise(companyName, p2, p);
                 ProductionOrganization productionOrganization = productionEnterprise1.getProductionOrganization();
                 ProductionManagerProfile pmp = productionOrganization.getProductionManagerProfile();
                 UserAccount us5=useAccountDirectory.newUserAccount(pmp, uername, password,companyName); 
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 break;
             case "Inventory Manager":
                 ProductionEnterprise productionEnterprise2=enterpriseDirectory.addProductionEnterprise(companyName, p,p2);
                 InventoryOrganization inventoryOrganization = productionEnterprise2.getInventoryOrganization();
                 InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
                 UserAccount us6=useAccountDirectory.newUserAccount(imp, uername, password,companyName);
+                JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
                 break;
             default:
                 break;
         }
         
 
-        JOptionPane.showMessageDialog(null, "Added Account Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        
         
         
         txtCName.setText(" ");
