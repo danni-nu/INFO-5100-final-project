@@ -26,20 +26,20 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     Business business;
     InventoryManagerProfile inventoryManagerprofile;
     String selectedMaterialStatus;
-//    BrandEnterprise brandCompany;
-    ProductionOrderDirectory pod;
+    BrandEnterprise brandCompany;
+    //ProductionOrderDirectory pod;
     ProductionOrder selectedProdutionOrder;
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
 
-    public ManageMaterialsforProductionOrderJPanel(JPanel WorkArea, Business business, InventoryManagerProfile inventoryManagerProfile, ProductionOrderDirectory pod) {
+    public ManageMaterialsforProductionOrderJPanel(JPanel WorkArea, Business business, InventoryManagerProfile inventoryManagerProfile, BrandEnterprise brandCompany) {
         initComponents();
         this.business = business;
-        this.cardSequencePanel = cardSequencePanel;
-        this.inventoryManagerprofile = inventoryManagerprofile;
-//        this.brandCompany=brandCompany;
-        this.pod=pod;
+        this.cardSequencePanel = WorkArea;
+        this.inventoryManagerprofile = inventoryManagerProfile;
+       this.brandCompany=brandCompany;
+        //this.pod=pod;
         populateMaterialStatusCombo();
         selectedMaterialStatus = "all production orders";
         refreshTable();
@@ -168,7 +168,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
     private void btnAddAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAddressActionPerformed
         // TODO add your handling code here:
-        PurchaseMaterialsforProductionOrderJPanel mmpojp = new PurchaseMaterialsforProductionOrderJPanel(selectedProdutionOrder,cardSequencePanel);
+        PlaceMaterialOrderJPanel mmpojp = new PlaceMaterialOrderJPanel(selectedProdutionOrder,cardSequencePanel);
         cardSequencePanel.add("PurchaseMaterialsforProductionOrderJPanel", mmpojp);
         CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
         layout.next(cardSequencePanel);
@@ -220,7 +220,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         for (i = rc - 1; i >= 0; i--) {
             ((DefaultTableModel) tblMaterialInformation.getModel()).removeRow(i);
         }
-
+        ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
         if (selectedMaterialStatus.equals("all production orders")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
               Object[] row = new Object[8];

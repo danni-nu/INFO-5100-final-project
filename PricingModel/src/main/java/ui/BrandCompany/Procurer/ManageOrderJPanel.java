@@ -14,6 +14,7 @@ import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.Requirement;
 import model.Business.BrandEnterprise;
 import model.Business.Business;
+import model.Business.ProductionEnterprise;
 import model.Production.ProductionOrder;
 import model.Production.ProductionOrderDirectory;
 import model.Production.ProductionOrganization;
@@ -33,7 +34,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     ProcurerProfile procurerProfile;
     Business b;
     BrandEnterprise brandCompany;
-    
+    ProductionEnterprise selectedProductionEnterprise;
     
     public ManageOrderJPanel(Business b, ProcurerProfile procurer, JPanel workArea,BrandEnterprise brandCompany) {
         initComponents();
@@ -44,6 +45,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         populateRequirementTable();
         populateUnplacedOrderTable();
         populateOrderList();
+        populateProductionCompanyCombo();
     }
 
     /**
@@ -72,6 +74,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         lblOrderCost = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablOrderList = new javax.swing.JTable();
+        cmbProductionCompany = new javax.swing.JComboBox<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -105,7 +108,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 BbtnCreateNewOrderActionPerformed(evt);
             }
         });
-        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 160, 20));
+        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 160, 20));
 
         lblTitle.setText("Order Management");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 18, -1, -1));
@@ -181,6 +184,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tablOrderList);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 380, 150));
+
+        cmbProductionCompany.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbProductionCompanyActionPerformed(evt);
+            }
+        });
+        add(cmbProductionCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 380, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -204,6 +214,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         }
         OrderDirectory orderdirectory=brandCompany.getProcurementOrganization().getOrderDirectory();
         Order order=orderdirectory.addNewOrder(requirement, quantity);
+        selectedProductionEnterprise.getProductionOrderDirectory().getProductionOrderList().add(order.getProductOrder());
         //requirement.setOrderToAssignment(order);
         order.setOrderPrice(requirement.getDesignerProfile().getDefaultDesignPricing()+requirement.getProductionMode().getModePrice()+requirement.getRowMaterial().getPrice());
         JOptionPane.showMessageDialog(this, "Your order was successfully placed!", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -243,6 +254,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
           
     }//GEN-LAST:event_btnCheckUnplacedOrderActionPerformed
 
+    private void cmbProductionCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbProductionCompanyActionPerformed
+        // TODO add your handling code here:
+        if (cmbProductionCompany.getSelectedItem() == null) return;
+        selectedProductionEnterprise = (ProductionEnterprise) cmbProductionCompany.getSelectedItem();
+        
+    }//GEN-LAST:event_cmbProductionCompanyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BbtnCreateNewOrder;
@@ -251,6 +269,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCheckUnfinishedOrder;
     private javax.swing.JButton btnCheckUnplacedOrder;
     private javax.swing.JButton btnRequestCancelOrder;
+    private javax.swing.JComboBox<ProductionEnterprise> cmbProductionCompany;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -364,6 +383,15 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             model.addRow(row);
             }
             }   
+    }
+
+    private void populateProductionCompanyCombo() {
+        cmbProductionCompany.removeAllItems();
+        for (ProductionEnterprise productionEnterprise: b.getEnterpriseDirectory().getProductionEnterpriseList()){
+            
+            cmbProductionCompany.addItem(productionEnterprise);
+                
+        }   
     }
   
 }
