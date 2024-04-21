@@ -24,7 +24,7 @@ public class RawMaterialOrder {
     private String deliveryNumber;
     private String deliveryaddress;
     private static int count= 100;
-    String productionEnterpriseWarehouseAddress;
+    //String productionEnterpriseWarehouseAddress;
     
 
     public RawMaterialOrder(RawMaterial rawMaterial, String deliverStatus, int materialPrice, String deliveryDate, String deliveryNumber) {
@@ -104,13 +104,13 @@ public class RawMaterialOrder {
         this.deliveryNumber = deliveryNumber;
     }
 
-    public String getProductionEnterpriseWarehouseAddress() {
-        return productionEnterpriseWarehouseAddress;
-    }
+    //public String getProductionEnterpriseWarehouseAddress() {
+        //return productionEnterpriseWarehouseAddress;
+    //}
 
-    public void setProductionEnterpriseWarehouseAddress(String productionEnterpriseWarehouseAddress) {
-        this.productionEnterpriseWarehouseAddress = productionEnterpriseWarehouseAddress;
-    }
+    //public void setProductionEnterpriseWarehouseAddress(String productionEnterpriseWarehouseAddress) {
+        //this.productionEnterpriseWarehouseAddress = productionEnterpriseWarehouseAddress;
+    //}
 
     public String getRawMaterialOrderID() {
         return rawMaterialOrderID;
@@ -122,6 +122,14 @@ public class RawMaterialOrder {
 
     public static int getCount() {
         return count;
+    }
+    
+    public int getMaterialOrderPrice(){
+        return this.getOrder().getQuantity()*getMaterialPrice();
+    }
+
+    public void setDeliveryaddress(String deliveryaddress) {
+        this.deliveryaddress = deliveryaddress;
     }
     
     
