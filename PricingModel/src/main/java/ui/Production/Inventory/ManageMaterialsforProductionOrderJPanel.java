@@ -193,6 +193,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         }
         
         selectedProdutionOrder.setProductionOrderStatus("in producing");
+        JOptionPane.showMessageDialog(null, "Put into production line successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
         refreshTable();
     }//GEN-LAST:event_btnPutIntoProductionActionPerformed
 
