@@ -4,17 +4,31 @@
  */
 package ui.Admin;
 
+import javax.swing.JPanel;
+import model.Business.Business;
+import model.Personnel.AdminProfile;
+
 /**
  *
  * @author qiaohui
  */
 public class ManageEnterpriseJPanel extends javax.swing.JPanel {
+    
+    JPanel mainWorkArea;
+    Business business;
+    AdminProfile adminProfile;
 
     /**
      * Creates new form ManageAccountJPanel
      */
-    public ManageEnterpriseJPanel() {
+
+
+    ManageEnterpriseJPanel(Business business, JPanel mainWorkArea, AdminProfile adminProfile) {
+        this.mainWorkArea = mainWorkArea;
+        this.business = business;
+        this.adminProfile = adminProfile;
         initComponents();
+        
     }
 
     /**
@@ -61,8 +75,8 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                         .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmbEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(155, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -71,9 +85,9 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(39, 39, 39)
                 .addComponent(cmbEnterpriseType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -4,17 +4,32 @@
  */
 package ui.Admin;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+import model.Business.Business;
+import model.Personnel.AdminProfile;
+import ui.BrandCompany.Planner.RequirementManagementJPanel;
+
 /**
  *
  * @author qiaohui
  */
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
-
+    
+    JPanel mainWorkArea;
+    Business business;
+    AdminProfile adminProfile;
     /**
      * Creates new form AdminWorkAreaJPanel
      */
-    public AdminWorkAreaJPanel() {
+
+
+    public AdminWorkAreaJPanel(Business business, JPanel loginJPanel, AdminProfile adminProfile) {
+        this.mainWorkArea = loginJPanel;
+        this.business = business;
+        this.adminProfile = adminProfile;
         initComponents();
+        
     }
 
     /**
@@ -33,8 +48,18 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
 
         btnManageEnterprise.setText("Manage Enterprise");
+        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageEnterpriseActionPerformed(evt);
+            }
+        });
 
         btnManageAccount.setText("Manage Account");
+        btnManageAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageAccountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -85,6 +110,22 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             .addComponent(jSplitPane1)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
+        // TODO add your handling code here:
+        ManageEnterpriseJPanel aos = new ManageEnterpriseJPanel(business,mainWorkArea,adminProfile);
+        mainWorkArea.add("ManageEnterpriseJPanel", aos);
+        CardLayout layout =(CardLayout)mainWorkArea.getLayout();
+        layout.next(mainWorkArea); 
+    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
+
+    private void btnManageAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAccountActionPerformed
+        // TODO add your handling code here:  
+        ManageUserAccountJPanel aos = new ManageUserAccountJPanel(business,mainWorkArea,adminProfile);
+        mainWorkArea.add("ManageUserAccountJPanel", aos);
+        CardLayout layout =(CardLayout)mainWorkArea.getLayout();
+        layout.next(mainWorkArea); 
+    }//GEN-LAST:event_btnManageAccountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

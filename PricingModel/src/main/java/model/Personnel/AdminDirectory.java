@@ -25,7 +25,6 @@ public class AdminDirectory {
     }
 
     public AdminDirectory() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public AdminProfile newEmployeeProfile(Person p) {
@@ -45,5 +44,7 @@ public class AdminDirectory {
         }
             return null; //not found after going through the whole list
          }
+
+
     
 }
