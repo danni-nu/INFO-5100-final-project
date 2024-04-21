@@ -4,6 +4,7 @@
  */
 package ui.RawMaterialRole;
 
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.Business.Business;
@@ -199,6 +200,10 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
+        Component[] components = CardSequencePanel.getComponents();
+        Component component = components[components.length -1];
+        ManageMaterialOrderJPanel manageMaterialOrderJPanel = (ManageMaterialOrderJPanel)component;
+        manageMaterialOrderJPanel.populateTable();
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
