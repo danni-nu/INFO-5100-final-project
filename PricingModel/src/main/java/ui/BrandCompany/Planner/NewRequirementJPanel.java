@@ -93,7 +93,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblPicture = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         lblRawMaterial = new javax.swing.JLabel();
         lblModeCost = new javax.swing.JLabel();
         lblDesignFee = new javax.swing.JLabel();
@@ -144,7 +143,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 CreateRerquirementActionPerformed(evt);
             }
         });
-        add(CreateRerquirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 561, -1, -1));
+        add(CreateRerquirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, -1, 20));
 
         lblRawMaterialpCost.setText("Raw Material Cost:");
         add(lblRawMaterialpCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 171, 146, -1));
@@ -185,10 +184,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
         lblPicture.setText("Renderings");
         add(lblPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 461, 268, 37));
-
-        jLabel8.setText("Picture is Here:*******");
-        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 504, 176, 124));
 
         lblRawMaterial.setText("Raw Material");
         add(lblRawMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 171, -1, -1));
@@ -425,7 +420,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbRawMaterial;
     private javax.swing.JComboBox<String> cmbRawMaterialCompany;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDeadline;
     private javax.swing.JLabel lblDeadline2;

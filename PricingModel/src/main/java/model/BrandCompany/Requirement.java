@@ -48,7 +48,14 @@ public class Requirement {
 
     
     public String getRequirementstatus() {
-        return requirementstatus;
+        if (this.getRequirementAssignment()==null){
+            return "waiting Assignment";
+        }
+        if(this.getRequirementAssignment()!=null&&this.getRequirementAssignment().getRequirementSolution()==null){
+            return "waiting Designing";
+        }else{
+            return "Finished, waiting reviewing";
+        }
     }
 
     public ArrayList<Order> getRequirementOrderList() {
