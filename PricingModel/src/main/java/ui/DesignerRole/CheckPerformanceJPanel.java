@@ -75,17 +75,17 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         tblPerformance.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblPerformance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Status", "Feedback"
+                "Requirement ID", "Raw Material", "Production Mode", "Color", "Style", "Deadline", "Status", "Customer Rate", "Evaluation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true, true, true, true, true, true
+                true, false, true, true, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -149,7 +149,7 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
         
         for (Requirement r : requirementsOfDesigner) {
        
-            Object row[] = new Object[8];
+            Object row[] = new Object[9];
             row[0] = r;
             row[1] = r.getRowMaterial();
             row[2] = r.getProductionMode();
@@ -157,7 +157,8 @@ public class CheckPerformanceJPanel extends javax.swing.JPanel {
             row[4] = r.getStyle();
             row[5] = r.getDeadline();
             row[6] = hashMap2.get(r).getStatus();
-            row[7] = r.getRequirementFeedback();
+            row[7] = r.getRequirementAssignment().getRate();
+            row[8] = r.getRequirementAssignment().getEvaluation();
             model.addRow(row);
             
         }
