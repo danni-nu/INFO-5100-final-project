@@ -229,7 +229,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
               row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
               row[3] = productionOrder.getOrder().getQuantity();
               row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-              row[5] = productionOrder.getRawMaterialOrder().getProductionEnterpriseWarehouseAddress();
+              row[5] = productionOrder.getRawMaterialOrder().getDeliveryaddress();
               row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate(); 
               row[7]= productionOrder.getProductionOrderStatus();
               ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
