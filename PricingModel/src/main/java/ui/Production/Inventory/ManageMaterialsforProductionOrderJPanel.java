@@ -26,19 +26,20 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     Business business;
     InventoryManagerProfile inventoryManagerprofile;
     String selectedMaterialStatus;
-    BrandEnterprise brandCompany;
+//    BrandEnterprise brandCompany;
     ProductionOrderDirectory pod;
     ProductionOrder selectedProdutionOrder;
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
-    public ManageMaterialsforProductionOrderJPanel(JPanel cardSequencePanel, Business business,InventoryManagerProfile inventoryManagerprofile,BrandEnterprise brandCompany) {
+
+    public ManageMaterialsforProductionOrderJPanel(JPanel WorkArea, Business business, InventoryManagerProfile inventoryManagerProfile, ProductionOrderDirectory pod) {
         initComponents();
         this.business = business;
         this.cardSequencePanel = cardSequencePanel;
         this.inventoryManagerprofile = inventoryManagerprofile;
-        this.brandCompany=brandCompany;
-        this.pod=populatedAllBrandCompanyOrder();
+//        this.brandCompany=brandCompany;
+        this.pod=pod;
         populateMaterialStatusCombo();
         selectedMaterialStatus = "all production orders";
         refreshTable();
@@ -220,7 +221,6 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
             ((DefaultTableModel) tblMaterialInformation.getModel()).removeRow(i);
         }
 
-        //ProductionOrderDirectory pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
         if (selectedMaterialStatus.equals("all production orders")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
               Object[] row = new Object[8];
@@ -271,13 +271,13 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         }
     }
 
-    private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
-        pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
-        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
-           pod.addNewProductionOrder(order.getProductOrder());
-        }
-        return pod;
-    }
+//    private ProductionOrderDirectory populatedAllBrandCompanyOrder() {
+//        pod = inventoryManagerprofile.getInventoryOrganization().getProductionEnterprise().getProductionOrderDirectory();
+//        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+//           pod.addNewProductionOrder(order.getProductOrder());
+//        }
+//        return pod;
+//    }
     
    
 }

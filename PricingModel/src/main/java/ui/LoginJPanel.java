@@ -4,6 +4,7 @@ package ui;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import model.BrandCompany.Order;
 import model.BrandCompany.ProcurerProfile;
 import model.BrandCompany.PlannerProfile;
 import model.Business.BrandEnterprise;
@@ -15,7 +16,10 @@ import model.DesignEnterprise.DesignerProfile;
 import model.Personnel.Profile;
 import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
+import model.Production.ProductionOrderDirectory;
+import model.RawMaterialEnterprise.RawMaterialManageOrganization;
 import model.RawMaterialEnterprise.RawMaterialManager;
+import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
@@ -211,7 +215,9 @@ public class LoginJPanel extends javax.swing.JPanel {
             String s=(String)cmbCompany.getSelectedItem();
             ProductionEnterprise e = business.getEnterpriseDirectory().getProductionEnterprise(s);
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
-            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile,brandCompany);
+            ProductionOrderDirectory rawMaterialOrderDirectory = initialRelatedBrandCompanyOrder(e,brandCompany);
+            productioninventoryworkarea = new ProductionEnterpriseInventoryWorkAreaJPanel(business, loginJPanel,(InventoryManagerProfile)profile,rawMaterialOrderDirectory);
+            
            // loginJPanel.removeAll();
             loginJPanel.add("ProductionWorkAreaJPane", productioninventoryworkarea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
@@ -230,7 +236,6 @@ public class LoginJPanel extends javax.swing.JPanel {
 //            loginJPanel.removeAll();
             loginJPanel.add("Designer", designerWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
-
         }
        
         //RawMaterialManager to login 
@@ -241,7 +246,8 @@ public class LoginJPanel extends javax.swing.JPanel {
             System.out.println(s);
             RawMaterialManager rawMaterialManager = (RawMaterialManager) profile;
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
-            inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise,brandCompany);
+            RawMaterialOrderDirectory rawMaterialOrderDirectory = initialBrandCompanyOrder(rawMaterialEnterprise,brandCompany);
+            inventoryWorkArea = new InventoryWorkAreaJPanel(business, loginJPanel,rawMaterialManager,rawMaterialEnterprise,rawMaterialOrderDirectory);
 //            loginJPanel.removeAll();
             loginJPanel.add("RawMaterialManager", inventoryWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
@@ -331,5 +337,31 @@ public class LoginJPanel extends javax.swing.JPanel {
             cmbCompany.setVisible(true);
         }
          
+    }
+
+//    private RawMaterialOrderDirectory initialBrandCompanyOrder(RawMaterialEnterprise rawMaterialEnterprise, BrandEnterprise brandCompany) {
+//        RawMaterialManageOrganization rwo=rawMaterialEnterprise.getRawMaterialManageOrganization();
+//        RawMaterialOrderDirectory rawMaterialOrderDirectory=rwo.getRawMaterialOrderDirectory();
+//        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+//            rawMaterialOrderDirectory.addARelatedOrder(order);
+//        }
+//        return rawMaterialOrderDirectory;
+//    }
+
+    private RawMaterialOrderDirectory initialBrandCompanyOrder(RawMaterialEnterprise rawMaterialEnterprise, BrandEnterprise brandCompany) {
+        RawMaterialManageOrganization rwo=rawMaterialEnterprise.getRawMaterialManageOrganization();
+        RawMaterialOrderDirectory rawMaterialOrderDirectory=rwo.getRawMaterialOrderDirectory();
+        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+        rawMaterialOrderDirectory.addARelatedOrder(order);
+        }
+        return rawMaterialOrderDirectory;
+    }
+
+    private ProductionOrderDirectory initialRelatedBrandCompanyOrder(ProductionEnterprise e, BrandEnterprise brandCompany) {
+        ProductionOrderDirectory po=e.getProductionOrderDirectory();
+        for(Order order:brandCompany.getProcurementOrganization().getOrderDirectory().getOrderDirectory()){
+        po.addRelatedProductionOrder(order);
+        }
+        return po;
     }
 }
