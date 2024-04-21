@@ -89,9 +89,11 @@ public class ConfigureABusiness {
         DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
         ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
         RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
-    
+        
+        //admin to login
         AdminDirectory addirectory=business.getAdminDirectory();
         AdminProfile admin=addirectory.newEmployeeProfile(p1);
+        UserAccount us1=useAccountDirectory.newUserAccount(admin, "Admin1", "123");
         
         ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);
@@ -111,7 +113,7 @@ public class ConfigureABusiness {
         //add RawMaterial Manager account
         rawMaterialEnterprise.getRawMaterialManageOrganization().addRawMaterialManager(p20);//Fiona
         RawMaterialManager rawMaterialManager= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
-        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"RawMM","123");//login password
+        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"Raw1","123");//login password
         
         StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
         Style style1=styleDirectory.addANewStyle("Modern");

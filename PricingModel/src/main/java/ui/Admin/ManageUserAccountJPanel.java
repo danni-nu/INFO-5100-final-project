@@ -4,9 +4,11 @@
  */
 package ui.Admin;
 
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Requirement;
 import model.Business.Business;
+import model.Personnel.AdminProfile;
 import model.UserAccountManagement.UserAccount;
 
 /**
@@ -18,8 +20,16 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageUserAccountJPanel
      */
+    JPanel mainWorkArea;
     Business business;
-    public ManageUserAccountJPanel(Business business) {
+    AdminProfile adminProfile;
+    
+    
+    
+    public ManageUserAccountJPanel(Business business, JPanel mainWorkArea, AdminProfile adminProfile) {
+        this.mainWorkArea = mainWorkArea;
+        this.business = business;
+        this.adminProfile = adminProfile;
         initComponents();
         populatePersonDirectoryTable();
         //populateAccountDirectoryTable();
@@ -55,6 +65,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblAccountTable);
 
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         jLabel1.setText("Manage Account");
 
         jButton1.setText("Add Account");
@@ -70,7 +81,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
@@ -78,26 +88,26 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                         .addComponent(jButton3))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(287, 287, 287)
+                            .addGap(316, 316, 316)
                             .addComponent(jLabel1))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(96, 96, 96)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(115, Short.MAX_VALUE))
+                            .addGap(56, 56, 56)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(60, 60, 60)
                 .addComponent(jLabel1)
-                .addGap(74, 74, 74)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3))
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addContainerGap(332, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
