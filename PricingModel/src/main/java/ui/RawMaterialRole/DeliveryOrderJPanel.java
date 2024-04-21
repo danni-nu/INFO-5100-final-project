@@ -219,6 +219,8 @@ public class DeliveryOrderJPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(null, "Added Delivery Details Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
         
+        
+        
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed

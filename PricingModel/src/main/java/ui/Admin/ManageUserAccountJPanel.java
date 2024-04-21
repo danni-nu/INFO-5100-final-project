@@ -179,7 +179,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblAccountTable;
     // End of variables declaration//GEN-END:variables
 
-    private void populatePersonDirectoryTable() {
+    public void populatePersonDirectoryTable() {
         DefaultTableModel model=(DefaultTableModel)tblAccountTable.getModel();
         model.setRowCount(0);
         for(UserAccount account:business.getUserAccountDirectory().getUseraccountlist()){
