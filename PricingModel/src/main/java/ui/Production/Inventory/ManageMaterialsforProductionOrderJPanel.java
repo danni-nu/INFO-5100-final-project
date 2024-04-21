@@ -6,6 +6,7 @@ package ui.Production.Inventory;
 
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import model.BrandCompany.Order;
@@ -28,7 +29,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     String selectedMaterialStatus;
     BrandEnterprise brandCompany;
     //ProductionOrderDirectory pod;
-    ProductionOrder selectedProdutionOrder;
+    ProductionOrder selectedProdutionOrder = null;
     /**
      * Creates new form ManageMaterialOrderJPanel
      */
@@ -58,7 +59,6 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         tblMaterialInformation = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         cmbMaterialStatus = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
         btnAddAddress = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnPutIntoProduction = new javax.swing.JButton();
@@ -71,14 +71,9 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Material", "Material Price", "Quantity", "Material Status", "Address", "Delivered Time", "Production Status"
+                "Order ID", "Material", "Material Price", "Quantity", "Material Status", "Warehouse Address", "Delivered Time", "Production Status"
             }
         ));
-        tblMaterialInformation.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                tblMaterialInformationMousePressed(evt);
-            }
-        });
         jScrollPane2.setViewportView(tblMaterialInformation);
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
@@ -90,9 +85,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
             }
         });
 
-        jLabel2.setText("Material State: Material Order Not Placed/Material Order in Production/Material Order Delivered(when material delivered, the production order will automatically start producing)");
-
-        btnAddAddress.setText("Add WareHouse Address");
+        btnAddAddress.setText("Place Material Order for Production");
         btnAddAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddAddressActionPerformed(evt);
@@ -120,23 +113,19 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                         .addComponent(cmbMaterialStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnAddAddress))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnPutIntoProduction))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(210, 210, 210)
-                        .addComponent(jLabel1)))
-                .addContainerGap(156, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnPutIntoProduction, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddAddress, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(377, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +134,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmbMaterialStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(45, 45, 45)
+                .addGap(68, 68, 68)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -168,6 +155,18 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
     private void btnAddAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAddressActionPerformed
         // TODO add your handling code here:
+        //if (selectedProdutionOrder == null) {
+            //JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        //} 
+        int size = tblMaterialInformation.getRowCount();
+        int selectedrow = tblMaterialInformation.getSelectionModel().getLeadSelectionIndex();
+
+        if (selectedrow < 0 || selectedrow > size - 1) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        selectedProdutionOrder = ((ProductionOrder) tblMaterialInformation.getValueAt(selectedrow, 0));
+
         PlaceMaterialOrderJPanel mmpojp = new PlaceMaterialOrderJPanel(selectedProdutionOrder,cardSequencePanel);
         cardSequencePanel.add("PurchaseMaterialsforProductionOrderJPanel", mmpojp);
         CardLayout layout = (CardLayout) cardSequencePanel.getLayout();
@@ -176,23 +175,26 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
 
     private void btnPutIntoProductionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPutIntoProductionActionPerformed
         // TODO add your handling code here:
-       selectedProdutionOrder.setProductionOrderStatus("in producing");
-        refreshTable();
-    }//GEN-LAST:event_btnPutIntoProductionActionPerformed
-
-    private void tblMaterialInformationMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMaterialInformationMousePressed
-        // TODO add your handling code here:
+       //if (selectedProdutionOrder == null) {
+            //JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        //} 
         int size = tblMaterialInformation.getRowCount();
         int selectedrow = tblMaterialInformation.getSelectionModel().getLeadSelectionIndex();
 
         if (selectedrow < 0 || selectedrow > size - 1) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         selectedProdutionOrder = ((ProductionOrder) tblMaterialInformation.getValueAt(selectedrow, 0));
-        if (selectedProdutionOrder == null) {
+        if(!selectedProdutionOrder.getRawMaterialOrder().getDeliverStatus().equals("Delivered"))
+        {
+            JOptionPane.showMessageDialog(null, "No Material for Production!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-    }//GEN-LAST:event_tblMaterialInformationMousePressed
+        
+        selectedProdutionOrder.setProductionOrderStatus("in producing");
+        refreshTable();
+    }//GEN-LAST:event_btnPutIntoProductionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -200,7 +202,6 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     private javax.swing.JButton btnPutIntoProduction;
     private javax.swing.JComboBox<String> cmbMaterialStatus;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblMaterialInformation;
@@ -209,12 +210,13 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
     private void populateMaterialStatusCombo() {
         cmbMaterialStatus.removeAllItems();
         cmbMaterialStatus.addItem("all production orders");
+         cmbMaterialStatus.addItem("material order not placed");
         cmbMaterialStatus.addItem("material not arrived");
         cmbMaterialStatus.addItem("material arrived");
         
     }
 
-    private void refreshTable() {
+    public void refreshTable() {
         int rc = tblMaterialInformation.getRowCount();
         int i;
         for (i = rc - 1; i >= 0; i--) {
@@ -236,9 +238,26 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
             }
         }
         
+         if(selectedMaterialStatus.equals("material order not placed")){
+            for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
+                if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Material Order Unplaced")){
+                    Object[] row = new Object[8];
+                    row[0] = productionOrder;
+                    row[1] = productionOrder.getOrder().getRawMaterial();
+                    row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
+                    row[3] = productionOrder.getOrder().getQuantity();
+                    row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();
+                    row[7]= productionOrder.getProductionOrderStatus();
+                    ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
+            }
+            }  
+        }
+        
         if(selectedMaterialStatus.equals("material not arrived")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
-                if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
+                if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not Delivered")){
                     Object[] row = new Object[8];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getOrder().getRawMaterial();
@@ -255,7 +274,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         
         if(selectedMaterialStatus.equals("material arrived")){
             for (ProductionOrder productionOrder : pod.getProductionOrderList()) {
-                if(!productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Not delivered")){
+                if(productionOrder.getRawMaterialOrder().getDeliverStatus().equals("Delivered")){
                     Object[] row = new Object[8];
                     row[0] = productionOrder;
                     row[1] = productionOrder.getOrder().getRawMaterial();

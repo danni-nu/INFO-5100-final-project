@@ -17,7 +17,7 @@ public class RawMaterialOrder {
     private Order order;
     //private ProductionOrder productionOrder;
     private RawMaterial rawMaterial;
-    private String deliverStatus="unplaced order"; //Material Order Not Placed/Material Order in Production/Material Order Delivered
+    private String deliverStatus="Material Order Unplaced"; //Material Order Not Placed/Material Order in Production/Material Order Delivered
     private boolean status=false;
     private int materialPrice;
     private String deliveryDate;
@@ -35,14 +35,14 @@ public class RawMaterialOrder {
         this.deliveryDate = "N/A";
         this.deliveryNumber = "N/A";
         this.deliveryaddress = "N/A";
-        this.deliverStatus="Not delivered";
+        this.deliverStatus="Material Order Unplaced";
     }
     
      public RawMaterialOrder(Order o) {
         count++;
         this.rawMaterialOrderID=String.valueOf(count);
         this.order=o;
-        this.deliverStatus = "Order Unplaced";
+        this.deliverStatus = "Material Order Unplaced";
         this.deliveryDate ="N/A";
         this.deliveryNumber = "N/A";
         this.deliveryaddress = "N/A";
