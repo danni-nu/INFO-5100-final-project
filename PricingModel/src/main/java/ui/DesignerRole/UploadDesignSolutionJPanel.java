@@ -4,6 +4,7 @@
  */
 package ui.DesignerRole;
 
+import java.awt.Component;
 import java.awt.Image;
 import java.io.File;
 import java.net.MalformedURLException;
@@ -247,6 +248,11 @@ public class UploadDesignSolutionJPanel extends javax.swing.JPanel {
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
         CardSequencePanel.remove(this);
+        Component[] components = CardSequencePanel.getComponents();
+        Component component = components[components.length -1];
+        ManageRequirementsTaskJPanel manageRequirementsTaskJPanel = (ManageRequirementsTaskJPanel)component;
+        manageRequirementsTaskJPanel.populateCartTable();
+        manageRequirementsTaskJPanel.populateRequirmentTable();
         ((java.awt.CardLayout) CardSequencePanel.getLayout()).previous(CardSequencePanel);
     }//GEN-LAST:event_BackActionPerformed
 
