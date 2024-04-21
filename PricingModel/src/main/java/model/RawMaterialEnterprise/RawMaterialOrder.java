@@ -46,6 +46,8 @@ public class RawMaterialOrder {
         this.deliveryDate ="N/A";
         this.deliveryNumber = "N/A";
         this.deliveryaddress = "N/A";
+        this.rawMaterial = o.getRawMaterial();
+        this.materialPrice = o.getOrderPrice();
     }
 
     public Order getOrder() {
