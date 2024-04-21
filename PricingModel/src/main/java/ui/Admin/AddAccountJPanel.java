@@ -6,6 +6,7 @@ package ui.Admin;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +27,8 @@ import model.Personnel.AdminDirectory;
 import model.Personnel.AdminProfile;
 import model.Personnel.Person;
 import model.Personnel.PersonDirectory;
+import model.Production.InventoryManagerProfile;
+import model.Production.InventoryOrganization;
 import model.Production.ProductionManagerProfile;
 import model.Production.ProductionOrganization;
 import model.RawMaterialEnterprise.RawMaterialManager;
@@ -120,7 +123,7 @@ public class AddAccountJPanel extends javax.swing.JPanel {
 
         lblName3.setText("Account Type:");
 
-        cmbaccounttp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Procurer", "Planner", "Designer", "Raw Material Manager", " ", " " }));
+        cmbaccounttp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Procurer", "Planner", "Designer", "Raw Material Manager", "Inventory Manager", "Production Manager", " ", " " }));
         cmbaccounttp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbaccounttpActionPerformed(evt);
@@ -225,7 +228,10 @@ public class AddAccountJPanel extends javax.swing.JPanel {
         PersonDirectory personDirectory=business.getPersonDirectory();
         UserAccountDirectory useAccountDirectory=business.getUserAccountDirectory();
         Person p = personDirectory.newPerson(profname);
-        
+        String[] names = {"Kendall", "Kylie", "Kim", "Kris", "Khourteny"};
+        Random r = new Random();
+        String name = names[r.nextInt(names.length)];
+        Person p2 = personDirectory.newPerson(name);
         String type = (String) cmbaccounttp.getSelectedItem();
                
         EnterpriseDirectory enterpriseDirectory =business.getEnterpriseDirectory();
@@ -262,13 +268,18 @@ public class AddAccountJPanel extends javax.swing.JPanel {
                 RawMaterialManager profile4= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
                 UserAccount us4=useAccountDirectory.newUserAccount(profile4, uername, password,companyName);                  
                 break;
-//            case "Production Manager":
-//                ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
-//                ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
-//                ProductionManagerProfile pmp = productionOrganization.getProductionManagerProfile();
-//             break;
-//            case "Inventory Manager":
-//              break;
+            case "Production Manager":
+                ProductionEnterprise productionEnterprise1= enterpriseDirectory.addProductionEnterprise(companyName, p2, p);
+                ProductionOrganization productionOrganization = productionEnterprise1.getProductionOrganization();
+                ProductionManagerProfile pmp = productionOrganization.getProductionManagerProfile();
+                UserAccount us5=useAccountDirectory.newUserAccount(pmp, uername, password,companyName); 
+                break;
+            case "Inventory Manager":
+                ProductionEnterprise productionEnterprise2=enterpriseDirectory.addProductionEnterprise(companyName, p,p2);
+                InventoryOrganization inventoryOrganization = productionEnterprise2.getInventoryOrganization();
+                InventoryManagerProfile imp = inventoryOrganization.getInventoryManagerProfile();
+                UserAccount us6=useAccountDirectory.newUserAccount(imp, uername, password,companyName);
+                break;
             default:
                 break;
         }
