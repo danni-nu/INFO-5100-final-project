@@ -60,6 +60,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblorder = new javax.swing.JTable();
         addButton = new javax.swing.JButton();
+        addButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(236, 244, 251));
 
@@ -86,7 +87,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Material Order ID", "Marerial Order Name", "Price", "Marerial Order Status", "Delivery Date", "Delivery Number"
+                "Material Order ID", "Related Order Name", "Price", "Marerial Order Status", "Delivery Date", "Delivery Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -106,6 +107,13 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        addButton1.setText("Check the Delivery Status");
+        addButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,7 +129,9 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                                 .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 691, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(addButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51))))
             .addGroup(layout.createSequentialGroup()
@@ -143,7 +153,9 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addButton)
+                    .addComponent(addButton1))
                 .addContainerGap(143, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -171,10 +183,17 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         layout.next(CardSequencePanel);
     }//GEN-LAST:event_addButtonActionPerformed
 
+    private void addButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButton1ActionPerformed
+        // TODO add your handling code here:
+        populateTable();
+        
+    }//GEN-LAST:event_addButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton addButton;
+    private javax.swing.JButton addButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -189,7 +208,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         for (RawMaterialOrder roMaterialOrder : rawMaterialOrderDirectory.getRawMaterialOrderDirectory()) {
             Object row[] = new Object[6];
             row[0] = roMaterialOrder;
-            row[1] = roMaterialOrder.getRawMaterial();
+            row[1] = roMaterialOrder.getOrder();
             row[2] = roMaterialOrder.getMaterialPrice();
             row[3] = roMaterialOrder.getDeliverStatus();
             row[4] = roMaterialOrder.getDeliveryNumber();
