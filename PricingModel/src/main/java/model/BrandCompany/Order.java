@@ -35,7 +35,7 @@ public class Order {
         count++;
         this.orederID=String.valueOf(count);
         this.requirement=requirement;
-        requirement.addOrderToRequirement(this);
+        requirement.setOrderToAssignment(this);
         this.Orderstatus = "false";
         this.status=false;
         this.rawMaterial=requirement.getRowMaterial();

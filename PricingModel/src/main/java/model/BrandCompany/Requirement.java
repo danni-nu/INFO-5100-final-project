@@ -27,10 +27,7 @@ public class Requirement {
     private Color color;
     private Style style;
     private String deadline;
-    private String evaluation;
-    // //designing, waitng review, waiting approcal
     private String requirementstatus;
-    private String status;//initial not designened
     private static int count=0;
     private String requirementFeedback;//feedback of requirment
     ArrayList<Order> requirementOrderList;
@@ -46,7 +43,6 @@ public class Requirement {
         this.style=style;
         this.color=c;
         this.requirementOrderList=new ArrayList<>();
-        this.status = "Not designed";
         this.requirementFeedback = "No feed back yet";
     }
 
@@ -66,16 +62,7 @@ public class Requirement {
     public void setRequirementstatus(String requirementstatus) {
         this.requirementstatus = requirementstatus;
     }
-
-    public String isStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    
+   
     public RequirementAssignment getRequirementAssignment() {
         return requirementAssignment;
     }
@@ -140,14 +127,6 @@ public class Requirement {
     public void setDeadline(String deadline) {
         this.deadline = deadline;
     }
-
-    public String getEvaluation() {
-        return evaluation;
-    }
-
-    public void setEvaluation(String evaluation) {
-        this.evaluation = evaluation;
-    }
     
     @Override
     public String toString(){
@@ -171,9 +150,6 @@ public class Requirement {
     }
     
     public void setOrderToAssignment(Order order){
-        requirementOrderList.add(order);
-    }
-    public void addOrderToRequirement(Order order){     
         requirementOrderList.add(order);
     }
 
