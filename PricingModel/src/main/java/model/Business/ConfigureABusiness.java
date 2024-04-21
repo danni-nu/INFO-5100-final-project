@@ -89,29 +89,31 @@ public class ConfigureABusiness {
         DesignEnterprise designEnterprise= enterpriseDirectory.addDesignEnterprise("DesignCompany1");
         ProductionEnterprise productionEnterprise= enterpriseDirectory.addProductionEnterprise("Production Company1", p22, p21);
         RawMaterialEnterprise rawMaterialEnterprise=enterpriseDirectory.addRawMaterialEnterprise("Raw Material Company1");
-    
+        
+        //admin to login
         AdminDirectory addirectory=business.getAdminDirectory();
         AdminProfile admin=addirectory.newEmployeeProfile(p1);
+        UserAccount us1=useAccountDirectory.newUserAccount(admin, "Admin1", "123","AdminGroup");
         
         ProcurerDirectory prurerDirectory=brandEnterprise.getProcurementOrganization().getProcurerDirectory();
         ProcurerProfile pricurerProfile=prurerDirectory.newProcurerProfile(p2);
-        UserAccount us2=useAccountDirectory.newUserAccount(pricurerProfile, "Procurer1", "123");
+        UserAccount us2=useAccountDirectory.newUserAccount(pricurerProfile, "Procurer1", "123","Brand Company1");
         
         ProductPlannerDirectory plannerDirectory=brandEnterprise.getProductPlanningOrganization().getPlannerDirectory();
         PlannerProfile planner1=plannerDirectory.addNewPlanner(p3);
-        UserAccount us3=useAccountDirectory.newUserAccount(planner1, "Planner1", "123");
+        UserAccount us3=useAccountDirectory.newUserAccount(planner1, "Planner1", "123","Brand Company1");
 
         //add designer account
         DesignerDirectory designerDirectory = designEnterprise.getDesignOrganization().getDesignerDirectory();
         DesignerProfile designer1=designerDirectory.addANewDesignerProfile(p7, 100);//primary designer-Gaurav 100$/requirment
         DesignerProfile designer2=designerDirectory.addANewDesignerProfile(p8, 200);//advanced designer-Hemant 200$/requirment
-        UserAccount us4=useAccountDirectory.newUserAccount(designer1,"Designer1","123");//login password
-        UserAccount us5=useAccountDirectory.newUserAccount(designer2,"Designer2","123");//login password
+        UserAccount us4=useAccountDirectory.newUserAccount(designer1,"Designer1","123","DesignCompany1");//login password
+        UserAccount us5=useAccountDirectory.newUserAccount(designer2,"Designer2","123","DesignCompany1");//login password
         
         //add RawMaterial Manager account
         rawMaterialEnterprise.getRawMaterialManageOrganization().addRawMaterialManager(p20);//Fiona
         RawMaterialManager rawMaterialManager= rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialManager();
-        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"RawMM","123");//login password
+        UserAccount us6=useAccountDirectory.newUserAccount(rawMaterialManager,"Raw1","123","Raw Material Company1");//login password
         
         StyleDirectory styleDirectory =designEnterprise.getStyleDirectory();
         Style style1=styleDirectory.addANewStyle("Modern");
@@ -248,8 +250,8 @@ public class ConfigureABusiness {
 //        ProductionOrder productionOrder2 =productionOrderDirectory.addNewProductionOrder(order3.getProductOrder());
 //        ProductionOrder productionOrder1 =productionOrderDirectory.addNewProductionOrder(order4.getProductOrder());
         
-        UserAccount pmpua = useAccountDirectory.newUserAccount(pmp, "productionmanager1", "123");
-        UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "123");
+        UserAccount pmpua = useAccountDirectory.newUserAccount(pmp, "productionmanager1", "123","Production Company1");
+        UserAccount impua = useAccountDirectory.newUserAccount(imp, "inventorymanager1", "123","Production Company1");
          
     return business;
   }

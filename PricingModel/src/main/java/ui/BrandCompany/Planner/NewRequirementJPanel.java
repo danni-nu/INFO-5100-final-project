@@ -5,6 +5,7 @@
 package ui.BrandCompany.Planner;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import model.BrandCompany.PlannerProfile;
@@ -92,7 +93,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblPicture = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         lblRawMaterial = new javax.swing.JLabel();
         lblModeCost = new javax.swing.JLabel();
         lblDesignFee = new javax.swing.JLabel();
@@ -143,7 +143,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
                 CreateRerquirementActionPerformed(evt);
             }
         });
-        add(CreateRerquirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 561, -1, -1));
+        add(CreateRerquirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 500, -1, 20));
 
         lblRawMaterialpCost.setText("Raw Material Cost:");
         add(lblRawMaterialpCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 171, 146, -1));
@@ -184,10 +184,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
         lblPicture.setText("Renderings");
         add(lblPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 461, 268, 37));
-
-        jLabel8.setText("Picture is Here:*******");
-        jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 504, 176, 124));
 
         lblRawMaterial.setText("Raw Material");
         add(lblRawMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 171, -1, -1));
@@ -351,11 +347,14 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void CreateRerquirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateRerquirementActionPerformed
         // TODO add your handling code here:
+        if(txtDeadLine.getText()==null){
+            JOptionPane.showMessageDialog(this, "Please input dealline.It's very important for you to be satisfied", "Information", JOptionPane.INFORMATION_MESSAGE);
+        }
         RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
         Requirement requirement=requirementsdirectory.addANewRrequirement(selectedRawmaterial, selectedDesigner, selectdProductionmode, plannerProfile, selectedStyle,selectedColor);
         requirement.setDeadline(txtDeadLine.getText());
         txtRequirementID.setText(requirement.getRequirementID());
-       JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_CreateRerquirementActionPerformed
 
     private void cmbRawMaterialCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRawMaterialCompanyActionPerformed
@@ -393,6 +392,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        backAction();
         plannerWorkArea.remove(this);
         CardLayout layout = (CardLayout) plannerWorkArea.getLayout();
         layout.previous(plannerWorkArea);
@@ -420,7 +420,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cmbRawMaterial;
     private javax.swing.JComboBox<String> cmbRawMaterialCompany;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblColor;
     private javax.swing.JLabel lblDeadline;
     private javax.swing.JLabel lblDeadline2;
@@ -449,9 +448,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         for(RawMaterialEnterprise enterprise:business.getEnterpriseDirectory().getRawMaterialEnterpriseList()){
             cmbRawMaterialCompany.addItem(enterprise.toString());
         }
-//        for(Enterprise enterprise:business.getEnterpriseDirectory().findRawMaterialEnterpriseList()){
-//            cmbRawMaterialCompany.addItem(enterprise);
-//        }
     }
 
     private void populateProductionCompanyCombo() {
@@ -459,9 +455,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         for(ProductionEnterprise enterprise:business.getEnterpriseDirectory().getProductionEnterpriseList()){
             cmbProductionCompany.addItem(enterprise.toString());
         }  
-//        for(Enterprise enterprise:business.getEnterpriseDirectory().findProductionEnterpriseList()){
-//            cmbProductionCompany.addItem(enterprise);
-//        }
     }
 
     private void populateDesignCompanyCombo() {
@@ -474,9 +467,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     
     private void populateDesignStyleCombo() {
         cmbDesignStyle.removeAllItems();
-        //DesignEnterprise selectedRawMaterialEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
-//        String s=(String)cmbDesignCompany.getSelectedItem();
-//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
         for(Style style:selectedDesignEnterprise.getStyleDirectory().getStyleDirectory()){
             cmbDesignStyle.addItem(style.toString());
         }    
@@ -484,7 +474,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void populateRawMaterialCombp() {
         cmbRawMaterial.removeAllItems();
-        //RawMaterialEnterprise selectedRawMaterialEnterprise=(RawMaterialEnterprise)cmbRawMaterialCompany.getSelectedItem();
         for(RawMaterial rawmaterial:selectedRawMaterialEnterprise.getRawMaterialDirectory().getRawMaterialDirectory()){
             cmbRawMaterial.addItem(rawmaterial.toString());
         }
@@ -492,9 +481,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void populateProductionModeCombo() {
         cmbProductionMode.removeAllItems();
-//        String s=(String)cmbProductionCompany.getSelectedItem();
-//        ProductionEnterprise selectedEnterprise=business.getEnterpriseDirectory().getProductionEnterprise(s);
-        //ProductionEnterprise productionenterprise=(ProductionEnterprise)cmbProductionCompany.getSelectedItem();
         for(ProductionMode productionmode:selectdProductionEnterprise.getProductionOrganization().getProductionModeDirectory().getProductionModeList()){
             cmbProductionMode.addItem(productionmode.toString());
         }
@@ -502,8 +488,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void populateDesginerCombp() {
         cmbDesigner.removeAllItems();
-//        String s=(String)cmbDesignCompany.getSelectedItem();
-//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
         for(DesignerProfile designer: selectedDesignEnterprise.getDesignOrganization().getDesignerDirectory().getDesignerProfileList()){
             cmbDesigner.addItem(designer.toString());
         }
@@ -511,15 +495,19 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
 
     private void populateDesignColorCombo() {
         cmbColor.removeAllItems();
-        //DesignEnterprise selectedRawMaterialEnterprise=(DesignEnterprise)cmbDesignCompany.getSelectedItem();
-//        String s=(String)cmbDesignCompany.getSelectedItem();
-//        DesignEnterprise selectedEnterprise=business.getEnterpriseDirectory().getDesignEnterprise(s);
         for(Color color:selectedDesignEnterprise.getColorDirectory().getCorlorlist()){
             cmbColor.addItem(color.toString());
         } 
     }
-    
-    
-    
-    
+
+    private void backAction() {
+        plannerWorkArea.remove(this);
+        Component[] componentArray = plannerWorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        RequirementManagementJPanel manageSuppliersJPanel =(RequirementManagementJPanel) component;
+        manageSuppliersJPanel.populateRequirementTable();
+        CardLayout layout =(CardLayout) plannerWorkArea.getLayout();
+        layout.previous( plannerWorkArea);
+    }
+ 
 }

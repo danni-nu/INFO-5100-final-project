@@ -16,13 +16,11 @@ public class RequirementAssignment {
     private DesignerProfile designerProfile;
     private Requirement requirement;
     private String status;//inistial Assigned not designed
-//    private DesignerAssignmentRoad DesignerAssignmentRoad;
     private RequirementSolution requirementSolution; //each designerProfile have one
-    //+Deadline: string 
-    //+Evaluation:String 
+    private int rate;
+    private String evaluation;
 
 
-    
     public RequirementAssignment(DesignerProfile dp, Requirement r) {
         requirement = r;
         designerProfile = dp;
@@ -59,5 +57,20 @@ public class RequirementAssignment {
         return status;
     }
     
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
+    }
+
+    public String getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(String evaluation) {
+        this.evaluation = evaluation;
+    }
     
 }

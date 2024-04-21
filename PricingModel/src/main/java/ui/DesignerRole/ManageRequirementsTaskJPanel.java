@@ -80,7 +80,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         AddSolutionjButton = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblSchedule = new javax.swing.JTable();
-        removejButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(236, 244, 251));
 
@@ -166,13 +165,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(tblSchedule);
 
-        removejButton1.setText("Get the New Staus");
-        removejButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removejButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -186,15 +178,12 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(removejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(AddSolutionjButton, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(removejButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -218,11 +207,9 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddjButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(removejButton1))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -260,6 +247,8 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         
         //remove Requirement from Desginer
         requirementAssignmentDirectory.removeRequirementFromDesigner(designerProfile, re);
+        JOptionPane.showMessageDialog(null, "Remove Requirement form schedule Successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);                    
+
 
 
         populateRequirmentTable();
@@ -345,11 +334,6 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_AddSolutionjButtonActionPerformed
 
-    private void removejButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButton1ActionPerformed
-        // TODO add your handling code here:
-        populateRequirmentTable();
-    }//GEN-LAST:event_removejButton1ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddSolutionjButton;
@@ -362,12 +346,11 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton removejButton;
-    private javax.swing.JButton removejButton1;
     private javax.swing.JTable tblSchedule;
     private javax.swing.JTable tbltask;
     // End of variables declaration//GEN-END:variables
 
-    private void populateCartTable() {
+    public void populateCartTable() {
         DefaultTableModel model = (DefaultTableModel) tbltask.getModel();
         model.setRowCount(0);
         HashMap<Requirement, RequirementAssignment>  hashMap = RequirementAssignmentDirectory.getRequirementToRequirementAssignment();
@@ -393,7 +376,7 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     }
     
     //designer own 
-    private void populateRequirmentTable() {
+    public void populateRequirmentTable() {
         DefaultTableModel model = (DefaultTableModel) tblSchedule.getModel();
         model.setRowCount(0);    
         //get the designerToRequirement HashMap

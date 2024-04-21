@@ -13,6 +13,7 @@ import model.Business.DesignEnterprise;
 import model.Business.ProductionEnterprise;
 import model.Business.RawMaterialEnterprise;
 import model.DesignEnterprise.DesignerProfile;
+import model.Personnel.AdminProfile;
 import model.Personnel.Profile;
 import model.Production.InventoryManagerProfile;
 import model.Production.ProductionManagerProfile;
@@ -22,6 +23,7 @@ import model.RawMaterialEnterprise.RawMaterialManager;
 import model.RawMaterialEnterprise.RawMaterialOrderDirectory;
 import model.UserAccountManagement.UserAccount;
 import model.UserAccountManagement.UserAccountDirectory;
+import ui.Admin.AdminWorkAreaJPanel;
 import ui.BrandCompany.Procurer.ProcurerWorkAreaJPanel;
 import ui.BrandCompany.Planner.PlannerWorkAreaJPanel;
 import ui.DesignerRole.DesignerWorkAreaJPanel;
@@ -160,7 +162,8 @@ public class LoginJPanel extends javax.swing.JPanel {
         UserAccountDirectory uad = business.getUserAccountDirectory();
         UserAccount useraccount = uad.AuthenticateUser(un, pw);
         if (useraccount == null) {
-            JOptionPane.showMessageDialog(this, "Please input your account");//return
+            JOptionPane.showMessageDialog(this, "Please input your account");
+            return;
         }
 //        ProcurerWorkAreaJPanel procurerWorkAreajpanel;
 //        PlannerWorkAreaJPanel PlannerWorkAreaJpanel;
@@ -242,8 +245,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         if (profile instanceof RawMaterialManager) {
             String s=(String)cmbCompany.getSelectedItem();
             RawMaterialEnterprise rawMaterialEnterprise = business.getEnterpriseDirectory().getRawMaterialEnterprise(s);
-            System.out.println(rawMaterialEnterprise);
-            System.out.println(s);
+
             RawMaterialManager rawMaterialManager = (RawMaterialManager) profile;
             BrandEnterprise brandCompany = business.getEnterpriseDirectory().getBrandCompany("Brand Company1");
             RawMaterialOrderDirectory rawMaterialOrderDirectory = initialBrandCompanyOrder(rawMaterialEnterprise,brandCompany);
@@ -252,7 +254,19 @@ public class LoginJPanel extends javax.swing.JPanel {
             loginJPanel.add("RawMaterialManager", inventoryWorkArea);
             ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
 
-        }        
+        }  
+        
+        
+        //admin to login
+        if(profile instanceof AdminProfile){
+            String s=(String)cmbCompany.getSelectedItem();
+            AdminProfile adminProfile = (AdminProfile)profile;
+            AdminWorkAreaJPanel adminWorkAreaJPanel = new AdminWorkAreaJPanel(business,loginJPanel,adminProfile);
+            loginJPanel.add("Admin", adminWorkAreaJPanel);
+            ((java.awt.CardLayout) loginJPanel.getLayout()).next(loginJPanel);
+        }
+        
+        
 
 
     }//GEN-LAST:event_btnLoginActionPerformed

@@ -15,10 +15,12 @@ public class UserAccount {
     Profile profile;
     String username;
     String password;
+    String companyName;
     
-    public UserAccount (Profile profile, String un, String pw){
+    public UserAccount (Profile profile, String un, String pw,String companyName){
          username = un;
          password = pw;
+         this.companyName = companyName;
          this.profile = profile;
     }
 
@@ -48,5 +50,45 @@ public class UserAccount {
     public Profile getAssociatedPersonProfile(){
         return profile;
     }    
+
+    @Override
+    public String toString() {
+        return this.username;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+    
+    
+    
         
 }
