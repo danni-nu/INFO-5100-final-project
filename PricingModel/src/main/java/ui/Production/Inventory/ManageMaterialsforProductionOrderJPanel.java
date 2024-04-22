@@ -71,7 +71,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Material", "Material Price", "Quantity", "Material Status", "Warehouse Address", "Delivered Time", "Production Status"
+                "Production Order ID", "Material", "Material Price", "Quantity", "Material Status", "Warehouse Address", "Delivered Time", "Production Status"
             }
         ));
         jScrollPane2.setViewportView(tblMaterialInformation);
@@ -189,6 +189,11 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
         if(!selectedProdutionOrder.getRawMaterialOrder().getDeliverStatus().equals("Delivered"))
         {
             JOptionPane.showMessageDialog(null, "No Material for Production!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if(selectedProdutionOrder.getProductionOrderStatus().equals("in producing"))
+        {
+            JOptionPane.showMessageDialog(null, "Already in produciton or production ends", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
