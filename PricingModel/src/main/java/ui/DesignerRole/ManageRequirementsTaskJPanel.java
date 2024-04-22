@@ -233,14 +233,14 @@ public class ManageRequirementsTaskJPanel extends javax.swing.JPanel {
     private void removejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removejButtonActionPerformed
         // TODO add your handling code here:
 
-        int row = tbltask.getSelectedRow();
+        int row = tblSchedule.getSelectedRow();
         if(row<0){
             JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         
         //chose the specific Requirement
-        Requirement re =  (Requirement)tbltask.getValueAt(row, 0);
+        Requirement re =  (Requirement)tblSchedule.getValueAt(row, 0);
 
         //get the RequirementAssignmentDirectoty
         RequirementAssignmentDirectory requirementAssignmentDirectory = designEnterprise.getDesignOrganization().getRequirementAssignmentDirectory();
