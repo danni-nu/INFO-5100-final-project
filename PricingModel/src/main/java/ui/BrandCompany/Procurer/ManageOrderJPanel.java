@@ -64,7 +64,6 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         lblTitle = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblOrderDetailStatus = new javax.swing.JTable();
-        btnRequestCancelOrder = new javax.swing.JButton();
         lblquantity = new javax.swing.JLabel();
         btnCheckUnplacedOrder = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -116,7 +115,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 BbtnCreateNewOrderActionPerformed(evt);
             }
         });
-        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 150, 20));
+        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 450, 150, 20));
 
         lblTitle.setText("Order Management");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 18, -1, -1));
@@ -134,11 +133,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblOrderDetailStatus);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 730, 150));
-
-        btnRequestCancelOrder.setBackground(new java.awt.Color(237, 209, 182));
-        btnRequestCancelOrder.setText("Request Cancel Order");
-        add(btnRequestCancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 620, -1, -1));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 730, 150));
 
         lblquantity.setText("Quantiy:");
         add(lblquantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 59, 23));
@@ -174,11 +169,11 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         });
         add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 80, 20));
 
-        lblOrderTotal.setText("Message for Prodcution:");
-        add(lblOrderTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, 23));
+        lblOrderTotal.setText("Message:");
+        add(lblOrderTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, 23));
 
         lblOrderCost.setText("<Cost>");
-        add(lblOrderCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, -1, 23));
+        add(lblOrderCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, 23));
 
         tablOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -193,7 +188,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tablOrderList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 380, 130));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 380, 150));
 
         cmbProductionCompany.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,7 +208,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         lblOrderTotal1.setText("Order Total:");
         add(lblOrderTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, 23));
-        add(txtMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 393, 160, 20));
+        add(txtMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, 330, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -305,7 +300,6 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnCheckRequirementUnfinishedDetail;
     private javax.swing.JButton btnCheckUnfinishedOrder;
     private javax.swing.JButton btnCheckUnplacedOrder;
-    private javax.swing.JButton btnRequestCancelOrder;
     private javax.swing.JComboBox<ProductionEnterprise> cmbProductionCompany;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
