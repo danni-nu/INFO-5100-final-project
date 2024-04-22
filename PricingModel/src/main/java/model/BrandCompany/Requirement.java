@@ -29,6 +29,7 @@ public class Requirement {
     private String deadline;
     private String requirementstatus;
     private static int count=0;
+    private boolean status=false;
     private String requirementFeedback;//feedback of requirment
     ArrayList<Order> requirementOrderList;
 
@@ -42,8 +43,17 @@ public class Requirement {
         this.plannerProfile=plannerProfile;
         this.style=style;
         this.color=c;
+        this.status=false;
         this.requirementOrderList=new ArrayList<>();
         this.requirementFeedback = "No feed back yet";
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     
@@ -53,9 +63,14 @@ public class Requirement {
         }
         if(this.getRequirementAssignment()!=null&&this.getRequirementAssignment().getRequirementSolution()==null){
             return "waiting Designing";
-        }else{
+        }
+        if(this.getRequirementAssignment()!=null&&this.getRequirementAssignment().getRequirementSolution()!=null&&this.isStatus()==false){
             return "Finished, waiting reviewing";
         }
+        if(this.getRequirementAssignment()!=null&&this.getRequirementAssignment().getRequirementSolution()!=null&&this.isStatus()==true){
+            return "Approved,waiting place order!";
+        }
+        return null;
     }
 
     public ArrayList<Order> getRequirementOrderList() {

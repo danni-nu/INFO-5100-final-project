@@ -22,6 +22,9 @@ public class ProductionOrder {
     private ProductionMode productionMode;
     private String productionOrderStatus = "not yet in production"; //(1.waiting placed  )2.waiting delivery 3.delivered
     private RawMaterialOrder rawMaterialOrder;
+
+    private int revenue;
+    private String message;
     //private boolean Delivered = false;
     //private ImageIcon logoImage;
 
@@ -103,10 +106,7 @@ public class ProductionOrder {
     public String toString(){
       return productionOrderID;
     }
-    
-    
-    private int revenue;
-    private String message;
+   
 
     public int getRevenue() {
         return revenue;
@@ -114,6 +114,10 @@ public class ProductionOrder {
 
     public String getMessage() {
         return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
     
     
