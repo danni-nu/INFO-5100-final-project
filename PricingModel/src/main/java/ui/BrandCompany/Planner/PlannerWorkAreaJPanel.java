@@ -51,21 +51,31 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
         btnLogOut = new javax.swing.JButton();
         PlannerWorkArea = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(239, 223, 208));
+
+        jPanel1.setBackground(new java.awt.Color(249, 239, 224));
+
+        RequirementManage.setBackground(new java.awt.Color(123, 145, 128));
         RequirementManage.setText("Requirement Manage");
+        RequirementManage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         RequirementManage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RequirementManageActionPerformed(evt);
             }
         });
 
+        NewRequirement.setBackground(new java.awt.Color(123, 145, 128));
         NewRequirement.setText("New Requirement ");
+        NewRequirement.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         NewRequirement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NewRequirementActionPerformed(evt);
             }
         });
 
+        btnLogOut.setBackground(new java.awt.Color(123, 145, 128));
         btnLogOut.setText("Log out");
+        btnLogOut.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLogOutActionPerformed(evt);
@@ -77,19 +87,13 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(NewRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(RequirementManage)))
+                        .addComponent(NewRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnLogOut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RequirementManage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -101,11 +105,13 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(NewRequirement)
                 .addGap(176, 176, 176)
                 .addComponent(btnLogOut)
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
+        PlannerWorkArea.setBackground(new java.awt.Color(249, 239, 224));
+        PlannerWorkArea.setForeground(new java.awt.Color(51, 51, 51));
         PlannerWorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(PlannerWorkArea);
 
@@ -114,7 +120,7 @@ public class PlannerWorkAreaJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jSplitPane1)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
