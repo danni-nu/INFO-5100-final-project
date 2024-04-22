@@ -233,6 +233,12 @@ public class ConfigureABusiness {
         order6.setOrderPrice(order6.getRawMaterial().getPrice()+order6.getProductionMode().getModePrice()+requirement6.getDesignerProfile().getDefaultDesignPricing());
         order7.setOrderPrice(order7.getRawMaterial().getPrice()+order7.getProductionMode().getModePrice()+requirement7.getDesignerProfile().getDefaultDesignPricing());
         order8.setOrderPrice(order8.getRawMaterial().getPrice()+order8.getProductionMode().getModePrice()+requirement8.getDesignerProfile().getDefaultDesignPricing());
+        order1.getRawMarerialOrder().setDeliverStatus("Delivered");
+        order1.getProductOrder().setProductionOrderStatus("production ends");
+        order1.setOrderstatus("Received");
+        order2.getRawMarerialOrder().setDeliverStatus("Delivered");
+        order2.getProductOrder().setProductionOrderStatus("in producing");
+        order2.setOrderstatus("Not received");
         
         ProductionOrganization productionOrganization = productionEnterprise.getProductionOrganization();
         InventoryOrganization inventoryOrganization = productionEnterprise.getInventoryOrganization();

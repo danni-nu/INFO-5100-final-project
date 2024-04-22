@@ -36,13 +36,14 @@ public class Order {
         this.orederID=String.valueOf(count);
         this.requirement=requirement;
         requirement.setOrderToAssignment(this);
-        this.Orderstatus = "false";
+        
         this.status=false;
         this.rawMaterial=requirement.getRowMaterial();
         this.productionMode=requirement.getProductionMode();
         this.quantity = quantity;
         this.rawMarerialOrder= new RawMaterialOrder(this);
-        this.productOrder=new ProductionOrder(this, rawMarerialOrder);   
+        this.productOrder=new ProductionOrder(this, rawMarerialOrder);
+        this.Orderstatus = getOrderstatus();   
     }
 
     public String getOrederID() {
@@ -111,16 +112,11 @@ public class Order {
     }
 
     public String getOrderstatus() {
-      if(this.status==false&&this.productOrder.getProductionOrderStatus()=="waiting placed"&&this.rawMarerialOrder.getDeliverStatus()=="Not delivered"){
-          return "waiting raw material";
+      if(this.productOrder.getProductionOrderStatus().equals("production ends")){
+          return "Received";
       }
-      if(this.status==false&&this.productOrder.getProductionOrderStatus()=="waiting placed"==false&&this.rawMarerialOrder.getDeliverStatus()=="delivered"){
-          return "waiting producing";
-      }
-      if(this.status==false&&this.productOrder.getProductionOrderStatus()=="placed"&&this.rawMarerialOrder.getDeliverStatus()=="delivered"){
-          return "waiting delivering";
-      }else{
-          return "delivered";
+     else{
+          return "Not received";
       }
      }
 
