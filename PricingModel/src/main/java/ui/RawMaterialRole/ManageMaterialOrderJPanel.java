@@ -80,17 +80,17 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         tblorder.setFont(new java.awt.Font("Lucida Grande", 0, 13)); // NOI18N
         tblorder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Material Order ID", "Order ID", "Material Name", "Marerial Order Status", "Delivery Date", "Delivery Number"
+                "Material Order ID", "Order ID", "Material Name", "Marerial Order Status", "Delivery Date", "Delivery Number", "Adress"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, true, true
+                false, false, true, true, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -180,7 +180,7 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         RawMaterialOrderDirectory rawMaterialOrderDirectory=rawMaterialEnterprise.getRawMaterialManageOrganization().getRawMaterialOrderDirectory();
         for (RawMaterialOrder roMaterialOrder : rawMaterialOrderDirectory.getRawMaterialOrderDirectory()) {
-            Object row[] = new Object[6];
+            Object row[] = new Object[7];
             row[0] = roMaterialOrder;
             row[1] = roMaterialOrder.getOrder();
             row[2] = roMaterialOrder.getRawMaterial();
@@ -189,9 +189,16 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
                 row[3] = "Not Delivered";
             }else{row[3] = roMaterialOrder.getDeliverStatus();}
             
-            row[4] = roMaterialOrder.getDeliveryNumber();
-            row[5] = roMaterialOrder.getDeliveryDate();
-
+            row[5] = roMaterialOrder.getDeliveryNumber();
+            row[4] = roMaterialOrder.getDeliveryDate();
+            
+            String adr = roMaterialOrder.getDeliveryaddress();
+            if(adr.equals("")){
+                row[6] = "Not received";
+            }else{
+                row[6] = roMaterialOrder.getDeliveryaddress();
+            }
+            
             model.addRow(row);
             }  
     }
