@@ -85,15 +85,15 @@ public class LoginJPanel extends javax.swing.JPanel {
                 btnLoginActionPerformed(evt);
             }
         });
-        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 201, -1));
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 201, -1));
 
         lblUserAccount.setText("User Account");
-        add(lblUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 201, -1));
-        add(txtUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 201, -1));
+        add(lblUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 420, 201, -1));
+        add(txtUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 370, 201, -1));
 
         lblPassword.setText("Password");
-        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         cmbCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCompany.addActionListener(new java.awt.event.ActionListener() {
@@ -101,10 +101,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                 cmbCompanyActionPerformed(evt);
             }
         });
-        add(cmbCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 201, -1));
+        add(cmbCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 320, 201, -1));
 
         lblCompany.setText("Company");
-        add(lblCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
+        add(lblCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
 
         cmbCompanyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCompanyType.addActionListener(new java.awt.event.ActionListener() {
@@ -112,13 +112,13 @@ public class LoginJPanel extends javax.swing.JPanel {
                 cmbCompanyTypeActionPerformed(evt);
             }
         });
-        add(cmbCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 201, -1));
+        add(cmbCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 270, 201, -1));
 
         lblCompanyType.setText("Enterprise Type");
-        add(lblCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+        add(lblCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background4.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, -10, 1410, 720));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-350, -20, 1480, 750));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
