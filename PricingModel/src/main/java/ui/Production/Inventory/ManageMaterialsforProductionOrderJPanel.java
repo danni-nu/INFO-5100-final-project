@@ -235,6 +235,7 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
               row[5] = productionOrder.getRawMaterialOrder().getDeliveryaddress();
               row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate(); 
               row[7]= productionOrder.getProductionOrderStatus();
+              //row[8]= productionOrder.getProductionMode();
               ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
             }
         }
@@ -248,9 +249,10 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                     row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
                     row[3] = productionOrder.getOrder().getQuantity();
                     row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[5] = productionOrder.getRawMaterialOrder().getDeliveryaddress();
                     row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();
                     row[7]= productionOrder.getProductionOrderStatus();
+                    //row[8]= productionOrder.getProductionMode();
                     ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
             }
             }  
@@ -265,9 +267,10 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                     row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
                     row[3] = productionOrder.getOrder().getQuantity();
                     row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[5] = productionOrder.getRawMaterialOrder().getDeliveryaddress();
                     row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate();
                     row[7]= productionOrder.getProductionOrderStatus();
+                    //row[8]= productionOrder.getProductionMode();
                     ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);
             }
             }  
@@ -282,9 +285,10 @@ public class ManageMaterialsforProductionOrderJPanel extends javax.swing.JPanel 
                     row[2] = productionOrder.getOrder().getRawMaterial().getPrice();
                     row[3] = productionOrder.getOrder().getQuantity();
                     row[4] = productionOrder.getRawMaterialOrder().getDeliverStatus();
-                    row[5] = productionOrder.getRawMaterialOrder().getDeliverStatus();
+                    row[5] = productionOrder.getRawMaterialOrder().getDeliveryaddress();
                     row[6] = productionOrder.getRawMaterialOrder().getDeliveryDate(); 
                     row[7]= productionOrder.getProductionOrderStatus();
+                    //row[8]= productionOrder.getProductionMode();
                     ((DefaultTableModel) tblMaterialInformation.getModel()).addRow(row);}
             }
             

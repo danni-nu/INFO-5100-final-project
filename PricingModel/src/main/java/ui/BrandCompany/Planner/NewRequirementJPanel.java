@@ -113,6 +113,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblDesignCost = new javax.swing.JLabel();
         lblDeadline2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(249, 239, 224));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cmbProductionMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -137,6 +138,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         lblRequirementID.setText("RequirementID");
         add(lblRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 110, 146, -1));
 
+        CreateRerquirement.setBackground(new java.awt.Color(123, 145, 128));
         CreateRerquirement.setText("Create Requirement");
         CreateRerquirement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,6 +176,7 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
         jLabel1.setText("Creat New Reuirement");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 68, -1, -1));
 
+        btnBack.setBackground(new java.awt.Color(123, 145, 128));
         btnBack.setText(">>Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -393,9 +396,6 @@ public class NewRequirementJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         backAction();
-        plannerWorkArea.remove(this);
-        CardLayout layout = (CardLayout) plannerWorkArea.getLayout();
-        layout.previous(plannerWorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void cmbColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbColorActionPerformed

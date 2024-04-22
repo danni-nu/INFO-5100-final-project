@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="e0" green="ef" red="f9" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -82,8 +87,8 @@
                               </Group>
                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtRequirementID" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbRawMaterialCompany" min="-2" pref="436" max="-2" attributes="0"/>
+                                  <Component id="txtRequirementID" min="-2" pref="206" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -280,6 +285,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateRequirement">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="91" red="7b" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Update Requirement"/>
       </Properties>
       <Events>
@@ -350,6 +358,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="91" red="7b" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&gt;&gt;Back"/>
       </Properties>
       <Events>
@@ -507,6 +518,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblDesignCost">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="e0" green="ef" red="f9" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&lt;Cost&gt;"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -526,6 +540,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnSave">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="80" green="91" red="7b" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Save"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>

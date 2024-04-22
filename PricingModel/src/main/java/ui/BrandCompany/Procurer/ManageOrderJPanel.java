@@ -76,8 +76,10 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         tablOrderList = new javax.swing.JTable();
         cmbProductionCompany = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(214, 219, 203));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setBackground(new java.awt.Color(237, 209, 182));
         btnBack.setText(">>Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +88,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 15, -1, -1));
 
+        btnCheckUnfinishedOrder.setBackground(new java.awt.Color(237, 209, 182));
         btnCheckUnfinishedOrder.setText("Check Unfinished Order");
         btnCheckUnfinishedOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +97,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         });
         add(btnCheckUnfinishedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
 
+        btnCheckOrderDetail.setBackground(new java.awt.Color(237, 209, 182));
         btnCheckOrderDetail.setText("Check Order Detail");
         btnCheckOrderDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +106,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         });
         add(btnCheckOrderDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 170, 20));
 
+        BbtnCreateNewOrder.setBackground(new java.awt.Color(237, 209, 182));
         BbtnCreateNewOrder.setText("Create New Order");
         BbtnCreateNewOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,12 +133,14 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 730, 150));
 
+        btnRequestCancelOrder.setBackground(new java.awt.Color(237, 209, 182));
         btnRequestCancelOrder.setText("Request Cancel Order");
         add(btnRequestCancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 620, -1, -1));
 
         lblquantity.setText("Quantiy:");
         add(lblquantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 59, 23));
 
+        btnCheckUnplacedOrder.setBackground(new java.awt.Color(237, 209, 182));
         btnCheckUnplacedOrder.setText("Check Unplaced Order");
         btnCheckUnplacedOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
