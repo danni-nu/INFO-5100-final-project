@@ -117,7 +117,7 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblCompanyType.setText("Enterprise Type");
         add(lblCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepackage/background3.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepackage/background4.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, -10, 1410, 720));
     }// </editor-fold>//GEN-END:initComponents
 
