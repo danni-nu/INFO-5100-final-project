@@ -212,10 +212,9 @@ public class ConfigureABusiness {
         requirement3.setDeadline("04/23/2024");
         requirement4.setDeadline("06/12/2024");
         requirement5.setDeadline("08/13/2024");
-        //requirement6.setDeadline("09/28/2024");
-        //requirement7.setDeadline("10/13/2024");
-        //requirement8.setDeadline("10/28/2024");
-        //requirement1.setStatus(true);
+        requirement6.setDeadline("09/28/2024");
+        requirement7.setDeadline("10/13/2024");
+        requirement8.setDeadline("10/28/2024");
         
         OrderDirectory orderdirectory=brandEnterprise.getProcurementOrganization().getOrderDirectory();
         Order order1=orderdirectory.addNewOrder(requirement1, 10);
