@@ -52,7 +52,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         AddButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
-        ChangePasswordbtn = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         tblAccountTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -68,7 +67,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblAccountTable);
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
         jLabel1.setText("Manage Account");
 
         AddButton.setText("Add Account");
@@ -82,13 +81,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteButtonActionPerformed(evt);
-            }
-        });
-
-        ChangePasswordbtn.setText("Change Password");
-        ChangePasswordbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangePasswordbtnActionPerformed(evt);
             }
         });
 
@@ -106,37 +98,34 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(408, 408, 408)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBack)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(DeleteButton)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ChangePasswordbtn))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(82, Short.MAX_VALUE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(421, 421, 421)
+                        .addComponent(jLabel1)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(32, 32, 32)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(37, 37, 37)
+                .addGap(47, 47, 47)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
-                    .addComponent(DeleteButton)
-                    .addComponent(ChangePasswordbtn))
-                .addContainerGap(214, Short.MAX_VALUE))
+                    .addComponent(DeleteButton))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -172,14 +161,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_AddButtonActionPerformed
 
-    private void ChangePasswordbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePasswordbtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePasswordbtnActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
-    private javax.swing.JButton ChangePasswordbtn;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JButton btnBack;
     private javax.swing.JLabel jLabel1;
