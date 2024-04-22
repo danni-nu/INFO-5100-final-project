@@ -185,8 +185,8 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             row[1] = roMaterialOrder.getOrder();
             row[2] = roMaterialOrder.getRawMaterial();
             row[3] = roMaterialOrder.getDeliverStatus();
-            row[4] = roMaterialOrder.getDeliveryNumber();
-            row[5] = roMaterialOrder.getDeliveryDate();
+            row[5] = roMaterialOrder.getDeliveryNumber();
+            row[4] = roMaterialOrder.getDeliveryDate();
             model.addRow(row);
             }  
     }
