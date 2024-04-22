@@ -184,7 +184,12 @@ public class ManageMaterialOrderJPanel extends javax.swing.JPanel {
             row[0] = roMaterialOrder;
             row[1] = roMaterialOrder.getOrder();
             row[2] = roMaterialOrder.getRawMaterial();
-            row[3] = roMaterialOrder.getDeliverStatus();
+            
+            String s = roMaterialOrder.getDeliverStatus();
+            if(s.equals("Material Order Unplaced")){
+                row[3] = "Not Delivered";
+            }else{row[3] = roMaterialOrder.getDeliverStatus();}
+            
             row[4] = roMaterialOrder.getDeliveryNumber();
             row[5] = roMaterialOrder.getDeliveryDate();
             model.addRow(row);
