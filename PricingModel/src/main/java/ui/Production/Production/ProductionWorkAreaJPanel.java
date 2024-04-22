@@ -51,6 +51,7 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
         Memu = new javax.swing.JPanel();
         btnManageProductionLine = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
+        btnManageProductionMode = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
 
         btnManageProductionLine.setText("Manage Production");
@@ -67,23 +68,36 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageProductionMode.setText("Manage Mode");
+        btnManageProductionMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageProductionModeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MemuLayout = new javax.swing.GroupLayout(Memu);
         Memu.setLayout(MemuLayout);
         MemuLayout.setHorizontalGroup(
             MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageProductionLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MemuLayout.createSequentialGroup()
+                        .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnManageProductionLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(btnManageProductionMode, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         MemuLayout.setVerticalGroup(
             MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MemuLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(btnManageProductionLine, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManageProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(226, 226, 226))
         );
@@ -128,12 +142,21 @@ public class ProductionWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnLogOutActionPerformed
 
+    private void btnManageProductionModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductionModeActionPerformed
+        // TODO add your handling code here:
+        ManageProductionModeJPanel mpojp = new ManageProductionModeJPanel(WorkArea, business, productionManagerProfile);
+        WorkArea.add("ManageProductionModeJPanel", mpojp);
+        CardLayout layout = (CardLayout) WorkArea.getLayout();
+        layout.next(WorkArea);
+    }//GEN-LAST:event_btnManageProductionModeActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Memu;
     private javax.swing.JPanel WorkArea;
     private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnManageProductionLine;
+    private javax.swing.JButton btnManageProductionMode;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 }
