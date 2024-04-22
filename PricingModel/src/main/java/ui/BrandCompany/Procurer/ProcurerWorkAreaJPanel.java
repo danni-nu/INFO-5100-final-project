@@ -46,10 +46,12 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         Memu = new javax.swing.JPanel();
         ManageOrder = new javax.swing.JButton();
-        CreateNewOrder = new javax.swing.JButton();
         btnLogOut = new javax.swing.JButton();
         WorkArea = new javax.swing.JPanel();
 
+        Memu.setBackground(new java.awt.Color(214, 219, 203));
+
+        ManageOrder.setBackground(new java.awt.Color(239, 211, 182));
         ManageOrder.setText("Manage Order");
         ManageOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,13 +59,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        CreateNewOrder.setText("Create New Order");
-        CreateNewOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CreateNewOrderActionPerformed(evt);
-            }
-        });
-
+        btnLogOut.setBackground(new java.awt.Color(239, 211, 182));
         btnLogOut.setText("Log Out");
         btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,8 +75,7 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(MemuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnLogOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CreateNewOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MemuLayout.setVerticalGroup(
@@ -88,15 +83,14 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(MemuLayout.createSequentialGroup()
                 .addGap(89, 89, 89)
                 .addComponent(ManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(CreateNewOrder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
                 .addComponent(btnLogOut)
                 .addGap(226, 226, 226))
         );
 
         jSplitPane1.setLeftComponent(Memu);
 
+        WorkArea.setBackground(new java.awt.Color(215, 220, 204));
         WorkArea.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(WorkArea);
 
@@ -122,14 +116,6 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(WorkArea);
     }//GEN-LAST:event_ManageOrderActionPerformed
 
-    private void CreateNewOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateNewOrderActionPerformed
-        // TODO add your handling code here:
-        CreatNewOrderJPanel cno=new CreatNewOrderJPanel(b,procurer,procurerWorkArea);
-        WorkArea.add("Create New Order",cno);
-        CardLayout layout=(CardLayout)WorkArea.getLayout();
-        layout.next(WorkArea);
-    }//GEN-LAST:event_CreateNewOrderActionPerformed
-
     private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
         procurerWorkArea.remove(this);
@@ -145,7 +131,6 @@ public class ProcurerWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton CreateNewOrder;
     private javax.swing.JButton ManageOrder;
     private javax.swing.JPanel Memu;
     private javax.swing.JPanel WorkArea;

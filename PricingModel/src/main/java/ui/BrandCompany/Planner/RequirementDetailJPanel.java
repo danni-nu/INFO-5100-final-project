@@ -115,6 +115,8 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         txtRequirementID = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(249, 239, 224));
+
         cmbProductionMode.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbProductionMode.setEnabled(false);
         cmbProductionMode.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +137,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
 
         lblRequirementID.setText("RequirementID");
 
+        btnUpdateRequirement.setBackground(new java.awt.Color(123, 145, 128));
         btnUpdateRequirement.setText("Update Requirement");
         btnUpdateRequirement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -168,6 +171,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         jLabel1.setText("Creat New Reuirement");
 
+        btnBack.setBackground(new java.awt.Color(123, 145, 128));
         btnBack.setText(">>Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -243,6 +247,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
         lblProductionModeCost1.setText("Production Cost:");
         lblProductionModeCost1.setEnabled(false);
 
+        lblDesignCost.setBackground(new java.awt.Color(249, 239, 224));
         lblDesignCost.setText("<Cost>");
         lblDesignCost.setEnabled(false);
 
@@ -255,6 +260,7 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(123, 145, 128));
         btnSave.setText("Save");
         btnSave.setEnabled(false);
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -324,8 +330,8 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
                                     .addComponent(lblRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cmbRawMaterialCompany, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnUpdateRequirement)
@@ -569,11 +575,14 @@ public class RequirementDetailJPanel extends javax.swing.JPanel {
          if(txtDeadLine.getText()==null){
             JOptionPane.showMessageDialog(this, "Please input dealline.It's very important for you to be satisfied", "Information", JOptionPane.INFORMATION_MESSAGE);
         }
-        RequirementsDirectory requirementsdirectory=brandEnterprise.getProductPlanningOrganization().getRequirementDirectory();
-        Requirement requirement=requirementsdirectory.addANewRrequirement(selectedRawmaterial, selectedDesigner, selectdProductionmode, requirementPlanner, selectedStyle,selectedColor);
+        requirement.setRowMaterial(selectedRawmaterial);
+        requirement.setProductionMode(selectdProductionmode);
+        requirement.setDesignerProfile(selectedDesigner);
+        requirement.setStyle(selectedStyle);
+        requirement.setColor(selectedColor);
         requirement.setDeadline(txtDeadLine.getText());
         txtRequirementID.setText(requirement.getRequirementID());
-        JOptionPane.showMessageDialog(this, "Requirement successfully added", "Information", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Requirement update successfully saved!", "Information", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

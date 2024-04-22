@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="cb" green="db" red="d6" type="rgb"/>
+    </Property>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -20,6 +25,9 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnBack">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b6" green="d1" red="ed" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&gt;&gt;Back"/>
       </Properties>
       <Events>
@@ -33,6 +41,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCheckUnfinishedOrder">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b6" green="d1" red="ed" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Check Unfinished Order"/>
       </Properties>
       <Events>
@@ -46,6 +57,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCheckOrderDetail">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b6" green="d1" red="ed" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Check Order Detail"/>
       </Properties>
       <Events>
@@ -59,6 +73,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="BbtnCreateNewOrder">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b6" green="d1" red="ed" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Create New Order"/>
       </Properties>
       <Events>
@@ -153,6 +170,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnRequestCancelOrder">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b6" green="d1" red="ed" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Request Cancel Order"/>
       </Properties>
       <Constraints>
@@ -173,6 +193,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnCheckUnplacedOrder">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="b6" green="d1" red="ed" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Check Unplaced Order"/>
       </Properties>
       <Events>
