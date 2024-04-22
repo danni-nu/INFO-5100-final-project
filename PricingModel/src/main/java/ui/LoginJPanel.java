@@ -75,6 +75,9 @@ public class LoginJPanel extends javax.swing.JPanel {
         lblCompany = new javax.swing.JLabel();
         cmbCompanyType = new javax.swing.JComboBox<>();
         lblCompanyType = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -82,10 +85,15 @@ public class LoginJPanel extends javax.swing.JPanel {
                 btnLoginActionPerformed(evt);
             }
         });
+        add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 201, -1));
 
         lblUserAccount.setText("User Account");
+        add(lblUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, -1, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, 201, -1));
+        add(txtUserAccount, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 201, -1));
 
         lblPassword.setText("Password");
+        add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
 
         cmbCompany.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCompany.addActionListener(new java.awt.event.ActionListener() {
@@ -93,8 +101,10 @@ public class LoginJPanel extends javax.swing.JPanel {
                 cmbCompanyActionPerformed(evt);
             }
         });
+        add(cmbCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, 201, -1));
 
         lblCompany.setText("Company");
+        add(lblCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, -1, -1));
 
         cmbCompanyType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCompanyType.addActionListener(new java.awt.event.ActionListener() {
@@ -102,56 +112,13 @@ public class LoginJPanel extends javax.swing.JPanel {
                 cmbCompanyTypeActionPerformed(evt);
             }
         });
+        add(cmbCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 201, -1));
 
         lblCompanyType.setText("Enterprise Type");
+        add(lblCompanyType, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(195, 195, 195)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(btnLogin))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPassword)
-                            .addComponent(lblUserAccount)
-                            .addComponent(lblCompany)
-                            .addComponent(lblCompanyType))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbCompany, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtUserAccount)
-                            .addComponent(txtPassword)
-                            .addComponent(cmbCompanyType, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(240, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbCompanyType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCompanyType))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCompany))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserAccount)
-                    .addComponent(txtUserAccount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(btnLogin)
-                .addGap(119, 119, 119))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagepackage/background3.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, -10, 1410, 720));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -293,6 +260,7 @@ public class LoginJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnLogin;
     private javax.swing.JComboBox<String> cmbCompany;
     private javax.swing.JComboBox<String> cmbCompanyType;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCompany;
     private javax.swing.JLabel lblCompanyType;
     private javax.swing.JLabel lblPassword;
