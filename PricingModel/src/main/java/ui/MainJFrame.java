@@ -21,7 +21,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         business=ConfigureABusiness.initialize();
-        setSize(1000,700);
+        setSize(1100,700);
         setResizable(false);  
         setLoginScreen();
     }

@@ -181,17 +181,17 @@ public class ConfigureABusiness {
         ProductionMode productionmode2=productionModeDirectory.addANewProductionMode("Digital printing", random.nextInt(11) + 5);
         ProductionMode productionmode3=productionModeDirectory.addANewProductionMode("Heat transfer printing", random.nextInt(11) + 5);
         ProductionMode productionmode4=productionModeDirectory.addANewProductionMode("Sublimation printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addANewProductionMode("Embroidery", random.nextInt(11) + 5);
-        //productionModeDirectory.addANewProductionMode("Appliqué", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Vinyl printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Foil printing", random.nextInt(11) + 5);
-       // productionModeDirectory.addNewProductionMode("Water-based printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Discharge printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Glow-in-the-dark printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Puff printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Flock printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Direct-to-garment printing", random.nextInt(11) + 5);
-        //productionModeDirectory.addNewProductionMode("Laser printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addANewProductionMode("Embroidery", random.nextInt(11) + 5);
+//        productionModeDirectory.addANewProductionMode("Appliqué", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Vinyl printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Foil printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Water-based printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Discharge printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Glow-in-the-dark printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Puff printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Flock printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Direct-to-garment printing", random.nextInt(11) + 5);
+//        productionModeDirectory.addNewProductionMode("Laser printing", random.nextInt(11) + 5);
         
         //ctreate two designer move to top
 //        DesignerDirectory designerDirectory=designEnterprise.getDesignOrganization().getDesignerDirectory();
@@ -215,6 +215,7 @@ public class ConfigureABusiness {
         requirement6.setDeadline("09/28/2024");
         requirement7.setDeadline("10/13/2024");
         requirement8.setDeadline("10/28/2024");
+        requirement1.setStatus(true);
         
         OrderDirectory orderdirectory=brandEnterprise.getProcurementOrganization().getOrderDirectory();
         Order order1=orderdirectory.addNewOrder(requirement1, 10);

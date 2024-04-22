@@ -5,10 +5,12 @@
 package ui.Admin;
 
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JPanel;
 import model.Business.Business;
 import model.Personnel.AdminProfile;
 import ui.BrandCompany.Planner.RequirementManagementJPanel;
+import ui.LoginJPanel;
 
 /**
  *
@@ -43,21 +45,21 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
-        btnManageEnterprise = new javax.swing.JButton();
         btnManageAccount = new javax.swing.JButton();
+        btnlogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-
-        btnManageEnterprise.setText("Manage Enterprise");
-        btnManageEnterprise.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageEnterpriseActionPerformed(evt);
-            }
-        });
 
         btnManageAccount.setText("Manage Account");
         btnManageAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageAccountActionPerformed(evt);
+            }
+        });
+
+        btnlogout.setText("Log out");
+        btnlogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlogoutActionPerformed(evt);
             }
         });
 
@@ -68,18 +70,18 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnManageAccount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnManageEnterprise, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnlogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnManageAccount, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(btnManageEnterprise)
-                .addGap(18, 18, 18)
+                .addGap(149, 149, 149)
                 .addComponent(btnManageAccount)
-                .addContainerGap(528, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 345, Short.MAX_VALUE)
+                .addComponent(btnlogout)
+                .addGap(160, 160, 160))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -111,14 +113,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
-        // TODO add your handling code here:
-        ManageEnterpriseJPanel aos = new ManageEnterpriseJPanel(business,mainWorkArea,adminProfile);
-        mainWorkArea.add("ManageEnterpriseJPanel", aos);
-        CardLayout layout =(CardLayout)mainWorkArea.getLayout();
-        layout.next(mainWorkArea); 
-    }//GEN-LAST:event_btnManageEnterpriseActionPerformed
-
     private void btnManageAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageAccountActionPerformed
         // TODO add your handling code here:  
         ManageUserAccountJPanel aos = new ManageUserAccountJPanel(business,mainWorkArea,adminProfile);
@@ -127,10 +121,23 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(mainWorkArea); 
     }//GEN-LAST:event_btnManageAccountActionPerformed
 
+    private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
+        // TODO add your handling code here:
+         mainWorkArea.remove(this);
+        Component[] componentArray = mainWorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        loginPanel.populateEnterpriseTypeCombo();
+        loginPanel.populateCompanyNameCombo();
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
+        
+    }//GEN-LAST:event_btnlogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageAccount;
-    private javax.swing.JButton btnManageEnterprise;
+    private javax.swing.JButton btnlogout;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;

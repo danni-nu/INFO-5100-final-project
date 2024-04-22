@@ -93,6 +93,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(249, 239, 224));
         setForeground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setBackground(new java.awt.Color(123, 145, 128));
         btnBack.setText(">>Back");
@@ -101,6 +102,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 18, -1, -1));
 
         tblRequirementTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,7 +112,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "RequirementsID", "Material", "Production", "Designer", "Style", "Color", "Deadline", "Solution Status"
+                "RequirementID", "Material", "Production", "Designer", "Style", "Color", "Deadline", "Status"
             }
         ));
         others.setViewportView(tblRequirementTable);
@@ -119,6 +121,8 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
             tblRequirementTable.getColumnModel().getColumn(7).setResizable(false);
         }
 
+        add(others, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 99, 790, 160));
+
         btnCreateNewRequirement.setBackground(new java.awt.Color(123, 145, 128));
         btnCreateNewRequirement.setText("Create New Requirement");
         btnCreateNewRequirement.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +130,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnCreateNewRequirementActionPerformed(evt);
             }
         });
+        add(btnCreateNewRequirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 290, -1, -1));
 
         btnDeleteRequirement.setBackground(new java.awt.Color(123, 145, 128));
         btnDeleteRequirement.setText("Delete Requirement");
@@ -134,6 +139,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnDeleteRequirementActionPerformed(evt);
             }
         });
+        add(btnDeleteRequirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         btnSearchRequirement.setBackground(new java.awt.Color(123, 145, 128));
         btnSearchRequirement.setText("Search Requirement");
@@ -142,6 +148,8 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnSearchRequirementActionPerformed(evt);
             }
         });
+        add(btnSearchRequirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(533, 64, -1, -1));
+        add(lblPicture, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 329, 581, 23));
 
         btnCheckDesignerSolution.setBackground(new java.awt.Color(123, 145, 128));
         btnCheckDesignerSolution.setText("Check Designer Solution");
@@ -150,9 +158,11 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnCheckDesignerSolutionActionPerformed(evt);
             }
         });
+        add(btnCheckDesignerSolution, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, -1, -1));
 
         imgLogo.setText("Picture is Here:*******");
         imgLogo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 370, 237, 197));
 
         btnApproval.setBackground(new java.awt.Color(123, 145, 128));
         btnApproval.setText("Approval ");
@@ -161,6 +171,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnApprovalActionPerformed(evt);
             }
         });
+        add(btnApproval, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 550, -1, 20));
 
         btnRefuse.setBackground(new java.awt.Color(123, 145, 128));
         btnRefuse.setText("Refuse");
@@ -169,19 +180,27 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnRefuseActionPerformed(evt);
             }
         });
+        add(btnRefuse, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 87, 20));
 
         lblRawMaterial.setText("Raw Material");
+        add(lblRawMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 82, -1));
 
         lblProductionMode.setText("Product Mode");
+        add(lblProductionMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
 
         lblColor.setText("Color ");
+        add(lblColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 82, -1));
 
         lblDesignStyle.setText("Design Style");
+        add(lblDesignStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, 82, -1));
 
         lblRequirementID.setText("RequirementID");
+        add(lblRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Helvetica Neue", 1, 16)); // NOI18N
         jLabel8.setText("Requirement Management");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 38, -1, -1));
+        add(txtSearchRequirement, new org.netbeans.lib.awtextra.AbsoluteConstraints(687, 64, 114, -1));
 
         txtRequirementID.setEnabled(false);
         txtRequirementID.addActionListener(new java.awt.event.ActionListener() {
@@ -189,6 +208,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 txtRequirementIDActionPerformed(evt);
             }
         });
+        add(txtRequirementID, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 382, 88, -1));
 
         txtRawMaterial.setEnabled(false);
         txtRawMaterial.addActionListener(new java.awt.event.ActionListener() {
@@ -196,6 +216,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 txtRawMaterialActionPerformed(evt);
             }
         });
+        add(txtRawMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 416, 88, -1));
 
         txtProductionMode.setEnabled(false);
         txtProductionMode.addActionListener(new java.awt.event.ActionListener() {
@@ -203,6 +224,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 txtProductionModeActionPerformed(evt);
             }
         });
+        add(txtProductionMode, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 451, 88, -1));
 
         txtDesignStyle.setEnabled(false);
         txtDesignStyle.addActionListener(new java.awt.event.ActionListener() {
@@ -210,6 +232,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 txtDesignStyleActionPerformed(evt);
             }
         });
+        add(txtDesignStyle, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 550, 88, -1));
 
         txtColor.setEnabled(false);
         txtColor.addActionListener(new java.awt.event.ActionListener() {
@@ -217,10 +240,13 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 txtColorActionPerformed(evt);
             }
         });
+        add(txtColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 510, 88, -1));
 
         lblDesigner.setText("Designer");
+        add(lblDesigner, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 484, 86, -1));
 
         txtDesigner.setEnabled(false);
+        add(txtDesigner, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 481, 88, -1));
 
         btnRequirementDetail.setBackground(new java.awt.Color(123, 145, 128));
         btnRequirementDetail.setText("Check Requirement Detail");
@@ -229,181 +255,19 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
                 btnRequirementDetailActionPerformed(evt);
             }
         });
+        add(btnRequirementDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, -1, -1));
 
         lblRequirementID1.setText("Rating");
+        add(lblRequirementID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 390, 95, -1));
+        add(spnRateForAssignment, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, 95, -1));
 
         lblRequirementID2.setText("Evaluation:");
+        add(lblRequirementID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 448, 86, -1));
+        add(txtEvaluation, new org.netbeans.lib.awtextra.AbsoluteConstraints(566, 471, 209, 58));
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel1.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(158, 158, 158)
-                        .addComponent(jLabel8)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnSearchRequirement)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtSearchRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(4, 4, 4))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(btnRequirementDetail)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(btnCreateNewRequirement)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnCheckDesignerSolution)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnDeleteRequirement)))))
-                                .addGap(36, 36, 36))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(imgLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblDesigner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(lblRequirementID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(lblRawMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lblProductionMode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(lblDesignStyle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                .addGap(4, 4, 4))))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(36, 36, 36)
-                                        .addComponent(lblColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(69, 69, 69)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(btnApproval)
-                                        .addGap(36, 36, 36)
-                                        .addComponent(btnRefuse, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblRequirementID1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(43, 43, 43)
-                                        .addComponent(spnRateForAssignment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblRequirementID2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtEvaluation, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(50, 50, 50))))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(others, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtColor, txtDesignStyle, txtDesigner, txtProductionMode, txtRawMaterial, txtRequirementID});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel8)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSearchRequirement)
-                    .addComponent(txtSearchRequirement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(others, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCreateNewRequirement)
-                    .addComponent(btnDeleteRequirement)
-                    .addComponent(btnCheckDesignerSolution)
-                    .addComponent(btnRequirementDetail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(imgLogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addComponent(txtRawMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtProductionMode, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtRequirementID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(lblRequirementID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblRawMaterial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblProductionMode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblDesigner, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtDesigner, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addComponent(lblColor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(lblDesignStyle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(txtDesignStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(70, 70, 70))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblRequirementID1)
-                            .addComponent(spnRateForAssignment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblRequirementID2)
-                        .addGap(6, 6, 6)
-                        .addComponent(txtEvaluation, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnRefuse, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnApproval))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtColor, txtDesignStyle, txtDesigner, txtProductionMode, txtRawMaterial, txtRequirementID});
-
+        jLabel1.setText("Requirement Solution Review");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 334, 197, 24));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteRequirementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteRequirementActionPerformed
@@ -503,7 +367,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "This requirement hasn't have any assignment, you can not review it", "Information", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        requirement.setRequirementstatus("Approved");
+        requirement.setStatus(true);
         populateRequirementTable();
         JOptionPane.showMessageDialog(null, "Your aprroved this requirement. Now your colleages can place a order on this requirement!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnApprovalActionPerformed
@@ -516,7 +380,7 @@ public class RequirementManagementJPanel extends javax.swing.JPanel {
         }    
         Requirement requirement = (Requirement) tblRequirementTable.getValueAt(selectedRowIndex, 0);
         
-        requirement.setRequirementstatus("refused");
+        requirement.setStatus(false);
         populateRequirementTable();
         JOptionPane.showMessageDialog(null, "Your refused this requirement.This assignment will go back to Design Enterprise!", "Information", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_btnRefuseActionPerformed

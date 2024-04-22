@@ -75,6 +75,9 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablOrderList = new javax.swing.JTable();
         cmbProductionCompany = new javax.swing.JComboBox<>();
+        btnCheckRequirementUnfinishedDetail = new javax.swing.JButton();
+        lblOrderTotal1 = new javax.swing.JLabel();
+        txtMessage = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(214, 219, 203));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,7 +98,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 btnCheckUnfinishedOrderActionPerformed(evt);
             }
         });
-        add(btnCheckUnfinishedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
+        add(btnCheckUnfinishedOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
         btnCheckOrderDetail.setBackground(new java.awt.Color(237, 209, 182));
         btnCheckOrderDetail.setText("Check Order Detail");
@@ -104,7 +107,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 btnCheckOrderDetailActionPerformed(evt);
             }
         });
-        add(btnCheckOrderDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 300, 170, 20));
+        add(btnCheckOrderDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 280, 170, 20));
 
         BbtnCreateNewOrder.setBackground(new java.awt.Color(237, 209, 182));
         BbtnCreateNewOrder.setText("Create New Order");
@@ -113,7 +116,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 BbtnCreateNewOrderActionPerformed(evt);
             }
         });
-        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 150, 20));
+        add(BbtnCreateNewOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 150, 20));
 
         lblTitle.setText("Order Management");
         add(lblTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 18, -1, -1));
@@ -138,7 +141,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         add(btnRequestCancelOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 620, -1, -1));
 
         lblquantity.setText("Quantiy:");
-        add(lblquantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 300, 59, 23));
+        add(lblquantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 59, 23));
 
         btnCheckUnplacedOrder.setBackground(new java.awt.Color(237, 209, 182));
         btnCheckUnplacedOrder.setText("Check Unplaced Order");
@@ -157,7 +160,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "RequirementsID", "RawMaterial", "OrderProductionMode", "Designer", "Style", "Color", "DeadLine", "Message"
+                "RequirementsID", "RawMaterial", "OrderProductionMode", "Designer", "Style", "Color", "DeadLine", "Status"
             }
         ));
         jScrollPane4.setViewportView(tblRequiementList);
@@ -169,13 +172,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
                 spnQuantityMouseClicked(evt);
             }
         });
-        add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 300, 90, 20));
+        add(spnQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 80, 20));
 
-        lblOrderTotal.setText("Order Total:");
-        add(lblOrderTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, -1, 23));
+        lblOrderTotal.setText("Message for Prodcution:");
+        add(lblOrderTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, -1, 23));
 
         lblOrderCost.setText("<Cost>");
-        add(lblOrderCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, 23));
+        add(lblOrderCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 360, -1, 23));
 
         tablOrderList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -190,14 +193,27 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tablOrderList);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 380, 150));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 380, 130));
 
         cmbProductionCompany.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbProductionCompanyActionPerformed(evt);
             }
         });
-        add(cmbProductionCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 380, 150, -1));
+        add(cmbProductionCompany, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 150, 20));
+
+        btnCheckRequirementUnfinishedDetail.setBackground(new java.awt.Color(237, 209, 182));
+        btnCheckRequirementUnfinishedDetail.setText("Requirement unfinished Order");
+        btnCheckRequirementUnfinishedDetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckRequirementUnfinishedDetailActionPerformed(evt);
+            }
+        });
+        add(btnCheckRequirementUnfinishedDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 280, 210, 20));
+
+        lblOrderTotal1.setText("Order Total:");
+        add(lblOrderTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, 23));
+        add(txtMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 393, 160, 20));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -225,6 +241,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         selectedProductionEnterprise.getProductionOrderDirectory().getProductionOrderList().add(order.getProductOrder());
         //requirement.setOrderToAssignment(order);
         order.setOrderPrice(requirement.getDesignerProfile().getDefaultDesignPricing()+requirement.getProductionMode().getModePrice()+requirement.getRowMaterial().getPrice());
+        order.getProductOrder().setMessage(txtMessage.getText());
         JOptionPane.showMessageDialog(this, "Your order was successfully placed!", "Info", JOptionPane.INFORMATION_MESSAGE);
         populateOrderDetailStatus(requirement);
         populateOrderList(requirement);
@@ -243,7 +260,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
     private void btnCheckUnfinishedOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckUnfinishedOrderActionPerformed
         // TODO add your handling code here:
-        populateUnplacedOrderTable();
+        populateUnfinishedOrderDetailsTable();
     }//GEN-LAST:event_btnCheckUnfinishedOrderActionPerformed
 
     private void spnQuantityMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spnQuantityMouseClicked
@@ -269,11 +286,23 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_cmbProductionCompanyActionPerformed
 
+    private void btnCheckRequirementUnfinishedDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckRequirementUnfinishedDetailActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = tblRequiementList.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row!!", "Warning", JOptionPane.WARNING_MESSAGE);
+        }    
+        Requirement requirement = (Requirement) tblRequiementList.getValueAt(selectedRowIndex, 0);
+        populateRequirementUnfinishedOrderDetailsTable(requirement);
+        
+    }//GEN-LAST:event_btnCheckRequirementUnfinishedDetailActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BbtnCreateNewOrder;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCheckOrderDetail;
+    private javax.swing.JButton btnCheckRequirementUnfinishedDetail;
     private javax.swing.JButton btnCheckUnfinishedOrder;
     private javax.swing.JButton btnCheckUnplacedOrder;
     private javax.swing.JButton btnRequestCancelOrder;
@@ -283,12 +312,14 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lblOrderCost;
     private javax.swing.JLabel lblOrderTotal;
+    private javax.swing.JLabel lblOrderTotal1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblquantity;
     private javax.swing.JSpinner spnQuantity;
     private javax.swing.JTable tablOrderList;
     private javax.swing.JTable tblOrderDetailStatus;
     private javax.swing.JTable tblRequiementList;
+    private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables
     
     
@@ -378,17 +409,17 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblRequiementList.getModel();
         model.setRowCount(0);
         for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
-            if(re.getRequirementOrderList().isEmpty()){
-            Object row[] = new Object[8];
-            row[0] = re;
-            row[1] = re.getRowMaterial();
-            row[2] = re.getProductionMode();
-            row[3] = re.getDesignerProfile().getPerson().getPersonName();
-            row[4] = re.getStyle();
-            row[5] = re.getColor();
-            row[6] = re.getDeadline();
-            row[7] = re.getRequirementstatus();
-            model.addRow(row);
+            if(re.getRequirementstatus()=="Approved,waiting place order!"){
+                Object row[] = new Object[8];
+                row[0] = re;
+                row[1] = re.getRowMaterial();
+                row[2] = re.getProductionMode();
+                row[3] = re.getDesignerProfile().getPerson().getPersonName();
+                row[4] = re.getStyle();
+                row[5] = re.getColor();
+                row[6] = re.getDeadline();
+                row[7] = re.getRequirementstatus();
+                model.addRow(row);
             }
             }   
     }
@@ -400,6 +431,44 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
             cmbProductionCompany.addItem(productionEnterprise);
                 
         }   
+    }
+
+    private void populateUnfinishedOrderDetailsTable() {
+        DefaultTableModel model = (DefaultTableModel) tblOrderDetailStatus.getModel();
+        model.setRowCount(0);
+        for(Requirement re:brandCompany.getProductPlanningOrganization().getRequirementDirectory().getRequirementsDirectory()){
+            for(Order order:re.getRequirementOrderList()){
+                if(order.getOrderstatus()!="Received"){
+                    Object row[] = new Object[7];
+                    row[0] = order;
+                    row[1] = order.getOrderstatus();
+                    row[2] = order.getRawMarerialOrder();
+                    row[3] = order.getRawMarerialOrder().getDeliverStatus();
+                    row[4] = order.getProductOrder();
+                    row[5] = order.getProductOrder().getProductionOrderStatus();
+                    row[6] = order.getRawMarerialOrder().getDeliveryDate();
+                    model.addRow(row);
+                }
+            }
+            }
+    }
+
+    private void populateRequirementUnfinishedOrderDetailsTable(Requirement requirement) {
+        DefaultTableModel model = (DefaultTableModel) tblOrderDetailStatus.getModel();
+        model.setRowCount(0);
+            for(Order order:requirement.getRequirementOrderList()){
+                if(order.getOrderstatus()=="Received"){
+                    Object row[] = new Object[7];
+                    row[0] = order;
+                    row[1] = order.getOrderstatus();
+                    row[2] = order.getRawMarerialOrder();
+                    row[3] = order.getRawMarerialOrder().getDeliverStatus();
+                    row[4] = order.getProductOrder();
+                    row[5] = order.getProductOrder().getProductionOrderStatus();
+                    row[6] = order.getRawMarerialOrder().getDeliveryDate();
+                    model.addRow(row);
+                }
+            }
     }
   
 }
